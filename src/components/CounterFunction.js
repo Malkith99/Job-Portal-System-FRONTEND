@@ -10,7 +10,7 @@ function CounterFunction(){
     return(
         <div>
             <h1>Counter={number}</h1>
-            <button onClick={e=>increment()}>Increment</button>
+            <button onClick={e=>increment()}>Increment</button>   {/*use arrow function*/ }
         </div>
 
     )
