@@ -1,12 +1,17 @@
 import React,{useState} from "react";
 export default function AddStudent(){
+
     const [name,setName]=useState("");
     const [age,setAge]=useState("");
     const [gender,setGender]=useState("");
 
+    function sendData(){                     // function that execute when pressing submit button"
+        alert("Insert")
+    }
+
     return(
         <div className="container">
-            <form>
+            <form onSubmit={sendData}>
                 <div className="form-group">
                     <label for="name" className="form-label">Student Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter Student Name" 
