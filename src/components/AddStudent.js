@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState} from "react";  //useState for handling states 
 import axios from "axios";
 
 export default function AddStudent(){
