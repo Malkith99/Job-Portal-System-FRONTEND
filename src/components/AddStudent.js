@@ -1,12 +1,26 @@
 import React,{useState} from "react";
+import axios from "axios";
+
 export default function AddStudent(){
 
     const [name,setName]=useState("");
     const [age,setAge]=useState("");
     const [gender,setGender]=useState("");
 
-    function sendData(){                     // function that execute when pressing submit button"
-        alert("Insert")
+    function sendData(e){     // function that execute when pressing submit button"
+        e.preventDefault();                 
+        //alert("Insert");
+        const newStudent={
+            name,
+            age,
+            gender
+        }
+       // console.log(newStudent);
+       axios.post("http://localhost:1234/student/add",newStudent ).then(()=>{
+        alert("Student Added")
+       }).catch((err)=>{
+        alert(err)
+       });
     }
 
     return(
