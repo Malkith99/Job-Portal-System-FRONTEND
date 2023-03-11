@@ -1,34 +1,22 @@
-import './App.css';
-import CounterCalss from './components/CounterClass';
-import CounterFunction from './components/CounterFunction';
-import Header from './components/Header';                        //import header file from the components
-import AddStudent from './components/AddStudent';
-import {BrowserRouter , Route, Routes } from "react-router-dom"
-import AllStudents from './components/AllStudent';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/home"
+import StudentregisterMain from "./studentregister/StudentregisterMain";
+import LecturerregisterMain from "./lecturerregister/LecturerregisterMain";
+import CompanyregisterMain from "./companyregistration/CompanyregisterMain";
+import UserDetailsMain from "./userDetails/userDetailsMain";
 
-
-function App() {         
+function App() {
   return (
-    <BrowserRouter>
-        <div>
-          <Header/>
-          <Routes>
-          <Route path="/add" element ={<AddStudent/>} ></Route>
-          <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly ass the home page featers at the end*/}
-          </Routes>
-        </div>
-    </BrowserRouter>
-   /*<div className="App">
-      <h1>Hello React</h1>
-      <CounterCalss/>      /* calling the counter class  */ 
-      /*<hr></hr> 
-      <CounterFunction/>              
-  </div> */
-      /*<div>
-      <Header/>
-      <AddStudent/>
-      </div>*/
-    
+    <Router>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/user-details" exact element={<UserDetailsMain />} />
+        <Route path="/student" element={<StudentregisterMain />} />
+        <Route path="/lecturer" element={<LecturerregisterMain />} />
+        <Route path="/company" element={<CompanyregisterMain />} />
+      </Routes>
+    </Router>
 
   );
 }
