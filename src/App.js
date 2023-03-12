@@ -11,6 +11,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" exact element={<Home />} />
+        {/* http://localhost:3000/user-details link is redirecting to the user details page. */}
         <Route path="/user-details" exact element={<UserDetailsMain />} />
         <Route path="/student" element={<StudentregisterMain />} />
         <Route path="/lecturer" element={<LecturerregisterMain />} />
