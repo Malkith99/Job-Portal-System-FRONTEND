@@ -52,7 +52,10 @@ export default function AddStudent(){
                 </div>
             
 
+                <div>
                 <button type="submit" className="btn btn-primary">Submit</button>
+                </div>
+                
             </form>
         </div>
 

@@ -14,7 +14,7 @@ function App() {
           <Header/>
           <Routes>
           <Route path="/add" element ={<AddStudent/>} ></Route>
-          <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly ass the home page featers at the end*/}
+          <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>
         </div>
     </BrowserRouter>
