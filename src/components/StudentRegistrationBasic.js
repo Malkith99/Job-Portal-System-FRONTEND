@@ -114,7 +114,7 @@ function StudentRegistrationBasic() {
                 <Grid container spacing={2} >
                     <Grid item xs={12} align="right" mr={'25%'} sx={{ alignItems: 'flex-end' }}>
                         <div className="student">
-                            <Link to="/registerStudentUser">
+                            <Link to="/student-register-final">
                                 <Button variant="contained">Next < ArrowForwardIosIcon /></Button>
                             </Link>
                         </div>

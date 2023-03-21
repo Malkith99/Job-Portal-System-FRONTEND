@@ -8,7 +8,7 @@ function Companyregister() {
     <div className="container" style={{ marginTop: "75px", marginBottom: "50px" }}>
       {/* <h3 className="headings-cls">Company Registration</h3> */}
       <div>
-        <form>
+        <form action="/company/home">
           <div className="flex-container1">
             <div className="container1-flex-item">
               <label for="companyName" className=""><span className="asterisk-mark">*</span>Company Name</label>

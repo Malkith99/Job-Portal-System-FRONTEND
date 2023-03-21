@@ -38,7 +38,7 @@ export default function Login(){
                     <p className="loginN">Register :</p>
                     <div className="loginbox-content">
                         <div className="student" >
-                            <a href="/user" >
+                            <a href="/student-register" >
                                 <button type="Submit" class="s text-white">Register as a Student</button>
                             </a>
                         </div>
