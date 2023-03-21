@@ -76,9 +76,24 @@
   }
 }
 
+@media (max-width: 1200px) {
+
+  .file-input-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+  
+  .file-input-field{
+    width: 300px !important;
+  }
+}
+
 .sub-headings {
   margin-bottom: 50px;
-  color: #474646;
+  color: rgb(7, 7, 73);
+  font-weight: bolder;
 }
 
 .label-title {
@@ -111,3 +126,4 @@
 .input-filed-cls {
   margin-bottom: 25px;
 }
+

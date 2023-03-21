@@ -9,7 +9,7 @@ function userDetailsNav() {
             <div className="nav">
                 <nav>
                     <a href="/#">Home</a>
-                    <a href="/#">User Details</a>
+                    <a href="/user">User Details</a>
                 </nav>
             </div>
             <p ></p>

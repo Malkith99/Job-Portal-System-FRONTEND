@@ -26,7 +26,9 @@ export default function Login(){
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1" ></input>
                                     <label class="form-check-label" for="exampleCheck1">Remember username</label>
                                 </div>
-                                <button type="Log In" class="btn btn-primary">LOG IN</button>
+                                    {/* <a href="/user"> */}
+                                        <button type="Log In" class="btn btn-primary">LOG IN</button>
+                                    {/* </a> */}
                             </form>
                             
                         </div>
@@ -36,7 +38,7 @@ export default function Login(){
                     <p className="loginN">Register :</p>
                     <div className="loginbox-content">
                         <div className="student" >
-                            <a href="/student" >
+                            <a href="/user" >
                                 <button type="Submit" class="s text-white">Register as a Student</button>
                             </a>
                         </div>

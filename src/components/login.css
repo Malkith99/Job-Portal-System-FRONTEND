@@ -1,6 +1,6 @@
 .loginN{
     
-    padding-top: 4px;
+    padding-top: 5rem;
     
     color: navy;
     font-weight: 900;
@@ -16,12 +16,14 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    
 }
 
 
 
 .input{
     border-radius: 10px;
+    
 }
 .s {
     height: 45px;

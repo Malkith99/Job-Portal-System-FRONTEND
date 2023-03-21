@@ -28,13 +28,15 @@ function UserDetails() {
         </div>
       </div>
       <div>
-        <form>
+        <form action="/student/home">
           <h4 className="sub-headings">Personal info: </h4>
           <div className="flex-container1">
             <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" }}>
               <img className="profile-photo" src={file} alt="Profile Photo" />
               <label className="label-title">Profile Photo</label>
-              <input type="file" class="form-control" onChange={handleChange} />
+              <div className="file-input-div">
+                <input type="file" class="file-input-field form-control" onChange={handleChange} />
+              </div>
             </div>
             <div className="container1-flex-item2">
               <div className="sub-flex-container">
@@ -51,10 +53,10 @@ function UserDetails() {
                 </div>
                 <div className="sub-flex-item2">
                   <div className="input-filed">
-                    <input type="text" className="form-control" placeholder="Middle Name" required></input>
+                    <input type="text" className="form-control" placeholder="Middle Name"></input>
                   </div>
                   <div className="text-center">
-                    <label className="hint-title">Middle Name<span className="asterisk-mark">*</span></label>
+                    <label className="hint-title">Middle Name</label>
                   </div>
                 </div>
                 <div className="sub-flex-item2">
@@ -101,7 +103,7 @@ function UserDetails() {
                 <div className="sub-flex-item2">
                   <div className="input-filed" >
                     <select className="form-select" name="gender" id="gender">
-                      <option selected disabled>Open this select menu</option>
+                      <option selected disabled>Select your Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
@@ -164,7 +166,7 @@ function UserDetails() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <select className="form-select" name="faculty" id="faculty">
-                      <option selected disabled>Open this select menu</option>
+                      <option selected disabled>Select your Faculty</option>
                       <option value="Agriculture">Agriculture</option>
                       <option value="Allied Health Science">Allied Health Science</option>
                       <option value="Engineering">Engineering</option>
@@ -181,7 +183,7 @@ function UserDetails() {
               </div>
               <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item1">
-                  <label className="label-title">Graduating Year<span className="asterisk-mark">*</span></label>
+                  <label className="label-title">Date of Graduating<span className="asterisk-mark">*</span></label>
                 </div>
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
@@ -198,11 +200,12 @@ function UserDetails() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <select className="form-select" name="field" id="field">
-                      <option selected disabled>Open this select menu</option>
-                      <option value="Field1">Field 1</option>
-                      <option value="Field2">Field 2</option>
-                      <option value="Field3">Field 3</option>
-                      <option value="Field4">Field 4</option>
+                      <option selected disabled>Select Your Field</option>
+                      <option value="Field1">Electrical Engineer</option>
+                      <option value="Field2">Civil Engineer</option>
+                      <option value="Field3">Software Engineer</option>
+                      <option value="Field4">Accounting</option>
+                      <option value="Field4">Doctor</option>
                     </select>
                   </div>
                 </div>
@@ -218,7 +221,7 @@ function UserDetails() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <select className="form-select" name="subSpeciality" id="subSpeciality">
-                      <option selected disabled>Open this select menu</option>
+                      <option selected disabled>Select your Sub Speciality</option>
                       <option value="SubSpeciality1">Sub Speciality 1</option>
                       <option value="SubSpeciality2">Sub Speciality 2</option>
                       <option value="SubSpeciality3">Sub Speciality 3</option>
@@ -256,6 +259,11 @@ function UserDetails() {
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
                     <textarea class="form-control" rows="3"></textarea>
+                  </div>
+                  <div>
+                    <a href="/home" >
+                      <button type="Submit" class="btn btn-primary">Register</button>
+                    </a>
                   </div>
                 </div>
               </div>

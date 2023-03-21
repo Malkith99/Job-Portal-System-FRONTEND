@@ -6,6 +6,7 @@ import UserDetailsTop from "./userDetailsTop";
 import UserDetails from "./UserDetails";
 import "./userDetailsMain.css";
 
+
 function userDetailsMain() {
   return (
     <>

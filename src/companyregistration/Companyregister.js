@@ -6,14 +6,14 @@ function Companyregister() {
   return (
 
     <div className="container" style={{ marginTop: "75px", marginBottom: "50px" }}>
-      <h3 className="headings-cls">Company Registration</h3>
+      {/* <h3 className="headings-cls">Company Registration</h3> */}
       <div>
         <form>
           <div className="flex-container1">
             <div className="container1-flex-item">
-              <label for="companyName" className=""><span className="asterisk-mark">*</span>Company name</label>
+              <label for="companyName" className=""><span className="asterisk-mark">*</span>Company Name</label>
               <div className="input-filed input-filed-cls">
-                <input type="text" className="form-control" id="companyName" placeholder="Company name" required></input>
+                <input type="text" className="form-control" id="companyName" placeholder="Company Name" required></input>
               </div>
               <label for="positionDestination" className=""><span className="asterisk-mark">*</span>Position/Destination</label>
               <div className="input-filed input-filed-cls">
@@ -21,9 +21,9 @@ function Companyregister() {
               </div>
             </div>
             <div className="container1-flex-item">
-              <label for="contactInfo" className=""><span className="asterisk-mark">*</span>Contact info</label>
+              <label for="contactInfo" className=""><span className="asterisk-mark">*</span>Contact Info</label>
               <div className="input-filed input-filed-cls">
-                <input type="tel" className="form-control" id="contactInfo" placeholder="Contact info" required></input>
+                <input type="tel" className="form-control" id="contactInfo" placeholder="Contact Info" required></input>
               </div>
               <label for="location" className=""><span className="asterisk-mark">*</span>Location</label>
               <div className="input-filed input-filed-cls">
@@ -31,11 +31,11 @@ function Companyregister() {
               </div>
             </div>
             <div className="container1-flex-item">
-              <label for="companyWebsite" className=""><span className="asterisk-mark">*</span>Company website</label>
+              <label for="companyWebsite" className=""><span className="asterisk-mark">*</span>Company Website</label>
               <div className="input-filed input-filed-cls">
-                <input type="text" className="form-control" id="companyWebsite" placeholder="Company website" required></input>
+                <input type="text" className="form-control" id="companyWebsite" placeholder="Company Website" required></input>
               </div>
-              <label for="salaryRange" className=""><span className="asterisk-mark">*</span>Salary range</label>
+              <label for="salaryRange" className=""><span className="asterisk-mark">*</span>Salary Range</label>
               <div className="input-filed input-filed-cls" style={{ display: "flex", flex: "row", columnGap: "20px" }}>
                 <input type="number" className="form-control" id="salaryRange salaryRangeMin" placeholder="Min" required style={{ width: "50%" }} min="0"></input>
                 <input type="number" className="form-control" id="salaryRange salaryRangeMax" placeholder="Max" required style={{ width: "50%" }} min="0"></input>
@@ -44,9 +44,9 @@ function Companyregister() {
           </div>
           <div className="flex-container2">
             <div className="container2-flex-item1">
-              <label for="jobDescription" className=""><span className="asterisk-mark">*</span>Job description</label>
+              <label for="jobDescription" className=""><span className="asterisk-mark">*</span>Job Description</label>
               <div className="input-filed input-filed-cls">
-                <input type="text" className="form-control" id="jobDescription" placeholder="Job description" required></input>
+                <input type="text" className="form-control" id="jobDescription" placeholder="Job Description" required></input>
               </div>
             </div>
             <div className="container2-flex-item2">
