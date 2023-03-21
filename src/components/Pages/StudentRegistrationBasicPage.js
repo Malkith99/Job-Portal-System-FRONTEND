@@ -3,7 +3,7 @@ import StudentRegistrationBasic from '../StudentRegistrationBasic';
 import Footer from '../footer';
 import Headertop from '../headertop';
 import Title from '../title';
-import Headerbottom from '../headerbottom';
+import Headerbottom from '../../studentregister/StudentNav';
 
 export default class StudentRegistrationBasicPage extends Component {
     render() {
