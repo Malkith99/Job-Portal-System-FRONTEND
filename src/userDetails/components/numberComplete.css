@@ -2,10 +2,10 @@
   height: 30px;
   width: 30px;
   position: relative;
-  background-color: #1f9b3a;
+  background-color: #696969;
   border-radius: 100%;
   box-shadow: 0 0 0 4px rgb(255, 255, 255),
-    0 0 0 8px #1f9b3a;
+    0 0 0 8px #696969;
 }
 
 .digit {
