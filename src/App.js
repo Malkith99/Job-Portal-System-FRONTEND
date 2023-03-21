@@ -6,6 +6,10 @@ import LecturerregisterMain from "./lecturerregister/LecturerregisterMain";
 import CompanyregisterMain from "./companyregistration/CompanyregisterMain";
 import UserDetailsMain from "./userDetails/userDetailsMain";
 import StudentMainhome from "./Homepage/components/StudentMainhome";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import LoginPage from './LoginPage';
+import StudentRegistrationBasicPage from './components/Pages/StudentRegistrationBasicPage';
+import StudentRegistrationUserDetailsPage from './components/Pages/StudentRegistrationUserDetailsPage';
 
 
 function App() {
@@ -19,9 +23,11 @@ function App() {
         <Route path="/company" element={<CompanyregisterMain />}/>
         <Route path="/user" element={<UserDetailsMain/>}/>
         <Route path="/student/home" element={<StudentMainhome/>}/>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/registerStudent" element={<StudentRegistrationBasicPage />} />
+        <Route path="/registerStudentUser" element={<StudentRegistrationUserDetailsPage />} />
       </Routes>
     </Router>
-    
   );
 }
 
