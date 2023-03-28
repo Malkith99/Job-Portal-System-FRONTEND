@@ -4,15 +4,15 @@ import Footer from '../footer';
 import Headertop from '../headertop';
 import Title from '../title';
 import Headerbottom from '../../studentregister/StudentNav';
+import MainHeader from '../MainHeader/MainHeader';
+import {Link} from 'react-router-dom'
 
-export default class StudentRegistrationBasicPage extends Component {
-    render() {
+export default function StudentRegistrationBasicPage({isLogedIn, onLogout}) {
+    const content = <><Link to="/student-register">Student Registration</Link><Link to="/student-register">Step 1</Link></>;
         return (
             <div>
                 <div className="page-container">
-                    <Headertop />
-                    <Title />
-                    <Headerbottom />
+                    <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
                     <div className="content-wrap">
                     </div>
                     <div>
@@ -23,4 +23,3 @@ export default class StudentRegistrationBasicPage extends Component {
             </div>
         )
     }
-}

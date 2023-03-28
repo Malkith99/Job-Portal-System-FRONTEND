@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./userDetailsNav.css";
 function userDetailsNav() {
@@ -8,8 +9,8 @@ function userDetailsNav() {
         <div class="header-bottom" >
             <div className="nav">
                 <nav>
-                    <a href="/#">Home</a>
-                    <a href="/user">User Details</a>
+                    <Link to="/">Home</Link>
+                    <Link to="/user">User Details</Link>
                 </nav>
             </div>
             <p ></p>

@@ -4,6 +4,7 @@ import "./UserDetails.css"
 import NumberComplet from './components/numberComplete'
 import NumberInComplet from './components/numberInComplete'
 import VerticleSeparator from './components/verticleSeparator'
+import { Link } from "react-router-dom";
 
 function UserDetails() {
 
@@ -261,9 +262,9 @@ function UserDetails() {
                     <textarea class="form-control" rows="3"></textarea>
                   </div>
                   <div>
-                    <a href="/home" >
+                    <Link to="/student/home" >
                       <button type="Submit" class="btn btn-primary">Register</button>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

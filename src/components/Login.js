@@ -26,9 +26,9 @@ export default function Login(){
                                     <input type="checkbox" class="form-check-input" id="exampleCheck1" ></input>
                                     <label class="form-check-label" for="exampleCheck1">Remember username</label>
                                 </div>
-                                    {/* <a href="/user"> */}
+                                    {/* <Link to="/user"> */}
                                         <button type="Log In" class="btn btn-primary">LOG IN</button>
-                                    {/* </a> */}
+                                    {/* </Link> */}
                             </form>
                             
                         </div>
@@ -38,19 +38,19 @@ export default function Login(){
                     <p className="loginN">Register :</p>
                     <div className="loginbox-content">
                         <div className="student" >
-                            <a href="/student-register" >
+                            <Link to="/student-register" >
                                 <button type="Submit" class="s text-white">Register as a Student</button>
-                            </a>
+                            </Link>
                         </div>
                         <div className="lecturer">
-                            <a href="/lecturer" >
+                            <Link to="/lecturer" >
                                     <button type="Submit" class="s text-white">Register as a Lecturer</button>
-                            </a>
+                            </Link>
                         </div>
                         <div className="company">
-                        <a href="/company" >
+                        <Link to="/company" >
                                 <button type="Submit" class="s text-white">Register as a Company</button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     </div>

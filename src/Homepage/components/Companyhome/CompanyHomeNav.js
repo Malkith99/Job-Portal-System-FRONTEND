@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function CompanyHomeNav() {
     const navRef = useRef();
@@ -10,9 +11,8 @@ function CompanyHomeNav() {
         <div class="header-bottom" >
             <div className="nav">
                 <nav ref={navRef}>
-                    <a href="/#">Home</a>
-                    <a href="/Company">Company Home</a>
-
+                    <Link to="/#">Home</Link>
+                    <Link to="/Company">Company Home</Link>
                 </nav>
 
             </div>

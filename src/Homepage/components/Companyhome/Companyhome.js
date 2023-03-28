@@ -1,5 +1,6 @@
 import { height } from '@mui/system'
 import React from 'react'
+import { Link } from "react-router-dom";
 import "../Companyhome/Companyhome.css"
 
 function Companyhome() {
@@ -12,9 +13,9 @@ function Companyhome() {
                     <div className="col">
                         
                         <div >
-                            <a href='addVac'>
+                            <Link to='addVac'>
                                 <button type="Submit" class="re text-white" style={{height:"300px",backgroundColor:"rgb(38, 56, 95)",fontSize:"40px"}}>Add a Vacancy</button>
-                            </a>
+                            </Link>
                         </div>
                     </div>
                     {/*column2*/}
@@ -22,10 +23,10 @@ function Companyhome() {
                     
                     <div className="">
                         <div >
-                            <a href='response'>
+                            <Link to='response'>
                                 
                                 <button type="Submit" class="re text-white" style={{height:"300px",backgroundColor:"#2B547E",fontSize:"40px"}}>Responses</button>
-                            </a>
+                            </Link>
                         </div>
                        
                         

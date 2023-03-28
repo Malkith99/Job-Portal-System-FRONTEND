@@ -4,13 +4,15 @@ import Footer from "./footer";
 import Headertop from "./headertop";
 import Title from "./title";
 import Headerbottom from "./headerbottom";
+import MainHeader from './MainHeader/MainHeader';
+import {Link} from 'react-router-dom'
 
-function home() {
+function home({isLogedIn, onLogout}) {
+  
+  const content = <><Link to="/">Login</Link></>;
   return (
     <div className="page-container">
-      <Headertop />
-      <Title />
-      <Headerbottom />
+      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
       <div className="content-wrap"></div>
       <div>
         <Login />

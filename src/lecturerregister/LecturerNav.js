@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./LecturerNav.css";
 function LecturerNav()
@@ -12,8 +13,8 @@ function LecturerNav()
         <div class="header-bottom" >
             <div className="nav">
                 <nav ref={navRef}>
-                    <a href="/#">Home</a>
-                    <a href="/lecturer">Lecturer Register</a>
+                    <Link to="/#">Home</Link>
+                    <Link to="/lecturer">Lecturer Register</Link>
                 </nav>
                 
             </div>

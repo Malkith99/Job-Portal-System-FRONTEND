@@ -1,5 +1,6 @@
 import React from "react";
 import uniLogo from "../images/University-of-Ruhuna-Logo-removebg 1.png";
+import { Link } from "react-router-dom";
 import "./title.css";
 function Title() {
     return (
@@ -13,7 +14,7 @@ function Title() {
 
         //     <nav className="navbar bg-body-tertiary">
         //         <div className="container-fluid flex">
-        //             <a className="navbar-brand" href="#">
+        //             <Link className="navbar-brand" to="#">
         //                 <div className="d-flex justify-content-center">
         //                     <div>
         //                         <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" className="d-inline-block align-text-top" />
@@ -22,7 +23,7 @@ function Title() {
         //                         <p className="text-center center">Bootstrapssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss</p>
         //                     </div>
         //                 </div>
-        //             </a>
+        //             </Link>
         //         </div>
         //     </nav>
         // </div>

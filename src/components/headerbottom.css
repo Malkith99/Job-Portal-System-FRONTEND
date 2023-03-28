@@ -49,7 +49,22 @@
     
     }
   
- 
 
+    .nav-bar-content{
+      display: flex !important;
+      flex-wrap: wrap !important;
+      justify-content: space-between !important;
+    }
+
+    /* .nav-bar-left {
+      flex: 75% !important;
+      
+    }
     
+    .nav-bar-right {
+      flex: 5% !important;
+    }
+  */
+
+     
 

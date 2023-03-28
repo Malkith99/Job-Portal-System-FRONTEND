@@ -5,13 +5,15 @@ import LecturerNav from "./LecturerNav";
 import LecturerTop from "./LecturerTop";
 import "./LecturerregisterMain.css";
 import Lecturerregister from "./Lecturerregister";
-function LecturerregisterMain() {
-    return (
+import MainHeader from "../components/MainHeader/MainHeader";
+import {Link} from 'react-router-dom'
 
+
+function LecturerregisterMain({isLogedIn, onLogout}) {
+    const content = <><Link to="/lecturer">Lecturer Registration</Link></>;
+    return (
         <div>
-            <LecturerTop />
-            <Title />
-            <LecturerNav />
+            <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
             <Lecturerregister />
             <Footer />
         </div>

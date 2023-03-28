@@ -101,9 +101,9 @@ function StudentRegistrationBasic() {
                                         margin="normal"
                                     />
                                     {/* <Link to="/registerStudentUser"> */}
-                                    <Button variant="contained" color="primary" type="submit">
+                                    {/* <Button variant="contained" color="primary" type="submit">
                                         Register
-                                    </Button>
+                                    </Button> */}
                                     {/* </Link> */}
                                 </form>
                             </CardContent >
