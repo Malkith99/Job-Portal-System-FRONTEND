@@ -24,6 +24,13 @@ export default function AllStudents(){
         <div className="container">
             
             <h1>All Students</h1>
+            {students.map((studentData)=>(
+                <div>
+                 <p>Name:{studentData.name}</p> 
+                 <p>Age:{studentData.age}</p> 
+                 <p>Gender:{studentData.gender}</p> 
+                 </div>
+            ))}
         </div>
     )
 }
