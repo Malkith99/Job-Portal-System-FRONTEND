@@ -12,7 +12,7 @@ import StudentMainhome from "./Homepage/components/StudentMainhome";
 import CompanyDetails from "./Homepage/components/Companyhome/CompanyDetails/CompanyDetails";
 
 function App() {
-  const [isLogedIn, setIsLogedIn] = useState(true);
+  const [isLogedIn, setIsLogedIn] = useState(false);
 
   const handlLogOut = () => {
     setIsLogedIn(false);

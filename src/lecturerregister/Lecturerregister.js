@@ -18,6 +18,10 @@ function Lecturerregister()
                 <div className="input-filed input-filed-cls">
                   <input type="text" className="form-control" id="universityEmail" placeholder="University  Email Address" required></input>
                 </div>
+                <div className="input-filed input-filed-cls">
+                  <label for="inputPassword" className=""><span className="asterisk-mark">*</span>Enter a Password</label>
+                  <input type="password" class="form-control" id="inputPassword" placeholder="Enter a Password"></input>
+                </div>
                 
               </div>
               <div className="container1-flex-item">
@@ -28,6 +32,10 @@ function Lecturerregister()
                 <label for="contactNumber" className=""><span className="asterisk-mark">*</span>Contact Number</label>
                 <div className="input-filed input-filed-cls">
                   <input type="text" className="form-control" id="contactNumber" placeholder="Contact Number" required></input>
+                </div>
+                <div className="input-filed input-filed-cls">
+                  <label for="confirmPassword" className=""><span className="asterisk-mark">*</span>Confirm the Password</label>
+                  <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm the Password"></input>
                 </div>
               </div>
               <div className="container1-flex-item">

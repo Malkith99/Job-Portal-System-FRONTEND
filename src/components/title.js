@@ -31,7 +31,9 @@ function Title() {
         <div className="container-fluid title-top">
 
             <div className="d-flex">
-                <img className="p-2 d-inline-block align-text-top uniLogo" src={uniLogo} alt="Logo" />
+                <a href="/login">
+                    <img className="p-2 d-inline-block align-text-top uniLogo" src={uniLogo} alt="Logo" />
+                </a>
                 <div className="p-2 flex-grow-1 text-center title">
                     <div><b>Job Portral System UOR</b></div>
                     {/* <div><span className="bot-title">University of Ruhuna</span></div> */}
