@@ -1,17 +1,20 @@
-import React from 'react'
-import Headertop from '../headertop'
-import Title from '../title'
-import Headerbottom from '../headerbottom'
+import React from "react";
+import HeaderTop from "./headerTop/HeaderTop";
+import Title from "./title/Title";
+import HeaderBottom from "./headerBottom/HeaderBottom";
 
 function MainHeader(props) {
-    // console.log(props.pathname);
   return (
     <div>
-        <Headertop isLogedIn={props.isLogedIn} />
-        <Title/>
-        <Headerbottom content={props.content} isLogedIn={props.isLogedIn} onLogout={props.onLogout}/>
+      <HeaderTop isLogedIn={props.isLogedIn} />
+      <Title />
+      <HeaderBottom
+        content={props.content}
+        isLogedIn={props.isLogedIn}
+        onLogout={props.onLogout}
+      />
     </div>
-  )
+  );
 }
 
-export default MainHeader
+export default MainHeader;
