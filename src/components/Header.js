@@ -14,7 +14,7 @@ function Header() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item">
                 {/*<a className="nav-link active" aria-current="page" href="/">Home</a>*/}
-                <Link to="/" className="nav-link">Home</Link>
+                <Link to="/" className="nav-link">Home_Home</Link>
                 </li>
                 <li className="nav-item">
                 {/*<a className="nav-link" href="/add">Create Student</a>   to shift new tab wothout refresh*/}
