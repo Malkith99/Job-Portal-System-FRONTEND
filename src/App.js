@@ -5,6 +5,9 @@ import Header from './components/Header';                        //import header
 import AddStudent from './components/AddStudent';
 import {BrowserRouter , Route, Routes } from "react-router-dom"
 import AllStudents from './components/AllStudent';
+import Home from './components/Home/Home';
+import StudentRegistrationBasicPage from './components/pages/student/studentRegistration/step1/StudentRegistrationBasicPage';
+import Profile from './components/pages/student/profile/profile';
 
 
 function App() {         
@@ -13,6 +16,9 @@ function App() {
         <div>
           <Header/>
           <Routes>
+          <Route path="/" element ={<Home/>} ></Route>
+          <Route path="/student-register" element={<StudentRegistrationBasicPage/> }> </Route>
+          <Route path="/student-profile" element={<Profile/> }> </Route>
           <Route path="/add" element ={<AddStudent/>} ></Route>
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>
