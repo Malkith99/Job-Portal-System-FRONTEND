@@ -1,10 +1,12 @@
 import React,{useState,useEffect} from 'react';  //useEffect import fro reac hook and used in function based approach
 import axios from "axios";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 
 
 export default function Home(){
     //<Route path="/student-register" element={<StudentRegistrationBasicPage isLogedIn={isLogedIn} onLogout={handlLogOut}/>} />
+
     return(
         <div className="container">
 
@@ -13,7 +15,22 @@ export default function Home(){
             <div className="student">
               <Link to="/student-register">
                 <Button variant="contained">
-                  STUDENT<ArrowForwardIosIcon />
+                  STUDENT
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="company">
+              <Link to="/student-profile">
+                <Button variant="contained">
+                  COMPANY
+                </Button>
+              </Link>
+            </div>
+            <div className="Lecturer">
+              <Link to="/student-register">
+                <Button variant="contained">
+                  LECTURER
                 </Button>
               </Link>
             </div>
