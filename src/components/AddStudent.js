@@ -25,7 +25,7 @@ export default function AddStudent(){
 
     return(
         <div className="container">
-            <form onSubmit={sendData}>
+            <form onSubmit={sendData}>     {/* method that calling when pressing submit button*/}
                 <div className="form-group">
                     <label for="name" className="form-label">Student Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter Student Name" 
