@@ -1,4 +1,4 @@
-import React,{useState} from "react";  //useState for handling states 
+import React,{useState} from "react";  //useState for handling states  which come from react hook
 import axios from "axios";
 
 export default function AddStudent(){
