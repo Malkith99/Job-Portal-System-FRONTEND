@@ -1,5 +1,5 @@
 import React,{useState} from "react";  //useState for handling states  which come from react hook
-import axios from "axios";
+//import axios from "axios";
 
 export default function AddStudent(){
 
@@ -10,17 +10,17 @@ export default function AddStudent(){
     function sendData(e){     // function that execute when pressing submit button"
         e.preventDefault();                 
         //alert("Insert");
-       /* const newStudent={
+
+        // Connection of backend and frontend using axios //
+      /* const newStudent={
             name,
             age,
             gender
         }
-       // console.log(newStudent);
-       axios.post("http://localhost:1234/student/add",newStudent ).then(()=>{
-        alert("Student Added")
-       }).catch((err)=>{
-        alert(err)
-       });*/
+      / axios.post("http://localhost:1234/student/add",newStudent ).then(res=>res.json()).then(data=>{
+        alert("Student Added");
+        console.log(data);
+       }).catch(error=>console.error('Error: ',error));*/
 
        fetch("http://localhost:1234/student/add",{
         method: "POST",
@@ -35,7 +35,7 @@ export default function AddStudent(){
             age,
             gender,
         }),
-       }).then(res=>res.json("Student is Added")).then(data=>{
+       }).then(res=>res.json()).then(data=>{
         console.log(data);
         alert("Student Added");
        }).catch(error=>console.error('Error: ',error));
