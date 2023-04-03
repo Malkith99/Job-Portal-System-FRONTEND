@@ -1,5 +1,5 @@
 import React,{useState} from "react";  //useState for handling states  which come from react hook
-//import axios from "axios";
+import axios from "axios";
 
 export default function AddStudent(){
 
@@ -12,17 +12,17 @@ export default function AddStudent(){
         //alert("Insert");
 
         // Connection of backend and frontend using axios //
-      /* const newStudent={
+       const newStudent={
             name,
             age,
             gender
         }
-      / axios.post("http://localhost:1234/student/add",newStudent ).then(res=>res.json()).then(data=>{
+       axios.post("http://localhost:1234/student/add",newStudent ).then(res=>{
+        console.log(res.data);
         alert("Student Added");
-        console.log(data);
-       }).catch(error=>console.error('Error: ',error));*/
+       }).catch(error=>console.error('Error: ',error));
 
-       fetch("http://localhost:1234/student/add",{
+      /* fetch("http://localhost:1234/student/add",{
         method: "POST",
         crossDomain: true,
         headers:{
@@ -38,14 +38,14 @@ export default function AddStudent(){
        }).then(res=>res.json()).then(data=>{
         console.log(data);
         alert("Student Added");
-       }).catch(error=>console.error('Error: ',error));
+       }).catch(error=>console.error('Error: ',error));*/
     }
 
     return(
         <div className="container">
             <form onSubmit={sendData}>     {/* method that calling when pressing submit button*/}
                 <div className="form-group">
-                    <label for="name" className="form-label">Student Name</label>
+                    <label htmlFor="name" className="form-label">Student Name</label>
                     <input type="text" className="form-control" id="name" placeholder="Enter Student Name" 
                     onChange={(e)=>{
                         setName(e.target.value);
@@ -54,7 +54,7 @@ export default function AddStudent(){
                 </div>
 
                 <div className="form-group">
-                    <label for="age" className="form-label">Age</label>
+                    <label htmlFor="age" className="form-label">Age</label>
                     <input type="text" className="form-control" id="age" placeholder="Enter Student Age"
                     onChange={(e)=>{
                         setAge(e.target.value);
@@ -62,7 +62,7 @@ export default function AddStudent(){
                 </div>
 
                 <div className="form-group">
-                    <label for="gender" className="form-label">Gender</label>
+                    <label htmlFor="gender" className="form-label">Gender</label>
                     <input type="text" className="form-control" id="gender" placeholder="Enter Student Gender"
                     onChange={(e)=>{
                     setGender(e.target.value);
