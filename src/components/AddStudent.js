@@ -10,7 +10,7 @@ export default function AddStudent(){
     function sendData(e){     // function that execute when pressing submit button"
         e.preventDefault();                 
         //alert("Insert");
-        const newStudent={
+       /* const newStudent={
             name,
             age,
             gender
@@ -20,7 +20,25 @@ export default function AddStudent(){
         alert("Student Added")
        }).catch((err)=>{
         alert(err)
-       });
+       });*/
+
+       fetch("http://localhost:1234/student/add",{
+        method: "POST",
+        crossDomain: true,
+        headers:{
+            "Content-Type": "application/json",
+           // Accept: "application/json",
+           // "Access-Control-Allow-Origin": "*",
+        },
+        body: JSON.stringify({
+            name,
+            age,
+            gender,
+        }),
+       }).then(res=>res.json("Student is Added")).then(data=>{
+        console.log(data);
+        alert("Student Added");
+       }).catch(error=>console.error('Error: ',error));
     }
 
     return(
