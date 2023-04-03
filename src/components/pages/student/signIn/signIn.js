@@ -20,50 +20,35 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
   }));
   
-  function StudentRegistrationBasic() {
+  export default function StudentSignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-  
-    const handleEmailChange = (event) => {
-      setEmail(event.target.value);
-      console.log("email", email);
-    };
-  
-    const handlePasswordChange = (event) => {
-      setPassword(event.target.value);
-      console.log("password", password);
-    };
-  
-  
+
     const handleSubmit = (event) => {   // function that execute when pressing submit button"
-      console.log("Hello");
       event.preventDefault();
   
-      if (!email || !password || !confirmPassword) {
-        toast.error("Please fill in all fields");
+      if (!email || !password) {
+       // toast.error("Please fill in all fields");
+        alert("Please fill all fields");
         return;
       }
   
       // Add your registration logic here
   
-  
         const newStudent={
             email,
             password,
         }
-       // console.log(newStudent);
-       axios.post("http://localhost:1234/student/add",newStudent ).then(()=>{
-        alert("Student Added")
+        console.log(newStudent);
+       axios.post("http://localhost:1234/student/login-student",newStudent ).then(()=>{
+        //alert("Student Log In")
        }).catch((err)=>{
         alert(err)
        });
   
-       toast.success("Successfully registered!");
+       toast.success("Successfully Logged In");
        setEmail("");
        setPassword("");
-       setConfirmPassword("");
-                   
-    
     } ;
   
   
@@ -105,7 +90,9 @@ const Item = styled(Paper)(({ theme }) => ({
                       variant="outlined"
                       type="password"
                       value={password}
-                      onChange={handlePasswordChange}
+                      onChange={(e)=>{
+                            setPassword(e.target.value);
+                      }}
                       fullWidth
                       margin="normal"
                     />
@@ -129,11 +116,16 @@ const Item = styled(Paper)(({ theme }) => ({
               mr={"25%"}
               sx={{ alignItems: "flex-end" }}
             >
+            <div className="student">
+              <Link to="/student-register">
+                <Button variant="contained">
+                  Sign Up {/*<ArrowForwardIosIcon />*/}
+                </Button>
+              </Link>
+            </div>
             </Grid>
           </Grid>
         </Box>
       </div>
     );
-  }
-  
-  export default StudentRegistrationBasic;
+  }  
