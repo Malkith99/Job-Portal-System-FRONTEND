@@ -10,7 +10,9 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import axios from "axios";
+//import Profile from "../../profile/profile";
+//import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -40,7 +42,7 @@ function StudentRegistrationBasic() {
     console.log("confirmPassword", confirmPassword);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event) => {   // function that execute when pressing submit button"
     event.preventDefault();
 
     if (!email || !password || !confirmPassword) {
@@ -55,11 +57,26 @@ function StudentRegistrationBasic() {
 
     // Add your registration logic here
 
-    toast.success("Successfully registered!");
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
-  };
+
+      const newStudent={
+          email,
+          password,
+      }
+     // console.log(newStudent);
+     axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
+      //alert("Student Added frontEnd")
+     }).catch((err)=>{
+      alert(err)
+     });
+
+     toast.success("Successfully registered!");
+     setEmail("");
+     setPassword("");
+     setConfirmPassword("");
+    //<Profile/>          
+  
+  } ;
+
 
   return (
     <div>
@@ -88,7 +105,9 @@ function StudentRegistrationBasic() {
                     variant="outlined"
                     type="email"
                     value={email}
-                    onChange={handleEmailChange}
+                    onChange={(e)=>{
+                      setEmail(e.target.value);
+                  }}
                     fullWidth
                     margin="normal"
                   />
@@ -110,11 +129,11 @@ function StudentRegistrationBasic() {
                     fullWidth
                     margin="normal"
                   />
-                  {/* <Link to="/registerStudentUser"> */}
-                  {/* <Button variant="contained" color="primary" type="submit">
-                                        Register
-                                    </Button> */}
-                  {/* </Link> */}
+                   {/*<Link to="/student-profile"> */}
+                   <Button variant="contained" color="primary" type="submit">
+                                        Sign Up
+                                    </Button>
+                  {/*</Link>*/} 
                 </form>
               </CardContent>
             </Card>
@@ -130,9 +149,9 @@ function StudentRegistrationBasic() {
             sx={{ alignItems: "flex-end" }}
           >
             <div className="student">
-              <Link to="/student-register-final">
+              <Link to="/student-signIn">
                 <Button variant="contained">
-                  Next <ArrowForwardIosIcon />
+                  Sign In {/*<ArrowForwardIosIcon />*/}
                 </Button>
               </Link>
             </div>
