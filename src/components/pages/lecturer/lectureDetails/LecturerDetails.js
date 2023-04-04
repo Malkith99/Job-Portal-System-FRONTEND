@@ -2,23 +2,23 @@ import React from "react";
 import MainHeader from "../../../mainHeader/MainHeader";
 import { Link } from "react-router-dom";
 import Footer from "../../../footer/Footer";
-import { CompanyProfile } from "./CompanyProfile";
+import { LecturerProfile } from "./LecturerProfile";
 
-function CompanyDetails({ isLogedIn, onLogout }) {
+function LecturerDetails({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/company-details">Profile Details</Link>
+      <Link to="/lecturer-details">Lecture Profile Details</Link>
     </>
   );
   return (
     <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
 
-      <CompanyProfile/>
+      <LecturerProfile/>
 
       <Footer/>
     </div>
   );
 }
 
-export default CompanyDetails;
+export default LecturerDetails;

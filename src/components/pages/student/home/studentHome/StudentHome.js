@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "./StudentHome.css"
 export const StudentHome = () => {
   return (
-    <div>StudentHome</div>
+    <div className='stu'>StudentHome</div>
   )
 }
 export default StudentHome

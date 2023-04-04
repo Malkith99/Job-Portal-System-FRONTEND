@@ -9,9 +9,10 @@ import StudentRegistrationBasicPage from './components/pages/student/studentRegi
 import StudentMainhome from "./components/pages/student/home/StudentMainhome";
 import CompanyDetails from "./components/pages/company/companyDetails/CompanyDetails";
 import LectureMainHome from "./components/pages/lecturer/home/LectureMainHome";
+import LecturerDetails from "./components/pages/lecturer/lectureDetails/LecturerDetails";
 
 function App() {
-  const [isLogedIn, setIsLogedIn] = useState(false);
+  const [isLogedIn, setIsLogedIn] = useState(true);
 
   const handlLogOut = () => {
     setIsLogedIn(false);
@@ -30,6 +31,7 @@ function App() {
         <Route path="/company" element={<CompanyregisterMain isLogedIn={isLogedIn} onLogout={handlLogOut}/>}/>
         <Route path="/company/home" element={<CompanyMainhome isLogedIn={isLogedIn} onLogout={handlLogOut}/>}/>
         <Route path="/company-details" element={<CompanyDetails isLogedIn={isLogedIn} onLogout={handlLogOut}/>}/>
+        <Route path="/lecturer-details" element={<LecturerDetails isLogedIn={isLogedIn} onLogout={handlLogOut}/>}/>
         <Route path="/login" element={<LoginPage />} />
         {/* <Route path="/registerStudent" element={<StudentRegistrationBasicPage />} /> */}
       </Routes>
