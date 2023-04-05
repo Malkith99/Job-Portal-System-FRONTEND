@@ -14,6 +14,7 @@ const VacancySection = (props) => {
   return (
     <div>
           <div className='container'>
+
             <form>
               <div className="flex-container1">
                 <div

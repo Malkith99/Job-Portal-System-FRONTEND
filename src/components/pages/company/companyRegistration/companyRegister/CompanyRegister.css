@@ -55,3 +55,52 @@
     flex: 100%;
   }
 }
+
+@media (max-width: 1400px) {
+  .file-in {
+    width: 32.2%;
+  }
+}
+@media (max-width: 1200px) {
+  .file-in {
+    width: 32%;
+  }
+}
+@media (max-width: 990px) {
+  .file-in {
+    width: 31.4%;
+  }
+}
+@media (max-width: 800px) {
+  .file-in {
+    width: 100%;
+  }
+}
+@media (min-width: 1400px) {
+  .file-in {
+    width: 32.2%;
+  }
+}
+.file-in{
+  padding-bottom: 20px;
+}
+
+
+
+.profile-photo-2 {
+  margin: 0px auto 15px 0px;
+  border-radius: 100%;
+  border: 2px solid rgba(145, 145, 145, 0.425);
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+
+@media (max-width: 800px) {
+  .container1-flex-item,
+  .container2-flex-item1,
+  .container2-flex-item2 {
+    flex: 100%;
+  }
+}

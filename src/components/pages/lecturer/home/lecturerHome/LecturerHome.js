@@ -147,7 +147,7 @@ function LecturerHome() {
                       <button
                         className="btn btn-primary butdet"
                         onClick={()=>{
-                          navigate("/response")
+                          navigate("/student-application")
                         }}
                         style={{ background: "#2B547E", border: "none", marginRight: "5px", marginLeft:"-1px" }}
                       >

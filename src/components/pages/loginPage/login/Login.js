@@ -75,7 +75,7 @@ export default function Login() {
                 </div>
                 <div className="mb-3">
                 <Link style={{textDecoration:'none'}} to="/company">
-                  <button type="Submit" class="form-control s text-white">
+                  <button type="Submit" class=" form-control s text-white">
                     Register as a Company
                   </button>
                 </Link>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as ScrollLink, Element } from "react-scroll";
 import "./CompanyHome.css";
-import VacancySection from "./VacancySection";
+import VacancySection from "./VavancySection/VacancySection";
 
 function ScrollToTopButton() {
   return (

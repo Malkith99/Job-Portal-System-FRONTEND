@@ -1,9 +1,9 @@
 import React from "react";
 import Footer from "../../../footer/Footer";
 import MainHeader from "../../../mainHeader/MainHeader";
-import VacancySection from "../../company/home/companyHome/VacancySection";
+import StudentApplication from "../../company/home/companyHome/VavancySection/VacancySection";
 
-const StudentApplication = ({ isLogedIn, onLogout }) => {
+const VacancySection = ({ isLogedIn, onLogout }) => {
     const content = (
         <>
           
@@ -12,10 +12,15 @@ const StudentApplication = ({ isLogedIn, onLogout }) => {
   return (
     <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-      <VacancySection disabled={true} data={null}/>
+      <div className='container'>
+        <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Job Application :</h1>
+      </div>
+      
+      <StudentApplication disabled={true} data={null}/>  
+      {/* meka danata link kre.oka apita wens krnn wenwa student kenk job ekakata apply kraddi fill krna fprm ekata */}
       <Footer />
     </div>
   );
 };
 
-export default StudentApplication;
+export default VacancySection;
