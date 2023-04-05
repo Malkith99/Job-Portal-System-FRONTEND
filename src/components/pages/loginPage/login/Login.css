@@ -21,13 +21,18 @@
 }
 .s {
   height: 45px;
-  width: 35rem;
   background-color: rgb(7, 7, 73);
   border-radius: 10px;
   border-color: rgb(7, 7, 73);
   font-size: 22px;
   margin-top: 30px;
   font-weight: bolder;
+}
+
+@media only screen and (max-width: 850px) {
+  .s {
+    font-size: 12px;
+  }
 }
 
 .l {

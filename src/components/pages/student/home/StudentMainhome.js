@@ -14,9 +14,6 @@ function StudentMainhome({ isLogedIn, onLogout }) {
     <div>
       <div>
         <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}
-          content={content}
-          isLogedIn={isLogedIn}
-          onLogout={onLogout}
         />
         <StudentHome/>
         <Footer/>

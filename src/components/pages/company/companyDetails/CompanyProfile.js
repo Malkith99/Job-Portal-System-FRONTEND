@@ -26,7 +26,7 @@ export const CompanyProfile = () => {
  
       <div className='container1-flex-item'>
           <span className=''>Contact Info:</span>
-          <p className='profile form-control'>Contact Info</p>
+          <p className='profile form-control'>Contact Info of the Company</p>
         </div>
 
         <div className='container1-flex-item'>

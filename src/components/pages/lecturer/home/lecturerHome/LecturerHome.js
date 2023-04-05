@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as ScrollLink, Element } from "react-scroll";
 import "./LecturerHome.css";
+import { useNavigate } from "react-router-dom";
 
 function ScrollToTopButton() {
   return (
@@ -29,6 +30,9 @@ function ScrollToTopButton() {
 }
 
 function LecturerHome() {
+
+  const navigate = useNavigate()
+  
   const [jobapplications] = useState([
     {
       title: "Job Application 1:",
@@ -142,6 +146,9 @@ function LecturerHome() {
                     <div className="button-div">
                       <button
                         className="btn btn-primary butdet"
+                        onClick={()=>{
+                          navigate("/response")
+                        }}
                         style={{ background: "#2B547E", border: "none", marginRight: "5px", marginLeft:"-1px" }}
                       >
                         See the Application

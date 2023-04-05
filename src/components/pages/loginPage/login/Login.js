@@ -52,8 +52,40 @@ export default function Login() {
               </form>
             </div>
           </div>
-          {/*column2*/}
           <div className="col">
+            <p className="loginN">Register :</p>
+            <div className="inputbox">
+              <form className="loginbox-content">
+                <div class="mb-3">
+                  <Link style={{textDecoration:'none'}} to="/student-register">
+                  <button type="Submit" class="form-control s text-white">
+                    Register as a Student
+                  </button>
+                </Link>
+                  <div id="UserNameHelp" class="form-text"></div>
+                </div>
+                <div className="mb-3">
+                <Link style={{textDecoration:'none'}} to="/lecturer">
+                  <button type="Submit" class="form-control s text-white">
+                    Register as a Lecturer
+                  </button>
+                </Link>
+                </div>
+                <div className="mb-3">
+                <Link style={{textDecoration:'none'}} to="/company">
+                  <button type="Submit" class="form-control s text-white">
+                    Register as a Company
+                  </button>
+                </Link>
+                </div>
+                <button type="Log In" class="btn btn-primary">
+                  LOG IN
+                </button>
+              </form>
+            </div>
+          </div>
+          {/*column2*/}
+          {/* <div className="col">
             <p className="loginN">Register :</p>
             <div className="loginbox-content">
               <div className="student">
@@ -78,7 +110,7 @@ export default function Login() {
                 </Link>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
