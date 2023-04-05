@@ -146,9 +146,9 @@ function LecturerHome() {
                     <div className="button-div">
                       <button
                         className="btn btn-primary butdet"
-                        onClick={()=>{
-                          navigate("/student-application")
-                        }}
+                        // onClick={()=>{
+                        //   navigate("/student-application")
+                        // }}
                         style={{ background: "#2B547E", border: "none", marginRight: "5px", marginLeft:"-1px" }}
                       >
                         See the Application

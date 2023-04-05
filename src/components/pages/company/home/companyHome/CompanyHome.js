@@ -3,8 +3,10 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as ScrollLink, Element } from "react-scroll";
 import "./CompanyHome.css";
 import VacancySection from "./VavancySection/VacancySection";
+import { useNavigate } from "react-router-dom";
 
 function ScrollToTopButton() {
+
   return (
     <button
       onClick={() => {
@@ -30,6 +32,9 @@ function ScrollToTopButton() {
 }
 
 function CompanyHome() {
+
+  const navigate = useNavigate()
+
   const [jobpoolm] = useState([
     {
       title: "Job Vacancy 1:",
@@ -155,6 +160,9 @@ function CompanyHome() {
                     <div className="button-div">
                       <button
                         className="btn btn-primary butdet"
+                        onClick={()=>{
+                          navigate("/company-job-pool")
+                        }}
                         style={{ background: "#2B547E", border: "none", marginRight: "5px", marginLeft:"-1px" }}
                       >
                         See the Details

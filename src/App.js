@@ -12,6 +12,7 @@ import LectureMainHome from "./components/pages/lecturer/home/LectureMainHome";
 import LecturerDetails from "./components/pages/lecturer/lectureDetails/LecturerDetails";
 import VacancySection from "./components/pages/company/home/companyHome/VavancySection/VacancySection";
 import StudentApplication from "./components/pages/student/studentApplication/StudentApplication";
+import { CompanyJobPool } from "./components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool";
 
 function App() {
   const [isLogedIn, setIsLogedIn] = useState(true);
@@ -35,7 +36,8 @@ function App() {
         <Route path="/company-details" element={<CompanyDetails isLogedIn={isLogedIn} onLogout={handlLogOut}/>}/>
         <Route path="/lecturer-details" element={<LecturerDetails isLogedIn={isLogedIn} onLogout={handlLogOut}/>}/>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/student-application" element={<StudentApplication isLogedIn={isLogedIn} onLogout={handlLogOut}/>} />
+        {/* <Route path="/student-application" element={<StudentApplication isLogedIn={isLogedIn} onLogout={handlLogOut}/>} /> */}
+        <Route path="/company-job-pool" element={<CompanyJobPool isLogedIn={isLogedIn} onLogout={handlLogOut}/>} />
         {/* <Route path="/registerStudent" element={<StudentRegistrationBasicPage />} /> */}
       </Routes>
     </Router>
