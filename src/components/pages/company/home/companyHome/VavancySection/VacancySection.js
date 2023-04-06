@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import "./VacancySection.css";
 const VacancySection = (props) => {
 
       const [file, setFile] = useState(
@@ -16,12 +16,32 @@ const VacancySection = (props) => {
           <div className='container'>
 
             <form>
+              <div className='flex-container1'>
+                <div className='container1-flex-item'
+                      style={{display:"flex",flexDirection:"column"}}
+                >
+                  <img className='profile-photo-3' src={file} alt="Profile Photo"/>
+                  
+                  <label for="flyer" className="">
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Flyer
+                  </label>
+                  <div className="file-in">
+                    <input
+                      type="file"
+                      class=" form-control"
+                      onChange={handleChange}
+                      disabled={props.disabled}
+                    />
+                  </div>
+
+                </div>
+              </div>
               <div className="flex-container1">
                 <div
                   className="container1-flex-item"
                 >
                   <label for="jobPosition" className="">
-                    <span className="asterisk-mark">*</span>Job Position
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Job Position
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -36,7 +56,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="contactNumber" className="">
-                    <span className="asterisk-mark">*</span>Contact Number
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Contact Number
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -50,7 +70,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="background" className="">
-                    <span className="asterisk-mark">*</span>Background
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Background
                   </label>
                   <div
                     className="input-filed input-filed-cls"
@@ -72,7 +92,7 @@ const VacancySection = (props) => {
                       <option value="Background4">Doctor</option>
                     </select>
                   </div>
-                  <label for="flyer" className="">
+                  {/* <label for="flyer" className="">
                     <span className="asterisk-mark">*</span>Flyer
                   </label>
                   <div className="input-filed input-filed-cls">
@@ -82,13 +102,13 @@ const VacancySection = (props) => {
                       onChange={handleChange}
                       disabled={props.disabled}
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <div
                   className="container1-flex-item"
                 >
                   <label for="companyName" className="">
-                    <span className="asterisk-mark">*</span>Company Name
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Company Name
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -101,7 +121,7 @@ const VacancySection = (props) => {
                     ></input>
                   </div>
                   <label for="salaryRange" className="">
-                    <span className="asterisk-mark">*</span>Salary Range
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Salary Range
                   </label>
                   <div
                     className="input-filed input-filed-cls"
@@ -130,7 +150,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="levelOfEducation" className="">
-                    <span className="asterisk-mark">*</span>Level of Education
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Level of Education
                   </label>
                   <div className="input-filed input-filed-cls">
                     <select
@@ -157,7 +177,7 @@ const VacancySection = (props) => {
                   className="container1-flex-item"
                 >
                   <label for="companyEmail" className="">
-                    <span className="asterisk-mark">*</span>Company Email
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Company Email
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -170,7 +190,7 @@ const VacancySection = (props) => {
                     ></input>
                   </div>
                   <label for="companyLocation" className="">
-                    <span className="asterisk-mark">*</span>Company Location
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Company Location
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -183,7 +203,7 @@ const VacancySection = (props) => {
                     ></input>
                   </div>
                   <label for="dueDate" className="">
-                    <span className="asterisk-mark">*</span>Due Date
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Due Date
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -202,7 +222,7 @@ const VacancySection = (props) => {
                   className="container2-flex-item1"
                 >
                   <label for="skills" className="">
-                    <span className="asterisk-mark">*</span>Skills
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Skills
                   </label>
                   <div className="input-filed input-filed-cls">
                     <textarea
@@ -217,7 +237,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="jobDescription" className="">
-                    <span className="asterisk-mark">*</span>Job Description
+                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Job Description
                   </label>
                   <div className="input-filed input-filed-cls">
                     <textarea
@@ -236,7 +256,7 @@ const VacancySection = (props) => {
               <div className={`${props.disabled && "d-none"}`}>
                 <div className="input-filed input-filed-cls">
                   <button type="submit" className="btn btn-primary">
-                    Post a Job
+                    Post the Job
                   </button>
                 </div>
               </div>

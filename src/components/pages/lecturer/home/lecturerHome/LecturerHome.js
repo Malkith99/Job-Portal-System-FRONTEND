@@ -146,16 +146,16 @@ function LecturerHome() {
                     <div className="button-div">
                       <button
                         className="btn btn-primary butdet"
-                        // onClick={()=>{
-                        //   navigate("/student-application")
-                        // }}
-                        style={{ background: "#2B547E", border: "none", marginRight: "5px", marginLeft:"-1px" }}
+                        onClick={()=>{
+                          navigate("/student-application-for-lecturer")
+                        }}
+                        style={{ background: "#2B547E", border: "none", marginRight: "25px", marginLeft:"-1px" }}
                       >
                         See the Application
                       </button>
                       <button
                         className="btn btn-primary accept butdet"
-                        style={{ background: "rgb(69, 117, 85)", marginRight: "5px" }}
+                        style={{ background: "rgb(69, 117, 85)", marginRight: "25px" }}
                       >
                         Approve
                       </button>

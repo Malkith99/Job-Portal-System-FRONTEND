@@ -4,8 +4,7 @@ import Footer from '../../../../../footer/Footer'
 import VacancySection from '../VavancySection/VacancySection'
 import { Link } from "react-router-dom";
 
-export const CompanyJobPool = ({ isLogedIn, onLogout }) => {
-  
+export const UpdateJob = ({ isLogedIn, onLogout }) => {
     const content = (
         <>
           <Link to="/company/home">Company Home</Link>
@@ -13,11 +12,11 @@ export const CompanyJobPool = ({ isLogedIn, onLogout }) => {
       );
   return (
     <div>
-        <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+        <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
         <div className='container'>
             <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Company Job Vacancy :</h1>
         </div>
-        <VacancySection disabled={true} data={null}/>
+        <VacancySection disabled={false} data={null}/>
         <Footer/>
     </div>
   )

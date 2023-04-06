@@ -163,13 +163,16 @@ function CompanyHome() {
                         onClick={()=>{
                           navigate("/company-job-pool")
                         }}
-                        style={{ background: "#2B547E", border: "none", marginRight: "5px", marginLeft:"-1px" }}
+                        style={{ background: "#2B547E", border: "none", marginRight: "25px", marginLeft:"-1px" }}
                       >
                         See the Details
                       </button>
                       <button
                         className="btn btn-primary accept butdet"
-                        style={{ background: "rgb(69, 117, 85)", marginRight: "5px" }}
+                        onClick={()=>{
+                          navigate("/update-company-job")
+                        }}
+                        style={{ background: "rgb(69, 117, 85)", marginRight: "25px" }}
                       >
                         Update
                       </button>
@@ -218,6 +221,9 @@ function CompanyHome() {
                       >
                         <button
                           className="btn btn-primary butdet"
+                          onClick={()=>{
+                            navigate("/student-application-for-company")
+                          }}
                           style={{ background: "#2B547E", marginLeft: "-12px" }}
                         >
                           See the Details

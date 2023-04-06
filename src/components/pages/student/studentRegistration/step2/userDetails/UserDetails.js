@@ -128,7 +128,7 @@ function UserDetails() {
                       type="date"
                       className="form-control"
                       placeholder="DOB"
-                      required
+                      //required
                     ></input>
                   </div>
                 </div>
