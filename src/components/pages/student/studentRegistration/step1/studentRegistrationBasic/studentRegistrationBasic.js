@@ -14,23 +14,15 @@ import axios from "axios";
 //import Profile from "../../profile/profile";
 //import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
-
 function StudentRegistrationBasic() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleEmailChange = (event) => {
+ /*  const handleEmailChange = (event) => {
     setEmail(event.target.value);
     console.log("email", email);
-  };
+  }; */
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -63,17 +55,20 @@ function StudentRegistrationBasic() {
           password,
       }
      // console.log(newStudent);
-     axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
-      //alert("Student Added frontEnd")
+    /*  axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
+      alert("Student Added frontEnd")
      }).catch((err)=>{
       alert(err)
-     });
+     }); */
+     axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
+      console.log(res.data);
+      alert("Student Added");
+     }).catch(error=>console.error('Error: ',error));
 
-     toast.success("Successfully registered!");
+     //toast.success("Successfully registered!");
      setEmail("");
      setPassword("");
-     setConfirmPassword("");
-    //<Profile/>          
+     setConfirmPassword("");      
   
   } ;
 

@@ -31,7 +31,12 @@ import axios from "axios";
             email,
             password,
         }
-        console.log(newStudent);
+        //console.log(newStudent);
+/*        axios.post("http://localhost:1234/student/login-student",newStudent ).then(()=>{
+        //alert("Student Log In")
+       }).catch((err)=>{
+        alert(err)
+       }); */
        axios.post("http://localhost:1234/student/login-student",newStudent ).then(()=>{
         //alert("Student Log In")
        }).catch((err)=>{
@@ -111,7 +116,7 @@ import axios from "axios";
             <div className="student">
               <Link to="/student-register">
                 <Button variant="contained">
-                  Sign Up {/*<ArrowForwardIosIcon />*/}
+                  Sign Up 
                 </Button>
               </Link>
             </div>

@@ -1,6 +1,6 @@
 import './App.css';
-import CounterCalss from './components/CounterClass';
-import CounterFunction from './components/CounterFunction';
+//import CounterCalss from './components/CounterClass';
+//import CounterFunction from './components/CounterFunction';
 import Header from './components/Header';                        //import header file from the components
 import AddStudent from './components/AddStudent';
 import {BrowserRouter , Route, Routes } from "react-router-dom"

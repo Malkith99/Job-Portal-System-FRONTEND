@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../../../../footer/Footer";
-import MainHeader from "../../../../mainHeader/MainHeader";
-import StudentRegistrationBasic from "./studentRegistrationBasic/StudentRegistrationBasic";
+//import Footer from "../../../../footer/Footer";
+//import MainHeader from "../../../../mainHeader/MainHeader";
+import StudentRegistrationBasic from "./studentRegistrationBasic/studentRegistrationBasic";
+
 
 export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {
   const content = (
@@ -14,16 +15,16 @@ export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {
   return (
     <div>
       <div className="page-container">
-        <MainHeader
+       {/* <MainHeader
           content={content}
           isLogedIn={isLogedIn}
           onLogout={onLogout}
-        />
+  />*/}
         <div className="content-wrap"></div>
         <div>
           <StudentRegistrationBasic />
         </div>
-        <Footer />
+        {/*<Footer />*/}
       </div>
     </div>
   );
