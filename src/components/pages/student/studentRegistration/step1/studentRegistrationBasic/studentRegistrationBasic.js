@@ -65,6 +65,8 @@ function StudentRegistrationBasic() {
       alert("Student Added");
      }).catch(error=>console.error('Error: ',error));
 
+     
+
      //toast.success("Successfully registered!");
      setEmail("");
      setPassword("");

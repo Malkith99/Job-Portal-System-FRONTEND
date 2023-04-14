@@ -37,16 +37,18 @@ import axios from "axios";
        }).catch((err)=>{
         alert(err)
        }); */
-       axios.post("http://localhost:1234/student/login-student",newStudent ).then(()=>{
-        //alert("Student Log In")
-       }).catch((err)=>{
-        alert(err)
-       });
-  
+       axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
+
+        console.log(res.data);
+       // alert("Successfully Logged In");
+        alert(res.data);
+       }).catch(error=>console.error('Error: ',error));
+
+
        toast.success("Successfully Logged In");
        setEmail("");
        setPassword("");
-    } ;
+    } 
   
   
     return (
