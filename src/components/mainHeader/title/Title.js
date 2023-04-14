@@ -16,7 +16,7 @@ function Title() {
         </Link>
         <div className="p-2 flex-grow-1 text-center title">
           <div>
-            <b>Job Portral System UOR</b>
+            <b>Job Portal System UOR</b>
           </div>
           {/* <div><span className="bot-title">University of Ruhuna</span></div> */}
         </div>

@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\components",
+    "\\src\\components\\pages",
+    "\\src\\components\\pages\\student",
+    "\\src\\components\\pages\\student\\studentRegistration",
+    "\\src\\components\\pages\\student\\studentRegistration\\step2",
+    "\\src\\components\\pages\\student\\studentRegistration\\step2\\userDetails"
+  ],
+  "SelectedNode": "\\src\\components\\pages\\student\\studentRegistration\\step2\\UserDetailsMain.js",
+  "PreviewInSolutionExplorer": false
+}

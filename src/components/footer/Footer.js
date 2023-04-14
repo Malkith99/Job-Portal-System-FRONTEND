@@ -10,7 +10,7 @@ function Footer() {
           {/*column1*/}
           <div className="col">
             <p className="tit">
-              <u>UOR JOB PORTRAL SYSTEM </u>
+              <u>UOR JOB PORTAL SYSTEM </u>
             </p>
             <p>
               The Faculty of Engineering of University of Ruhuna was established

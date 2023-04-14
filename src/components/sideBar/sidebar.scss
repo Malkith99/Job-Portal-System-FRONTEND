@@ -1,7 +1,9 @@
-.sidebar{
+.region{
+    width:200px
+}
+.line{
     // background-color: rgb(196, 122, 174);
-      flex: 1;
-      
+      flex: 1;      
       border-right: 0.5px  solid lightgrey;
       min-height: 100vh;
       background-color: white;
@@ -35,6 +37,10 @@
                   margin-top: 10px;
                   margin-bottom: 10px;
                   letter-spacing: 0.1px;
+              }
+              li a {
+                text-decoration: none;
+                color: inherit;
               }
               li{
                   display: flex;

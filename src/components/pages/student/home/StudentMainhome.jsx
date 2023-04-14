@@ -6,11 +6,11 @@ import Footer from '../../../footer/Footer';
 
 function StudentMainhome({isLogedIn, onLogout}) {
     
-  const content = <><Link to="/">Student Home</Link></>;
   return (
     <div>
-    <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
+  <strong>  <MainHeader content={'Student Home'} isLogedIn={isLogedIn} onLogout={onLogout}/></strong>
     <StudentHome/>
+    <h1>hhhhhhhhhhh</h1>
     <Footer/>
     </div>
   )
