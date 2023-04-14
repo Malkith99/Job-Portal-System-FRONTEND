@@ -9,6 +9,7 @@ import Home from './components/Home/Home';
 import StudentRegistrationBasicPage from './components/pages/student/studentRegistration/step1/StudentRegistrationBasicPage';
 import Profile from './components/pages/student/profile/profile';
 import StudentSignIn from './components/pages/student/signIn/signIn';
+import StudentHome from './components/pages/student/home/StudentHome';
 
 
 function App() {         
@@ -21,6 +22,7 @@ function App() {
           <Route path="/student-register" element={<StudentRegistrationBasicPage/> }> </Route>
           <Route path="/student-signIn" element={<StudentSignIn/> }> </Route>
           <Route path="/student-profile" element={<Profile/> }> </Route>
+          <Route path="/student-home" element={<StudentHome/> }> </Route>
           <Route path="/add" element ={<AddStudent/>} ></Route>
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>

@@ -5,8 +5,6 @@ import { Link } from "react-router-dom";
 
 
 export default function Home(){
-    //<Route path="/student-register" element={<StudentRegistrationBasicPage isLogedIn={isLogedIn} onLogout={handlLogOut}/>} />
-
     return(
         <div className="container">
 
