@@ -11,10 +11,14 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-  
+import { Modal} from 'react-bootstrap';
+
+
   export default function StudentSignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [show, setShow] = useState(false);
+
 
     const handleSubmit = (event) => {   // function that execute when pressing submit button"
       event.preventDefault();
@@ -38,18 +42,36 @@ import axios from "axios";
         alert(err)
        }); */
        axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
-
-        console.log(res.data);
+        if(res.data.status==="ok"){
+          const token=res.data.data;
+          setTimeout(() => {
+            setShow(true);
+            window.location.href = '/student-home';
+          }, 1000);
+        }else{
+          window.alert(res.data.error);
+        }
+        //console.log(res.data);
        // alert("Successfully Logged In");
-        alert(res.data);
+       // setAlertMessage(res.data.message);
+        //alert(res.data.message);
        }).catch(error=>console.error('Error: ',error));
 
 
-       toast.success("Successfully Logged In");
+       //toast.success("Successfully Logged In");
        setEmail("");
        setPassword("");
     } 
-  
+    <Modal show={show} onHide={() => setShow(false)}>
+  <Modal.Header closeButton>
+    <Modal.Title>Login Successful</Modal.Title>
+  </Modal.Header>
+  <Modal.Footer>
+    <Button variant="primary" onClick={() => setShow(false)}>
+      OK
+    </Button>
+  </Modal.Footer>
+</Modal>
   
     return (
       <div>
@@ -95,12 +117,12 @@ import axios from "axios";
                       fullWidth
                       margin="normal"
                     />
-                    
-                    {/* <Link to="/registerStudentUser"> */}
-                    { <Button variant="contained" color="primary" type="submit">
-                                          Sign In
-                                      </Button>}
-                    {/* </Link> */}
+                    <div>
+                    <Button variant="contained" color="primary" type="submit"> Sign In</Button>
+                      {/* {alertMessage && 
+                                 <div className="alert">{alertMessage}</div>
+                      } */}
+                    </div>
                   </form>
                 </CardContent>
               </Card>
