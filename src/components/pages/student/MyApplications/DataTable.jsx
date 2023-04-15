@@ -10,13 +10,12 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 
-
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "lightBlue",
     color: theme.palette.common.black,
     fontSize: 16,
-    position:"sticky",
+    position: "sticky",
     top: 0,
     zIndex: 1,
   },
@@ -42,12 +41,22 @@ function createData(id, name, position, date) {
 const rows = [
   createData(1, "Access Engineering PLC", "Developer", "2022-01-01"),
   createData(2, "Sysco Labs", "Designer", "2022-01-02"),
-  createData(3, "Nawaloka Engineering Company (Pvt) Ltd.", "Manager", "2022-01-03"),
+  createData(
+    3,
+    "Nawaloka Engineering Company (Pvt) Ltd.",
+    "Manager",
+    "2022-01-03"
+  ),
   createData(4, "99X Technology", "Developer", "2022-01-04"),
   createData(5, "MTD Walkers PLC", "Manager", "2022-01-05"),
   createData(6, "Aess Engineering PLC", "Developer", "2022-01-01"),
   createData(7, "Sysco Labs", "Designer", "2022-01-02"),
-  createData(8, "Nawaloka Engineering Company (Pvt) Ltd.", "Manager", "2022-01-03"),
+  createData(
+    8,
+    "Nawaloka Engineering Company (Pvt) Ltd.",
+    "Manager",
+    "2022-01-03"
+  ),
   createData(9, "99X Technology", "Developer", "2022-01-04"),
   createData(10, "MTD Walkers PLC", "Manager", "2022-01-05"),
 ];
@@ -56,17 +65,23 @@ export default function CustomizedTables() {
   const [selectedId, setSelectedId] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState("");
 
-  function handleRowClick(id) {
+  function handleViewButtonClick(id) {
+    setSelectedId(id);
+  }
+  const filteredRows =
+    searchQuery === ""
+      ? rows
+      : rows.filter((row) =>
+          row.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+  function handleViewButtonClick(id) {
     window.location.href = `/profile/${id}`;
   }
 
-  const filteredRows = searchQuery === "" ? rows : rows.filter((row) =>
-  row.name.toLowerCase().includes(searchQuery.toLowerCase())
-);
-
   return (
     <>
-      {selectedId && (
+      {selectedId !== null && (
         <div>
           <h2>Profile of {rows[selectedId - 1].name}</h2>
           <p>Position: {rows[selectedId - 1].position}</p>
@@ -76,7 +91,7 @@ export default function CustomizedTables() {
           </Button>
         </div>
       )}
-      <TableContainer component={Paper} >
+      <TableContainer component={Paper}>
         <div style={{ margin: 20 }} />
         <div style={{ marginLeft: 30, marginRight: 30 }}>
           <TextField
@@ -85,15 +100,13 @@ export default function CustomizedTables() {
             variant="outlined"
             margin="normal"
             size="small"
-           
             style={{ width: 400 }}
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-          /> 
-           <div style={{ margin: 20 }} />
+          />
+          <div style={{ margin: 20 }} />
           <Table>
-        
-            <TableHead >
+            <TableHead>
               <TableRow>
                 <StyledTableCell align="center" width={250}>
                   Company Name
@@ -106,9 +119,7 @@ export default function CustomizedTables() {
             <TableBody>
               {filteredRows.map((row) => (
                 <StyledTableRow
-
-                  key={row.id}
-                  onClick={() => handleRowClick(row.id)}
+                  
                 >
                   <StyledTableCell align="center">{row.name}</StyledTableCell>
                   <StyledTableCell align="center">
@@ -119,7 +130,7 @@ export default function CustomizedTables() {
                     <Button
                       variant="contained"
                       color="primary"
-                      onClick={() => handleRowClick(row.id)}
+                      onClick={() => handleViewButtonClick(row.id)}
                     >
                       View
                     </Button>
