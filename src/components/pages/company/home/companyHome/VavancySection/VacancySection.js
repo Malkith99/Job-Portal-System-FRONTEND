@@ -23,7 +23,7 @@ const VacancySection = (props) => {
                   <img className='profile-photo-3' src={file} alt="Profile Photo"/>
                   
                   <label for="flyer" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Flyer
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Flyer
                   </label>
                   <div className="file-in">
                     <input
@@ -41,7 +41,7 @@ const VacancySection = (props) => {
                   className="container1-flex-item"
                 >
                   <label for="jobPosition" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Job Position
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Job Position
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -56,7 +56,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="contactNumber" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Contact Number
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Contact Number
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -70,7 +70,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="background" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Background
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Background
                   </label>
                   <div
                     className="input-filed input-filed-cls"
@@ -108,7 +108,7 @@ const VacancySection = (props) => {
                   className="container1-flex-item"
                 >
                   <label for="companyName" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Company Name
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Company Name
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -121,7 +121,7 @@ const VacancySection = (props) => {
                     ></input>
                   </div>
                   <label for="salaryRange" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Salary Range
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Salary Range
                   </label>
                   <div
                     className="input-filed input-filed-cls"
@@ -150,7 +150,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="levelOfEducation" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Level of Education
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Level of Education
                   </label>
                   <div className="input-filed input-filed-cls">
                     <select
@@ -177,7 +177,7 @@ const VacancySection = (props) => {
                   className="container1-flex-item"
                 >
                   <label for="companyEmail" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Company Email
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Company Email
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -190,7 +190,7 @@ const VacancySection = (props) => {
                     ></input>
                   </div>
                   <label for="companyLocation" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Company Location
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Company Location
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -203,7 +203,7 @@ const VacancySection = (props) => {
                     ></input>
                   </div>
                   <label for="dueDate" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Due Date
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Due Date
                   </label>
                   <div className="input-filed input-filed-cls">
                     <input
@@ -222,7 +222,7 @@ const VacancySection = (props) => {
                   className="container2-flex-item1"
                 >
                   <label for="skills" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Skills
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Skills
                   </label>
                   <div className="input-filed input-filed-cls">
                     <textarea
@@ -237,7 +237,7 @@ const VacancySection = (props) => {
                   </div>
 
                   <label for="jobDescription" className="">
-                    <span className="asterisk-mark"><div className={`${props.disabled && "d-none"}`}>*</div></span>Job Description
+                    <span className="asterisk-mark"><span className={`${props.disabled && "d-none"}`}>* </span></span>Job Description
                   </label>
                   <div className="input-filed input-filed-cls">
                     <textarea

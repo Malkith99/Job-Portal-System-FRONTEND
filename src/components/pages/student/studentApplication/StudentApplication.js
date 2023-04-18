@@ -252,7 +252,7 @@ const StudentApplication = (props) => {
 
                           <select className="form-select" name="Reference By" id="lecturerReference" disabled={props.disabled}>
                               <option selected disabled>
-                                Select ythe Lecturer
+                                Select the Lecturer
                               </option>
                               <option value="Lecture1">Name of the Lecture 1</option>
                               <option value="Lecture2">Name of the Lecture 2</option>
