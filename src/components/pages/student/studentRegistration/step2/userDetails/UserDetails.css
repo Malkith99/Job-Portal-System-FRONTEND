@@ -4,7 +4,7 @@
   display: flex;
   justify-content: flex-start;
   column-gap: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .flex-container1,

@@ -31,7 +31,7 @@ function UserDetails() {
           <NumberInComplet digit="2" status="User" />
         </div>
       </div>
-      <div>
+      <div style={{marginTop:"50px"}}>
         <form action="/student/home">
           <h4 className="sub-headings">Personal info: </h4>
           <div className="flex-container1">
