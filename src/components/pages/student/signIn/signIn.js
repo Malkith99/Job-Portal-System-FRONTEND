@@ -24,7 +24,6 @@ import { Modal} from 'react-bootstrap';
       event.preventDefault();
   
       if (!email || !password) {
-       // toast.error("Please fill in all fields");
         alert("Please fill all fields");
         return;
       }
@@ -35,18 +34,15 @@ import { Modal} from 'react-bootstrap';
             email,
             password,
         }
-        //console.log(newStudent);
-/*        axios.post("http://localhost:1234/student/login-student",newStudent ).then(()=>{
-        //alert("Student Log In")
-       }).catch((err)=>{
-        alert(err)
-       }); */
        axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
         if(res.data.status==="ok"){
-          const token=res.data.data;
+          const token=res.data.token;
+          //const token=res.data.data;
+          window.localStorage.setItem("token",token);
+          window.location.href = '/student-home';
           setTimeout(() => {
             setShow(true);
-            window.location.href = '/student-home';
+            alert("Successfully Logged In");
           }, 1000);
         }else{
           window.alert(res.data.error);
@@ -58,7 +54,6 @@ import { Modal} from 'react-bootstrap';
        }).catch(error=>console.error('Error: ',error));
 
 
-       //toast.success("Successfully Logged In");
        setEmail("");
        setPassword("");
     } 
