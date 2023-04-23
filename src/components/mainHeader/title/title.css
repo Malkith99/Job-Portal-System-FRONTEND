@@ -1,0 +1,53 @@
+.title-top {
+    background-color: #009fe5;
+    padding-top: 3px;
+    padding-bottom: 0.1px;
+    height: 140px;
+    width: 100%;
+  
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .title {
+    width: fit-content;
+    height: fit-content;
+    /* border-bottom: white solid 2px; */
+    text-decoration: underline white;
+    text-underline-offset: 15px;
+    vertical-align: middle !important;
+    text-align: center;
+    letter-spacing: 15px;
+    font-size: 45px;
+    align-items: center;
+    justify-content: center;
+    padding-right: 8px;
+    color: white;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .uniLogo {
+    height: 145px;
+  }
+  
+  /* .bot-title{
+      letter-spacing: normal;
+      font-size: 20px;
+      align-items: center;
+      justify-content: center;
+      padding-right: 8px;
+      color: white;
+      font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align:center ;
+  } */
+  
+  @media only screen and (max-width: 1010px) {
+    .title {
+      font-size: 35px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 10px;
+    }
+  }
+  
