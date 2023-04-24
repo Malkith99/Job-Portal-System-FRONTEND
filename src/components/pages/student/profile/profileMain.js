@@ -1,38 +1,41 @@
-import './profile.css';
-import React,{useState,useEffect} from 'react';  //useEffect import from react hook and used in function based approach
-/* import axios from "axios";
-import Button from "@mui/material/Button"; */
-import { Link } from "react-router-dom";
+import * as React from "react";
+
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 import { Profile } from "./profile";
-//import Sidebar from "../../../sideBar/sideBar";
+import Sidebar from "../../../sideBar/sideBar";
+import { Link } from "react-router-dom";
 
 
-export default function StudentProfile(){
+export default function MyApplications({ isLogedIn, onLogout }) {
+  const [searchQuery, setSearchQuery] = React.useState("");
 
-/*     const [text, setText] = useState("");
+  // const handleSearch = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
 
-    function handleChange(event) {
-      setText(event.target.value);
-    } */
-    return (
-      <>
-      <strong>
+
+  const content = (
+    <>
+      <Link to="/student/home">Student Home</Link>
+      <Link to="/student/MyApplications"> My Applications</Link>
+      
+    </>
+
+  );
+  return (
+    <>
         <MainHeader
-          content={"My Profile"}
-/*           isLogedIn={isLogedIn}
-          onLogout={onLogout} */
+          content={content}
+          isLogedIn={isLogedIn}
+          onLogout={onLogout}
         />
-       
-      </strong>
       <div style={{ display: "flex"}}>
-        {/* <Sidebar isLogedIn={isLogedIn} onLogout={onLogout} /> */}
+        
           <div style={{ borderBottomWidth: 10 }} />
           <Profile disabled={true} data ={null}/>
           <div style={{ borderLeftWidth: 10,borderTop:2000 }} />
         </div> <Footer />
-   
     </>
-      );
+  );
 }

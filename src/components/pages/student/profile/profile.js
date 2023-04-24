@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-//import Sidebar from "../../../sideBar/sideBar";
+import Sidebar from "../../../sideBar/sideBar";
 import { Link } from "react-router-dom";
 //import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
 //import "./CompanyRegister.css"
@@ -28,6 +28,14 @@ export const Profile = (props) => {
             <img className="profile-photo" src={file} alt="Profile Photo" />
             <label className="label-title">Profile Photo</label>
             <div style={{ padding: 10 }} />
+            {/* <div className="file-input-div">
+              <input
+                type="file"
+                class="file-input-field form-control"
+                onChange={handleChange}
+                disabled={props.disabled}
+              />
+            </div> */}
           </div>
           <div className="container1-flex-item2" >
             <div className="sub-flex-container">
