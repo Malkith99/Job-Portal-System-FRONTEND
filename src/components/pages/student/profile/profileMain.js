@@ -23,19 +23,25 @@ export default function MyApplications({ isLogedIn, onLogout }) {
     </>
 
   );
+  
+
   return (
     <>
+     
         <MainHeader
           content={content}
           isLogedIn={isLogedIn}
           onLogout={onLogout}
         />
+       
+     
       <div style={{ display: "flex"}}>
         
           <div style={{ borderBottomWidth: 10 }} />
           <Profile disabled={true} data ={null}/>
           <div style={{ borderLeftWidth: 10,borderTop:2000 }} />
         </div> <Footer />
+   
     </>
   );
 }
