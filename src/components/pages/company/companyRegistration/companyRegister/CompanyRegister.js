@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./CompanyRegister.css";
 
 function CompanyRegister() {
-
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
   );
@@ -20,28 +19,30 @@ function CompanyRegister() {
         <form action="/company/home">
           <div className="flex-container1">
             <div className="container1-flex-item">
-              
-            <div
-              className="container1-flex-item1 "
-              style={{ display: "flex", flexDirection: "column" }}
-            >
-              <img className="profile-photo-2" src={file} alt="Profile Photo" />
-              <label for="profilePhoto"className="">
-                <span  className="asterisk-mark">*</span> Profile Photo</label>
-              <div className="file-in">
-                <input
-                  type="file"
-                  class=" form-control"
-                  style={{}}
-                  onChange={handleChange}
+              <div
+                className="container1-flex-item1 "
+                style={{ display: "flex", flexDirection: "column" }}
+              >
+                <img
+                  className="profile-photo-2"
+                  src={file}
+                  alt="Profile Photo"
                 />
+                <label for="profilePhoto" className="">
+                  <span className="asterisk-mark">*</span> Profile Photo
+                </label>
+                <div className="file-in">
+                  <input
+                    type="file"
+                    className=" form-control"
+                    style={{}}
+                    onChange={handleChange}
+                  />
+                </div>
               </div>
-            </div>
-
             </div>
           </div>
           <div className="flex-container1">
-
             <div className="container1-flex-item">
               <label for="companyName" className="">
                 <span className="asterisk-mark">*</span>Company Name
@@ -73,7 +74,7 @@ function CompanyRegister() {
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="inputPassword"
                   placeholder="Enter a Password"
                 ></input>
@@ -110,7 +111,7 @@ function CompanyRegister() {
                 </label>
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   id="confirmPassword"
                   placeholder="Confirm the Password"
                 ></input>

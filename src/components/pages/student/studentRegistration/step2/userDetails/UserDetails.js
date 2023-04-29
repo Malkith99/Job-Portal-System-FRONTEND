@@ -31,7 +31,7 @@ function UserDetails() {
           <NumberInComplet digit="2" status="User" />
         </div>
       </div>
-      <div style={{marginTop:"50px"}}>
+      <div style={{ marginTop: "50px" }}>
         <form action="/student/home">
           <h4 className="sub-headings">Personal info: </h4>
           <div className="flex-container1">
@@ -44,7 +44,7 @@ function UserDetails() {
               <div className="file-input-div">
                 <input
                   type="file"
-                  class="file-input-field form-control"
+                  className="file-input-field form-control"
                   onChange={handleChange}
                 />
               </div>
@@ -328,7 +328,7 @@ function UserDetails() {
                 </div>
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea className="form-control" rows="3"></textarea>
                   </div>
                 </div>
               </div>
@@ -344,11 +344,11 @@ function UserDetails() {
                 </div>
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea className="form-control" rows="3"></textarea>
                   </div>
                   <div>
                     <Link to="/student/home">
-                      <button type="Submit" class="btn btn-primary">
+                      <button type="Submit" className="btn btn-primary">
                         Register
                       </button>
                     </Link>

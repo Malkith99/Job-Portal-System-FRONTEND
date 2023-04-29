@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Login.css";
 
-export default function Login() {
+export default function StudentLogin() {
   return (
     <div className="loginbox">
       <div className="container">
@@ -12,26 +12,26 @@ export default function Login() {
             <p className="loginN">Log In :</p>
             <div className="inputbox">
               <form className="loginbox-content">
-                <div className="mb-3">
-                  <label for="Username" className="form-label">
+                <div class="mb-3">
+                  <label for="Username" class="form-label">
                     <b>User Name</b>
                   </label>
                   <input
                     type="UserName"
-                    className="form-control"
+                    class="form-control"
                     id="Username"
                     aria-describedby="UserNameHelp"
                     placeholder="Enter Username"
                   ></input>
-                  <div id="UserNameHelp" className="form-text"></div>
+                  <div id="UserNameHelp" class="form-text"></div>
                 </div>
                 <div className="mb-3">
-                  <label for="exampleInputPassword1" className="form-label">
+                  <label for="exampleInputPassword1" class="form-label">
                     <b>Password</b>
                   </label>
                   <input
                     type="password"
-                    className="form-control"
+                    class="form-control"
                     id="exampleInputPassword1"
                     placeholder="Enter the Password"
                   ></input>
@@ -39,56 +39,52 @@ export default function Login() {
                 <div className="mb-3 form-check">
                   <input
                     type="checkbox"
-                    className="form-check-input"
+                    class="form-check-input"
                     id="exampleCheck1"
                   ></input>
-                  <label className="form-check-label" for="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">
                     Remember username
                   </label>
                 </div>
-                <button type="Log In" className="btn btn-primary">
+                <button type="Log In" class="btn btn-primary">
                   LOG IN
                 </button>
+                <a href="http://lms.eng.ruh.ac.lk/login/forgot_password.php">Forgotten your username or password?</a>
               </form>
             </div>
           </div>
-
+          
           {/*column2*/}
-          <div className="col">
+          {/* <div className="col">
             <p className="loginN">Register :</p>
             <div className="inputbox">
               <div className="loginbox-content">
-                <div className="mb-3">
-                  <Link
-                    style={{ textDecoration: "none" }}
-                    to="/student-register"
-                  >
-                    <button type="Submit" className="form-control student-button text-white">
-                      Register as a Student
-                    </button>
-                  </Link>
-                  <div id="UserNameHelp" className="form-text"></div>
+                <div class="mb-3">
+                  <Link style={{textDecoration:'none'}} to="/student-register">
+                  <button type="Submit" class="form-control s text-white">
+                    Register as a Student
+                  </button>
+                </Link>
+                  <div id="UserNameHelp" class="form-text"></div>
                 </div>
                 <div className="mb-3">
-                  <Link style={{ textDecoration: "none" }} to="/lecturer">
-                    <button type="Submit" className="form-control student-button text-white">
-                      Register as a Lecturer
-                    </button>
-                  </Link>
+                <Link style={{textDecoration:'none'}} to="/lecturer">
+                  <button type="Submit" class="form-control s text-white">
+                    Register as a Lecturer
+                  </button>
+                </Link>
                 </div>
                 <div className="mb-3">
-                  <Link style={{ textDecoration: "none" }} to="/company">
-                    <button
-                      type="Submit"
-                      className=" form-control student-button text-white"
-                    >
-                      Register as a Company
-                    </button>
-                  </Link>
+                <Link style={{textDecoration:'none'}} to="/company">
+                  <button type="Submit" class=" form-control s text-white">
+                    Register as a Company
+                  </button>
+                </Link>
                 </div>
+               
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

@@ -94,13 +94,13 @@ function StudentRegistrationBasic() {
               }}
             >
               <CardContent>
-                {/* <Typography
+                <Typography
                   sx={{ fontSize: 18, fontWeight: "bold" , marginTop: "1px" }}
                   color="Black"
                   gutterBottom
                 >
                   Step 1 : Registration
-                </Typography> */}
+                </Typography>
                 <form onSubmit={handleSubmit}>
                   <TextField
                     label="Email"

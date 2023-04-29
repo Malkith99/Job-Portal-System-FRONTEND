@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { Link as ScrollLink, Element } from "react-scroll";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Element, Link as ScrollLink } from "react-scroll";
 import "./CompanyHome.css";
 import VacancySection from "./VavancySection/VacancySection";
-import { useNavigate } from "react-router-dom";
 
 function ScrollToTopButton() {
-
   return (
     <button
       onClick={() => {
@@ -32,8 +31,7 @@ function ScrollToTopButton() {
 }
 
 function CompanyHome() {
-
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const [jobpoolm] = useState([
     {
@@ -55,7 +53,7 @@ function CompanyHome() {
     {
       title: "Job Vacancy 5:",
       text: "Job Vacancy 5 ",
-    }
+    },
   ]);
 
   const [responses] = useState([
@@ -85,9 +83,6 @@ function CompanyHome() {
     // },
   ]);
 
-
-
- 
   const [showScrollButton, setShowScrollButton] = useState(false);
 
   useEffect(() => {
@@ -110,7 +105,7 @@ function CompanyHome() {
               <ScrollLink to="vacancySection" smooth={true} duration={500}>
                 <button
                   type="Submit"
-                  class="scroll-btn text-white"
+                  className="scroll-btn text-white"
                   style={{
                     backgroundColor: "rgb(38, 56, 95)",
                     fontSize: "40px",
@@ -124,25 +119,27 @@ function CompanyHome() {
           </div>
           {/*column2*/}
           <div className="col scroll-btn-col">
-              <div>
-                <ScrollLink to="responsesSection" smooth={true} duration={500}>
-                  <button
-                    type="Submit"
-                    class="scroll-btn text-white"
-                    style={{
-                      backgroundColor: "#2B547E",
-                      fontSize: "40px",
-                      border: "none",
-                    }}
-                  >
-                    Responses
-                  </button>
-                </ScrollLink>
-              </div>
+            <div>
+              <ScrollLink to="responsesSection" smooth={true} duration={500}>
+                <button
+                  type="Submit"
+                  className="scroll-btn text-white"
+                  style={{
+                    backgroundColor: "#2B547E",
+                    fontSize: "40px",
+                    border: "none",
+                  }}
+                >
+                  Responses
+                </button>
+              </ScrollLink>
+            </div>
           </div>
         </div>
       </div>
-      <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>My Job Pool Section :</h1>
+      <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+        My Job Pool Section :
+      </h1>
       <div>
         <div>
           <section className="res-sec">
@@ -160,25 +157,36 @@ function CompanyHome() {
                     <div className="button-div">
                       <button
                         className="btn btn-primary butdet"
-                        onClick={()=>{
-                          navigate("/company-job-pool")
+                        onClick={() => {
+                          navigate("/company-job-pool");
                         }}
-                        style={{ background: "#2B547E", border: "none", marginRight: "25px", marginLeft:"-1px" }}
+                        style={{
+                          background: "#2B547E",
+                          border: "none",
+                          marginRight: "25px",
+                          marginLeft: "-1px",
+                        }}
                       >
                         See the Details
                       </button>
                       <button
                         className="btn btn-primary accept butdet"
-                        onClick={()=>{
-                          navigate("/update-company-job")
+                        onClick={() => {
+                          navigate("/update-company-job");
                         }}
-                        style={{ background: "rgb(69, 117, 85)", marginRight: "25px" }}
+                        style={{
+                          background: "rgb(69, 117, 85)",
+                          marginRight: "25px",
+                        }}
                       >
                         Update
                       </button>
                       <button
                         className="btn btn-primary reject butdet"
-                        style={{ background: "rgb(128, 57, 57)", marginRight: "5px" }}
+                        style={{
+                          background: "rgb(128, 57, 57)",
+                          marginRight: "5px",
+                        }}
                       >
                         Delete
                       </button>
@@ -193,15 +201,17 @@ function CompanyHome() {
       </div>
 
       <Element name="vacancySection">
-        <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Vacancy Section :</h1>
-        <VacancySection disabled={false} data={null}/>
+        <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+          Vacancy Section :
+        </h1>
+        <VacancySection disabled={false} data={null} />
       </Element>
 
       <Element name="responsesSection">
-        <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Responses Section :</h1>
-        <div
-          className=""
-        >
+        <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+          Responses Section :
+        </h1>
+        <div className="">
           <div>
             <section className="res-sec">
               <div className="container">
@@ -221,8 +231,8 @@ function CompanyHome() {
                       >
                         <button
                           className="btn btn-primary butdet"
-                          onClick={()=>{
-                            navigate("/student-application-for-company")
+                          onClick={() => {
+                            navigate("/student-application-for-company");
                           }}
                           style={{ background: "#2B547E", marginLeft: "-12px" }}
                         >

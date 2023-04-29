@@ -4,7 +4,7 @@ import ProfileLogo from "../profileLogo/ProfileLogo";
 import "./HeaderBottom.css";
 function HeaderBottom(props) {
   return (
-    <div class="header-bottom">
+    <div className="header-bottom">
       <div className="nav" style={{ height: "50px" }}>
         <nav style={{ width: "100%" }}>
           <div className="nav-bar-content" style={{ alignItems: "center" }}>

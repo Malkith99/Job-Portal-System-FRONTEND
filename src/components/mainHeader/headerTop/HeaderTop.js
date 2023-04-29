@@ -3,7 +3,7 @@ import "./HeaderTop.css";
 
 function HeaderTop(props) {
   return (
-    <div class="header-top">
+    <div className="header-top">
       <div>
         <p className="notloggin">
           {props.isLogedIn ? "" : "You are not logged in."}
