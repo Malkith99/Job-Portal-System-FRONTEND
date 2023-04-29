@@ -11,18 +11,25 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-//import Profile from "../../profile/profile";
 //import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
-function StudentRegistrationBasic() {
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
+  ...theme.typography.body2,
+  padding: theme.spacing(1),
+  textAlign: "center",
+  color: theme.palette.text.secondary,
+}));
+
+export default function StudentRegistrationBasic() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
- /*  const handleEmailChange = (event) => {
+  const handleEmailChange = (event) => {
     setEmail(event.target.value);
     console.log("email", email);
-  }; */
+  };
 
   const handlePasswordChange = (event) => {
     setPassword(event.target.value);
@@ -34,7 +41,7 @@ function StudentRegistrationBasic() {
     console.log("confirmPassword", confirmPassword);
   };
 
-  const handleSubmit = (event) => {   // function that execute when pressing submit button"
+  const handleSubmit = (event) => {    // function that execute when pressing submit button"
     event.preventDefault();
 
     if (!email || !password || !confirmPassword) {
@@ -49,31 +56,29 @@ function StudentRegistrationBasic() {
 
     // Add your registration logic here
 
+ 
+    const newStudent={
+      email,
+      password,
+  }
+ // console.log(newStudent);
+/*  axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
+  alert("Student Added frontEnd")
+ }).catch((err)=>{
+  alert(err)
+ }); */
+ axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
+  console.log(res.data);
+  alert("Student Added");
+ }).catch(error=>console.error('Error: ',error));
 
-      const newStudent={
-          email,
-          password,
-      }
-     // console.log(newStudent);
-    /*  axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
-      alert("Student Added frontEnd")
-     }).catch((err)=>{
-      alert(err)
-     }); */
-     axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
-      console.log(res.data);
-      alert("Student Added");
-     }).catch(error=>console.error('Error: ',error));
+ 
 
-     
-
-     //toast.success("Successfully registered!");
-     setEmail("");
-     setPassword("");
-     setConfirmPassword("");      
-  
-  } ;
-
+ //toast.success("Successfully registered!");
+ setEmail("");
+ setPassword("");
+ setConfirmPassword("");      
+  };
 
   return (
     <div>
@@ -102,9 +107,7 @@ function StudentRegistrationBasic() {
                     variant="outlined"
                     type="email"
                     value={email}
-                    onChange={(e)=>{
-                      setEmail(e.target.value);
-                  }}
+                    onChange={handleEmailChange}
                     fullWidth
                     margin="normal"
                   />
@@ -126,17 +129,15 @@ function StudentRegistrationBasic() {
                     fullWidth
                     margin="normal"
                   />
-                   {/*<Link to="/student-profile"> */}
-                   <Button variant="contained" color="primary" type="submit">
+                     <Button variant="contained" color="primary" type="submit">
                                         Sign Up
                                     </Button>
-                  {/*</Link>*/} 
                 </form>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-        <hr />
+        <hr/>
         <Grid container spacing={2}>
           <Grid
             item
@@ -148,7 +149,7 @@ function StudentRegistrationBasic() {
             <div className="student">
               <Link to="/student-signIn">
                 <Button variant="contained">
-                  Sign In {/*<ArrowForwardIosIcon />*/}
+                  Sign In {/* <ArrowForwardIosIcon /> */}
                 </Button>
               </Link>
             </div>
@@ -159,4 +160,3 @@ function StudentRegistrationBasic() {
   );
 }
 
-export default StudentRegistrationBasic;
