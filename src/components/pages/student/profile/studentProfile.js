@@ -1,19 +1,53 @@
-import React, { useState } from "react";
-import Sidebar from "../../../sideBar/sideBar";
+import React, { useState,useEffect } from "react";
+import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
+import axios from "axios";
 //import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
 //import "./CompanyRegister.css"
 
-export const Profile = (props) => {
+export default function Profile() {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
   );
-  function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
-
+  const[token,setToken]=useState("");
+  const[studentData,setData]=useState("");
+  
+   /*  useEffect(()=>{
+      setToken(window.localStorage.getItem("token"));
+    },[]) */
+    useEffect(()=>{
+      setToken(window.localStorage.getItem("token"));
+     //console.log(token);
+      axios.post("http://localhost:1234/student/studentData",{},{
+        headers:{
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(res=>{
+        if (res.data.status=="ok"){
+          setData(res.data.data);
+          console.log(res.data);
+        }else{
+          window.alert(res.data.error);
+          
+        }
+      })
+      .catch(error=> console.error("Error: ",error));
+      //console.log("NOO");
+    },[token]);
   return (
+    <>
+    <div>
+    <h1>Profile</h1>
+    <div className="profile">
+      <div className="box">
+        <label htmlFor="textbox">Email: </label>
+        <div>
+          <input type="text" id="textbox" value={studentData?.email} />
+        </div>
+      </div>
+    </div>
+  </div>
     <div
       className="container progress-div"
       style={{ marginTop: "1px", padding: "50px" }}
@@ -25,17 +59,9 @@ export const Profile = (props) => {
             className="container1-flex-item1 text-center"
             style={{ display: "flex", flexDirection: "column" }}
           >
-            <img className="profile-photo" src={file} alt="Profile Photo" />
+             <img className="profile-photo" src={file} alt="Profile Photo" /> 
             <label className="label-title">Profile Photo</label>
             <div style={{ padding: 10 }} />
-            {/* <div className="file-input-div">
-              <input
-                type="file"
-                class="file-input-field form-control"
-                onChange={handleChange}
-                disabled={props.disabled}
-              />
-            </div> */}
           </div>
           <div className="container1-flex-item2" >
             <div className="sub-flex-container">
@@ -44,13 +70,24 @@ export const Profile = (props) => {
               </div>
               <div className="sub-flex-item2">
                 <div className="input-filed">
-                  <input
+{/*                   <input
                     type="text"
                     className="form-control"
                     placeholder="First Name"
                     disabled={props.disabled}
                     required
-                  ></input>
+                  ></input> */}
+                    <TextField
+                      label="Full Name"
+                      variant="outlined"
+                      type="Full Name"
+                     // value={fname}
+                      onChange={(e)=>{
+                        //setEmail(e.target.value);
+                    }}
+                      fullWidth
+                      margin="normal"
+                    />
                 </div>
                 <div className="text-center">
                   <label className="hint-title">
@@ -64,7 +101,7 @@ export const Profile = (props) => {
                     type="text"
                     className="form-control"
                     placeholder="Middle Name"
-                    disabled={props.disabled}
+                    /* disabled={props.disabled} */
                   ></input>
                 </div>
                 <div className="text-center">
@@ -78,7 +115,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="Last Name"
                     required
-                    disabled={props.disabled}
+                    /* disabled={props.disabled} */
                   ></input>
                 </div>
                 <div className="text-center">
@@ -102,7 +139,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="Index Number"
                     required
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></input>
                 </div>
               </div>
@@ -123,7 +160,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="DOB"
                     required
-                    disabled={props.disabled}
+                    /* disabled={props.disabled} */
                   ></input>
                 </div>
               </div>
@@ -143,7 +180,7 @@ export const Profile = (props) => {
                     className="form-select"
                     name="gender"
                     id="gender"
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   >
                     <option selected disabled>
                       Select your Gender
@@ -170,7 +207,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="Phone Number 1"
                     required
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></input>
                 </div>
                 <div className="text-center">
@@ -186,7 +223,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="Phone Number 2"
                     required
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></input>
                 </div>
                 <div className="text-center">
@@ -211,7 +248,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="References"
                     required
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></input>
                 </div>
               </div>
@@ -237,7 +274,7 @@ export const Profile = (props) => {
                     className="form-select"
                     name="faculty"
                     id="faculty"
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   >
                     <option selected disabled>
                       Select your Faculty
@@ -278,7 +315,7 @@ export const Profile = (props) => {
                     className="form-control"
                     placeholder="Graduating Year"
                     required
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></input>
                 </div>
               </div>
@@ -298,7 +335,7 @@ export const Profile = (props) => {
                     className="form-select"
                     name="field"
                     id="field"
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   >
                     <option selected disabled>
                       Select Your Field
@@ -328,7 +365,7 @@ export const Profile = (props) => {
                     className="form-select"
                     name="subSpeciality"
                     id="subSpeciality"
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   >
                     <option selected disabled>
                       Select your Sub Speciality
@@ -353,7 +390,7 @@ export const Profile = (props) => {
                   <textarea
                     class="form-control"
                     rows="3"
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></textarea>
                 </div>
               </div>
@@ -373,7 +410,7 @@ export const Profile = (props) => {
                   <textarea
                     class="form-control"
                     rows="3"
-                    disabled={props.disabled}
+                   /*  disabled={props.disabled} */
                   ></textarea>
                 </div>
                 <div>
@@ -389,5 +426,6 @@ export const Profile = (props) => {
         </div>
       </form>
     </div>
+    </>
   );
-};
+}
