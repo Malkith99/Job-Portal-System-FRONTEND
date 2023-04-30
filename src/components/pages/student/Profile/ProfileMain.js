@@ -4,29 +4,41 @@ import Footer from "../../../footer/Footer";
 import MainHeader from "../../../mainHeader/MainHeader";
 import { Profile } from "./profile";
 import Sidebar from "../../../sideBar/sideBar";
-
+import { Link } from "react-router-dom";
 
 
 export default function MyApplications({ isLogedIn, onLogout }) {
   const [searchQuery, setSearchQuery] = React.useState("");
 
-  const handleSearch = (event) => {
-    setSearchQuery(event.target.value);
-  };
+  // const handleSearch = (event) => {
+  //   setSearchQuery(event.target.value);
+  // };
+
+
+  const content = (
+    <>
+      <Link to="/student/home">Student Home</Link>
+      <Link to="/student/MyApplications"> My Applications</Link>
+      
+    </>
+
+  );
+  
 
   return (
     <>
-      <strong>
+     
         <MainHeader
-          content={"My Profile"}
+          content={content}
           isLogedIn={isLogedIn}
           onLogout={onLogout}
         />
-      </strong>
+       
+     
       <div style={{ display: "flex"}}>
-        <Sidebar isLogedIn={isLogedIn} onLogout={onLogout} />
+        
           <div style={{ borderBottomWidth: 10 }} />
-          <Profile/>
+          <Profile disabled={true} data ={null}/>
           <div style={{ borderLeftWidth: 10,borderTop:2000 }} />
         </div> <Footer />
    

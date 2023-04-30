@@ -31,7 +31,7 @@ const Sidebar = () => {
             <p className="title">USER</p>
             <li>
               <Person2OutlinedIcon />
-              <span> Profile</span>
+               <span> <Link to="/student/profile">Profile</Link></span>
             </li>
             <li>
               <LoginOutlinedIcon />

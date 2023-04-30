@@ -81,7 +81,7 @@ export default function CustomizedTables() {
 
   return (
     <>
-      {selectedId !== null && (
+      {/* {selectedId !== null && (
         <div>
           <h2>Profile of {rows[selectedId - 1].name}</h2>
           <p>Position: {rows[selectedId - 1].position}</p>
@@ -90,7 +90,7 @@ export default function CustomizedTables() {
             Close
           </Button>
         </div>
-      )}
+      )} */}
       <TableContainer component={Paper}>
         <div style={{ margin: 20 }} />
         <div style={{ marginLeft: 30, marginRight: 30 }}>

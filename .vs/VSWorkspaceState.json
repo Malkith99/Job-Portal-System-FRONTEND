@@ -5,10 +5,12 @@
     "\\src\\components",
     "\\src\\components\\pages",
     "\\src\\components\\pages\\student",
+    "\\src\\components\\pages\\student\\home",
+    "\\src\\components\\pages\\student\\home\\studentHome",
     "\\src\\components\\pages\\student\\studentRegistration",
     "\\src\\components\\pages\\student\\studentRegistration\\step2",
     "\\src\\components\\pages\\student\\studentRegistration\\step2\\userDetails"
   ],
-  "SelectedNode": "\\src\\components\\pages\\student\\studentRegistration\\step2\\UserDetailsMain.js",
+  "SelectedNode": "\\src\\components\\pages\\student\\home\\studentHome\\StudentHome.jsx",
   "PreviewInSolutionExplorer": false
 }
