@@ -38,7 +38,7 @@ function Footer() {
           <div className="col">
             <h3>WEB TECH SOLUTIONS</h3>
             <p className="footer-p">Asanka Madushan</p>
-            <p className="footer-p">Amanda Malkith</p>
+            <p className="footer-p">Malkith A.V.A</p>
             <p className="footer-p">Nimna Sahasri</p>
             <p className="footer-p">Supun Thilakshana</p>
           </div>
