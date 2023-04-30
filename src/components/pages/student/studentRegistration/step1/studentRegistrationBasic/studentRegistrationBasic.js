@@ -68,8 +68,14 @@ export default function StudentRegistrationBasic() {
   alert(err)
  }); */
  axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
-  console.log(res.data);
-  alert("Student Added");
+  if(res.data.error =="User Exists"){
+    alert("You have already Registered.Please Sign In");
+    window.location.href = '/student-signIn';
+  }else{
+    console.log(res.data);
+    window.location.href = '/student-home';
+    alert("Student Succefully Registered");
+  }
  }).catch(error=>console.error('Error: ',error));
 
  
