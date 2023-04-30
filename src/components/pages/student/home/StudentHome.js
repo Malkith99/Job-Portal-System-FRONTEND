@@ -5,8 +5,17 @@ import { Link } from "react-router-dom";
 
 
 export default function StudentHome(){
+  const[token,setToken]=useState("");
+  useEffect(()=>{
+    setToken(window.localStorage.getItem("token")); 
+  },[]);
+  useEffect(() => {
+    console.log(token);
+  }, [token]);
+  
+
     return(
-        <div className="container">            
+        <div>            
             <h1>Student Home</h1>
             <div className="student">
               <Link to="/student-profile">
@@ -15,9 +24,6 @@ export default function StudentHome(){
                 </Button>
               </Link>
             </div>
-
-
-
         </div>
     )
 }

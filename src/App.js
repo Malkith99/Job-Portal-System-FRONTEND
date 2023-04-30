@@ -5,21 +5,23 @@ import Header from './components/Header';                        //import header
 import AddStudent from './components/AddStudent';
 import {BrowserRouter , Route, Routes } from "react-router-dom"
 import AllStudents from './components/AllStudent';
-import Home from './components/Home/Home';
+import Home from './components/Home/home';
 import StudentRegistrationBasicPage from './components/pages/student/studentRegistration/step1/StudentRegistrationBasicPage';
-import Profile from './components/pages/student/profile/profile';
+import Profile from './components/pages/student/profile/studentProfileMain';
 import StudentSignIn from './components/pages/student/signIn/signIn';
 import StudentHome from './components/pages/student/home/StudentHome';
+import StudentRegistrationStep_2 from './components/pages/student/studentRegistration/step2/UserDetailsMain';
 
 
 function App() {         
   return (
     <BrowserRouter>
         <div>
-          <Header/>
+          {/* <Header/> */}
           <Routes>
           <Route path="/" element ={<Home/>} ></Route>
           <Route path="/student-register" element={<StudentRegistrationBasicPage/> }> </Route>
+          <Route path="/student-register-step-2" element={<StudentRegistrationStep_2/> }> </Route>
           <Route path="/student-signIn" element={<StudentSignIn/> }> </Route>
           <Route path="/student-profile" element={<Profile/> }> </Route>
           <Route path="/student-home" element={<StudentHome/> }> </Route>
