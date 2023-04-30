@@ -12,6 +12,8 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { Modal} from 'react-bootstrap';
+import Footer from "../../../footer/footer";
+import MainHeader from "../../../mainHeader/mainHeader";
 
 
   export default function StudentSignIn() {
@@ -35,15 +37,19 @@ import { Modal} from 'react-bootstrap';
             password,
         }
        axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
+        //console.log(res.data.data);
         if(res.data.status==="ok"){
-          const token=res.data.token;
-          //const token=res.data.data;
+          //const token=res.data.token;
+          const token=res.data.data;
           window.localStorage.setItem("token",token);
+          //console.log(token);
+          console.log("haii");
           window.location.href = '/student-home';
-          setTimeout(() => {
+         // console.log(token);
+          /* setTimeout(() => {
             setShow(true);
             alert("Successfully Logged In");
-          }, 1000);
+          }, 1000); */
         }else{
           window.alert(res.data.error);
         }
@@ -57,7 +63,7 @@ import { Modal} from 'react-bootstrap';
        setEmail("");
        setPassword("");
     } 
-    <Modal show={show} onHide={() => setShow(false)}>
+/*     <Modal show={show} onHide={() => setShow(false)}>
   <Modal.Header closeButton>
     <Modal.Title>Login Successful</Modal.Title>
   </Modal.Header>
@@ -66,9 +72,13 @@ import { Modal} from 'react-bootstrap';
       OK
     </Button>
   </Modal.Footer>
-</Modal>
+</Modal> */
   
     return (
+      <>
+      <div>
+        <MainHeader/>
+      </div>
       <div>
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={1} align="center">
@@ -87,7 +97,7 @@ import { Modal} from 'react-bootstrap';
                     color="Black"
                     gutterBottom
                   >
-                    Step 1 : Registration
+                    Log to your Account
                   </Typography>
                   <form onSubmit={handleSubmit}>
                     <TextField
@@ -143,5 +153,9 @@ import { Modal} from 'react-bootstrap';
           </Grid>
         </Box>
       </div>
+      <div>
+      <Footer/>
+      </div>
+      </>
     );
   }  

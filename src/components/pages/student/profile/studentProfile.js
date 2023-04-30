@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import axios from "axios";
+//import Popup from "./popup1";
 //import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
 //import "./CompanyRegister.css"
 
@@ -11,30 +12,59 @@ export default function Profile() {
   );
   const[token,setToken]=useState("");
   const[studentData,setData]=useState("");
-  
-   /*  useEffect(()=>{
-      setToken(window.localStorage.getItem("token"));
-    },[]) */
-    useEffect(()=>{
-      setToken(window.localStorage.getItem("token"));
-     //console.log(token);
-      axios.post("http://localhost:1234/student/studentData",{},{
-        headers:{
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(res=>{
-        if (res.data.status=="ok"){
-          setData(res.data.data);
-          console.log(res.data);
-        }else{
-          window.alert(res.data.error);
-          
+  const [firstname,setName]=useState("");
+  const [disabled, setDisabled] = useState(true);
+  function handleChange(e) {
+    console.log(e.target.files);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
+
+  function handleEdit() {
+    setDisabled(false);
+  }
+
+  function handleSave() {
+    setDisabled(true);
+    sendData();
+
+    // Perform any save operations here
+  }
+  function sendData(){     // function that execute when pressing submit button"
+   // e.preventDefault();                 
+    //alert("Insert");
+
+    // Connection of backend and frontend using axios //
+  const newStudent={
+        firstname,
+    }
+  axios.put("http://localhost:1234/student/update/"+studentData?._id,newStudent ).then(res=>{
+    console.log(res.data);
+    //alert("Student Added");
+  }).catch(error=>console.error('Error: ',error));
+}
+
+  useEffect(()=>{
+      const fetchData =async()=>{
+          const token = await  window.localStorage.getItem("token");
+          axios.post("http://localhost:1234/student/studentData",{},{
+            headers:{
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then(res=>{
+            if (res.data.status=="ok"){
+              setData(res.data.data);
+              //console.log(res.data);
+            }else{
+              window.alert(res.data.error);
+              
+            }
+          })
+          .catch(error=> console.error("Error: ",error));
         }
-      })
-      .catch(error=> console.error("Error: ",error));
-      //console.log("NOO");
-    },[token]);
+      fetchData();
+},[]);
+
   return (
     <>
     <div>
@@ -43,12 +73,12 @@ export default function Profile() {
       <div className="box">
         <label htmlFor="textbox">Email: </label>
         <div>
-          <input type="text" id="textbox" value={studentData?.email} />
+          <input type="text" id="textbox" value={studentData?._id} />
         </div>
       </div>
     </div>
   </div>
-    <div
+  <div
       className="container progress-div"
       style={{ marginTop: "1px", padding: "50px" }}
     >
@@ -59,35 +89,38 @@ export default function Profile() {
             className="container1-flex-item1 text-center"
             style={{ display: "flex", flexDirection: "column" }}
           >
-             <img className="profile-photo" src={file} alt="Profile Photo" /> 
+            <img className="profile-photo" src={file} alt="Profile Photo" />
             <label className="label-title">Profile Photo</label>
             <div style={{ padding: 10 }} />
+            <div className="file-input-div">
+              <input
+                type="file"
+                className="file-input-field form-control"
+                onChange={handleChange}
+                disabled={disabled}
+              />
+            </div>
           </div>
-          <div className="container1-flex-item2" >
+
+          <div className="container1-flex-item2" style={{padding:10}}>
             <div className="sub-flex-container">
               <div className="sub-flex-item1">
                 <label className="label-title">Name</label>
               </div>
               <div className="sub-flex-item2">
                 <div className="input-filed">
-{/*                   <input
+                  <input
                     type="text"
                     className="form-control"
+                    value={studentData?.firstName}
                     placeholder="First Name"
-                    disabled={props.disabled}
+                   // value={studentData?.firstName}
+                   onChange={(e)=>{
+                    setName(e.target.value);
+                }}
+                    disabled={disabled}
                     required
-                  ></input> */}
-                    <TextField
-                      label="Full Name"
-                      variant="outlined"
-                      type="Full Name"
-                     // value={fname}
-                      onChange={(e)=>{
-                        //setEmail(e.target.value);
-                    }}
-                      fullWidth
-                      margin="normal"
-                    />
+                  ></input>
                 </div>
                 <div className="text-center">
                   <label className="hint-title">
@@ -101,7 +134,7 @@ export default function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Middle Name"
-                    /* disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
                 <div className="text-center">
@@ -115,7 +148,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="Last Name"
                     required
-                    /* disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
                 <div className="text-center">
@@ -139,7 +172,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="Index Number"
                     required
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
               </div>
@@ -160,7 +193,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="DOB"
                     required
-                    /* disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
               </div>
@@ -180,7 +213,7 @@ export default function Profile() {
                     className="form-select"
                     name="gender"
                     id="gender"
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   >
                     <option selected disabled>
                       Select your Gender
@@ -207,7 +240,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="Phone Number 1"
                     required
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
                 <div className="text-center">
@@ -223,7 +256,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="Phone Number 2"
                     required
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
                 <div className="text-center">
@@ -248,7 +281,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="References"
                     required
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
               </div>
@@ -274,7 +307,7 @@ export default function Profile() {
                     className="form-select"
                     name="faculty"
                     id="faculty"
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   >
                     <option selected disabled>
                       Select your Faculty
@@ -315,7 +348,7 @@ export default function Profile() {
                     className="form-control"
                     placeholder="Graduating Year"
                     required
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></input>
                 </div>
               </div>
@@ -335,7 +368,7 @@ export default function Profile() {
                     className="form-select"
                     name="field"
                     id="field"
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   >
                     <option selected disabled>
                       Select Your Field
@@ -365,7 +398,7 @@ export default function Profile() {
                     className="form-select"
                     name="subSpeciality"
                     id="subSpeciality"
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   >
                     <option selected disabled>
                       Select your Sub Speciality
@@ -390,7 +423,7 @@ export default function Profile() {
                   <textarea
                     class="form-control"
                     rows="3"
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></textarea>
                 </div>
               </div>
@@ -410,21 +443,26 @@ export default function Profile() {
                   <textarea
                     class="form-control"
                     rows="3"
-                   /*  disabled={props.disabled} */
+                    disabled={disabled}
                   ></textarea>
                 </div>
-                <div>
-                  
-                    <button type="Submit" class="btn btn-primary">
-                      Edit
-                    </button>
-                 
                 </div>
-              </div>
-            </div>
+                <div>
+            {disabled ? (
+              <button type="button" className="btn btn-primary" onClick={handleEdit}>
+                Edit
+              </button>
+            ) : (
+              <button type="submit" className="btn btn-primary" onClick={handleSave}>
+                Save
+              </button>
+            )}
           </div>
         </div>
-      </form>
+</div>
+</div>
+       
+    </form>
     </div>
     </>
   );
