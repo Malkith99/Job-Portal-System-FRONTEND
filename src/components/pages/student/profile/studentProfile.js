@@ -73,7 +73,7 @@ export default function Profile() {
       <div className="box">
         <label htmlFor="textbox">Email: </label>
         <div>
-          <input type="text" id="textbox" value={studentData?._id} />
+          <input type="text" id="textbox" value={studentData?.email} />
         </div>
       </div>
     </div>
