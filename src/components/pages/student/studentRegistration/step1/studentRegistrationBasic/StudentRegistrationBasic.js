@@ -68,7 +68,7 @@ function StudentRegistrationBasic() {
     
     <div>
       <div className="container" style={{ marginTop: "75px", marginBottom: "0px" }}>
-      <h4 className="sub-headings">Step 1: Confirm Password </h4>
+      <h4 className="" style={{marginLeft:"79px",marginBottom: "0px",color: "rgb(7, 7, 73)",fontWeight: "bolder"}}>Create your Account: </h4>
       <div className="container progress-div">
         {/* <div className="number-component">
           <NumberComplet digit="1" status="Registration" />
@@ -76,9 +76,9 @@ function StudentRegistrationBasic() {
         {/* <div>
           <VerticalSeparator />
         </div> */}
-        <div className="number-component">
+        {/* <div className="number-component">
           <NumberInComplet digit="1" status="Registration" />
-        </div>
+        </div> */}
       </div>
       </div>
 
@@ -99,7 +99,7 @@ function StudentRegistrationBasic() {
                   color="Black"
                   gutterBottom
                 >
-                  Step 1 : Registration
+          
                 </Typography>
                 <form onSubmit={handleSubmit}>
                   <TextField
@@ -149,7 +149,7 @@ function StudentRegistrationBasic() {
             sx={{ alignItems: "flex-end" }}
           >
             <div className="student">
-              <Link to="/student-register-final">
+              <Link to="/student/home">
                 <Button variant="contained">
                   Next <ArrowForwardIosIcon />
                 </Button>

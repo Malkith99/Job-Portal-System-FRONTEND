@@ -20,7 +20,8 @@ import CompanyLogin from "./components/pages/company/companyLogin/companyLogin";
 import LecturerLogin from "./components/pages/lecturer/lecturerLogin/lecturerLogin";
 import CompanySignup from "./components/pages/company/companySignup/companySignup";
 import LecturerSignup from "./components/pages/lecturer/lecturerSignup/lecturerSignup";
-
+import MyApplications from "./components/pages/student/MyApplications/MyApplications";
+import ProfileMain from "./components/pages/student/Profile/ProfileMain";
 
 function App() {
   const [isLogedIn, setIsLogedIn] = useState(true);
@@ -33,6 +34,16 @@ function App() {
     <Router>
       {/* <MainHeader isLogedIn={isLogedIn} onLogout={handlLogOut}/> */}
       <Routes>
+        <Route
+          path="/student/MyApplications"
+          element={
+            <MyApplications isLogedIn={isLogedIn} onLogout={handlLogOut} />
+          }
+        />
+        <Route
+          path="/student/profile/"
+          element={<ProfileMain isLogedIn={isLogedIn} onLogout={handlLogOut} />}
+        />
         <Route
           path="/"
           exact

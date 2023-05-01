@@ -347,7 +347,7 @@ function UserDetails() {
                     <textarea className="form-control" rows="3"></textarea>
                   </div>
                   <div>
-                    <Link to="/student/home">
+                    <Link>
                       <button type="Submit" className="btn btn-primary">
                         Register
                       </button>
