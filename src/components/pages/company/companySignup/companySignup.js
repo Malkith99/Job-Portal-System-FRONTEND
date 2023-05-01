@@ -11,9 +11,11 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
-import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";
-import VerticalSeparator from "../../step2/components/verticalSeparator/VerticalSeparator";
+import MainHeader from "../../../mainHeader/MainHeader";
+import Footer from "../../../footer/Footer";
+// import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
+// import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";
+// import VerticalSeparator from "../../step2/components/verticalSeparator/VerticalSeparator";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -23,7 +25,15 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function StudentRegistrationBasic() {
+function CompanySignup({ isLogedIn, onLogout }) {
+  const content = (
+    <>
+      <Link to="/">Home</Link>
+      <Link to="/company-login">Login</Link>
+      <Link to="/company-signup">Signup</Link>
+    </>
+    
+  );
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -67,8 +77,9 @@ function StudentRegistrationBasic() {
   return (
     
     <div>
+      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
       <div className="container" style={{ marginTop: "75px", marginBottom: "0px" }}>
-      <h4 className="sub-headings">Step 1: Confirm Password </h4>
+      <h4 className="" style={{marginLeft:"79px",marginBottom: "0px",color: "rgb(7, 7, 73)",fontWeight: "bolder"}}>Confirm Password: </h4>
       <div className="container progress-div">
         {/* <div className="number-component">
           <NumberComplet digit="1" status="Registration" />
@@ -76,9 +87,9 @@ function StudentRegistrationBasic() {
         {/* <div>
           <VerticalSeparator />
         </div> */}
-        <div className="number-component">
+        {/* <div className="number-component">
           <NumberInComplet digit="1" status="Registration" />
-        </div>
+        </div> */}
       </div>
       </div>
 
@@ -99,7 +110,7 @@ function StudentRegistrationBasic() {
                   color="Black"
                   gutterBottom
                 >
-                  Step 1 : Registration
+              
                 </Typography>
                 <form onSubmit={handleSubmit}>
                   <TextField
@@ -139,7 +150,6 @@ function StudentRegistrationBasic() {
             </Card>
           </Grid>
         </Grid>
-       
         <Grid container spacing={2}>
           <Grid
             item
@@ -149,17 +159,18 @@ function StudentRegistrationBasic() {
             sx={{ alignItems: "flex-end" }}
           >
             <div className="student">
-              <Link to="/student-register-final">
+              <Link to="/company/home">
                 <Button variant="contained">
-                  Next <ArrowForwardIosIcon />
+                  Sign up <ArrowForwardIosIcon />
                 </Button>
               </Link>
             </div>
           </Grid>
         </Grid>
       </Box>
+      <Footer/>
     </div>
   );
 }
 
-export default StudentRegistrationBasic;
+export default CompanySignup;

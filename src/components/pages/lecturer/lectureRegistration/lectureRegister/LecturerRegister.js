@@ -4,18 +4,31 @@ function LecturerRegister() {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
   );
+  const [disabled, setDisabled] = useState(true);
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
+  }
+  function handleEdit() {
+    setDisabled(false);
+  }
+
+  function handleSave() {
+    setDisabled(true);
+    // Perform any save operations here
   }
 
   return (
     <div
       className="container"
-      style={{ marginTop: "75px", marginBottom: "50px" }}
+      style={{ marginTop: "1px", marginBottom: "50px" }}
     >
+      
       <div>
-        <form action="/lecture/home">
+      <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+        Profile Information :
+      </h1>
+        <form>
           <div className="flex-container1">
             <div className="container1-flex-item">
               <div
@@ -36,6 +49,7 @@ function LecturerRegister() {
                     className=" form-control"
                     style={{}}
                     onChange={handleChange}
+                    disabled={disabled}
                   />
                 </div>
               </div>
@@ -53,6 +67,7 @@ function LecturerRegister() {
                   className="form-control"
                   id="firstName"
                   placeholder="First Name"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -65,20 +80,11 @@ function LecturerRegister() {
                   className="form-control"
                   id="universityEmail"
                   placeholder="University  Email Address"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
-              <div className="input-filed input-filed-cls">
-                <label for="inputPassword" className="">
-                  <span className="asterisk-mark">*</span>Enter a Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="inputPassword"
-                  placeholder="Enter a Password"
-                ></input>
-              </div>
+            
             </div>
             <div className="container1-flex-item">
               <label for="middleName" className="">
@@ -90,6 +96,7 @@ function LecturerRegister() {
                   className="form-control"
                   id="middleName"
                   placeholder="Middle Name"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -102,20 +109,11 @@ function LecturerRegister() {
                   className="form-control"
                   id="contactNumber"
                   placeholder="Contact Number"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
-              <div className="input-filed input-filed-cls">
-                <label for="confirmPassword" className="">
-                  <span className="asterisk-mark">*</span>Confirm the Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="confirmPassword"
-                  placeholder="Confirm the Password"
-                ></input>
-              </div>
+              
             </div>
             <div className="container1-flex-item">
               <label for="position" className="">
@@ -127,6 +125,7 @@ function LecturerRegister() {
                   className="form-control"
                   id="position"
                   placeholder="Position"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -139,6 +138,7 @@ function LecturerRegister() {
                   className="form-control"
                   id="other"
                   placeholder="Other"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -146,9 +146,15 @@ function LecturerRegister() {
           </div>
           <div className="">
             <div className="input-filed input-filed-cls">
-              <button type="submit" className="btn btn-primary">
-                Register
+            {disabled ? (
+              <button type="button btn-primary" className="btn btn-primary" onClick={handleEdit}>
+                Edit
               </button>
+            ) : (
+              <button type="button" className="btn btn-primary" onClick={handleSave}>
+                Save
+              </button>
+            )}
             </div>
           </div>
         </form>

@@ -8,7 +8,8 @@ import "./LecturerRegisterMain.css";
 function LecturerRegisterMain({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/lecturer">Lecturer Registration</Link>
+      <Link to="/lecture/home">Home</Link>
+      <Link to="/lecturer">Profile Information</Link>
     </>
   );
   return (

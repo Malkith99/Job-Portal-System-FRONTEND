@@ -4,6 +4,15 @@ const VacancySection = (props) => {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
   );
+  const [disabled, setDisabled] = useState(true);
+  function handleEdit() {
+    setDisabled(false);
+  }
+
+  function handleSave() {
+    setDisabled(true);
+    // Perform any save operations here
+  }
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -32,7 +41,7 @@ const VacancySection = (props) => {
                   type="file"
                   className=" form-control"
                   onChange={handleChange}
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                 />
               </div>
             </div>
@@ -53,7 +62,7 @@ const VacancySection = (props) => {
                   placeholder="Job Position"
                   // required
                   //   value={"HandJob"}
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                 ></input>
               </div>
 
@@ -70,7 +79,7 @@ const VacancySection = (props) => {
                   id="contactNumber"
                   placeholder="Contact Number"
                   // required
-                  disabled={props.disabled}
+                 disabled={props.disabled && disabled}
                 ></input>
               </div>
 
@@ -88,7 +97,7 @@ const VacancySection = (props) => {
                   className="form-select"
                   name="background"
                   id="background"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                 >
                   <option selected disabled>
                     Select the requiring Background
@@ -108,7 +117,7 @@ const VacancySection = (props) => {
                       type="file"
                       className=" form-control"
                       onChange={handleChange}
-                      disabled={props.disabled}
+                      disabled={props.disabled && disabled}
                     />
                   </div> */}
             </div>
@@ -125,7 +134,8 @@ const VacancySection = (props) => {
                   className="form-control"
                   id="companyName"
                   placeholder="Company Name"
-                  disabled={props.disabled}
+                  
+                  disabled={props.disabled && disabled}
                   // required
                 ></input>
               </div>
@@ -147,7 +157,7 @@ const VacancySection = (props) => {
                   // required
                   style={{ width: "50%" }}
                   min="0"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                 ></input>
                 <input
                   type="number"
@@ -157,7 +167,7 @@ const VacancySection = (props) => {
                   // required
                   style={{ width: "50%" }}
                   min="0"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                 ></input>
               </div>
 
@@ -172,7 +182,7 @@ const VacancySection = (props) => {
                   className="form-select"
                   name="levelOfEducation"
                   id="levelOfEducation"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                 >
                   <option selected disabled>
                     Requiring Level of Education
@@ -199,7 +209,7 @@ const VacancySection = (props) => {
                   className="form-control"
                   id="companyEmail"
                   placeholder="Company Email"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                   // required
                 ></input>
               </div>
@@ -215,7 +225,7 @@ const VacancySection = (props) => {
                   className="form-control"
                   id="companyLocation"
                   placeholder="Company Location"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                   // required
                 ></input>
               </div>
@@ -230,7 +240,7 @@ const VacancySection = (props) => {
                   type="date"
                   className="form-control"
                   placeholder="Due Date"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                   // required
                 ></input>
               </div>
@@ -252,7 +262,7 @@ const VacancySection = (props) => {
                   style={{ height: "80px" }}
                   id="skills"
                   placeholder="Skills"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                   // required
                 ></textarea>
               </div>
@@ -270,19 +280,30 @@ const VacancySection = (props) => {
                   style={{ height: "100px" }}
                   id="jobDescription"
                   placeholder="Job Description"
-                  disabled={props.disabled}
+                  disabled={props.disabled && disabled}
                   // required
                 ></textarea>
               </div>
             </div>
           </div>
-
+          <div className={`${!props.disabled && "d-none"}`}>
+          {disabled ? (
+              <button type="button btn-primary" className="btn btn-primary" onClick={handleEdit}>
+                Edit
+              </button>
+            ) : (
+              <button type="button" className="btn btn-primary" onClick={handleSave}>
+                Save
+              </button>
+            )}
+          </div>
           <div className={`${props.disabled && "d-none"}`}>
             <div className="input-filed input-filed-cls">
               <button type="submit" className="btn btn-primary">
                 Post the Job
               </button>
             </div>
+            
           </div>
         </form>
       </div>

@@ -71,7 +71,7 @@ function LecturerLogin({ isLogedIn, onLogout }) {
                     Login
                   </button>
                   <div style={{marginTop:"7px"}}>
-                    <Link to="/lecturer">Don't you have an account? click here to sign up.</Link>
+                    <Link to="/lecturer-signup">Don't you have an account? click here to sign up.</Link>
                   </div>
                 </form>
               </div>

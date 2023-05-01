@@ -8,7 +8,8 @@ import "./CompanyRegisterMain.css";
 function CompanyRegisterMain({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/company">Company Registration</Link>
+      <Link to="/company/home">Company Home</Link>
+      <Link to="/company">Profile</Link>
     </>
   );
   return (

@@ -18,6 +18,8 @@ import StudentRegistrationBasicPage from "./components/pages/student/studentRegi
 import UserDetailsMain from "./components/pages/student/studentRegistration/step2/UserDetailsMain";
 import CompanyLogin from "./components/pages/company/companyLogin/companyLogin";
 import LecturerLogin from "./components/pages/lecturer/lecturerLogin/lecturerLogin";
+import CompanySignup from "./components/pages/company/companySignup/companySignup";
+import LecturerSignup from "./components/pages/lecturer/lecturerSignup/lecturerSignup";
 
 
 function App() {
@@ -47,7 +49,7 @@ function App() {
           element={<CompanyLogin isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
         />
 
-````````<Route
+        <Route
           path="/lecturer-login"
           exact
           element={<LecturerLogin isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
@@ -58,6 +60,17 @@ function App() {
           exact
           element={<LoginPage isLogedIn={isLogedIn} onLogout={handlLogOut} />}
         />
+        <Route
+          path="/company-signup"
+          exact
+          element={<CompanySignup isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
+          />
+
+        <Route
+          path="/lecturer-signup"
+          exact
+          element={<LecturerSignup isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
+          />
         <Route
           path="/student-register"
           element={

@@ -50,3 +50,43 @@
     text-underline-offset: 10px;
   }
 }
+@media only screen and (max-width: 400px) {
+  .title {
+    font-size: 30px;
+    letter-spacing: 5px;
+    vertical-align: middle !important;
+    text-underline-offset: 10px;
+  }
+}
+@media only screen and (max-width: 370px) {
+  .title {
+    font-size: 27px;
+    letter-spacing: 5px;
+    vertical-align: middle !important;
+    text-underline-offset: 10px;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .title {
+    font-size: 25px;
+    letter-spacing: 5px;
+    vertical-align: middle !important;
+    text-underline-offset: 10px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .title {
+    font-size: 23px;
+    letter-spacing: 5px;
+    vertical-align: middle !important;
+    text-underline-offset: 10px;
+  }
+}
+@media only screen and (max-width: 310px) {
+  .title {
+    font-size: 20px;
+    letter-spacing: 5px;
+    vertical-align: middle !important;
+    text-underline-offset: 10px;
+  }
+}

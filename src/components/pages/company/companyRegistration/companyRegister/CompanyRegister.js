@@ -5,18 +5,30 @@ function CompanyRegister() {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
   );
+  const [disabled, setDisabled] = useState(true);
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
+  }
+  function handleEdit() {
+    setDisabled(false);
+  }
+
+  function handleSave() {
+    setDisabled(true);
+    // Perform any save operations here
   }
 
   return (
     <div
       className="container"
-      style={{ marginTop: "75px", marginBottom: "50px" }}
+      style={{ marginTop: "1px", marginBottom: "50px" }}
     >
       <div>
-        <form action="/company/home">
+      <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+        Profile Information :
+      </h1>
+        <form>
           <div className="flex-container1">
             <div className="container1-flex-item">
               <div
@@ -37,6 +49,7 @@ function CompanyRegister() {
                     className=" form-control"
                     style={{}}
                     onChange={handleChange}
+                    disabled={disabled}
                   />
                 </div>
               </div>
@@ -53,6 +66,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="companyName"
                   placeholder="Company Name"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -65,20 +79,11 @@ function CompanyRegister() {
                   className="form-control"
                   id="positionDestination"
                   placeholder="Position/Destination"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
-              <div className="input-filed input-filed-cls">
-                <label for="inputPassword" className="">
-                  <span className="asterisk-mark">*</span>Enter a Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="inputPassword"
-                  placeholder="Enter a Password"
-                ></input>
-              </div>
+              
             </div>
             <div className="container1-flex-item">
               <label for="contactInfo" className="">
@@ -90,6 +95,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="contactInfo"
                   placeholder="Contact Info"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -102,20 +108,11 @@ function CompanyRegister() {
                   className="form-control"
                   id="location"
                   placeholder="Location"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
-              <div className="input-filed input-filed-cls">
-                <label for="confirmPassword" className="">
-                  <span className="asterisk-mark">*</span>Confirm the Password
-                </label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="confirmPassword"
-                  placeholder="Confirm the Password"
-                ></input>
-              </div>
+              
             </div>
             <div className="container1-flex-item">
               <label for="companyWebsite" className="">
@@ -127,6 +124,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="companyWebsite"
                   placeholder="Company Website"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -142,6 +140,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="salaryRange salaryRangeMin"
                   placeholder="Min"
+                  disabled={disabled}
                   // required
                   style={{ width: "50%" }}
                   min="0"
@@ -151,6 +150,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="salaryRange salaryRangeMax"
                   placeholder="Max"
+                  disabled={disabled}
                   // required
                   style={{ width: "50%" }}
                   min="0"
@@ -169,6 +169,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="jobDescription"
                   placeholder="Job Description"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -183,6 +184,7 @@ function CompanyRegister() {
                   className="form-control"
                   id="other"
                   placeholder="Other"
+                  disabled={disabled}
                   // required
                 ></input>
               </div>
@@ -190,9 +192,15 @@ function CompanyRegister() {
           </div>
           <div className="">
             <div className="input-filed input-filed-cls">
-              <button type="submit" className="btn btn-primary">
-                Register
+            {disabled ? (
+              <button type="button btn-primary" className="btn btn-primary" onClick={handleEdit}>
+                Edit
               </button>
+            ) : (
+              <button type="button" className="btn btn-primary" onClick={handleSave}>
+                Save
+              </button>
+            )}
             </div>
           </div>
         </form>

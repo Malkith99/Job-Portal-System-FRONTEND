@@ -71,7 +71,7 @@ function CompanyLogin({ isLogedIn, onLogout }) {
                     Login
                   </button>
                   <div style={{marginTop:"7px"}}>
-                    <Link to="/company">Don't you have an account? click here to sign up.</Link>
+                    <Link to="/company-signup">Don't you have an account? click here to sign up.</Link>
                   </div>
                 </form>
               </div>

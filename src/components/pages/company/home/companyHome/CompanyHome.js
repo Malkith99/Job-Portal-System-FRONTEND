@@ -170,18 +170,6 @@ function CompanyHome() {
                         See the Details
                       </button>
                       <button
-                        className="btn btn-primary accept butdet"
-                        onClick={() => {
-                          navigate("/update-company-job");
-                        }}
-                        style={{
-                          background: "rgb(69, 117, 85)",
-                          marginRight: "25px",
-                        }}
-                      >
-                        Update
-                      </button>
-                      <button
                         className="btn btn-primary reject butdet"
                         style={{
                           background: "rgb(128, 57, 57)",

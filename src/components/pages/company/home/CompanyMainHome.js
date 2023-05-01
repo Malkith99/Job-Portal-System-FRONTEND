@@ -8,6 +8,7 @@ function CompanyMainHome({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/company/home">Company Home</Link>
+      <Link to="/company">Profile</Link>
     </>
   );
   return (

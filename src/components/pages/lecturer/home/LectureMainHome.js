@@ -7,7 +7,8 @@ import LecturerHome from "./lecturerHome/LecturerHome";
 function LectureMainHome({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/lecture/home">Lecturer Home</Link>
+      <Link to="/lecture/home">Home</Link>
+      <Link to="/lecturer">Profile</Link>
     </>
   );
   return (
