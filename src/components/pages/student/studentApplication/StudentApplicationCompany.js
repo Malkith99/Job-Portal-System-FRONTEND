@@ -10,7 +10,9 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
   const content = (
     <>
-      <Link to="/company/home">Company Home</Link>
+      <Link to="/company/home">Home</Link>
+      <Link to="/all-student-responces">Responces</Link>
+      <Link to="/student-application-for-company">Application</Link>
     </>
   );
   return (
