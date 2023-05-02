@@ -220,7 +220,7 @@ function CompanyHome() {
                         <button
                           className="btn btn-primary butdet"
                           onClick={() => {
-                            navigate("/student-application-for-company");
+                            navigate("/all-student-responces");
                           }}
                           style={{ background: "#2B547E", marginLeft: "-12px" }}
                         >

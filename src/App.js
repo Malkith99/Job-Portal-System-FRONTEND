@@ -22,6 +22,9 @@ import CompanySignup from "./components/pages/company/companySignup/companySignu
 import LecturerSignup from "./components/pages/lecturer/lecturerSignup/lecturerSignup";
 import MyApplications from "./components/pages/student/MyApplications/MyApplications";
 import ProfileMain from "./components/pages/student/Profile/ProfileMain";
+import AllResponces from "./components/pages/company/studentResponces/allResponces";
+import StudentApplication from "./components/pages/student/studentApplication/StudentApplication";
+import StudentJobApplication from "./components/pages/student/studentApplication/StudentJobApplication";
 
 function App() {
   const [isLogedIn, setIsLogedIn] = useState(true);
@@ -64,6 +67,16 @@ function App() {
           path="/lecturer-login"
           exact
           element={<LecturerLogin isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
+        />
+        <Route
+          path="/student-application-for-company/:id"
+          exact
+          element={<StudentApplicationCompany isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
+        />
+        <Route
+          path="/job-application/:id"
+          exact
+          element={<StudentJobApplication isLogedIn={isLogedIn} onLogout={handlLogOut}/>}
         />
         
         <Route
@@ -150,6 +163,12 @@ function App() {
               isLogedIn={isLogedIn}
               onLogout={handlLogOut}
             />
+          }
+        />
+        <Route
+          path="/all-student-responces"
+          element={<AllResponces isLogedIn={isLogedIn} onLogout={handlLogOut}
+          />
           }
         />
         <Route

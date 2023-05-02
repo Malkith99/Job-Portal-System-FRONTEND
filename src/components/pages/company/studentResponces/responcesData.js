@@ -9,6 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -39,29 +40,19 @@ function createData(id, name, position, date) {
 }
 
 const rows = [
-  createData(1, "Access Engineering PLC", "Developer", "2022-01-01"),
-  createData(2, "Sysco Labs", "Designer", "2022-01-02"),
-  createData(
-    3,
-    "Nawaloka Engineering Company (Pvt) Ltd.",
-    "Manager",
-    "2022-01-03"
-  ),
-  createData(4, "99X Technology", "Developer", "2022-01-04"),
-  createData(5, "MTD Walkers PLC", "Manager", "2022-01-05"),
-  createData(6, "Aess Engineering PLC", "Developer", "2022-01-01"),
-  createData(7, "Sysco Labs", "Designer", "2022-01-02"),
-  createData(
-    8,
-    "Nawaloka Engineering Company (Pvt) Ltd.",
-    "Manager",
-    "2022-01-03"
-  ),
-  createData(9, "99X Technology", "Developer", "2022-01-04"),
-  createData(10, "MTD Walkers PLC", "Manager", "2022-01-05"),
+  createData(1, "Madushan N.N.A.", "Developer", "2022-01-01"),
+  createData(2, "Malkith A.V.A.", "Designer", "2022-01-02"),
+  createData(3,"Manimendra M.A.N.S.N.","Manager","2022-01-03"),
+  createData(4, "Tiranga Rukshan", "Developer", "2022-01-04"),
+  createData(5, "Sajini Bagya", "Manager", "2022-01-05"),
+  createData(6, "Adeepa Tharuka", "Developer", "2022-01-01"),
+  createData(7, "Diki Chamika", "Designer", "2022-01-02"),
+  createData(8,"Suranga Lakmal","Manager","2022-01-03"),
+  createData(9, "Dinesh Chandimal", "Developer", "2022-01-04"),
+  createData(10, "Mahinda Rajapaksha", "Manager", "2022-01-05"),
 ];
 
-export default function CustomizedTables() {
+function ResponcesData() {
   const [selectedId, setSelectedId] = React.useState(null);
   const [searchQuery, setSearchQuery] = React.useState("");
 
@@ -76,7 +67,7 @@ export default function CustomizedTables() {
         );
 
   function handleViewButtonClick(id) {
-    window.location.href = `/job-application/${id}`;
+    window.location.href = `/student-application-for-company/${id}`;
   }
 
   return (
@@ -93,8 +84,8 @@ export default function CustomizedTables() {
       )} */}
       <TableContainer component={Paper}>
         <div style={{ margin: 20 }} />
-        <div style={{ marginLeft: 30, marginRight: 30 }}>
-          <TextField
+        <div style={{ marginLeft: 100, marginRight: 100 }}>
+          {/* <TextField
             id="search"
             label="Search Company Name"
             variant="outlined"
@@ -103,13 +94,13 @@ export default function CustomizedTables() {
             style={{ width: 400 }}
             value={searchQuery}
             onChange={(event) => setSearchQuery(event.target.value)}
-          />
+          /> */}
           <div style={{ margin: 20 }} />
           <Table>
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center" width={250}>
-                  Company Name
+                  Employee Name
                 </StyledTableCell>
                 <StyledTableCell align="center">Position</StyledTableCell>
                 <StyledTableCell align="center">Date</StyledTableCell>
@@ -127,7 +118,7 @@ export default function CustomizedTables() {
                   </StyledTableCell>
                   <StyledTableCell align="center">{row.date}</StyledTableCell>
                   <StyledTableCell align="center">
-                    <Button
+                  <Button
                       variant="contained"
                       color="primary"
                       onClick={() => handleViewButtonClick(row.id)}
@@ -144,3 +135,5 @@ export default function CustomizedTables() {
     </>
   );
 }
+
+export default ResponcesData;
