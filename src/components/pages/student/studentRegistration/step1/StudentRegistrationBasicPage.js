@@ -7,8 +7,8 @@ import StudentRegistrationBasic from "./studentRegistrationBasic/StudentRegistra
 export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/student-register">Student Registration</Link>
-      <Link to="/student-register">Step 1</Link>
+      <Link to="/student-register">Creating Account</Link>
+      
     </>
   );
   return (

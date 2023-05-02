@@ -151,7 +151,7 @@ function StudentRegistrationBasic() {
             <div className="student">
               <Link to="/student/home">
                 <Button variant="contained">
-                  Next <ArrowForwardIosIcon />
+                  Signup <ArrowForwardIosIcon />
                 </Button>
               </Link>
             </div>
