@@ -1,3 +1,4 @@
+
 import './App.css';
 //import CounterCalss from './components/CounterClass';
 //import CounterFunction from './components/CounterFunction';
@@ -11,10 +12,18 @@ import Profile from './components/pages/student/profile/studentProfileMain';
 import StudentSignIn from './components/pages/student/signIn/signIn';
 import StudentHome from './components/pages/student/home/StudentHome';
 import StudentRegistrationStep_2 from './components/pages/student/studentRegistration/step2/UserDetailsMain';
+import StudentAppliation from './components/pages/student/MyApplications/MyApplications';
 
 
-function App() {         
+function App() {
+/*   const [isLogedIn, setIsLogedIn] = useState(true);
+
+  const handlLogOut = () => {
+    setIsLogedIn(false);
+  };
+ */
   return (
+
     <BrowserRouter>
         <div>
           {/* <Header/> */}
@@ -25,7 +34,7 @@ function App() {
           <Route path="/student-signIn" element={<StudentSignIn/> }> </Route>
           <Route path="/student-profile" element={<Profile/> }> </Route>
           <Route path="/student-home" element={<StudentHome/> }> </Route>
-          <Route path="/add" element ={<AddStudent/>} ></Route>
+          <Route path="/student-application" element={<StudentAppliation/> }> </Route>
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>
         </div>
@@ -40,8 +49,8 @@ function App() {
       <Header/>
       <AddStudent/>
       </div>*/
-    
 
+  
   );
 }
 

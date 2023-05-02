@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../../components/footer/footer";
-import MainHeader from "../../components/mainHeader/mainHeader";
+import Footer from "../footer/footer";
+import MainHeader from "../mainHeader/mainHeader";
 import "./home.css";
 
 export default function Home({ isLogedIn, onLogout }) {
