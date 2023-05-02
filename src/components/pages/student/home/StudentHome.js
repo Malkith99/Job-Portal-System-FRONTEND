@@ -23,7 +23,7 @@ export default function StudentHome(){
                   profile
                 </Button>
               </Link>
-              <Link to="/student-profile">
+              <Link to="/student-application">
                 <Button variant="contained">
                   My Applications
                 </Button>
