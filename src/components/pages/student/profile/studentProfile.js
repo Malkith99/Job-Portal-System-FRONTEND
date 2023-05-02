@@ -12,7 +12,21 @@ export default function Profile() {
   );
   const[token,setToken]=useState("");
   const[studentData,setData]=useState("");
-  const [firstname,setName]=useState("");
+  const [firstName,setFName]=useState("");
+  const [middleName,setMName]=useState("");
+  const [lastName,setLName]=useState("");
+  const [indexNumber,setIndex]=useState("");
+  const [DOB,setDOB]=useState("");
+  const [DOG,setDOG]=useState("");
+  const [gender,setGender]=useState("");
+  const [phoneNumber1,setPNumber1]=useState("");
+  const [phoneNumber2,setPNumber2]=useState("");
+  const [references,setReferences]=useState("");
+  const [faculty,setFaculty]=useState("");
+  const [field,setField]=useState("");
+  const [subSpeciality,setSpeciality]=useState("");
+  const [projects, setProjects]=useState("");
+  const [eActivities, setEActivities]=useState("");
   const [disabled, setDisabled] = useState(true);
   function handleChange(e) {
     console.log(e.target.files);
@@ -30,12 +44,26 @@ export default function Profile() {
     // Perform any save operations here
   }
   function sendData(){     // function that execute when pressing submit button"
-   // e.preventDefault();                 
-    //alert("Insert");
+
 
     // Connection of backend and frontend using axios //
   const newStudent={
-        firstname,
+        firstName,
+       middleName,
+        lastName, 
+       indexNumber,
+        DOB,
+        gender,
+        phoneNumber1,
+        phoneNumber2,
+        references,
+        faculty,
+        field,
+        subSpeciality,
+        projects,
+        DOG,
+        eActivities, 
+
     }
   axios.put("http://localhost:1234/student/update/"+studentData?._id,newStudent ).then(res=>{
     console.log(res.data);
@@ -54,7 +82,23 @@ export default function Profile() {
           .then(res=>{
             if (res.data.status=="ok"){
               setData(res.data.data);
-              //console.log(res.data);
+              console.log(res.data.data.firstName);
+
+              setFName(res.data.data.firstName);
+              setMName(res.data.data.middleName);
+              setLName(res.data.data.lastName);
+              setIndex(res.data.data.indexNumber);
+              setDOB(res.data.data.DOB);
+              setDOG(res.data.data.DOG);
+              setGender(res.data.data.gender);
+              setPNumber1(res.data.data.phoneNumber1);
+              setReferences(res.data.data.references);
+              setFaculty(res.data.data.faculty);
+              setField(res.data.data.field);
+              setSpeciality(res.data.data.subSpeciality);
+              setProjects(res.data.data.projects);
+              setEActivities(res.data.data.EActivities)
+
             }else{
               window.alert(res.data.error);
               
@@ -63,6 +107,9 @@ export default function Profile() {
           .catch(error=> console.error("Error: ",error));
         }
       fetchData();
+
+
+
 },[]);
 
   return (
@@ -112,11 +159,10 @@ export default function Profile() {
                   <input
                     type="text"
                     className="form-control"
-                    value={studentData?.firstName}
                     placeholder="First Name"
-                   // value={studentData?.firstName}
+                    value={firstName}
                    onChange={(e)=>{
-                    setName(e.target.value);
+                    setFName(e.target.value);
                 }}
                     disabled={disabled}
                     required
@@ -134,6 +180,10 @@ export default function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Middle Name"
+                    value={middleName}
+                    onChange={(e)=>{
+                     setMName(e.target.value);
+                 }}
                     disabled={disabled}
                   ></input>
                 </div>
@@ -147,6 +197,10 @@ export default function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Last Name"
+                    value={lastName}
+                    onChange={(e)=>{
+                     setLName(e.target.value);
+                 }}
                     required
                     disabled={disabled}
                   ></input>
@@ -171,6 +225,10 @@ export default function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="Index Number"
+                    value={indexNumber}
+                    onChange={(e)=>{
+                     setIndex(e.target.value);
+                 }}
                     required
                     disabled={disabled}
                   ></input>
@@ -192,6 +250,10 @@ export default function Profile() {
                     type="date"
                     className="form-control"
                     placeholder="DOB"
+                    value={DOB}
+                    onChange={(e)=>{
+                     setDOB(e.target.value);
+                 }}
                     required
                     disabled={disabled}
                   ></input>
@@ -214,6 +276,10 @@ export default function Profile() {
                     name="gender"
                     id="gender"
                     disabled={disabled}
+                    value={gender}
+                    onChange={(e)=>{
+                      setGender(e.target.value);
+                  }}
                   >
                     <option selected disabled>
                       Select your Gender
@@ -239,6 +305,10 @@ export default function Profile() {
                     type="tel"
                     className="form-control"
                     placeholder="Phone Number 1"
+                    value={phoneNumber1}
+                    onChange={(e)=>{
+                     setPNumber1(e.target.value);
+                 }}
                     required
                     disabled={disabled}
                   ></input>
@@ -280,6 +350,10 @@ export default function Profile() {
                     type="text"
                     className="form-control"
                     placeholder="References"
+                    value={references}
+                    onChange={(e)=>{
+                     setReferences(e.target.value);
+                 }}
                     required
                     disabled={disabled}
                   ></input>
@@ -308,6 +382,10 @@ export default function Profile() {
                     name="faculty"
                     id="faculty"
                     disabled={disabled}
+                    value={faculty}
+                    onChange={(e)=>{
+                      setFaculty(e.target.value);
+                  }}
                   >
                     <option selected disabled>
                       Select your Faculty
@@ -347,6 +425,10 @@ export default function Profile() {
                     type="date"
                     className="form-control"
                     placeholder="Graduating Year"
+                    value={DOG}
+                    onChange={(e)=>{
+                     setDOG(e.target.value);
+                 }}
                     required
                     disabled={disabled}
                   ></input>
@@ -369,6 +451,10 @@ export default function Profile() {
                     name="field"
                     id="field"
                     disabled={disabled}
+                    value={field}
+                    onChange={(e)=>{
+                      setField(e.target.value);
+                  }}
                   >
                     <option selected disabled>
                       Select Your Field
@@ -399,6 +485,10 @@ export default function Profile() {
                     name="subSpeciality"
                     id="subSpeciality"
                     disabled={disabled}
+                    value={subSpeciality}
+                    onChange={(e)=>{
+                      setSpeciality(e.target.value);
+                  }}
                   >
                     <option selected disabled>
                       Select your Sub Speciality
@@ -424,6 +514,10 @@ export default function Profile() {
                     class="form-control"
                     rows="3"
                     disabled={disabled}
+                    value={projects}
+                    onChange={(e)=>{
+                      setProjects(e.target.value);
+                  }}
                   ></textarea>
                 </div>
               </div>
@@ -444,6 +538,10 @@ export default function Profile() {
                     class="form-control"
                     rows="3"
                     disabled={disabled}
+                    value={eActivities}
+                    onChange={(e)=>{
+                      setEActivities(e.target.value);
+                  }}
                   ></textarea>
                 </div>
                 </div>
