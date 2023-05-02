@@ -23,6 +23,11 @@ export default function StudentHome(){
                   profile
                 </Button>
               </Link>
+              <Link to="/student-profile">
+                <Button variant="contained">
+                  My Applications
+                </Button>
+              </Link>
             </div>
         </div>
     )
