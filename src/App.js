@@ -25,6 +25,7 @@ import ProfileMain from "./components/pages/student/Profile/ProfileMain";
 import AllResponces from "./components/pages/company/studentResponces/allResponces";
 import StudentApplication from "./components/pages/student/studentApplication/StudentApplication";
 import StudentJobApplication from "./components/pages/student/studentApplication/StudentJobApplication";
+import StudentApplicationForStudent from "./components/pages/student/studentApplication/StudentApplicationForStudent";
 
 function App() {
   const [isLogedIn, setIsLogedIn] = useState(true);
@@ -143,12 +144,12 @@ function App() {
             <CompanyMainhome isLogedIn={isLogedIn} onLogout={handlLogOut} />
           }
         />
-        <Route
+        {/* <Route
           path="/company-details"
           element={
             <CompanyDetails isLogedIn={isLogedIn} onLogout={handlLogOut} />
           }
-        />
+        /> */}
         <Route
           path="/lecturer-details"
           element={
@@ -160,6 +161,15 @@ function App() {
           path="/student-application-for-company"
           element={
             <StudentApplicationCompany
+              isLogedIn={isLogedIn}
+              onLogout={handlLogOut}
+            />
+          }
+        />
+        <Route
+          path="/student-application-for-student"
+          element={
+            <StudentApplicationForStudent
               isLogedIn={isLogedIn}
               onLogout={handlLogOut}
             />

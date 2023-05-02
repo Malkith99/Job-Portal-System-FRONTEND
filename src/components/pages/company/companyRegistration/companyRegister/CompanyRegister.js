@@ -70,7 +70,7 @@ function CompanyRegister() {
                   // required
                 ></input>
               </div>
-              <label for="positionDestination" className="">
+              {/* <label for="positionDestination" className="">
                 <span className="asterisk-mark">*</span>Position/Destination
               </label>
               <div className="input-filed input-filed-cls">
@@ -81,6 +81,34 @@ function CompanyRegister() {
                   placeholder="Position/Destination"
                   disabled={disabled}
                   // required
+                ></input>
+              </div> */}
+               <label for="salaryRange" className="">
+                <span className="asterisk-mark">*</span>Salary Range
+              </label>
+              <div
+                className="input-filed input-filed-cls"
+                style={{ display: "flex", flex: "row", columnGap: "20px" }}
+              >
+                <input
+                  type="number"
+                  className="form-control"
+                  id="salaryRange salaryRangeMin"
+                  placeholder="Min"
+                  disabled={disabled}
+                  // required
+                  style={{ width: "50%" }}
+                  min="0"
+                ></input>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="salaryRange salaryRangeMax"
+                  placeholder="Max"
+                  disabled={disabled}
+                  // required
+                  style={{ width: "50%" }}
+                  min="0"
                 ></input>
               </div>
               
@@ -128,38 +156,11 @@ function CompanyRegister() {
                   // required
                 ></input>
               </div>
-              <label for="salaryRange" className="">
-                <span className="asterisk-mark">*</span>Salary Range
-              </label>
-              <div
-                className="input-filed input-filed-cls"
-                style={{ display: "flex", flex: "row", columnGap: "20px" }}
-              >
-                <input
-                  type="number"
-                  className="form-control"
-                  id="salaryRange salaryRangeMin"
-                  placeholder="Min"
-                  disabled={disabled}
-                  // required
-                  style={{ width: "50%" }}
-                  min="0"
-                ></input>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="salaryRange salaryRangeMax"
-                  placeholder="Max"
-                  disabled={disabled}
-                  // required
-                  style={{ width: "50%" }}
-                  min="0"
-                ></input>
-              </div>
+             
             </div>
           </div>
           <div className="flex-container2">
-            <div className="container2-flex-item1">
+            {/* <div className="container2-flex-item1">
               <label for="jobDescription" className="">
                 <span className="asterisk-mark">*</span>Job Description
               </label>
@@ -173,8 +174,8 @@ function CompanyRegister() {
                   // required
                 ></input>
               </div>
-            </div>
-            <div className="container2-flex-item2">
+            </div> */}
+            {/* <div className="container2-flex-item2">
               <label for="other" className="">
                 <span className="asterisk-mark">*</span>Other
               </label>
@@ -188,7 +189,7 @@ function CompanyRegister() {
                   // required
                 ></input>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="">
             <div className="input-filed input-filed-cls">

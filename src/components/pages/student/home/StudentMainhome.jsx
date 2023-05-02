@@ -29,46 +29,7 @@ function StudentMainhome({ isLogedIn, onLogout }) {
   return (
      <div>
      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-
        <div>
-{/*        
-          <Grid Container>
-
- 
- {/* <Feeds/>
-</Grid>
-<Grid item xs={6}>
-  <Feeds/>
-</Grid>
-<Grid item xs={6}> 
-<Grid item xs={6}> 
-  <Feeds/>
-</Grid>
-<Grid item xs={6}> 
-  <Feeds/>
-</Grid>
-<Grid item xs={6}> 
-  <Feeds/>
-</Grid>    </Grid>  */}
-{/* <Box sx={{ width: '25%' }}>
-      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        <Grid item xs={6}>
-          <Item><Feeds/></Item>
-        </Grid>
-        <Grid item xs={6}>
-          <Item><Feeds/></Item>
-        </Grid>
-        <Grid item xs={6}>
-          <Item><Feeds/></Item>
-        </Grid>
-        <Grid item xs={6}>
-          <Item><Feeds/></Item>
-        </Grid>
-      </Grid>
-    </Box> */}
-
-
-
      <Feeds/>
     
       </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const StudentApplication = (props) => {
   const [file, setFile] = useState(
@@ -24,7 +25,7 @@ const StudentApplication = (props) => {
               <img className="profile-photo-2" src={file} alt="Profile Photo" />
               <label for="profilePhoto" className="">
                 <span className="asterisk-mark">
-                  <div className={`${props.disabled && "d-none"}`}>*</div>
+                  <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>{" "}
                 Profile Photo
               </label>
@@ -45,7 +46,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Full Name
             </label>
@@ -63,7 +64,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Name with Initials
             </label>
@@ -83,7 +84,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Date of Birth
             </label>
@@ -101,7 +102,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Age
             </label>
@@ -119,7 +120,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Contact Number
             </label>
@@ -139,7 +140,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Background
             </label>
@@ -157,7 +158,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Skills
             </label>
@@ -175,7 +176,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               CV
             </label>
@@ -197,7 +198,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Linkedin Profile
             </label>
@@ -222,7 +223,7 @@ const StudentApplication = (props) => {
           >
             <label className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Reference
             </label>
@@ -253,7 +254,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label className="">
               <span className="asterisk-mark">
-                <div className={`${props.disabled && "d-none"}`}>*</div>
+                <span className={`${props.disabled && "d-none"}`}>* </span>
               </span>
               Reference
             </label>
@@ -283,6 +284,16 @@ const StudentApplication = (props) => {
           </div>
           <div className="container1-flex-item"></div>
         </div>
+        <Link to="/student/home">
+          <div className={`${props.disabled && "d-none"}`}>
+            <div className="input-filed input-filed-cls">
+              <button type="submit" className="btn btn-primary">
+                Submit
+              </button>
+            </div>
+            
+          </div>
+        </Link>
       </form>
     </div>
   );

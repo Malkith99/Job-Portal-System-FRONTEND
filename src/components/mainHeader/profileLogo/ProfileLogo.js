@@ -19,7 +19,7 @@ function ProfileLogo(props) {
       align="end"
     >
       <Dropdown.Item>
-        <Link to="/company-details">Profile</Link>
+        <Link to="/student/profile/">Profile</Link>
       </Dropdown.Item>
       <Dropdown.Divider />
       <Dropdown.Item>

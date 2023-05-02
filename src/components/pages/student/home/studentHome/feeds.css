@@ -1,0 +1,56 @@
+.container3:hover{
+    animation: flip 0.5s ;
+    background-color: linear-gradient(to left bottom,blue,black);}
+    @keyframes flip{
+        from{
+            transform: rotate(0);
+        }
+        to{
+            transform: rotateY(25deg);
+        }
+    }
+.s-card{
+    height: 280px;
+}
+
+@media only screen and (max-width: 1540px) {
+    .s-card {
+      height: 300px;
+    }
+  }
+
+  @media only screen and (max-width: 1510px) {
+    .s-card {
+      height: 310px;
+    }
+  }
+
+  @media only screen and (max-width: 1150px) {
+    .s-card {
+      height: 360px;
+    }
+  }
+
+  @media only screen and (max-width: 880px) {
+    .s-card {
+      height: 280px;
+    }
+  }
+
+  @media only screen and (max-width: 770px) {
+    .s-card {
+      height: 320px;
+    }
+  }
+
+  @media only screen and (max-width: 320px) {
+    .s-card {
+      height: 350px;
+    }
+  }
+
+  @media only screen and (max-width: 170px) {
+    .s-card {
+      height: 370px;
+    }
+  }
