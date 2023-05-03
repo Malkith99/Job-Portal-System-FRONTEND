@@ -45,12 +45,14 @@ export default function StudentRegistrationBasic() {
     event.preventDefault();
 
     if (!email || !password || !confirmPassword) {
-      toast.error("Please fill in all fields");
+      alert("Please fill all fields");
+      //toast.error("Please fill in all fields");
       return;
     }
 
     if (password !== confirmPassword) {
-      toast.error("Passwords do not match");
+      alert("Passwords do not match");
+      //toast.error("Passwords do not match");
       return;
     }
 
@@ -73,6 +75,10 @@ export default function StudentRegistrationBasic() {
     window.location.href = '/student-signIn';
   }else{
     console.log(res.data);
+    
+    const token=res.data.data;
+    window.localStorage.setItem("token",token);
+
     window.location.href = '/student-home';
     alert("Student Succefully Registered");
   }
