@@ -2,9 +2,17 @@ import React,{useState,useEffect} from 'react';  //useEffect import from react h
 import axios from "axios";
 import Button from "@mui/material/Button";
 import { Link } from "react-router-dom";
+import MainHeader from "../../../mainHeader/mainHeader";
+import Footer from "../../../footer/footer";
+import Feeds from "./studentHome/feeds";
 
-
-export default function StudentHome(){
+export default function StudentHome({ isLogedIn, onLogout }){
+  const content = (
+    <>
+      <Link to="/student-profile/"> Profile</Link>
+      <Link to="/student-application">My Applications</Link>
+    </>
+  );
   const[token,setToken]=useState("");
   useEffect(()=>{
     setToken(window.localStorage.getItem("token")); 
@@ -15,7 +23,15 @@ export default function StudentHome(){
   
 
     return(
-        <div>            
+      <div>
+      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+        <div>
+      <Feeds/>
+     
+       </div>
+       <Footer />
+     </div> 
+/*         <div>            
             <h1>Student Home</h1>
             <div className="student">
               <Link to="/student-profile">
@@ -29,6 +45,6 @@ export default function StudentHome(){
                 </Button>
               </Link>
             </div>
-        </div>
+        </div> */
     )
 }
