@@ -47,9 +47,7 @@ export default function ProfileImage(){
     return(
         <>
         <div className="container">
-        <h1>Profile Image</h1>
-        <h1>Profile</h1>
-
+        <p>Profile Image Upload</p>
         <button type="submit" className="btn btn-primary" onClick={handleSave}>
                 Save
               </button>
