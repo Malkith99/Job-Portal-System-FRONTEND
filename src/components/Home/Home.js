@@ -38,10 +38,10 @@ export default function Home({ isLogedIn, onLogout }) {
             <Link to="/student-register" type="button" className="form-control text-white student-button btn btn-primary m-2">
               A Student
             </Link>
-            <Link to="/lecturer-login" type="button" className="form-control text-white student-button btn btn-primary m-2">
+            <Link to="/lecturer-signup" type="button" className="form-control text-white student-button btn btn-primary m-2">
               A Lecturer
             </Link>
-            <Link to="/company-login" type="button" className="form-control text-white student-button btn btn-primary m-2">
+            <Link to="/company-signin" type="button" className="form-control text-white student-button btn btn-primary m-2">
               A Company
             </Link>
           </div>
