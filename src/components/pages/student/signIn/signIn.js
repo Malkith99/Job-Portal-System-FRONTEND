@@ -16,7 +16,16 @@ import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 
 
-  export default function StudentSignIn() {
+  export default function StudentSignIn({ isLogedIn, onLogout }) {
+    const content = (
+      <>
+        <Link to="/student/home">Student Home</Link>
+        <Link to="/student/profile/"> Profile</Link>
+        
+      </>
+    
+    );
+    
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [show, setShow] = useState(false);
@@ -73,11 +82,14 @@ import MainHeader from "../../../mainHeader/mainHeader";
     </Button>
   </Modal.Footer>
 </Modal> */
+
   
     return (
       <>
       <div>
-        <MainHeader/>
+        <MainHeader content={content}
+          isLogedIn={isLogedIn}
+          onLogout={onLogout}/>
       </div>
       <div>
         <Box sx={{ flexGrow: 1 }}>
