@@ -9,8 +9,9 @@ export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/student-register">Student Registration</Link>
-      {/* There is an merge */}
-
+      {/* <Link to="/student-register">Step 1</Link> */}
+      <Link to="/student-home">Student Home</Link>
+      <Link to="/student-profile/"> Profile</Link>
     </>
   );
   return (
