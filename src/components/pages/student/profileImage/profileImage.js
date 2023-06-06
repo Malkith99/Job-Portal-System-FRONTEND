@@ -6,16 +6,22 @@ import axios from "axios";
 export default function ProfileImage(){
     const[profileImage,setImage]=useState("");
     const[studentData,setData]=useState("");
+    console.log(studentData?._id);
 
-    function handleSave() {       // Perform any save operations here
-        sendImage();
-      }
+    const handleFileChange=(event)=> {       // Perform any save operations here
+        //sendImage();
+        const file=event.target.files[0];
+        setImage(file);
+      };
 
-    function sendImage(){
-        const newStudent={
-            profileImage,
-        }
-        axios.put("http://localhost:1234/student/uploadImage/"+studentData?._id,newStudent ).then(res=>{
+    function handleSubmit(event){
+      event.preventDefaulta();
+
+    const formData = new FormData();
+    formData.append("profileImage", profileImage);
+    console.log(formData);
+
+        axios.put("http://localhost:1234/student/uploadImage/"+studentData?._id,formData ).then(res=>{
             alert("Update Profile Image Successfully!");
         }).catch(error=>console.error('Error:',error));
     }
@@ -28,8 +34,8 @@ export default function ProfileImage(){
                 Authorization: `Bearer ${token}`,
               },
             })
-            .then(res=>{ 
-               
+            .then(res=>{
+
               if (res.data.status=="ok"){
                 setImage(res.data.profileImage);
                 setData(res.data.data);  
@@ -37,7 +43,8 @@ export default function ProfileImage(){
                 window.alert(res.data.error);
               }
             })
-            .catch(error=> console.error("Error: ",error));
+            .catch(error=>
+            console.error("Error: ",error));
           }
         fetchData();
     },[]);
@@ -48,9 +55,12 @@ export default function ProfileImage(){
         <>
         <div className="container">
         <p>Profile Image Upload</p>
-        <button type="submit" className="btn btn-primary" onClick={handleSave}>
-                Save
-              </button>
+        <div>
+            <form onSubmit={handleSubmit}>
+              <input type="file" onChange={handleFileChange} />
+              <button type="submit">Upload</button>
+            </form>
+        </div>
         </div>
         </>
     )
