@@ -4,7 +4,7 @@ import Footer from "../footer/footer";
 import MainHeader from "../mainHeader/mainHeader";
 import "./home.css";
 
-export default function Home({ isLogedIn, onLogout }) {
+function Home({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/">Home</Link>
@@ -35,10 +35,10 @@ export default function Home({ isLogedIn, onLogout }) {
           </div>
           <div className="home-right-div p-4 w-100 d-flex flex-column">
             <h1 className="main-head">Are you?</h1>
-            <Link to="/student-register" type="button" className="form-control text-white student-button btn btn-primary m-2">
+            <Link to="/student-register" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
               A Student
             </Link>
-            <Link to="/lecturer-login" type="button" className="form-control text-white student-button btn btn-primary m-2">
+            <Link to="/lecturer-login" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
               A Lecturer
             </Link>
             <Link to="/company-login" type="button" className="form-control text-white student-button btn btn-primary m-2">
@@ -52,3 +52,4 @@ export default function Home({ isLogedIn, onLogout }) {
   );
 }
 
+export default Home;
