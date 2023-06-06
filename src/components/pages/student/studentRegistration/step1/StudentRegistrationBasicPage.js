@@ -10,8 +10,8 @@ export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {
     <>
       <Link to="/student-register">Student Registration</Link>
       {/* <Link to="/student-register">Step 1</Link> */}
-      <Link to="/student/home">Student Home</Link>
-      <Link to="/student/profile/"> Profile</Link>
+      <Link to="/student-home">Student Home</Link>
+      <Link to="/student-profile/"> Profile</Link>
     </>
   );
   return (

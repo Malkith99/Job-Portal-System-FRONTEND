@@ -6,7 +6,7 @@ import Header from './components/Header';                        //import header
 import AddStudent from './components/AddStudent';
 import {BrowserRouter , Route, Routes } from "react-router-dom"
 import AllStudents from './components/AllStudent';
-import Home from './components/Home/Home';
+import Home from './components/Home/home';
 import StudentRegistrationBasicPage from './components/pages/student/studentRegistration/step1/StudentRegistrationBasicPage';
 import Profile from './components/pages/student/profile/studentProfileMain';
 import StudentSignIn from './components/pages/student/signIn/signIn';
