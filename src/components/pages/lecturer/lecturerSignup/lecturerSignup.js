@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 // import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
@@ -29,8 +30,7 @@ function LecturerSignup({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/">Home</Link>
-      <Link to="/lecturer-login">Login</Link>
-      <Link to="/lecturer-signup">Signup</Link>
+      <Link to="/lecture/home">Lecturer Home</Link>
     </>
     
   );
