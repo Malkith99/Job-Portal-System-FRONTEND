@@ -15,7 +15,7 @@ export default function ProfileImage(){
       };
 
     function handleSubmit(event){
-      event.preventDefaulta();
+      event.preventDefaulta(); // prevent defult form submission behavior
 
     const formData = new FormData();
     formData.append("profileImage", profileImage);
