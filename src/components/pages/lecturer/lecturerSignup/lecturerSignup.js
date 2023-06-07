@@ -10,7 +10,7 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+//import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 // import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
@@ -161,7 +161,7 @@ function LecturerSignup({ isLogedIn, onLogout }) {
             <div className="student">
               <Link to="/lecture/home">
                 <Button variant="contained">
-                  Sign up <ArrowForwardIosIcon />
+                  {/* Sign up <ArrowForwardIosIcon /> */}
                 </Button>
               </Link>
             </div>

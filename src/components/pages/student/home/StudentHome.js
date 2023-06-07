@@ -10,7 +10,7 @@ export default function StudentHome({ isLogedIn, onLogout }){
   const content = (
     <>
       <Link to="/student-profile/"> Profile</Link>
-      <Link to="/student-application">My Applications</Link>
+      <Link to="/student-applications">My Applications</Link>
     </>
   );
   const[token,setToken]=useState("");

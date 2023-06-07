@@ -5,9 +5,9 @@ function HeaderTop(props) {
   return (
     <div class="header-top">
       <div>
-        <p className="notloggin">
+{/*         <p className="notloggin">
           {props.isLogedIn ? "" : "You are not logged in."}
-        </p>
+        </p> */}
       </div>
     </div>
   );
