@@ -15,13 +15,17 @@ export default function ProfileImage(){
       };
 
     function handleSubmit(event){
-      event.preventDefaulta(); // prevent defult form submission behaviors
+      event.preventDefault(); // prevent defult form submission behaviors
 
     const formData = new FormData();
     formData.append("profileImage", profileImage);
     console.log(formData);
 
-        axios.put("http://localhost:1234/student/uploadImage/"+studentData?._id,formData ).then(res=>{
+        axios.post("http://localhost:1234/student/uploadImage/"+studentData?._id,formData,{
+              headers:{
+                "Content-Type": "multipart/form-data",
+              },
+            } ).then(res=>{
             alert("Update Profile Image Successfully!");
         }).catch(error=>console.error('Error:',error));
     }
