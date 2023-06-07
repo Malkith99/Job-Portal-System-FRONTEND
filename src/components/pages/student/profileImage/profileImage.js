@@ -15,15 +15,15 @@ export default function ProfileImage(){
       };
 
     function handleSubmit(event){
-      event.preventDefault(); // prevent defult form submission behaviors
+      event.preventDefault(); // prevent defult form submission behaviors, pause the refershing
 
     const formData = new FormData();
-    formData.append("profileImage", profileImage);
+    formData.append("profileImage", profileImage);  //"profileImage" is the name goven to profileImage file
     console.log(formData);
 
         axios.post("http://localhost:1234/student/uploadImage/"+studentData?._id,formData,{
               headers:{
-                "Content-Type": "multipart/form-data",
+                "Content-Type": "multipart/form-data",   // encrypt the sending data type
               },
             } ).then(res=>{
             alert("Update Profile Image Successfully!");
