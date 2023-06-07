@@ -94,81 +94,79 @@ export default function StudentRegistrationBasic() {
 
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={1} align="center">
-          <Grid item xs={12}>
-            <Card
-              sx={{
-                maxWidth: "50%",
-                mt: 5,
-                alignContent: "center",
-                justifyItems: "flex-end",
-              }}
-            >
-              <CardContent>
-                <Typography
-                  sx={{ fontSize: 18, fontWeight: "bold" }}
-                  color="Black"
-                  gutterBottom
-                >
-                  Step 1 : Registration
-                </Typography>
-                <form onSubmit={handleSubmit}>
-                  <TextField
-                    label="Email"
-                    variant="outlined"
-                    type="email"
-                    value={email}
-                    onChange={handleEmailChange}
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    label="Password"
-                    variant="outlined"
-                    type="password"
-                    value={password}
-                    onChange={handlePasswordChange}
-                    fullWidth
-                    margin="normal"
-                  />
-                  <TextField
-                    label="Confirm Password"
-                    variant="outlined"
-                    type="password"
-                    value={confirmPassword}
-                    onChange={handleConfirmPasswordChange}
-                    fullWidth
-                    margin="normal"
-                  />
-                     <Button variant="contained" color="primary" type="submit">
-                                        Sign Up
-                                    </Button>
-                </form>
-              </CardContent>
-            </Card>
-          </Grid>
-        </Grid>
-        <hr/>
-        <Grid container spacing={2}>
-          <Grid
-            item
-            xs={12}
-            align="right"
-            mr={"25%"}
-            sx={{ alignItems: "flex-end" }}
+    <Box sx={{ flexGrow: 1 }}>
+      <Grid container spacing={1} align="center">
+        <Grid item xs={12}>
+          <Card
+            sx={{
+              maxWidth: "50%",
+              mt: 5,
+              alignContent: "center",
+              justifyItems: "flex-end",
+            }}
           >
-            <div className="student">
-              <Link to="/student-signIn">
-                <Button variant="contained">
-                  Sign In {/* <ArrowForwardIosIcon /> */}
-                </Button>
-              </Link>
-            </div>
-          </Grid>
+            <CardContent>
+              <Typography
+                sx={{ fontSize: 18, fontWeight: "bold" }}
+                color="Black"
+                gutterBottom
+              >
+                 Create Your Account
+              </Typography>
+              <form onSubmit={handleSubmit}>
+                <TextField
+                  label="Email"
+                  variant="outlined"
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Password"
+                  variant="outlined"
+                  type="password"
+                  value={password}
+                  onChange={handlePasswordChange}
+                  fullWidth
+                  margin="normal"
+                />
+                <TextField
+                  label="Confirm Password"
+                  variant="outlined"
+                  type="password"
+                  value={confirmPassword}
+                  onChange={handleConfirmPasswordChange}
+                  fullWidth
+                  margin="normal"
+                />
+                   <Button variant="contained" color="primary" type="submit">
+                                      Sign Up
+                                  </Button>
+              </form>
+            </CardContent>
+          </Card>
         </Grid>
-      </Box>
-    </div>
+      </Grid>
+      <hr/>
+      <Grid container spacing={2}>
+        <Grid
+          item
+          xs={12}
+          align="right"
+          mr={"25%"}
+          sx={{ alignItems: "flex-end" }}
+        >
+          <div className="student">
+          <div style={{marginTop:"7px"}}>
+                    <Link to="/student-signin">Do you have an account? click here to sign in.</Link>
+                  </div>
+          </div>
+        </Grid>
+      </Grid>
+    </Box>
+  </div>
   );
 }
 

@@ -28,6 +28,7 @@ export default function Profile() {
   const [projects, setProjects]=useState("");
   const [eActivities, setEActivities]=useState("");
   const [disabled, setDisabled] = useState(true);
+
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -37,16 +38,12 @@ export default function Profile() {
     setDisabled(false);
   }
 
-  function handleSave() {
+  function handleSave() {       // Perform any save operations here
     setDisabled(true);
     sendData();
-
-    // Perform any save operations here
   }
+
   function sendData(){     // function that execute when pressing submit button"
-
-
-    // Connection of backend and frontend using axios //
   const newStudent={
         firstName,
        middleName,
@@ -65,9 +62,10 @@ export default function Profile() {
         eActivities, 
 
     }
+     // Connection of backend and frontend using axios //
   axios.put("http://localhost:1234/student/update/"+studentData?._id,newStudent ).then(res=>{
     console.log(res.data);
-    //alert("Student Added");
+    alert("Updated Successfully!");
   }).catch(error=>console.error('Error: ',error));
 }
 
@@ -107,9 +105,6 @@ export default function Profile() {
           .catch(error=> console.error("Error: ",error));
         }
       fetchData();
-
-
-
 },[]);
 
   return (
@@ -138,6 +133,14 @@ export default function Profile() {
           >
             <img className="profile-photo" src={file} alt="Profile Photo" />
             <label className="label-title">Profile Photo</label>
+            <div>
+                <Link to ="/profileImage">
+                <button>
+                  Edit
+                </button>
+                </Link>
+              </div>
+
             <div style={{ padding: 10 }} />
             <div className="file-input-div">
               <input
