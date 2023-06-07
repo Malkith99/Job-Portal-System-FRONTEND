@@ -27,6 +27,7 @@ export default function Profile() {
   const [subSpeciality,setSpeciality]=useState("");
   const [projects, setProjects]=useState("");
   const [eActivities, setEActivities]=useState("");
+  const[profileImage,setProfileImage]=useState("");
   const [disabled, setDisabled] = useState(true);
 
   function handleChange(e) {
@@ -95,7 +96,8 @@ export default function Profile() {
               setField(res.data.data.field);
               setSpeciality(res.data.data.subSpeciality);
               setProjects(res.data.data.projects);
-              setEActivities(res.data.data.EActivities)
+              setEActivities(res.data.data.EActivities);
+              setProfileImage(res.data.data.profileImage);
 
             }else{
               window.alert(res.data.error);

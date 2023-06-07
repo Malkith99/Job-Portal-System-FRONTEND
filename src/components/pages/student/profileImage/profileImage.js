@@ -6,12 +6,16 @@ import axios from "axios";
 export default function ProfileImage(){
     const[profileImage,setImage]=useState("");
     const[studentData,setData]=useState("");
+    const [file, setFile] = useState(
+      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+    );
     console.log(studentData?._id);
 
     const handleFileChange=(event)=> {       // Perform any save operations here
-        //sendImage();
         const file=event.target.files[0];
-        setImage(file);
+        console.log(file);
+        setImage(event.target.files[0]);
+        setFile(URL.createObjectURL(event.target.files[0]))
       };
 
     function handleSubmit(event){
@@ -58,11 +62,17 @@ export default function ProfileImage(){
     return(
         <>
         <div className="container">
-        <p>Profile Image Upload</p>
+        <p>Profile Image Upload</p> 
+
         <div>
             <form onSubmit={handleSubmit}>
+            <div>
+              <img className="profile-photo" src={file} alt="" />
+            </div>
               <input type="file" onChange={handleFileChange} />
+              <div>
               <button type="submit">Upload</button>
+              </div>
             </form>
         </div>
         </div>
