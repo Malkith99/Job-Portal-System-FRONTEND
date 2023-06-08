@@ -14,6 +14,7 @@ import Grid from "@mui/material/Grid";
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import axios from "axios";
+import { red } from "@mui/material/colors";
 // import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
 // import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";
 // import VerticalSeparator from "../../step2/components/verticalSeparator/VerticalSeparator";
@@ -30,8 +31,8 @@ function CompanySignup({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/">Home</Link>
-      <Link to="/company-signup">Sign Up</Link>
-      <Link to="/company-signin">Sign In</Link>
+      <Link to="/company-signup">Company Signup</Link>
+      {/* <Link to="/company-signin">Sign In</Link> */}
     </>
     
   );
@@ -104,24 +105,28 @@ function CompanySignup({ isLogedIn, onLogout }) {
           isLogedIn={isLogedIn}
           onLogout={onLogout}
            />
+    <div className=" text-center sign ">Sign Up</div>
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1} align="center">
         <Grid item xs={12}>
           <Card
             sx={{
               maxWidth: "50%",
-              mt: 5,
+              // mt: 1,
               alignContent: "center",
               justifyItems: "flex-end",
+              
             }}
           >
+            
             <CardContent>
               <Typography
+                className=""
                 sx={{ fontSize: 18, fontWeight: "bold" }}
                 color="Black"
                 gutterBottom
               >
-                Create Your Account
+                
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
@@ -132,6 +137,7 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   onChange={handleEmailChange}
                   fullWidth
                   margin="normal"
+                  
                 />
                 <TextField
                   label="Password"
@@ -142,7 +148,7 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   fullWidth
                   margin="normal"
                 />
-                <TextField
+                <TextField 
                   label="Confirm Password"
                   variant="outlined"
                   type="password"
@@ -151,30 +157,19 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   fullWidth
                   margin="normal"
                 />
-                   <Button variant="contained" color="primary" type="submit">
+                <Link to="/company-home">
+                <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
+                </Link>
+                   
               </form>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
-      <hr/>
-      <Grid container spacing={2}>
-        <Grid
-          item
-          xs={12}
-          align="right"
-          mr={"25%"}
-          sx={{ alignItems: "flex-end" }}
-        >
-          <div className="student">
-          <div style={{marginTop:"7px"}}>
-                    <Link to="/company-signIn">Do you have an account? click here to sign In.</Link>
-                  </div>
-          </div>
-        </Grid>
-      </Grid>
+      
+      
     </Box>
     <Footer />
   </div>
