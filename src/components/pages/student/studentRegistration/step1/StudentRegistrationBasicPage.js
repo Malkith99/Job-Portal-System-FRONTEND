@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../../../footer/Footer";
-import MainHeader from "../../../../mainHeader/MainHeader";
+import MainHeader from "../../../../MainHeader/MainHeader";
 import StudentRegistrationBasic from "./studentRegistrationBasic/StudentRegistrationBasic";
 
 export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {

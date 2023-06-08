@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./login/Login";
 import Footer from "../../footer/Footer";
-import MainHeader from "../../mainHeader/MainHeader";
+import MainHeader from "../../MainHeader/MainHeader";
 
 export default function LoginPage({ isLogedIn, onLogout }) {
   const content = (

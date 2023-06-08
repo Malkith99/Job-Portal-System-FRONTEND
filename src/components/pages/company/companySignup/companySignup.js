@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import MainHeader from "../../../mainHeader/MainHeader";
+import MainHeader from "../../../MainHeader/MainHeader";
 import Footer from "../../../footer/Footer";
 // import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
 // import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";

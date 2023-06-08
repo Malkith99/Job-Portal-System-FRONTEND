@@ -1,5 +1,5 @@
 import React from "react";
-import MainHeader from "../../../mainHeader/MainHeader";
+import MainHeader from "../../../MainHeader/MainHeader";
 import { Link } from "react-router-dom";
 import Grid from '@mui/material/Grid';
 import Footer from "../../../footer/Footer";

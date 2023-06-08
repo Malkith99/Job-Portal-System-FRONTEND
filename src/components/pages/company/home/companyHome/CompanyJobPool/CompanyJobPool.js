@@ -1,5 +1,5 @@
 import React from 'react'
-import MainHeader from '../../../../../mainHeader/MainHeader'
+import MainHeader from '../../../../../MainHeader/MainHeader'
 import Footer from '../../../../../footer/Footer'
 import VacancySection from '../VavancySection/VacancySection'
 import { Link } from "react-router-dom";
