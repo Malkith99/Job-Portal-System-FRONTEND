@@ -8,8 +8,9 @@ function CompanyLogin({ isLogedIn, onLogout }) {
   const content = (
     <>
       {/* <Link to="/">Home</Link> */}
+      <Link to="/">Home</Link>
       <Link to="/company-login">Company Login</Link>
-      <Link to="/company-home">Company Home</Link>
+      {/* <Link to="/company-home">Company Home</Link> */}
     </>
     
   );
@@ -27,7 +28,7 @@ function CompanyLogin({ isLogedIn, onLogout }) {
         <div className="row justify-content-center">
           <div className="col-md-6">
           
-              <div className="card-header text-center loginN">Login</div>
+              <div className="card-header text-center sign">Login</div>
               <div className="card-body">
                 <form className="loginbox-content">
                   <div className="form-group mb-3">
