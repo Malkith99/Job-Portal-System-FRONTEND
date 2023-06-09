@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
+import Popup from "../../../popup/popup";
+import Button from "@mui/material/Button"
+import ProfilePic from "../profile/ProfilePopup"
 //import Popup from "./popup1";
 //import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
 //import "./CompanyRegister.css"
@@ -31,7 +34,7 @@ export default function Profile() {
   const [eActivities, setEActivities] = useState("");
   const [profileImage, setProfileImage] = useState("");
   const [disabled, setDisabled] = useState(true);
-
+  const [openProfilePopup, setOpenProfilePopup] = useState(false);
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -132,6 +135,7 @@ export default function Profile() {
           <input type="text" id="textbox" value={studentData?.email} />
         </div>
       </div>
+
     </div> */}
       </div>
       <div
@@ -147,12 +151,18 @@ export default function Profile() {
             >
               <img className="profile-photo" src={file} alt="Profile Photo" />
               <label className="label-title">
-                Profile Photo
-                <Link to="/profileImage">
-                  <EditIcon style={{ color: "#808080", marginLeft: "5px" }} />
-                </Link>
-              </label>
-
+              Profile Photo
+              <Button onClick={() => setOpenProfilePopup(true)}> <EditIcon style={{ color: "#808080",marginRight: "8px" }} /></Button>
+        {openProfilePopup && (
+          <Popup
+        
+            title="Edit Profile Photo"
+            openPopup={openProfilePopup}
+            setOpenPopup={setOpenProfilePopup}
+          >
+           <ProfilePic/>
+          </Popup>
+)}</label>
               <div style={{ padding: 10 }} />
               <div className="file-input-div">
                 <input
