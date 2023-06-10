@@ -2,8 +2,7 @@ import React from "react";
 
 export default function PersonalInfo() {
   function handleSave(event) {
-    event.preventDefault(); // Prevents the default form submission behavior
-    // Add your save logic here
+    // event.preventDefault(); 
   }
 
   return (
