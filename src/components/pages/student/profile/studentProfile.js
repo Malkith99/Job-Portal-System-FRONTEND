@@ -46,7 +46,7 @@ export default function Profile() {
   }
 
   function handleSave() {
-    // Perform any save operations here
+    
     setDisabled(true);
     sendData();
   }
@@ -421,7 +421,7 @@ export default function Profile() {
           <h4 className="sub-headings">Academic Details: </h4>
 <Card  sx={{ width: 1200 ,alignItems:"center" ,padding:1,marginBottom:5}}>
           
-          <div className="">
+          <div className="" style={{ padding: 10 }}>
             <div className="flex-container2">
               <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item1">
