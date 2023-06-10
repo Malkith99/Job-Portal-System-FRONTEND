@@ -418,8 +418,9 @@ export default function Profile() {
             </Card>
           </div>
           </div>
-
           <h4 className="sub-headings">Academic Details: </h4>
+<Card  sx={{ width: 1200 ,alignItems:"center" ,padding:1,marginBottom:5}}>
+          
           <div className="">
             <div className="flex-container2">
               <div className="container2-flex-item">
@@ -578,7 +579,7 @@ export default function Profile() {
               </div>
             </div>
           </div>
-
+          </Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
           <div className="">
             <div className="flex-container2">
