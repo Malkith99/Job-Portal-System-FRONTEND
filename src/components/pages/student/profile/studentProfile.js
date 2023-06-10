@@ -5,11 +5,11 @@ import axios from "axios";
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import Popup from "../../../popup/popup";
-import Button from "@mui/material/Button"
-import ProfilePic from "../profile/ProfilePopup"
-//import Popup from "./popup1";
-//import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
-//import "./CompanyRegister.css"
+import Button from "@mui/material/Button";
+import ProfilePic from "../profile/ProfilePopup";
+import Card from "@mui/material/Card";
+import PersonalInfo from "./Person_popup";
+
 
 export default function Profile() {
   const [file, setFile] = useState(
@@ -35,6 +35,7 @@ export default function Profile() {
   const [profileImage, setProfileImage] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [openProfilePopup, setOpenProfilePopup] = useState(false);
+  const [openPersonalPopup, setOpenPersonalPopup] = useState(false);
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -126,8 +127,8 @@ export default function Profile() {
 
   return (
     <>
-      <div>
-        {/* <h1>Profile</h1>
+      {/* <div> */}
+      {/* <h1>Profile</h1>
     <div className="profile">
       <div className="box">
         <label htmlFor="textbox">Email: </label>
@@ -137,44 +138,52 @@ export default function Profile() {
       </div>
 
     </div> */}
-      </div>
+      {/* </div> */}
       <div
         className="container progress-div"
         style={{ marginTop: "1px", padding: "50px" }}
       >
-        <form action="/student/home">
-          <h4 className="sub-headings">Personal info: </h4>
+        <form >
           <div className="flex-container1">
+       
             <div
               className="container1-flex-item1 text-center"
-              style={{ display: "flex", flexDirection: "column" }}
+              // style={{ alignItems: "center" }}
+               style={{ display: "flex", flexDirection: "column" }}
             >
               <img className="profile-photo" src={file} alt="Profile Photo" />
               <label className="label-title">
-              Profile Photo
-              <Button onClick={() => setOpenProfilePopup(true)}> <EditIcon style={{ color: "#808080",marginRight: "8px" }} /></Button>
-        {openProfilePopup && (
-          <Popup
-        
-            title="Edit Profile Photo"
-            openPopup={openProfilePopup}
-            setOpenPopup={setOpenProfilePopup}
-          >
-           <ProfilePic/>
-          </Popup>
-)}</label>
-              <div style={{ padding: 10 }} />
-              <div className="file-input-div">
+                Profile Photo
+                <Button onClick={() => setOpenProfilePopup(true)}>
+                  {" "}
+                  <EditIcon style={{ color: "#808080", marginRight: "8px" }} />
+                </Button>
+                {openProfilePopup && (
+                  <Popup
+                    title="Edit Profile Photo"
+                    openPopup={openProfilePopup}
+                    setOpenPopup={setOpenProfilePopup}
+                  >
+                    <ProfilePic />
+                  </Popup>
+                )}
+              </label>
+              {/* <div style={{ padding: 10 }} /> */}
+              {/* <div className="file-input-div">
                 <input
                   type="file"
                   className="file-input-field form-control"
                   onChange={handleChange}
                   disabled={disabled}
                 />
-              </div>
+              </div> */}
+         
             </div>
-
+            <div>
+            <h4 className="sub-headings">Personal info: </h4>
+            <Card sx={{ width: 1200 ,alignItems:"center" ,padding:1,marginBottom:5}}>
             <div className="container1-flex-item2" style={{ padding: 10 }}>
+
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">Name</label>
@@ -385,9 +394,29 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="sub-flex-item2"></div>
-                <div className="sub-flex-item2"></div>
+        
               </div>
             </div>
+            <button
+        type="button"
+        className="btn btn-primary"
+        onClick={()=>setOpenPersonalPopup(true)}
+        style={{ marginBottom: "10px", marginLeft: "10px" }}
+      >
+        Edit
+      </button>
+      {openPersonalPopup && (
+        <Popup
+          title="Edit Personal Info"
+          openPopup={openPersonalPopup}
+          setOpenPopup={setOpenPersonalPopup}
+        >
+          <PersonalInfo />
+        </Popup>
+      
+                  )}
+            </Card>
+          </div>
           </div>
 
           <h4 className="sub-headings">Academic Details: </h4>
