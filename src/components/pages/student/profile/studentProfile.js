@@ -9,7 +9,7 @@ import Button from "@mui/material/Button";
 import ProfilePic from "../profile/ProfilePopup";
 import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup";
-
+import AcademicDetails from "./Academic_Popup";
 
 export default function Profile() {
   const [file, setFile] = useState(
@@ -36,6 +36,7 @@ export default function Profile() {
   const [disabled, setDisabled] = useState(true);
   const [openProfilePopup, setOpenProfilePopup] = useState(false);
   const [openPersonalPopup, setOpenPersonalPopup] = useState(false);
+  const [openAcademicPopup, setOpenAcademicPopup] = useState(false);
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -579,6 +580,24 @@ export default function Profile() {
               </div>
             </div>
           </div>
+          <button
+        type="button"
+        className="btn btn-primary"
+        onClick={()=>setOpenAcademicPopup(true)}
+        style={{ marginBottom: "10px", marginLeft: "10px" }}
+      >
+        Edit
+      </button>
+      {openAcademicPopup && (
+        <Popup
+          title="Edit Personal Info"
+          openPopup={openAcademicPopup}
+          setOpenPopup={setOpenAcademicPopup}
+        >
+          <AcademicDetails />
+        </Popup>
+      
+                  )}
           </Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
           <div className="">
@@ -600,7 +619,7 @@ export default function Profile() {
                     ></textarea>
                   </div>
                 </div>
-                <div>
+                {/* <div>
                   {disabled ? (
                     <button
                       type="button"
@@ -618,7 +637,7 @@ export default function Profile() {
                       Save
                     </button>
                   )}
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
