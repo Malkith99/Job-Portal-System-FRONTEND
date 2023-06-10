@@ -21,6 +21,7 @@ import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJ
 import AllResponses from './components/pages/company/studentResponces/allResponces'; 
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
+import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
 
@@ -49,7 +50,7 @@ function App() {
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
           <Route path="/lecturer-login" element={<LecturerSignup/>}></Route>
-          
+          <Route path="/company-login" element={<CompanyLogin/>}></Route>
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>
