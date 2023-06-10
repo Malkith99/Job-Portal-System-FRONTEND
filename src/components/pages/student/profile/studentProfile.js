@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Component } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -27,13 +27,16 @@ export default function Profile() {
   const [subSpeciality, setSpeciality] = useState("");
   const [projects, setProjects] = useState("");
   const [eActivities, setEActivities] = useState("");
-  const [profileImage, setProfileImage] = useState("");
+  const [img, setProfileImage] = useState("");
   const [disabled, setDisabled] = useState(true);
 
   const arrayBufferToBase64 = (buffer) => {
     var binary = "";
-    var bytes = [].slice.call(new Uint8Array(buffer));
-    bytes.forEach((b) => (binary += String.fromCharCode(b)));
+    var bytes = new Uint8Array(buffer);
+    var len = bytes.byteLength;
+    for (var i = 0; i < len; i++) {
+      binary += String.fromCharCode(bytes[i]);
+    }
     return window.btoa(binary);
   };
 
@@ -100,9 +103,8 @@ export default function Profile() {
         .then((res) => {
           if (res.data.status == "ok") {
             setData(res.data.data);
-            console.log(res.data.data.firstName);
-
             setFName(res.data.data.firstName);
+            console.log(firstName);
             setMName(res.data.data.middleName);
             setLName(res.data.data.lastName);
             setIndex(res.data.data.indexNumber);
@@ -117,15 +119,23 @@ export default function Profile() {
             setProjects(res.data.data.projects);
             setEActivities(res.data.data.EActivities);
             setProfileImage(res.data.data.profileImage);
+            //////////
+            // var base64Flag = "contentType:image/png;base64,";
+            // var imageStr = arrayBufferToBase64(
+            //   studentData?.profileImage.buffer
+            // );
+            // console.log(imageStr);
+            // setProfileImage(base64Flag + imageStr);
           } else {
             window.alert(res.data.error);
           }
         })
-        .then((data) => {
-          var base64Flag = "data:image/png;base64,";
-          var imageStr = arrayBufferToBase64(data.profileImage.data.data);
-          setProfileImage(base64Flag + imageStr);
-        })
+        // .then((data) => {
+        //   var base64Flag = "data:image/png;base64,";
+        //   var imageStr = arrayBufferToBase64(data.profileImage.data);
+        //   console.log(imageStr);
+        //   setProfileImage(base64Flag + imageStr);
+        // })
         .catch((error) => console.error("Error: ", error));
     };
     fetchData();
@@ -157,7 +167,13 @@ export default function Profile() {
             >
               <div className="container2-flex-item-sub-item2">
                 <div className="input-filed input-filed-cls">
-                  <img className="profile-photo" src={profileImage} alt="" />
+                  <img
+                    className="profile-photo"
+                    src={`data:image/png;base64,${arrayBufferToBase64(
+                      img.data
+                    )}`}
+                    alt=""
+                  />
                 </div>
                 <div className="text-center">
                   <label className="hint-title">Profile Photo</label>
