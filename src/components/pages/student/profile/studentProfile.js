@@ -199,7 +199,7 @@ export default function Profile() {
                       onChange={(e) => {
                         setFName(e.target.value);
                       }}
-                      disabled={disabled}
+                      disabled={disabled}                   
                       required
                     ></input>
                   </div>
@@ -219,11 +219,11 @@ export default function Profile() {
                       onChange={(e) => {
                         setMName(e.target.value);
                       }}
-                      disabled={disabled}
+                      disabled={disabled}     
                     ></input>
                   </div>
                   <div className="text-center">
-                    <label className="hint-title">Middle Name</label>
+                    <label className="hint-title" >Middle Name</label>
                   </div>
                 </div>
                 <div className="sub-flex-item2">
@@ -237,7 +237,7 @@ export default function Profile() {
                         setLName(e.target.value);
                       }}
                       required
-                      disabled={disabled}
+                      disabled={disabled}                    
                     ></input>
                   </div>
                   <div className="text-center">
@@ -249,7 +249,7 @@ export default function Profile() {
               </div>
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
-                  <label className="label-title">
+                  <label className="label-title" >
                     Index Number
                     <span className="asterisk-mark">*</span>
                   </label>
