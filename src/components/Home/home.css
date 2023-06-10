@@ -48,9 +48,16 @@
   
   @media only screen and (max-width: 850px) {
     .student-button {
-      font-size: 12px;
+      font-size: 20px;
     }
   }
+
+  @media only screen and (max-width: 280px) {
+    .student-button {
+      font-size: 20px;
+    }
+  }
+ 
   
   .l {
     height: 45px;
