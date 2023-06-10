@@ -19,7 +19,7 @@
     vertical-align: middle !important;
     text-align: center;
     letter-spacing: 15px;
-    font-size: 60px;
+    font-size: 59px;
     align-items: center;
     justify-content: center;
     padding-right: 8px;
@@ -50,9 +50,10 @@
       text-underline-offset: 10px;
     }
   }
+  
   @media only screen and (max-width: 903px) {
     .title {
-      font-size: 56px;
+      font-size: 55px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
@@ -76,7 +77,7 @@
   }
   @media only screen and (max-width: 828px) {
     .title {
-      font-size: 52px;
+      font-size: 51px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
