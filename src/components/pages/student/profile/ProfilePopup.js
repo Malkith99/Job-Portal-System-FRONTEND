@@ -9,7 +9,7 @@ function ProfilePic(props) {
     setFile(URL.createObjectURL(e.target.files[0]));
   }
 
-  const { setOpenPopup } = props;
+  //const { setOpenPopup } = props;
   function handleSave() {}
 
   return (
