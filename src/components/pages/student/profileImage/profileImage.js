@@ -61,17 +61,18 @@ export default function ProfileImage(){
 
     return(
         <>
-        <div className="container">
-        <p>Profile Image Upload</p> 
+        <div className="container"   >
+       
 
         <div>
             <form onSubmit={handleSubmit}>
-            <div>
+            <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
               <img className="profile-photo" src={file} alt="" />
             </div>
               <input type="file" onChange={handleFileChange} />
+              <div style={{ marginBottom: "1rem" }}></div>
               <div>
-              <button type="submit">Upload</button>
+              <button type="Submit" class="btn btn-primary">Upload</button>
               </div>
             </form>
         </div>
