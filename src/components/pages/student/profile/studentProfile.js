@@ -10,7 +10,7 @@ import ProfilePic from "../profile/ProfilePopup";
 import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";
-
+import ExtraC_popup from "./Extracuricular_popup";
 export default function Profile() {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
@@ -37,6 +37,7 @@ export default function Profile() {
   const [openProfilePopup, setOpenProfilePopup] = useState(false);
   const [openPersonalPopup, setOpenPersonalPopup] = useState(false);
   const [openAcademicPopup, setOpenAcademicPopup] = useState(false);
+  const [openExtraPopup, setOpenExtraPopup] = useState(false);
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -600,6 +601,7 @@ export default function Profile() {
                   )}
           </Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
+          <Card sx={{ width: 1200 ,alignItems:"center" ,padding:1,marginBottom:5}}>
           <div className="">
             <div className="flex-container2">
               <div className="container2-flex-item">
@@ -640,9 +642,34 @@ export default function Profile() {
                 </div> */}
               </div>
             </div>
+            
           </div>
+          <button
+        type="button"
+        className="btn btn-primary"
+        onClick={()=>setOpenExtraPopup(true)}
+        style={{ marginBottom: "10px", marginLeft: "10px" }}
+      >
+        Edit
+      </button>
+      
+      {openExtraPopup && (
+        <Popup
+          title="Edit Extra Curricular Activities"
+          openPopup={openExtraPopup}
+          setOpenPopup={setOpenExtraPopup}
+         
+        >
+          <ExtraC_popup />
+        </Popup>
+      
+                  )}
+                  
+
+          </Card>
         </form>
       </div>
+      
     </>
   );
 }
