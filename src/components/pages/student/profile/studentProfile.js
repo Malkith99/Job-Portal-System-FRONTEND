@@ -30,16 +30,6 @@ export default function Profile() {
   const [img, setProfileImage] = useState("");
   const [disabled, setDisabled] = useState(true);
 
-  const arrayBufferToBase64 = (buffer) => {
-    var binary = "";
-    var bytes = new Uint8Array(buffer);
-    var len = bytes.byteLength;
-    for (var i = 0; i < len; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    return window.btoa(binary);
-  };
-
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -119,23 +109,10 @@ export default function Profile() {
             setProjects(res.data.data.projects);
             setEActivities(res.data.data.EActivities);
             setProfileImage(res.data.data.profileImage);
-            //////////
-            // var base64Flag = "contentType:image/png;base64,";
-            // var imageStr = arrayBufferToBase64(
-            //   studentData?.profileImage.buffer
-            // );
-            // console.log(imageStr);
-            // setProfileImage(base64Flag + imageStr);
           } else {
             window.alert(res.data.error);
           }
         })
-        // .then((data) => {
-        //   var base64Flag = "data:image/png;base64,";
-        //   var imageStr = arrayBufferToBase64(data.profileImage.data);
-        //   console.log(imageStr);
-        //   setProfileImage(base64Flag + imageStr);
-        // })
         .catch((error) => console.error("Error: ", error));
     };
     fetchData();
@@ -169,9 +146,7 @@ export default function Profile() {
                 <div className="input-filed input-filed-cls">
                   <img
                     className="profile-photo"
-                    src={`data:image/png;base64,${arrayBufferToBase64(
-                      img.data
-                    )}`}
+                    src={"http://localhost:1234/" + studentData.profileImage}
                     alt=""
                   />
                 </div>
@@ -179,19 +154,6 @@ export default function Profile() {
                   <label className="hint-title">Profile Photo</label>
                 </div>
               </div>
-              {/* {studentData.map((singleData) => {
-                const base64String = btoa(
-                  String.fromCharCode(...new Uint8Array(singleData.img.data))
-                );
-                return (
-                  <img
-                    className="profile-photo"
-                    src={`data:image/png,base64,${base64String}`}
-                    alt="Profile Photo"
-                  />
-                );
-              })} */}
-
               <label className="label-title">Profile Photo</label>
               <div>
                 <Link to="/profileImage">
