@@ -21,57 +21,57 @@ export default function ProfileImage() {
   };
   ////////////////////////////////////
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  // function handleSubmit(event) {
+  //   event.preventDefault();
 
-    if (profileImage) {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const imageData = e.target.result;
+  //   if (profileImage) {
+  //     const reader = new FileReader();
+  //     reader.onload = (e) => {
+  //       const imageData = e.target.result;
 
-        // Make API request to upload the image
-        axios
-          .post(
-            "http://localhost:1234/student/uploadImage/" + studentData?._id,
-            { imageData }
-          ) // Corrected property name to "imageData"
-          .then((response) => {
-            console.log(response.data); // Success message
-            // Retrieve the uploaded image URL from the response
-            const { imageUrl } = response.data;
-            setImageUrl(imageUrl);
-          })
-          .catch((error) => {
-            console.error(error);
-          });
-      };
-      reader.readAsDataURL(profileImage);
-    }
-  }
+  //       // Make API request to upload the image
+  //       axios
+  //         .post(
+  //           "http://localhost:1234/student/uploadImage/" + studentData?._id,
+  //           { imageData }
+  //         ) // Corrected property name to "imageData"
+  //         .then((response) => {
+  //           console.log(response.data); // Success message
+  //           // Retrieve the uploaded image URL from the response
+  //           const { imageUrl } = response.data;
+  //           setImageUrl(imageUrl);
+  //         })
+  //         .catch((error) => {
+  //           console.error(error);
+  //         });
+  //     };
+  //     reader.readAsDataURL(profileImage);
+  //   }
+  // }
 
   ////////////////////////////
-  // function handleSubmit(event) {
-  //   event.preventDefault(); // prevent defult form submission behaviors, pause the refershing
+  function handleSubmit(event) {
+    event.preventDefault(); // prevent defult form submission behaviors, pause the refershing
 
-  //   const formData = new FormData();
-  //   formData.append("profileImage", profileImage); //"profileImage" is the name goven to profileImage file
-  //   console.log(formData);
+    const formData = new FormData();
+    formData.append("profileImage", profileImage); //"profileImage" is the name goven to profileImage file
+    console.log(formData);
 
-  //   axios
-  //     .post(
-  //       "http://localhost:1234/student/uploadImage/" + studentData?._id,
-  //       formData,
-  //       {
-  //         headers: {
-  //           "Content-Type": "multipart/form-data", // encrypt the sending data type
-  //         },
-  //       }
-  //     )
-  //     .then((res) => {
-  //       alert("Update Profile Image Successfully!");
-  //     })
-  //     .catch((error) => console.error("Error:", error));
-  // }
+    axios
+      .post(
+        "http://localhost:1234/student/uploadImage/" + studentData?._id,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data", // encrypt the sending data type
+          },
+        }
+      )
+      .then((res) => {
+        alert("Update Profile Image Successfully!");
+      })
+      .catch((error) => console.error("Error:", error));
+  }
 
   useEffect(() => {
     const fetchData = async () => {
@@ -106,7 +106,11 @@ export default function ProfileImage() {
         <div>
           <form onSubmit={handleSubmit}>
             <div>
-              <img className="profile-photo" src={imageUrl} alt="" />
+              <img
+                className="profile-photo"
+                src={"http://localhost:1234/" + studentData.profileImage}
+                alt=""
+              />
               {/* {imageUrl && (
                 <img className="profile-photo" src={imageUrl} alt="" />
               )} */}
