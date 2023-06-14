@@ -4,13 +4,11 @@ import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 
 
-function CompanyLogin({ isLogedIn, onLogout }) {
+function LecturerLogin({ isLogedIn, onLogout }) {
   const content = (
     <>
-      {/* <Link to="/">Home</Link> */}
       <Link to="/">Home</Link>
-      <Link to="/company-login">Company Login</Link>
-      {/* <Link to="/company-home">Company Home</Link> */}
+      <Link to="/lecturer-login">Lecturer Login</Link>
     </>
     
   );
@@ -28,7 +26,7 @@ function CompanyLogin({ isLogedIn, onLogout }) {
         <div className="row justify-content-center">
           <div className="col-md-6">
           
-              <div className="card-header text-center sign">Login</div>
+              <div className="card-header text-center loginN">Login</div>
               <div className="card-body">
                 <form className="loginbox-content">
                   <div className="form-group mb-3">
@@ -73,7 +71,7 @@ function CompanyLogin({ isLogedIn, onLogout }) {
                     Login
                   </button>
                   <div style={{marginTop:"7px"}}>
-                    <Link to="/company-signup">Don't you have an account? click here to sign up.</Link>
+                    <Link to="/lecturer-signup">Don't you have an account? click here to sign up.</Link>
                   </div>
                 </form>
               </div>
@@ -86,4 +84,4 @@ function CompanyLogin({ isLogedIn, onLogout }) {
   );
 }
 
-export default CompanyLogin;
+export default LecturerLogin;
