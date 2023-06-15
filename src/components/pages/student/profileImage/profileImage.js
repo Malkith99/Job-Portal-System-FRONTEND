@@ -19,37 +19,7 @@ export default function ProfileImage() {
     setImage(event.target.files[0]);
     setFile(URL.createObjectURL(event.target.files[0]));
   };
-  ////////////////////////////////////
 
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-
-  //   if (profileImage) {
-  //     const reader = new FileReader();
-  //     reader.onload = (e) => {
-  //       const imageData = e.target.result;
-
-  //       // Make API request to upload the image
-  //       axios
-  //         .post(
-  //           "http://localhost:1234/student/uploadImage/" + studentData?._id,
-  //           { imageData }
-  //         ) // Corrected property name to "imageData"
-  //         .then((response) => {
-  //           console.log(response.data); // Success message
-  //           // Retrieve the uploaded image URL from the response
-  //           const { imageUrl } = response.data;
-  //           setImageUrl(imageUrl);
-  //         })
-  //         .catch((error) => {
-  //           console.error(error);
-  //         });
-  //     };
-  //     reader.readAsDataURL(profileImage);
-  //   }
-  // }
-
-  ////////////////////////////
   function handleSubmit(event) {
     event.preventDefault(); // prevent defult form submission behaviors, pause the refershing
 
