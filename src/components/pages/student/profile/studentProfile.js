@@ -11,7 +11,7 @@ import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";
 import ExtraC_popup from "./Extracuricular_popup";
-import { WidthFull } from "@mui/icons-material";
+
 export default function Profile() {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
@@ -130,11 +130,18 @@ export default function Profile() {
 
  return (
   <>
-    <div className="container progress-div" style={{ marginTop: "1px", padding: "50px" }}>
-      <form>
+    <div className="container progress-div" style={{ display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '1px',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    padding: '50px',  }}>
+      <form >
       <h4 className="sub-headings">Personal info: </h4>
-        <div className="flex-container1">
-          <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" }}>
+        <div className="flex-container1" style={{ display: "flex", flexDirection: "column"}}>
+          <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" ,marginLeft: '0px', marginRight: '0px',}}>
             <img className="profile-photo" src={file} alt="Profile Photo" />
             <label className="label-title">
               Profile Photo
@@ -164,10 +171,10 @@ export default function Profile() {
               </div> */}
          
             </div>
-            <div>
+            <div style={{ padding: 10 }}>
             
             <Card className="p-info" sx={{alignItems:"center" ,padding:"10px",marginBottom:5 ,WidthFull:"10"}}>
-            <div className="container1-flex-item2S" style={{ padding: 10 }}>
+            <div className="container1-flex-item2S" >
 
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
@@ -584,7 +591,7 @@ export default function Profile() {
                   )}
           </Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
-          <Card sx={{alignItems:"center" ,padding:1,marginBottom:5}}>
+          <Card sx={{alignItems:"center" ,padding:1,marginBottom:5,width:"100%"}}>
          
           <div className="">
             <div className="flex-container2">
