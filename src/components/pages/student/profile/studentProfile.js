@@ -12,6 +12,7 @@ import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";
 import ExtraC_popup from "./Extracuricular_popup";
 
+
 export default function Profile() {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
@@ -38,7 +39,9 @@ export default function Profile() {
   const [openProfilePopup, setOpenProfilePopup] = useState(false);
   const [openPersonalPopup, setOpenPersonalPopup] = useState(false);
   const [openAcademicPopup, setOpenAcademicPopup] = useState(false);
-  const [openExtraPopup, setOpenExtraPopup] = useState(false); 
+
+  const [openExtraPopup, setOpenExtraPopup] = useState(false);
+
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -171,6 +174,7 @@ export default function Profile() {
               </div> */}
          
             </div>
+
             <div style={{ padding: 10 }}>
             
             <Card className="p-info" sx={{alignItems:"center" ,padding:"10px",marginBottom:5 ,WidthFull:"10"}}>
@@ -591,8 +595,11 @@ export default function Profile() {
                   )}
           </Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
+
           <Card sx={{alignItems:"center" ,padding:1,marginBottom:5,width:"100%"}}>
+
          
+
           <div className="">
             <div className="flex-container2">
               <div className="container2-flex-item">
@@ -633,6 +640,7 @@ export default function Profile() {
                 </div> */}
               </div>
             </div>
+            
           </div>
           <button
         type="button"
@@ -642,6 +650,7 @@ export default function Profile() {
       >
         Edit
       </button>
+
       {openExtraPopup && (
         <Popup
           title="Edit Personal Info"
@@ -652,9 +661,11 @@ export default function Profile() {
         </Popup>
       
                   )}
+
           </Card>
         </form>
       </div>
+      
     </>
   );
 }

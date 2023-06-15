@@ -22,6 +22,9 @@ import AllResponses from './components/pages/company/studentResponces/allResponc
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
+import LecturerLogin from './components/pages/lecturer/lecturerLogin/lecturerLogin';
+import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
+import LecturerDetails from './components/pages/lecturer/lectureDetails/LecturerDetails';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -50,10 +53,13 @@ function App() {
           <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
-          <Route path="/lecturer-login" element={<LecturerSignup/>}></Route>
+          <Route path="/lecturer-signup" element={<LecturerSignup/>}></Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
+          <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
+          <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
+          <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>
