@@ -22,7 +22,6 @@ import AllResponses from './components/pages/company/studentResponces/allResponc
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
-import EmailVerify from "./components/EmailVerify/index";
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -30,8 +29,7 @@ function App() {
   const handlLogOut = () => {
     setIsLogedIn(false);
   }; */
-  const user = localStorage.getItem("token"); //Email verification token
-
+ 
   return (
 
     <BrowserRouter>
@@ -54,9 +52,6 @@ function App() {
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
           <Route path="/lecturer-login" element={<LecturerSignup/>}></Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
-
-          <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
-
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>
