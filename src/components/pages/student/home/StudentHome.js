@@ -10,7 +10,8 @@ import stripImage from '../../../../images/im3.jpg';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import { IconButton } from '@mui/material';
-
+import Card from "../../student/home/studentHome/feed2";
+import feed2 from '../../student/home/studentHome/feed2';
 export default function StudentHome({ isLogedIn, onLogout }) {
   const [searchQuery, setSearchQuery] = useState('');
   const content = (
@@ -44,7 +45,7 @@ export default function StudentHome({ isLogedIn, onLogout }) {
               label="Search Company Name"
               variant="outlined"
               size="small"
-              style={{ width: 400 }}
+              style={{ width: 400 ,marginLeft:150,marginTop:50}}
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
               InputProps={{
@@ -58,13 +59,14 @@ export default function StudentHome({ isLogedIn, onLogout }) {
           </div>
           <img src={stripImage} alt="Strip" className="strip-image" />
         </div>
-        <div className="feeds-section" style={{height:"auto"}}>
-          <Feeds />
+        <div className="feeds-section" style={{height:"auto",padding:"25px"}}>
+          
+          <Card/>
         </div>
         <div className="paragraphs-section">
-          <p>Paragraph 1</p>
+          {/* <p>Paragraph 1</p>
           <p>Paragraph 2</p>
-          <p>Paragraph 3</p>
+          <p>Paragraph 3</p> */}
         </div>
       </div>
       <Footer />
