@@ -4,7 +4,9 @@ import './App.css';
 //import CounterFunction from './components/CounterFunction';
 import Header from './components/Header';                        //import header file from the components
 import AddStudent from './components/AddStudent';
-import {BrowserRouter , Route, Routes } from "react-router-dom"
+import {BrowserRouter , Route,Routes } from "react-router-dom"
+
+
 import AllStudents from './components/AllStudent';
 import Home from './components/Home/Home';
 import StudentRegistrationBasicPage from './components/pages/student/studentRegistration/step1/StudentRegistrationBasicPage';
@@ -22,21 +24,16 @@ import AllResponses from './components/pages/company/studentResponces/allResponc
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
-
+import Main from "./components/Main/Main";
 function App() {
-/*    const [isLogedIn, setIsLogedIn] = useState(true);
 
-  const handlLogOut = () => {
-    setIsLogedIn(false);
-  }; */
- 
   return (
 
     <BrowserRouter>
         <div>
           {/* <Header/> */}
           <Routes>
-          <Route path="/" element ={<Home/>} ></Route>
+            <Route path="/" exact element={<Main />} />
           <Route path="/student-register" element={<StudentRegistrationBasicPage/> }> </Route>
           <Route path="/student-register-step-2" element={<StudentRegistrationStep_2/> }> </Route>
           <Route path="/student-signIn" element={<StudentSignIn/> }> </Route>
@@ -44,7 +41,7 @@ function App() {
           <Route path="/student-home" element={<StudentHome/> }> </Route>
           <Route path="/student-applications" element={<StudentAppliation/> }> </Route>
           <Route path="/company-signup" element={<CompanySignUp/> }> </Route>
-          <Route path="/company-signin" element={<CompanySignIn/> }> </Route>
+          <Route path="/company-signIn" element={<CompanySignIn/> }> </Route>
           <Route path="/company-home" element={<CompanyHome/> }> </Route>
           <Route path="/company-profile" element={<CompanyProfile/> }> </Route>
           <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
@@ -52,8 +49,10 @@ function App() {
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
           <Route path="/lecturer-login" element={<LecturerSignup/>}></Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
+          <Route path="/home" element={<Home/>}></Route>
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
-          <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
+            {/*<Route path ="/" element={<AllStudents/>}></Route>     {/*normaly the home page featers at the end*/}
+
           </Routes>
         </div>
     </BrowserRouter>

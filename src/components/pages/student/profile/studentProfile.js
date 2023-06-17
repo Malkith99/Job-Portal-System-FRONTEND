@@ -2,16 +2,9 @@ import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import EditIcon from "@mui/icons-material/Edit";
-import IconButton from "@mui/material/IconButton";
-import Popup from "../../../popup/popup";
-import Button from "@mui/material/Button";
-import ProfileImage from "../profileImage/profileImage";
-import Card from "@mui/material/Card";
-import PersonalInfo from "./Person_popup";
-import AcademicDetails from "./Academic_Popup";
-import ExtraC_popup from "./Extracuricular_popup";
-
+//import Popup from "./popup1";
+//import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
+//import "./CompanyRegister.css"
 
 export default function Profile() {
   const [file, setFile] = useState(
@@ -34,13 +27,8 @@ export default function Profile() {
   const [subSpeciality, setSpeciality] = useState("");
   const [projects, setProjects] = useState("");
   const [eActivities, setEActivities] = useState("");
-  const [profileImage, setProfileImage] = useState("");
+  const [img, setProfileImage] = useState("");
   const [disabled, setDisabled] = useState(true);
-  const [openProfilePopup, setOpenProfilePopup] = useState(false);
-  const [openPersonalPopup, setOpenPersonalPopup] = useState(false);
-  const [openAcademicPopup, setOpenAcademicPopup] = useState(false);
-
-  const [openExtraPopup, setOpenExtraPopup] = useState(false);
 
   function handleChange(e) {
     console.log(e.target.files);
@@ -52,7 +40,7 @@ export default function Profile() {
   }
 
   function handleSave() {
-    
+    // Perform any save operations here
     setDisabled(true);
     sendData();
   }
@@ -105,9 +93,8 @@ export default function Profile() {
         .then((res) => {
           if (res.data.status == "ok") {
             setData(res.data.data);
-            console.log(res.data.data.firstName);
-
             setFName(res.data.data.firstName);
+            console.log(firstName);
             setMName(res.data.data.middleName);
             setLName(res.data.data.lastName);
             setIndex(res.data.data.indexNumber);
@@ -131,55 +118,61 @@ export default function Profile() {
     fetchData();
   }, []);
 
- return (
-  <>
-    <div className="container progress-div" style={{ display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '1px',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    padding: '50px',  }}>
-      <form >
-      <h4 className="sub-headings">Personal info: </h4>
-        <div className="flex-container1" style={{ display: "flex", flexDirection: "column"}}>
-          <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" ,marginLeft: '0px', marginRight: '0px',}}>
-            <img className="profile-photo" src={file} alt="Profile Photo" />
-            <label className="label-title">
-              Profile Photo
-              <Button onClick={() => setOpenProfilePopup(true)}>
-                {" "}
-                <EditIcon style={{ color: "#808080", marginRight: "8px" }} />
-              </Button>
-              {openProfilePopup && (
-                <Popup
-                  title="Edit Profile Photo"
-                  openPopup={openProfilePopup}
-                  setOpenPopup={setOpenProfilePopup}
-                 
-                >
-                  <ProfileImage />
-                </Popup>
-              )}
-            </label>
-              {/* <div style={{ padding: 10 }} /> */}
-              {/* <div className="file-input-div">
+  return (
+    <>
+      <div>
+        <h1>Profile</h1>
+        <div className="profile">
+          <div className="box">
+            <label htmlFor="textbox">Email: </label>
+            <div>
+              <input type="text" id="textbox" value={studentData?.email} />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="container progress-div"
+        style={{ marginTop: "1px", padding: "50px" }}
+      >
+        <form action="/student/home">
+          <h4 className="sub-headings">Personal info: </h4>
+          <div className="flex-container1">
+            <div
+              className="container1-flex-item1 text-center"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
+              <div className="container2-flex-item-sub-item2">
+                <div className="input-filed input-filed-cls">
+                  <img
+                    className="profile-photo"
+                    src={"http://localhost:1234/" + studentData.profileImage}
+                    alt=""
+                  />
+                </div>
+                <div className="text-center">
+                  <label className="hint-title">Profile Photo</label>
+                </div>
+              </div>
+              <label className="label-title">Profile Photo</label>
+              <div>
+                <Link to="/profileImage">
+                  <button>Edit</button>
+                </Link>
+              </div>
+
+              <div style={{ padding: 10 }} />
+              <div className="file-input-div">
                 <input
                   type="file"
                   className="file-input-field form-control"
                   onChange={handleChange}
                   disabled={disabled}
                 />
-              </div> */}
-         
+              </div>
             </div>
 
-            <div style={{ padding: 10 }}>
-            
-            <Card className="p-info" sx={{alignItems:"center" ,padding:"10px",marginBottom:5 ,WidthFull:"10"}}>
-            <div className="container1-flex-item2S" >
-
+            <div className="container1-flex-item2" style={{ padding: 10 }}>
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">Name</label>
@@ -194,7 +187,7 @@ export default function Profile() {
                       onChange={(e) => {
                         setFName(e.target.value);
                       }}
-                      disabled={disabled}                   
+                      disabled={disabled}
                       required
                     ></input>
                   </div>
@@ -214,11 +207,11 @@ export default function Profile() {
                       onChange={(e) => {
                         setMName(e.target.value);
                       }}
-                      disabled={disabled}     
+                      disabled={disabled}
                     ></input>
                   </div>
                   <div className="text-center">
-                    <label className="hint-title" >Middle Name</label>
+                    <label className="hint-title">Middle Name</label>
                   </div>
                 </div>
                 <div className="sub-flex-item2">
@@ -232,7 +225,7 @@ export default function Profile() {
                         setLName(e.target.value);
                       }}
                       required
-                      disabled={disabled}                    
+                      disabled={disabled}
                     ></input>
                   </div>
                   <div className="text-center">
@@ -244,7 +237,7 @@ export default function Profile() {
               </div>
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
-                  <label className="label-title" >
+                  <label className="label-title">
                     Index Number
                     <span className="asterisk-mark">*</span>
                   </label>
@@ -390,34 +383,13 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="sub-flex-item2"></div>
-        
+                <div className="sub-flex-item2"></div>
               </div>
             </div>
-            <button
-        type="button"
-        className="btn btn-primary"
-        onClick={()=>setOpenPersonalPopup(true)}
-        style={{ marginBottom: "10px", marginLeft: "10px" }}
-      >
-        Edit
-      </button>
-      {openPersonalPopup && (
-        <Popup
-          title="Edit Personal Info"
-          openPopup={openPersonalPopup}
-          setOpenPopup={setOpenPersonalPopup}
-        >
-          <PersonalInfo />
-        </Popup>
-      
-                  )}
-            </Card>
           </div>
-          </div>
+
           <h4 className="sub-headings">Academic Details: </h4>
-<Card  sx={{alignItems:"center" ,padding:1,marginBottom:5}}>
-          
-          <div className="" style={{ padding: 10 }}>
+          <div className="">
             <div className="flex-container2">
               <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item1">
@@ -575,31 +547,8 @@ export default function Profile() {
               </div>
             </div>
           </div>
-          <button
-        type="button"
-        className="btn btn-primary"
-        onClick={()=>setOpenAcademicPopup(true)}
-        style={{ marginBottom: "10px", marginLeft: "10px" }}
-      >
-        Edit
-      </button>
-      {openAcademicPopup && (
-        <Popup
-          title="Edit Personal Info"
-          openPopup={openAcademicPopup}
-          setOpenPopup={setOpenAcademicPopup}
-        >
-          <AcademicDetails />
-        </Popup>
-      
-                  )}
-          </Card>
+
           <h4 className="sub-headings">Extracurricular Activities: </h4>
-
-          <Card sx={{alignItems:"center" ,padding:1,marginBottom:5,width:"100%"}}>
-
-         
-
           <div className="">
             <div className="flex-container2">
               <div className="container2-flex-item">
@@ -619,7 +568,7 @@ export default function Profile() {
                     ></textarea>
                   </div>
                 </div>
-                {/* <div>
+                <div>
                   {disabled ? (
                     <button
                       type="button"
@@ -637,35 +586,12 @@ export default function Profile() {
                       Save
                     </button>
                   )}
-                </div> */}
+                </div>
               </div>
             </div>
-            
           </div>
-          <button
-        type="button"
-        className="btn btn-primary"
-        onClick={()=>setOpenExtraPopup(true)}
-        style={{ marginBottom: "10px", marginLeft: "10px" }}
-      >
-        Edit
-      </button>
-
-      {openExtraPopup && (
-        <Popup
-          title="Edit Personal Info"
-          openPopup={openExtraPopup}
-          setOpenPopup={setOpenExtraPopup}
-        >
-          <ExtraC_popup/>
-        </Popup>
-      
-                  )}
-
-          </Card>
         </form>
       </div>
-      
     </>
   );
 }

@@ -10,11 +10,10 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+//import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import axios from "axios";
-import { red } from "@mui/material/colors";
 // import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
 // import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";
 // import VerticalSeparator from "../../step2/components/verticalSeparator/VerticalSeparator";
@@ -27,15 +26,22 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function CompanySignup({ isLogedIn, onLogout }) {
-  const content = (
-    <>
-      <Link to="/">Home</Link>
-      <Link to="/company-signup">Company Signup</Link>
-      {/* <Link to="/company-signin">Sign In</Link> */}
-    </>
-    
-  );
+export default function CompanySignup() {
+
+    const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+
+    const handleLogout = () => {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        console.log("User has been logged out");
+        setLoggedIn(false);
+        setUser(null);
+        window.location = "/";
+    };
+
+
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -59,14 +65,14 @@ function CompanySignup({ isLogedIn, onLogout }) {
     event.preventDefault();
 
     if (!email || !password || !confirmPassword) {
-     // toast.error("Please fill in all fields");
+      toast.error("Please fill in all fields");
       alert("Please fill all fields");
       return;
     }
 
     if (password !== confirmPassword) {
       alert("Passwords do not match");
-      //toast.error("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -76,22 +82,29 @@ function CompanySignup({ isLogedIn, onLogout }) {
       password,
   }
 
- axios.post("http://localhost:1234/company/register",newCompany ).then(res=>{
-  if(res.data.error =="User Exists"){
+      console.log(newCompany);
+      axios.post("http://localhost:4000/company/register",newCompany ).then(()=>{
+          alert("Student Added frontEnd")
+      }).catch((err)=>{
+          alert(err)
+      });
+
+ axios.post("http://localhost:4000/company/register",newCompany ).then(res=>{
+  if(res.data.error ==="User Exists"){
     alert("You have already Registered.Please Sign In");
     window.location.href = '/company-signIn';
   }else{
     console.log(res.data);
-    
+
     const token=res.data.data;
     window.localStorage.setItem("token",token);
 
     window.location.href = '/company-home';
-    alert("Company Succefully Registered");
+    alert("Company Successfully Registered");
   }
  }).catch(error=>console.error('Error: ',error));
 
-    //toast.success("Successfully registered!");
+    toast.success("Successfully registered!");
     setEmail("");
     setPassword("");
     setConfirmPassword("");
@@ -100,33 +113,37 @@ function CompanySignup({ isLogedIn, onLogout }) {
   return (
     <>
     <div>
-    <MainHeader
-          content={content}
-          isLogedIn={isLogedIn}
-          onLogout={onLogout}
-           />
-    <div className=" text-center sign ">Sign Up</div>
+
+        <MainHeader content=
+                        {loggedIn ? (
+                            <>
+                                <Link to="/company-signup">Company Signup</Link>
+                                <Link to="/company-home">Welcome, {user.firstName} {user.lastName}!</Link>
+                            </>
+                        ) : (
+                            <Link to="/company-login">Company Login</Link>
+                        )}>
+        </MainHeader>
+
+
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1} align="center">
         <Grid item xs={12}>
           <Card
             sx={{
               maxWidth: "50%",
-              // mt: 1,
+              mt: 5,
               alignContent: "center",
               justifyItems: "flex-end",
-              
             }}
           >
-            
             <CardContent>
               <Typography
-                className=""
                 sx={{ fontSize: 18, fontWeight: "bold" }}
                 color="Black"
                 gutterBottom
               >
-                
+                Create Your Account
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
@@ -137,7 +154,6 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   onChange={handleEmailChange}
                   fullWidth
                   margin="normal"
-                  
                 />
                 <TextField
                   label="Password"
@@ -148,7 +164,7 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   fullWidth
                   margin="normal"
                 />
-                <TextField 
+                <TextField
                   label="Confirm Password"
                   variant="outlined"
                   type="password"
@@ -157,19 +173,30 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   fullWidth
                   margin="normal"
                 />
-                <Link to="/company-home">
-                <Button variant="contained" color="primary" type="submit">
+                   <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
-                </Link>
-                   
               </form>
             </CardContent>
           </Card>
         </Grid>
       </Grid>
-      
-      
+      <hr/>
+      <Grid container spacing={2}>
+        <Grid
+          item
+          xs={12}
+          align="right"
+          mr={"25%"}
+          sx={{ alignItems: "flex-end" }}
+        >
+          <div className="student">
+          <div style={{marginTop:"7px"}}>
+                    <Link to="/company-signIn">Do you have an account? click here to sign In.</Link>
+                  </div>
+          </div>
+        </Grid>
+      </Grid>
     </Box>
     <Footer />
   </div>
@@ -177,4 +204,3 @@ function CompanySignup({ isLogedIn, onLogout }) {
   );
 }
 
-export default CompanySignup;

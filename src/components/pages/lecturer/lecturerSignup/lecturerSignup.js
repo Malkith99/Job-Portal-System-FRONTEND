@@ -10,10 +10,9 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+//import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
-import axios from "axios";
 // import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
 // import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";
 // import VerticalSeparator from "../../step2/components/verticalSeparator/VerticalSeparator";
@@ -30,8 +29,8 @@ function LecturerSignup({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/">Home</Link>
-      {/* <Link to="/lecturer-login">Login</Link> */}
-      <Link to="/lecturer-signup">Lecturer Signup</Link>
+      <Link to="/lecturer-login">Login</Link>
+      <Link to="/lecturer-signup">Signup</Link>
     </>
     
   );
@@ -79,72 +78,96 @@ function LecturerSignup({ isLogedIn, onLogout }) {
     
     <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
-      <div className=" text-center sign ">Sign Up</div>
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1} align="center">
-        <Grid item xs={12}>
-          <Card
-            sx={{
-              maxWidth: "50%",
-              // mt: 1,
-              alignContent: "center",
-              justifyItems: "flex-end",
+      <div className="container" style={{ marginTop: "75px", marginBottom: "0px" }}>
+      <h4 className="" style={{marginLeft:"79px",marginBottom: "0px",color: "rgb(7, 7, 73)",fontWeight: "bolder"}}>Confirm Password: </h4>
+      <div className="container progress-div">
+        {/* <div className="number-component">
+          <NumberComplet digit="1" status="Registration" />
+        </div> */}
+        {/* <div>
+          <VerticalSeparator />
+        </div> */}
+        {/* <div className="number-component">
+          <NumberInComplet digit="1" status="Registration" />
+        </div> */}
+      </div>
+      </div>
+
+      <Box sx={{ flexGrow: 1 }}>
+        <Grid container spacing={1} align="center" marginBottom={2}>
+          <Grid item xs={12}>
+            <Card
+              sx={{
+                maxWidth: "50%",
+                mt: 5,
+                alignContent: "center",
+                justifyItems: "flex-end",
+              }}
+            >
+              <CardContent>
+                <Typography
+                  sx={{ fontSize: 18, fontWeight: "bold" , marginTop: "1px" }}
+                  color="Black"
+                  gutterBottom
+                >
               
-            }}
-          >
-            
-            <CardContent>
-              <Typography
-                className=""
-                sx={{ fontSize: 18, fontWeight: "bold" }}
-                color="Black"
-                gutterBottom
-              >
-                
-              </Typography>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  label="Email"
-                  variant="outlined"
-                  type="email"
-                  value={email}
-                  onChange={handleEmailChange}
-                  fullWidth
-                  margin="normal"
-                  
-                />
-                <TextField
-                  label="Password"
-                  variant="outlined"
-                  type="password"
-                  value={password}
-                  onChange={handlePasswordChange}
-                  fullWidth
-                  margin="normal"
-                />
-                <TextField 
-                  label="Confirm Password"
-                  variant="outlined"
-                  type="password"
-                  value={confirmPassword}
-                  onChange={handleConfirmPasswordChange}
-                  fullWidth
-                  margin="normal"
-                />
-                <Link to="/lecturer-home">
-                <Button variant="contained" color="primary" type="submit">
-                                      Sign Up
-                                  </Button>
-                </Link>
-                   
-              </form>
-            </CardContent>
-          </Card>
+                </Typography>
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    label="Email"
+                    variant="outlined"
+                    type="email"
+                    value={email}
+                    onChange={handleEmailChange}
+                    fullWidth
+                    margin="normal"
+                  />
+                  <TextField
+                    label="Password"
+                    variant="outlined"
+                    type="password"
+                    value={password}
+                    onChange={handlePasswordChange}
+                    fullWidth
+                    margin="normal"
+                  />
+                  <TextField
+                    label="Confirm Password"
+                    variant="outlined"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={handleConfirmPasswordChange}
+                    fullWidth
+                    margin="normal"
+                  />
+                  {/* <Link to="/registerStudentUser"> */}
+                  {/* <Button variant="contained" color="primary" type="submit">
+                                        Register
+                                    </Button> */}
+                  {/* </Link> */}
+                </form>
+              </CardContent>
+            </Card>
+          </Grid>
         </Grid>
-      </Grid>
-      
-      
-    </Box>
+        <Grid container spacing={2}>
+          <Grid
+            item
+            xs={12}
+            align="right"
+            mr={"25%"}
+            sx={{ alignItems: "flex-end" }}
+          >
+            <div className="student">
+              <Link to="/lecture/home">
+                <Button variant="contained">
+                  {/* Sign up <ArrowForwardIosIcon /> */}
+                </Button>
+              </Link>
+            </div>
+          </Grid>
+        </Grid>
+      </Box>
       <Footer/>
     </div>
   );

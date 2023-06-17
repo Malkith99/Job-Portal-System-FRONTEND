@@ -1,7 +1,7 @@
 import React from "react";
-import MainHeader from "../../../mainHeader/mainHeader";
+import MainHeader from "../../../mainHeader/MainHeader";
 import { Link } from "react-router-dom";
-import Footer from "../../../footer/footer";
+import Footer from "../../../footer/Footer";
 import { CompanyProfile } from "./CompanyProfile";
 
 function CompanyDetails({ isLogedIn, onLogout }) {

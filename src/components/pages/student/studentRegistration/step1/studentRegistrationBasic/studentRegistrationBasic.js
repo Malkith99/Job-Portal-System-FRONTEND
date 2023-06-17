@@ -46,50 +46,50 @@ export default function StudentRegistrationBasic() {
 
     if (!email || !password || !confirmPassword) {
       alert("Please fill all fields");
-      //toast.error("Please fill in all fields");
+      toast.error("Please fill in all fields");
       return;
     }
 
     if (password !== confirmPassword) {
       alert("Passwords do not match");
-      //toast.error("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
     // Add your registration logic here
 
- 
+
     const newStudent={
       email,
       password,
   }
- // console.log(newStudent);
-/*  axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
+  console.log(newStudent);
+  axios.post("http://localhost:4000/student/register",newStudent ).then(()=>{
   alert("Student Added frontEnd")
  }).catch((err)=>{
   alert(err)
- }); */
- axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
-  if(res.data.error =="User Exists"){
+ });
+ axios.post("http://localhost:4000/student/register",newStudent ).then(res=>{
+  if(res.data.error ==="User Exists"){
     alert("You have already Registered.Please Sign In");
     window.location.href = '/student-signIn';
   }else{
     console.log(res.data);
-    
+
     const token=res.data.data;
     window.localStorage.setItem("token",token);
 
     window.location.href = '/student-home';
-    alert("Student Succefully Registered");
+    alert("Student Successfully Registered");
   }
  }).catch(error=>console.error('Error: ',error));
 
- 
 
- //toast.success("Successfully registered!");
+
+ toast.success("Successfully registered!");
  setEmail("");
  setPassword("");
- setConfirmPassword("");      
+ setConfirmPassword("");
   };
 
   return (
