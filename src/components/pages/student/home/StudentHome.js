@@ -39,13 +39,13 @@ export default function StudentHome({ isLogedIn, onLogout }) {
               Find the Job <br /> that is perfect for you
             </h2>
           </div>
-          <div className="searchBar" style={{ marginTop: '100px' ,marginLeft:"250px"}}>
+          <div className="searchBar">
             <TextField
               id="search"
               label="Search Company Name"
               variant="outlined"
               size="small"
-              style={{ width: 400 ,marginLeft:150,marginTop:50}}
+              style={{marginLeft:150,marginTop:50}}
               value={searchQuery}
               onChange={(event) => setSearchQuery(event.target.value)}
               InputProps={{

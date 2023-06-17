@@ -31,6 +31,12 @@
       max-width: 100%;
     }
 }
+@media (max-width: 976px) {
+  .strip-image {
+    flex: auto;
+  }
+}
+
 
 
   
@@ -50,6 +56,44 @@
     margin-left: 100px;
  
   }  
+
+  .searchBar{
+    margin-top: 50px;
+    margin-left: 250px;
+    
+  }
+  @media (max-width: 1636px) {
+    .searchBar {
+      margin-top:0px;
+      margin-left: 250px;
+    }
+}
+@media (max-width: 1280px) {
+  .searchBar {
+    margin-top:90px;
+    margin-left:0px;
+  }
+}
+@media (max-width: 1024px) {
+  .searchBar {
+    margin-top:0px;
+    margin-left:0px;
+  }
+}
+@media (max-width: 412px) {
+  .searchBar {
+    margin-top:0px;
+    margin-left:0px;
+  }
+}
+@media (max-width: 1635px) {
+  .searchBar {
+    margin-top:40px;
+    margin-left:250px;
+  }
+}
+
+ 
   
   
   
