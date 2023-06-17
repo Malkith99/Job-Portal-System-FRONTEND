@@ -6,6 +6,7 @@
   .search-bar {
     flex: 1;
     padding: 10px;
+   
   }
   
   .strip-image {
@@ -17,8 +18,7 @@
   
   .feeds-section {
     height: 300px;
-    /* overflow-y: scroll; */
-    /* Additional styles for the feeds section */
+    
   }
   @media (max-width: 768px) {
     .strip-image {
@@ -33,9 +33,7 @@
 }
 
 
-  .paragraphs-section {
-    /* Additional styles for the paragraphs section */
-  }
+  
   .section-title {
     margin: 0;
     padding: 0;
@@ -50,7 +48,7 @@
     font-weight:bolder;
     color:rgb(78, 78, 78);
     margin-left: 100px;
-    /* Add any other desired styles */
+ 
   }  
   
   
