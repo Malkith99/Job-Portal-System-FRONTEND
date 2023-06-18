@@ -84,7 +84,8 @@
     background: transparent;
     color: #180653; 
     border-radius: 0.2rem;
-    transition:color 200ms ease-in; 
+    
+    transition:color border 200ms ease-in; 
     align-self: center; 
     padding: absolute;
     position: absolute;
@@ -94,12 +95,10 @@
   /* margin-bottom: 1rem;  */
   }
   .card_btn:hover {
-    background-color: #180653; /* Dark blue color when hovered */
+    background-color: #180653; 
+    border: 2px solid #180653;
   }
-  
-  .card_btn:active {
-    background-color: #180653; /* Dark blue color when pressed */
-  }
+ 
   /* &:hover {
     transform: scale(1.02);
   }
