@@ -52,7 +52,7 @@ import MainHeader from "../../../mainHeader/mainHeader";
           const token=res.data.data;
           window.localStorage.setItem("token",token);
           //console.log(token);
-          console.log("haii");
+      
           window.location.href = '/student-home';
          // console.log(token);
           /* setTimeout(() => {

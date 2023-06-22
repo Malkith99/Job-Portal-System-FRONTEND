@@ -15,6 +15,7 @@ export default function AdminStudent() {
       axios
         .get("http://localhost:1234/student/")
         .then((res) => {
+          console.log(res.data);
           setStudents(res.data);
         })
         .catch((err) => {
@@ -23,6 +24,10 @@ export default function AdminStudent() {
     }
     getStudents();
   }, []);
+  useEffect(() => {
+    console.log(students);
+    console.log("Haii");
+  }, [students]);
 
   return (
     <>
@@ -39,31 +44,32 @@ export default function AdminStudent() {
         <table className="cart-table">
           <thead>
             <tr>
-              {/* <th>Profile Image</th> */}
+              <th>Profile Image</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
-              {/* <th>Delete</th> */}
             </tr>
           </thead>
           <tbody>
-            {students.map((studentData) => (
+            {students.length>0 ? (
+            students.map((studentData) => (
               <tr key={studentData._id}>
-                {/* <td>
+                <td>
                   <img
                     src={"http//localhost:1234" + studentData.profileImage}
                     alt=""
                   />
-                </td> */}
-                <td>{studentData.fisrtName}</td>
+                </td>
+                <td>{studentData.firsttName}</td>
                 <td>{studentData.lastName}</td>
                 <td>{studentData.email}</td>
-                {/* {/*  <td>{calculateItemTotalPrice(item.price, item.quantity)}</td>
-              <td>
-                <button onClick={() => removeItem(item._id)}>Delete</button>
-              </td>  */}
               </tr>
-            ))}
+            ))
+            ):(
+              <tr>
+              <td colSpan="4">No students found</td>
+            </tr>
+            )}
           </tbody>
         </table>
       </div>

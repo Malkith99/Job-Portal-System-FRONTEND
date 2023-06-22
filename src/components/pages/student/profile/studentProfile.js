@@ -94,7 +94,6 @@ export default function Profile() {
           if (res.data.status == "ok") {
             setData(res.data.data);
             setFName(res.data.data.firstName);
-            console.log(firstName);
             setMName(res.data.data.middleName);
             setLName(res.data.data.lastName);
             setIndex(res.data.data.indexNumber);
