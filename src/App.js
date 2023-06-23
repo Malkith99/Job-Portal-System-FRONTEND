@@ -25,6 +25,8 @@ import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
 import LecturerLogin from './components/pages/lecturer/lecturerLogin/lecturerLogin';
 import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
 import LecturerDetails from './components/pages/lecturer/lectureDetails/LecturerDetails';
+import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
+import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -60,6 +62,8 @@ function App() {
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
+          <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
+          <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>
