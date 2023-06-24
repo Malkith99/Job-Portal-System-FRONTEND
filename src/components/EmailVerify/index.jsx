@@ -16,7 +16,7 @@ const EmailVerify = () => {
                 const url = `http://localhost:4000/users/${param.id}/verify/${param.token}`;
                 const { data } = await axios.get(url);
                 console.log(data);
-                window.location.href = '/home';
+                window.location.href = '/home'; //if request is successful, the page us redirected to "/home"
                 setValidUrl(true);
             } catch (error) {
                 console.log(error)
@@ -27,7 +27,7 @@ const EmailVerify = () => {
     }, [param])
     return (
         <Fragment>
-            {validUrl ? (
+            {validUrl ? (                                //inline conditional rendering is used
                 <div className={styles.constructor}>
                     <img src={unilogo} alt="salon_logo" className={styles.salon_logo} />
                     <img src={success} alt="success_img" className={styles.success_img} />
