@@ -24,7 +24,8 @@ styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-export default function CompanySignup({ isLogedIn, onLogout }) {
+export default function CompanySignup() {
+
   const content = (
     <>
       <Link to="/">Home</Link>
@@ -33,8 +34,8 @@ export default function CompanySignup({ isLogedIn, onLogout }) {
     </>
     
   );
-  const [loggedIn] = useState(!!localStorage.getItem("token")); // The double exclamation marks are used to convert the value retrieved from localStorage into a boolean value.
-  const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));//JSON.parse is a function that converts a JSON-formatted string into a JavaScript object.
+ // const [loggedIn] = useState(!!localStorage.getItem("token")); // The double exclamation marks are used to convert the value retrieved from localStorage into a boolean value.
+  //const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));//JSON.parse is a function that converts a JSON-formatted string into a JavaScript object.
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -123,11 +124,7 @@ const handleChange = (e) => {
   return (
     <>
     <div>
-    <MainHeader
-          content={content}
-          isLogedIn={isLogedIn}
-          onLogout={onLogout}
-           />
+    <MainHeader/>
     <div className=" text-center sign ">Sign Up</div>
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1} align="center">
