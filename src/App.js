@@ -13,20 +13,24 @@ import StudentSignIn from './components/pages/student/signIn/signIn';
 import StudentHome from './components/pages/student/home/StudentHome';
 import StudentRegistrationStep_2 from './components/pages/student/studentRegistration/step2/UserDetailsMain';
 import StudentAppliation from './components/pages/student/MyApplications/MyApplications';
+
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
 import CompanyProfile from './components/pages/company/companyRegistration/CompanyRegisterMain';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
+import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
+
 import AllResponses from './components/pages/company/studentResponces/allResponces'; 
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
-import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
+
 import LecturerLogin from './components/pages/lecturer/lecturerLogin/lecturerLogin';
 import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
 import LecturerDetails from './components/pages/lecturer/lectureDetails/LecturerDetails';
 import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
 import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
+import EmailVerify from './components/EmailVerify/emailVerify';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -64,6 +68,8 @@ function App() {
           <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
           <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
+
+          <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
           </Routes>
         </div>
     </BrowserRouter>
