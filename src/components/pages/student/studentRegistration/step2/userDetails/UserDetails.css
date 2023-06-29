@@ -8,7 +8,7 @@
 }
 .asterisk-mark{
   color: red;
-  font-weight: 900;
+  font-weight:lighter
 }
 
 .flex-container1,
@@ -100,7 +100,9 @@
 .label-title {
   font-weight: 500;
   color: #5f5f5f;
-}
+
+  flex: 30%;}
+
 
 .profile-photo {
   margin: 5px auto 15px auto;
