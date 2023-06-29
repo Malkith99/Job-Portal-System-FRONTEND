@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 import CompanyHome from "./companyHome/CompanyHome";
-
+import CompanyHomePage from "./companyHome/CompanyHomePage";
 function CompanyMainHome({ isLogedIn, onLogout }) {
   const content = (
     <>
@@ -16,6 +16,7 @@ function CompanyMainHome({ isLogedIn, onLogout }) {
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div>
         <CompanyHome />
+        <Link to="/company-HomePage">Home</Link>
       </div>
       <Footer />
     </div>
