@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from "react";
 //useEffect and useState are imported from React to manage side effects and state within the component.
 import success from "../../../src/images/done.png";
 import unilogo from "../../images/LOGO_OF_RUHUNA.jpg"
-import styles from "./styles.module.css";
+import styles from "./emailVerify.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -29,7 +29,7 @@ const EmailVerify = () => {
         <Fragment>
             {validUrl ? (                                //inline conditional rendering is used
                 <div className={styles.constructor}>
-                    <img src={unilogo} alt="salon_logo" className={styles.salon_logo} />
+                    <img src={unilogo} alt="uni_logo" className={styles.uni_logo} />
                     <img src={success} alt="success_img" className={styles.success_img} />
                     <h1>Email Verified Successfully</h1>
                     <Link to="/login">
