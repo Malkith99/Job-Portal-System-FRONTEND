@@ -22,6 +22,7 @@ const VacancySection = (props) => {
   return (
     <div>
       <div className="container">
+        <h2 style={{fontFamily:"gorgia" ,fontSmooth:"10",fontWeight:"10px"}}> Vacancy Details</h2>
         <form>
           <div className="flex-container1">
             <div
@@ -248,7 +249,7 @@ const VacancySection = (props) => {
           </div>
 
           <div className="flex-container2">
-            <div className="container2-flex-item1">
+            <div className="container1-flex-item ">
               <label for="skills" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
