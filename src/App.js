@@ -22,6 +22,14 @@ import AllResponses from './components/pages/company/studentResponces/allResponc
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
+import LecturerLogin from './components/pages/lecturer/lecturerLogin/lecturerLogin';
+import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
+import LecturerDetails from './components/pages/lecturer/lectureDetails/LecturerDetails';
+import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
+import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
+import CompanyHomePage from './components/pages/company/home/companyHome/CompanyHomePage';
+import VacancyPage from './components/pages/company/home/companyHome/VacancySectionPage';
+import ResponseVac from './components/pages/company/home/companyHome/ResponsesVac';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -50,10 +58,18 @@ function App() {
           <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
-          <Route path="/lecturer-login" element={<LecturerSignup/>}></Route>
+          <Route path="/lecturer-signup" element={<LecturerSignup/>}></Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
+          <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
+          <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
+          <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
+          <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
+          <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
+          <Route path='/company-HomePage' element={<CompanyHomePage/>}></Route>
+          <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
+         <Route path='/Response-vac' element={<ResponseVac/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>

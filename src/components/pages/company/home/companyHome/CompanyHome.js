@@ -137,9 +137,10 @@ function CompanyHome() {
           </div>
         </div>
       </div>
-      <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+      <h4 className="sub-headings" style={{ marginBottom: "2rem" }}>
         My Job Pool Section :
-      </h1>
+      </h4>
+      <h4 className="sub-headings">Personal info: </h4>
       <div>
         <div>
           <section className="res-sec">

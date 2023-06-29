@@ -62,46 +62,7 @@ function LecturerHome() {
       title: "Job Application 7:",
       text: "Job Application 7 ",
     },
-    {
-      title: "Job Application 8:",
-      text: "Job Application 8 ",
-    },
-    {
-      title: "Job Application 9:",
-      text: "Job Application 9 ",
-    },
-    {
-      title: "Job Application 10:",
-      text: "Job Application 10 ",
-    },
-    {
-      title: "Job Application 11:",
-      text: "Job Application 11 ",
-    },
-    {
-      title: "Job Application 12:",
-      text: "Job Application 12 ",
-    },
-    {
-      title: "Job Application 13:",
-      text: "Job Application 13 ",
-    },
-    {
-      title: "Job Application 14:",
-      text: "Job Application 14 ",
-    },
-    {
-      title: "Job Application 15:",
-      text: "Job Application 15 ",
-    },
-    {
-      title: "Job Application 16:",
-      text: "Job Application 16 ",
-    },
-    {
-      title: "Job Application 17:",
-      text: "Job Application 17 ",
-    }
+    
   ]);
 
 
