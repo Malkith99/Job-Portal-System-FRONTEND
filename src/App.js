@@ -17,7 +17,7 @@ import StudentAppliation from './components/pages/student/MyApplications/MyAppli
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
-import CompanyProfile from './components/pages/company/companyRegistration/CompanyRegisterMain';
+import CompanyProfile from './components/pages/company/companyProfile/companyProfile/CompanyProfile';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
 
@@ -31,6 +31,7 @@ import LecturerDetails from './components/pages/lecturer/lectureDetails/Lecturer
 import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
 import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
 import EmailVerify from './components/EmailVerify/emailVerify';
+
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
