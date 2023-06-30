@@ -35,22 +35,27 @@ function CompanyHome() {
 
   const [jobpoolm] = useState([
     {
+      id: 1,
       title: "Job Vacancy 1:",
       text: "Job Vacancy 1 ",
     },
     {
+      id: 2,
       title: "Job Vacancy 2:",
       text: "Job Vacancy 2 ",
     },
     {
+      id: 3,
       title: "Job Vacancy 3:",
       text: "Job Vacancy 3 ",
     },
     {
+      id: 4,
       title: "Job Vacancy 4:",
       text: "Job Vacancy 4 ",
     },
     {
+      id: 5,
       title: "Job Vacancy 5:",
       text: "Job Vacancy 5 ",
     },
@@ -159,7 +164,7 @@ function CompanyHome() {
                       <button
                         className="btn btn-primary butdet"
                         onClick={() => {
-                          navigate("/company-job-pool");
+                          navigate(`/company-job-pool?id=${response.id}`);
                         }}
                         style={{
                           background: "#2B547E",
