@@ -17,7 +17,7 @@ function AvailableCompanies() {
                       width="243"
                       height="165"
                       alt=""
-                      className="image"
+                      className="comapny-logo"
                     />
                   </a>
                 </div>
@@ -44,7 +44,7 @@ function AvailableCompanies() {
                       width="243"
                       height="165"
                       alt=""
-                      className="image"
+                      className="comapny-logo"
                     />
                   </a>
                 </div>
@@ -70,7 +70,7 @@ function AvailableCompanies() {
                       width="243"
                       height="165"
                       alt=""
-                      className="image"
+                      className="comapny-logo"
                     />
                   </a>
                 </div>
@@ -96,7 +96,7 @@ function AvailableCompanies() {
                       width="243"
                       height="165"
                       alt=""
-                      className="image"
+                      className="comapny-logo"
                     />
                   </a>
                 </div>
@@ -124,7 +124,7 @@ function AvailableCompanies() {
                       width="243"
                       height="165"
                       alt=""
-                      className="image"
+                      className="comapny-logo"
                     />
                   </a>
                 </div>
