@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import Footer from "../footer/footer";
 import MainHeader from "../mainHeader/mainHeader";
 import "./home.css";
+import Carousel from "../carousel/carousel";
+import AvailableCompanies from "../availableCompanies/availableCompanies";
 
 function Home({ isLogedIn, onLogout }) {
   const content = (
@@ -14,6 +16,20 @@ function Home({ isLogedIn, onLogout }) {
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div className="container">
+        <h2
+          style={{
+            fontWeight: 700,
+            color: "navy",
+          }}
+          className="text-center"
+        >
+          University of Ruhuna - Matara
+        </h2>
+        <Carousel />
+        
+        
+      </div>
+      <div className="container mt-2">
         <div className="d-flex flex-lg-row flex-column">
           <div className="home-left-div p-4 w-100 ">
             <h1 className="main-head">About</h1>
@@ -47,6 +63,9 @@ function Home({ isLogedIn, onLogout }) {
           </div>
         </div>
       </div>
+      <div className="container">
+          <AvailableCompanies/>
+        </div>
       <Footer />
     </div>
   );

@@ -35,30 +35,37 @@ function LecturerHome() {
   
   const [jobapplications] = useState([
     {
+      id: 1,
       title: "Job Application 1:",
       text: "Job Application 1 ",
     },
     {
+      id: 2,
       title: "Job Application 2:",
       text: "Job Application 2 ",
     },
     {
+      id: 3,
       title: "Job Application 3:",
       text: "Job Application 3 ",
     },
     {
+      id: 4,
       title: "Job Application 4:",
       text: "Job Application 4 ",
     },
     {
+      id: 5,
       title: "Job Application 5:",
       text: "Job Application 5 ",
     },
     {
+      id: 6,
       title: "Job Application 6:",
       text: "Job Application 6 ",
     },
     {
+      id: 7,
       title: "Job Application 7:",
       text: "Job Application 7 ",
     },
@@ -108,7 +115,7 @@ function LecturerHome() {
                       <button
                         className="btn btn-primary butdet"
                         onClick={()=>{
-                          navigate("/student-application-for-lecturer")
+                          navigate(`/student-application-for-lecturer?id=${jobapplication.id}`);
                         }}
                         style={{ background: "#2B547E", border: "none", marginRight: "25px", marginLeft:"-1px" }}
                       >

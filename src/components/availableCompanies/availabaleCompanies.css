@@ -1,0 +1,47 @@
+.fp-companyinfo{
+    margin: 1px;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.readmore{
+    padding: auto;
+}
+@media (min-width: 768px){
+        .col-md-3 {
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+.availableC{
+    color: navy;
+    font-weight: 900;
+    text-align: left;
+    font-size: xx-large;
+    padding-top: 5rem;
+}
+
+}
+
+.col-md-3{
+    position: relative;
+    width: 100%;
+    flex-wrap: wrap;   
+    align-items: center 
+
+}
+
+  .col-md-3:hover {
+    border: 2px solid rgb(71, 78, 138); /* Border style when hovering */
+  }
+
+  .comapny-logo{
+    height:100%; 
+    width:100% ;
+    object-fit:contain; 
+    padding: 1rem;
+    
+  }
+ 
+ 
+  
+  
