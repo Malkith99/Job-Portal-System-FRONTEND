@@ -26,7 +26,7 @@ function LecturerLogin({ isLogedIn, onLogout }) {
         <div className="row justify-content-center">
           <div className="col-md-6">
           
-              <div className="card-header text-center loginN">Login</div>
+              <div className="card-header text-center sign">Login</div>
               <div className="card-body">
                 <form className="loginbox-content">
                   <div className="form-group mb-3">
@@ -53,7 +53,7 @@ function LecturerLogin({ isLogedIn, onLogout }) {
                       onChange={formHandler}
                     />
                   </div>
-                  <div className="mb-3 form-check" style={{marginLeft:"22px"}}>
+                  <div className="mb-3 form-check">
                   <input
                     type="checkbox"
                     className="form-check-input"
@@ -64,13 +64,15 @@ function LecturerLogin({ isLogedIn, onLogout }) {
                   </label>
                 </div>
                 
-                  <button
-                    type="Log In"
-                    className="btn btn-primary"
-                  >
-                    Login
-                  </button>
-                  <div style={{marginTop:"7px"}}>
+                  <div style={{alignItems:"center", justifyContent:"center",display:"flex"}}>
+                    <button
+                      type="Log In"
+                      className="btn btn-primary"
+                    >
+                      Login
+                    </button>
+                  </div>
+                  <div style={{marginTop:"7px",textAlign:"center"}}>
                     <Link to="/lecturer-signup">Don't you have an account? click here to sign up.</Link>
                   </div>
                 </form>
