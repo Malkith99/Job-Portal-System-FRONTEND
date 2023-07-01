@@ -9,6 +9,7 @@ function CompanyMainHome({ isLogedIn, onLogout }) {
     <>
       <Link to="/company-home">Company Home</Link>
       <Link to="/company-profile">Profile</Link>
+      <Link to="/company-HomePage">new-Company-Home</Link>
     </>
   );
   return (
@@ -16,7 +17,7 @@ function CompanyMainHome({ isLogedIn, onLogout }) {
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div>
         <CompanyHome />
-        <Link to="/company-HomePage">Home</Link>
+        
       </div>
       <Footer />
     </div>
