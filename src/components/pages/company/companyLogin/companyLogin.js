@@ -55,7 +55,7 @@ function CompanyLogin({ isLogedIn, onLogout }) {
                       onChange={formHandler}
                     />
                   </div>
-                  <div className="mb-3 form-check" style={{marginLeft:"22px"}}>
+                  <div className="mb-3 form-check">
                   <input
                     type="checkbox"
                     className="form-check-input"
@@ -66,13 +66,15 @@ function CompanyLogin({ isLogedIn, onLogout }) {
                   </label>
                 </div>
                 
-                  <button
-                    type="Log In"
-                    className="btn btn-primary"
-                  >
-                    Login
-                  </button>
-                  <div style={{marginTop:"7px"}}>
+                  <div style={{alignItems:"center", justifyContent:"center",display:"flex"}}>
+                    <button
+                      type="Log In"
+                      className="btn btn-primary"
+                    >
+                      Login
+                    </button>
+                  </div>
+                  <div style={{marginTop:"7px",textAlign:"center"}}>
                     <Link to="/company-signup">Don't you have an account? click here to sign up.</Link>
                   </div>
                 </form>
