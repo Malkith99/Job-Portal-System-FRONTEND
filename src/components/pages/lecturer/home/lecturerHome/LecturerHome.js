@@ -127,12 +127,12 @@ function LecturerHome() {
                       >
                         Approve
                       </button>
-                      <button
+                      {/* <button
                         className="btn btn-primary reject butdet"
                         style={{ background: "rgb(128, 57, 57)", marginRight: "5px" }}
                       >
                         Reject
-                      </button>
+                      </button> */}
                     </div>
                   </div>
                 ))}
