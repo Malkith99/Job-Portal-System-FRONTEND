@@ -34,8 +34,8 @@
     border: 2px solid rgb(71, 78, 138); /* Border style when hovering */
   }
 
-  .image{
-    height: 100%; 
+  .comapny-logo{
+    height:100%; 
     width:100% ;
     object-fit:contain; 
     padding: 1rem;
