@@ -63,22 +63,27 @@ function CompanyHome() {
 
   const [responses] = useState([
     {
+      id: 1,
       title: "Response 1:",
       text: "Name of the Applicant 1 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 2,
       title: "Response 2:",
       text: "Name of the Applicant 2 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 3,
       title: "Response 3:",
       text: "Name of the Applicant 3 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 4,
       title: "Response 4:",
       text: "Name of the Applicant 4 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 5,
       title: "Response 5:",
       text: "Name of the Applicant 5 ,aslo can add the cv of the each applicant",
     },
@@ -226,7 +231,7 @@ function CompanyHome() {
                         <button
                           className="btn btn-primary butdet"
                           onClick={() => {
-                            navigate("/all-student-responces");
+                            navigate(`/all-student-responces?id=${response.id}`);
                           }}
                           style={{ background: "#2B547E", marginLeft: "-12px" }}
                         >

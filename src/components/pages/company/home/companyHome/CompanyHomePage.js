@@ -8,55 +8,37 @@ import stripImageC from "../../../../../images/strip_company.jpg";
 import cv_image from "../../../../../../src/images/im5.jpg";
 // import { Button } from "react-scroll";
 // import Button from "@mui/material";
-import "../companyHome/CompanyHomePage.css";
+import "./CompanyHomePage.css"
 import { Card } from "@mui/material";
 import Button from "@mui/material/Button";
-
 function CompanyHomePage({ isLogedIn, onLogout }) {
   const content = (
     <>
-      {/* <Link to="/company-home">Company Home</Link>
-      <Link to="/company-profile">Profile</Link> */}
+      <Link to="/company-home">Company Home</Link>
+      <Link to="/company-profile">Profile</Link>
+      <Link to="/company-HomePage">new-Company-Home</Link>
     </>
   );
   return (
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "0",
-          // padding: "10px",
-        }}
-      >
-        <div className="section_1">
-          <div className="strip-content">
-            <div className="left-section">
+        <div className="container">
+          {/* ////////////////////////////////  company home page start ////////////////////////////////////////// */}
+          <div  style={{display:"flex",flexDirection:"row",marginLeft:"5%",marginRight:"5%"}}>
+            <div style={{flexBasis:"50%",marginTop:"5%"}}>
               <h1
                 className="section_1-title text-style"
-                style={{ padding: "0",fontSize:"40px" }}
-              >
-                Hire the <br /> right person for your Company!
-                <img
-                  src={stripImageC}
-                  className="image"
-                  alt="Strip"
-                  style={{
-                    float: "right",
-                    marginTop: "-120px",
-                    marginRight: "-50px",
-                  }}
-                />
-              </h1>
-              <p className="para-style">
+                style={{fontSize:"40px"}}>
+                Hire the <br />Right person for your Company!
+                </h1>
+                <p className="para-style"
+                  style={{fontFamily:"Georgia",marginTop:"5px"}}>
                 No matter the skills, experience level, or qualifications you're
                 looking for, <br />
-                we connect you with the perfect candidates. Simplify your hiring
+                We connect you with the perfect candidates. Simplify your hiring
                 process and build a talented team with us.
-              </p>
-              <div className="button-container">
+                </p>
+                <div className="button-container">
                 <Link to="/vacancy-page">
                   <button type="button" className="btn btn-primary btn-lg">
                     Post a Job
@@ -64,13 +46,24 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                 </Link>
               </div>
             </div>
+            
+            <div style={{display:"flex",justifyContent:"flex-end"}}>
+              <img
+                    src={stripImageC}
+                    className="image"
+                    alt="Strip"
+                    style={{
+                      textAlign:"right",
+                      // marginTop: "-120px",
+                      // marginRight: "-50px",
+                      }}/>
+            </div>
+            
           </div>
-        </div>
-      </div>
-      <h4 style={{ fontFamily: "Georgia", marginTop: "2%", marginLeft: "10%" }}>
-        WHY WE ARE UNIQUE?
-      </h4>
-      <Card>
+        <h4 style={{ fontFamily: "Georgia", marginTop: "5%",marginLeft:"5%"}}>
+          WHY WE ARE UNIQUE?
+        </h4>
+        <Card>
         <div
           style={{
             display: "flex",
@@ -152,6 +145,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
           </div>
         </div>
       </Card>
+        </div>
       <Footer />
     </div>
   );
