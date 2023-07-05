@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 import Footer from "../footer/footer";
 import MainHeader from "../mainHeader/mainHeader";
@@ -7,6 +7,9 @@ import Carousel from "../carousel/carousel";
 import AvailableCompanies from "../availableCompanies/availableCompanies";
 
 function Home({ isLogedIn, onLogout }) {
+
+    const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
+
   const content = (
     <>
       <Link to="/">Home</Link>
@@ -29,6 +32,7 @@ function Home({ isLogedIn, onLogout }) {
         
         
       </div>
+        {loggedIn ? ("") : (
       <div className="container mt-2">
         <div className="d-flex flex-lg-row flex-column">
           <div className="home-left-div p-4 w-100 ">
@@ -51,7 +55,7 @@ function Home({ isLogedIn, onLogout }) {
           </div>
           <div className="home-right-div p-4 w-100 d-flex flex-column">
             <h1 className="main-head">Are you?</h1>
-            <Link to="/student-register" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
+            <Link to="/student-signIn" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
               A Student
             </Link>
             <Link to="/lecturer-login" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
@@ -63,6 +67,8 @@ function Home({ isLogedIn, onLogout }) {
           </div>
         </div>
       </div>
+            )}
+
       <div className="container">
           <AvailableCompanies/>
         </div>

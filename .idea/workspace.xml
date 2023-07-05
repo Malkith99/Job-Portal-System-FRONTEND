@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4b4852a0-e9ca-4e1c-80aa-0c5f600b1117" name="Changes" comment="update new main page with new routing">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="supun" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1688544244" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="supun" />
+                    <option name="lastUsedInstant" value="1688542535" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="ProjectId" id="2QvKBRx2xgocxlHyNsFqtIV7M2W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/WCT/Desktop/Academic/5/EE5203 Softwear Project/JB FrontEnd&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;
+    ]
+  }
+}</component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b4852a0-e9ca-4e1c-80aa-0c5f600b1117" name="Changes" comment="" />
+      <created>1686228479266</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1686228479266</updated>
+      <workItem from="1686228484424" duration="1745000" />
+      <workItem from="1686385283637" duration="91000" />
+      <workItem from="1686652096435" duration="112000" />
+      <workItem from="1686921136181" duration="83000" />
+      <workItem from="1686922531925" duration="726000" />
+      <workItem from="1687014285624" duration="765000" />
+      <workItem from="1687071752449" duration="728000" />
+      <workItem from="1687077280367" duration="194000" />
+      <workItem from="1687096602233" duration="347000" />
+      <workItem from="1687283476343" duration="115000" />
+      <workItem from="1687351806076" duration="227000" />
+      <workItem from="1687754029119" duration="266000" />
+      <workItem from="1687875301459" duration="357000" />
+      <workItem from="1687941203595" duration="162000" />
+      <workItem from="1688059542714" duration="829000" />
+      <workItem from="1688102403917" duration="265000" />
+      <workItem from="1688106881124" duration="252000" />
+      <workItem from="1688219112301" duration="365000" />
+      <workItem from="1688541352646" duration="3361000" />
+      <workItem from="1688546032014" duration="55000" />
+      <workItem from="1688548689667" duration="1032000" />
+      <workItem from="1688558557731" duration="253000" />
+      <workItem from="1688566864118" duration="203000" />
+    </task>
+    <task id="LOCAL-00001" summary="Add email verification window also put in to app.js that path">
+      <created>1686229882946</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1686229882946</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Add email verification window also put in to app.js that path">
+      <created>1686230036778</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686230036778</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update new main page with new routing">
+      <created>1687014497256</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1687014497256</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update new main page with new routing">
+      <option name="closed" value="true" />
+      <created>1688542665305</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688542665305</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Add email verification window also put in to app.js that path" />
+    <MESSAGE value="update new main page with new routing" />
+    <option name="LAST_COMMIT_MESSAGE" value="update new main page with new routing" />
+  </component>
+</project>

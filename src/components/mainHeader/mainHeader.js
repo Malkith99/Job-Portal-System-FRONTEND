@@ -6,7 +6,7 @@ import HeaderBottom from "./headerBottom/headerBottom";
 function MainHeader(props) {
   return (
     <div>
-      <HeaderTop isLogedIn={props.isLogedIn} />
+      <HeaderTop  />
       <Title />
       <HeaderBottom
         content={props.content}

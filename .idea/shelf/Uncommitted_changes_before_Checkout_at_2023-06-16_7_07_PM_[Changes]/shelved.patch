@@ -1,0 +1,1464 @@
+Index: src/components/pages/student/profile/studentProfile.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState,useEffect } from \"react\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport { Link } from \"react-router-dom\";\r\nimport axios from \"axios\";\r\n//import Popup from \"./popup1\";\r\n//import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';\r\n//import \"./CompanyRegister.css\"\r\n\r\nexport default function Profile() {\r\n  const [file, setFile] = useState(\r\n    \"https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg\"\r\n  );\r\n  const[token,setToken]=useState(\"\");\r\n  const[studentData,setData]=useState(\"\");\r\n  const [firstName,setFName]=useState(\"\");\r\n  const [middleName,setMName]=useState(\"\");\r\n  const [lastName,setLName]=useState(\"\");\r\n  const [indexNumber,setIndex]=useState(\"\");\r\n  const [DOB,setDOB]=useState(\"\");\r\n  const [DOG,setDOG]=useState(\"\");\r\n  const [gender,setGender]=useState(\"\");\r\n  const [phoneNumber1,setPNumber1]=useState(\"\");\r\n  const [phoneNumber2,setPNumber2]=useState(\"\");\r\n  const [references,setReferences]=useState(\"\");\r\n  const [faculty,setFaculty]=useState(\"\");\r\n  const [field,setField]=useState(\"\");\r\n  const [subSpeciality,setSpeciality]=useState(\"\");\r\n  const [projects, setProjects]=useState(\"\");\r\n  const [eActivities, setEActivities]=useState(\"\");\r\n  const[profileImage,setProfileImage]=useState(\"\");\r\n  const [disabled, setDisabled] = useState(true);\r\n\r\n  function handleChange(e) {\r\n    console.log(e.target.files);\r\n    setFile(URL.createObjectURL(e.target.files[0]));\r\n  }\r\n\r\n  function handleEdit() {\r\n    setDisabled(false);\r\n  }\r\n\r\n  function handleSave() {       // Perform any save operations here\r\n    setDisabled(true);\r\n    sendData();\r\n  }\r\n\r\n  function sendData(){     // function that execute when pressing submit button\"\r\n  const newStudent={\r\n        firstName,\r\n       middleName,\r\n        lastName, \r\n       indexNumber,\r\n        DOB,\r\n        gender,\r\n        phoneNumber1,\r\n        phoneNumber2,\r\n        references,\r\n        faculty,\r\n        field,\r\n        subSpeciality,\r\n        projects,\r\n        DOG,\r\n        eActivities, \r\n\r\n    }\r\n     // Connection of backend and frontend using axios //\r\n  axios.put(\"http://localhost:1234/student/update/\"+studentData?._id,newStudent ).then(res=>{\r\n    console.log(res.data);\r\n    alert(\"Updated Successfully!\");\r\n  }).catch(error=>console.error('Error: ',error));\r\n}\r\n\r\n  useEffect(()=>{\r\n      const fetchData =async()=>{\r\n          const token = await  window.localStorage.getItem(\"token\");\r\n          axios.post(\"http://localhost:1234/student/studentData\",{},{\r\n            headers:{\r\n              Authorization: `Bearer ${token}`,\r\n            },\r\n          })\r\n          .then(res=>{\r\n            if (res.data.status==\"ok\"){\r\n              setData(res.data.data);\r\n              console.log(res.data.data.firstName);\r\n\r\n              setFName(res.data.data.firstName);\r\n              setMName(res.data.data.middleName);\r\n              setLName(res.data.data.lastName);\r\n              setIndex(res.data.data.indexNumber);\r\n              setDOB(res.data.data.DOB);\r\n              setDOG(res.data.data.DOG);\r\n              setGender(res.data.data.gender);\r\n              setPNumber1(res.data.data.phoneNumber1);\r\n              setReferences(res.data.data.references);\r\n              setFaculty(res.data.data.faculty);\r\n              setField(res.data.data.field);\r\n              setSpeciality(res.data.data.subSpeciality);\r\n              setProjects(res.data.data.projects);\r\n              setEActivities(res.data.data.EActivities);\r\n              setProfileImage(res.data.data.profileImage);\r\n\r\n            }else{\r\n              window.alert(res.data.error);\r\n              \r\n            }\r\n          })\r\n          .catch(error=> console.error(\"Error: \",error));\r\n        }\r\n      fetchData();\r\n},[]);\r\n\r\n  return (\r\n    <>\r\n    <div>\r\n    <h1>Profile</h1>\r\n    <div className=\"profile\">\r\n      <div className=\"box\">\r\n        <label htmlFor=\"textbox\">Email: </label>\r\n        <div>\r\n          <input type=\"text\" id=\"textbox\" value={studentData?.email} />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div\r\n      className=\"container progress-div\"\r\n      style={{ marginTop: \"1px\", padding: \"50px\" }}\r\n    >\r\n      <form action=\"/student/home\">\r\n        <h4 className=\"sub-headings\">Personal info: </h4>\r\n        <div className=\"flex-container1\">\r\n          <div\r\n            className=\"container1-flex-item1 text-center\"\r\n            style={{ display: \"flex\", flexDirection: \"column\" }}\r\n          >\r\n            <img className=\"profile-photo\" src={file} alt=\"Profile Photo\" />\r\n            <label className=\"label-title\">Profile Photo</label>\r\n            <div>\r\n                <Link to =\"/profileImage\">\r\n                <button>\r\n                  Edit\r\n                </button>\r\n                </Link>\r\n              </div>\r\n\r\n            <div style={{ padding: 10 }} />\r\n            <div className=\"file-input-div\">\r\n              <input\r\n                type=\"file\"\r\n                className=\"file-input-field form-control\"\r\n                onChange={handleChange}\r\n                disabled={disabled}\r\n              />\r\n            </div>\r\n          </div>\r\n\r\n          <div className=\"container1-flex-item2\" style={{padding:10}}>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">Name</label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"First Name\"\r\n                    value={firstName}\r\n                   onChange={(e)=>{\r\n                    setFName(e.target.value);\r\n                }}\r\n                    disabled={disabled}\r\n                    required\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    First Name<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Middle Name\"\r\n                    value={middleName}\r\n                    onChange={(e)=>{\r\n                     setMName(e.target.value);\r\n                 }}\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">Middle Name</label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Last Name\"\r\n                    value={lastName}\r\n                    onChange={(e)=>{\r\n                     setLName(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    Last Name<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Index Number\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Index Number\"\r\n                    value={indexNumber}\r\n                    onChange={(e)=>{\r\n                     setIndex(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Date of Birth\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"date\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"DOB\"\r\n                    value={DOB}\r\n                    onChange={(e)=>{\r\n                     setDOB(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Gender\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"gender\"\r\n                    id=\"gender\"\r\n                    disabled={disabled}\r\n                    value={gender}\r\n                    onChange={(e)=>{\r\n                      setGender(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select your Gender\r\n                    </option>\r\n                    <option value=\"male\">Male</option>\r\n                    <option value=\"female\">Female</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Phone Number\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"tel\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Phone Number 1\"\r\n                    value={phoneNumber1}\r\n                    onChange={(e)=>{\r\n                     setPNumber1(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    Phone Number 1<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"tel\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Phone Number 2\"\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    Phone Number 2<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  References\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"References\"\r\n                    value={references}\r\n                    onChange={(e)=>{\r\n                     setReferences(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <h4 className=\"sub-headings\">Academic Details: </h4>\r\n        <div className=\"\">\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Faculty\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"faculty\"\r\n                    id=\"faculty\"\r\n                    disabled={disabled}\r\n                    value={faculty}\r\n                    onChange={(e)=>{\r\n                      setFaculty(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select your Faculty\r\n                    </option>\r\n                    <option value=\"Agriculture\">Agriculture</option>\r\n                    <option value=\"Allied Health Science\">\r\n                      Allied Health Science\r\n                    </option>\r\n                    <option value=\"Engineering\">Engineering</option>\r\n                    <option value=\"Fisheries and Marine Sciences & Technology\">\r\n                      Fisheries and Marine Sciences & Technology\r\n                    </option>\r\n                    <option value=\"Graduate Studies\">Graduate Studies</option>\r\n                    <option value=\"Humanities and Social Sciences\">\r\n                      Humanities and Social Sciences\r\n                    </option>\r\n                    <option value=\"Management & Finance\">\r\n                      Management & Finance\r\n                    </option>\r\n                    <option value=\"Medicine\">Medicine</option>\r\n                    <option value=\"Science\">Science</option>\r\n                    <option value=\"Technology\">Technology</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Date of Graduating\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <input\r\n                    type=\"date\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Graduating Year\"\r\n                    value={DOG}\r\n                    onChange={(e)=>{\r\n                     setDOG(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Field\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"field\"\r\n                    id=\"field\"\r\n                    disabled={disabled}\r\n                    value={field}\r\n                    onChange={(e)=>{\r\n                      setField(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select Your Field\r\n                    </option>\r\n                    <option value=\"Field1\">Electrical Engineer</option>\r\n                    <option value=\"Field2\">Civil Engineer</option>\r\n                    <option value=\"Field3\">Software Engineer</option>\r\n                    <option value=\"Field4\">Accounting</option>\r\n                    <option value=\"Field4\">Doctor</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"container2-flex-item\"></div>\r\n          </div>\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Sub Speciality\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"subSpeciality\"\r\n                    id=\"subSpeciality\"\r\n                    disabled={disabled}\r\n                    value={subSpeciality}\r\n                    onChange={(e)=>{\r\n                      setSpeciality(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select your Sub Speciality\r\n                    </option>\r\n                    <option value=\"SubSpeciality1\">Sub Speciality 1</option>\r\n                    <option value=\"SubSpeciality2\">Sub Speciality 2</option>\r\n                    <option value=\"SubSpeciality3\">Sub Speciality 3</option>\r\n                    <option value=\"SubSpeciality4\">Sub Speciality 4</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"container2-flex-item\"></div>\r\n          </div>\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item3\">\r\n                <label className=\"label-title\">Projects</label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item4\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <textarea\r\n                    class=\"form-control\"\r\n                    rows=\"3\"\r\n                    disabled={disabled}\r\n                    value={projects}\r\n                    onChange={(e)=>{\r\n                      setProjects(e.target.value);\r\n                  }}\r\n                  ></textarea>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <h4 className=\"sub-headings\">Extracurricular Activities: </h4>\r\n        <div className=\"\">\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item3\">\r\n                <label className=\"label-title\">References</label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item4\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <textarea\r\n                    class=\"form-control\"\r\n                    rows=\"3\"\r\n                    disabled={disabled}\r\n                    value={eActivities}\r\n                    onChange={(e)=>{\r\n                      setEActivities(e.target.value);\r\n                  }}\r\n                  ></textarea>\r\n                </div>\r\n                </div>\r\n                <div>\r\n            {disabled ? (\r\n              <button type=\"button\" className=\"btn btn-primary\" onClick={handleEdit}>\r\n                Edit\r\n              </button>\r\n            ) : (\r\n              <button type=\"submit\" className=\"btn btn-primary\" onClick={handleSave}>\r\n                Save\r\n              </button>\r\n            )}\r\n          </div>\r\n        </div>\r\n</div>\r\n</div>\r\n       \r\n    </form>\r\n    </div>\r\n    </>\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/student/profile/studentProfile.js b/src/components/pages/student/profile/studentProfile.js
+--- a/src/components/pages/student/profile/studentProfile.js	
++++ b/src/components/pages/student/profile/studentProfile.js	
+@@ -1,34 +1,46 @@
+-import React, { useState,useEffect } from "react";
++import React, { useState, useEffect } from "react";
+ import TextField from "@mui/material/TextField";
+ import { Link } from "react-router-dom";
+ import axios from "axios";
+-//import Popup from "./popup1";
+-//import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';
+-//import "./CompanyRegister.css"
++import EditIcon from "@mui/icons-material/Edit";
++import IconButton from "@mui/material/IconButton";
++import Popup from "../../../popup/popup";
++import Button from "@mui/material/Button";
++import ProfileImage from "../profileImage/profileImage";
++import Card from "@mui/material/Card";
++import PersonalInfo from "./Person_popup";
++import AcademicDetails from "./Academic_Popup";
++import ExtraC_popup from "./Extracuricular_popup";
++
+ 
+ export default function Profile() {
+   const [file, setFile] = useState(
+     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+   );
+-  const[token,setToken]=useState("");
+-  const[studentData,setData]=useState("");
+-  const [firstName,setFName]=useState("");
+-  const [middleName,setMName]=useState("");
+-  const [lastName,setLName]=useState("");
+-  const [indexNumber,setIndex]=useState("");
+-  const [DOB,setDOB]=useState("");
+-  const [DOG,setDOG]=useState("");
+-  const [gender,setGender]=useState("");
+-  const [phoneNumber1,setPNumber1]=useState("");
+-  const [phoneNumber2,setPNumber2]=useState("");
+-  const [references,setReferences]=useState("");
+-  const [faculty,setFaculty]=useState("");
+-  const [field,setField]=useState("");
+-  const [subSpeciality,setSpeciality]=useState("");
+-  const [projects, setProjects]=useState("");
+-  const [eActivities, setEActivities]=useState("");
+-  const[profileImage,setProfileImage]=useState("");
++  const [token, setToken] = useState("");
++  const [studentData, setData] = useState("");
++  const [firstName, setFName] = useState("");
++  const [middleName, setMName] = useState("");
++  const [lastName, setLName] = useState("");
++  const [indexNumber, setIndex] = useState("");
++  const [DOB, setDOB] = useState("");
++  const [DOG, setDOG] = useState("");
++  const [gender, setGender] = useState("");
++  const [phoneNumber1, setPNumber1] = useState("");
++  const [phoneNumber2, setPNumber2] = useState("");
++  const [references, setReferences] = useState("");
++  const [faculty, setFaculty] = useState("");
++  const [field, setField] = useState("");
++  const [subSpeciality, setSpeciality] = useState("");
++  const [projects, setProjects] = useState("");
++  const [eActivities, setEActivities] = useState("");
++  const [profileImage, setProfileImage] = useState("");
+   const [disabled, setDisabled] = useState(true);
++  const [openProfilePopup, setOpenProfilePopup] = useState(false);
++  const [openPersonalPopup, setOpenPersonalPopup] = useState(false);
++  const [openAcademicPopup, setOpenAcademicPopup] = useState(false);
++
++  const [openExtraPopup, setOpenExtraPopup] = useState(false);
+ 
+   function handleChange(e) {
+     console.log(e.target.files);
+@@ -39,534 +51,621 @@
+     setDisabled(false);
+   }
+ 
+-  function handleSave() {       // Perform any save operations here
++  function handleSave() {
++    
+     setDisabled(true);
+     sendData();
+   }
+ 
+-  function sendData(){     // function that execute when pressing submit button"
+-  const newStudent={
+-        firstName,
+-       middleName,
+-        lastName, 
+-       indexNumber,
+-        DOB,
+-        gender,
+-        phoneNumber1,
+-        phoneNumber2,
+-        references,
+-        faculty,
+-        field,
+-        subSpeciality,
+-        projects,
+-        DOG,
+-        eActivities, 
+-
+-    }
+-     // Connection of backend and frontend using axios //
+-  axios.put("http://localhost:1234/student/update/"+studentData?._id,newStudent ).then(res=>{
+-    console.log(res.data);
+-    alert("Updated Successfully!");
+-  }).catch(error=>console.error('Error: ',error));
+-}
++  function sendData() {
++    // function that execute when pressing submit button"
++    const newStudent = {
++      firstName,
++      middleName,
++      lastName,
++      indexNumber,
++      DOB,
++      gender,
++      phoneNumber1,
++      phoneNumber2,
++      references,
++      faculty,
++      field,
++      subSpeciality,
++      projects,
++      DOG,
++      eActivities,
++    };
++    // Connection of backend and frontend using axios //
++    axios
++      .put(
++        "http://localhost:1234/student/update/" + studentData?._id,
++        newStudent
++      )
++      .then((res) => {
++        console.log(res.data);
++        alert("Updated Successfully!");
++      })
++      .catch((error) => console.error("Error: ", error));
++  }
+ 
+-  useEffect(()=>{
+-      const fetchData =async()=>{
+-          const token = await  window.localStorage.getItem("token");
+-          axios.post("http://localhost:1234/student/studentData",{},{
+-            headers:{
++  useEffect(() => {
++    const fetchData = async () => {
++      const token = await window.localStorage.getItem("token");
++      axios
++        .post(
++          "http://localhost:1234/student/studentData",
++          {},
++          {
++            headers: {
+               Authorization: `Bearer ${token}`,
+             },
+-          })
+-          .then(res=>{
+-            if (res.data.status=="ok"){
+-              setData(res.data.data);
+-              console.log(res.data.data.firstName);
++          }
++        )
++        .then((res) => {
++          if (res.data.status == "ok") {
++            setData(res.data.data);
++            console.log(res.data.data.firstName);
+ 
+-              setFName(res.data.data.firstName);
+-              setMName(res.data.data.middleName);
+-              setLName(res.data.data.lastName);
+-              setIndex(res.data.data.indexNumber);
+-              setDOB(res.data.data.DOB);
+-              setDOG(res.data.data.DOG);
+-              setGender(res.data.data.gender);
+-              setPNumber1(res.data.data.phoneNumber1);
+-              setReferences(res.data.data.references);
+-              setFaculty(res.data.data.faculty);
+-              setField(res.data.data.field);
+-              setSpeciality(res.data.data.subSpeciality);
+-              setProjects(res.data.data.projects);
+-              setEActivities(res.data.data.EActivities);
+-              setProfileImage(res.data.data.profileImage);
+-
+-            }else{
+-              window.alert(res.data.error);
+-              
+-            }
+-          })
+-          .catch(error=> console.error("Error: ",error));
+-        }
+-      fetchData();
+-},[]);
++            setFName(res.data.data.firstName);
++            setMName(res.data.data.middleName);
++            setLName(res.data.data.lastName);
++            setIndex(res.data.data.indexNumber);
++            setDOB(res.data.data.DOB);
++            setDOG(res.data.data.DOG);
++            setGender(res.data.data.gender);
++            setPNumber1(res.data.data.phoneNumber1);
++            setReferences(res.data.data.references);
++            setFaculty(res.data.data.faculty);
++            setField(res.data.data.field);
++            setSpeciality(res.data.data.subSpeciality);
++            setProjects(res.data.data.projects);
++            setEActivities(res.data.data.EActivities);
++            setProfileImage(res.data.data.profileImage);
++          } else {
++            window.alert(res.data.error);
++          }
++        })
++        .catch((error) => console.error("Error: ", error));
++    };
++    fetchData();
++  }, []);
+ 
+-  return (
+-    <>
+-    <div>
+-    <h1>Profile</h1>
+-    <div className="profile">
+-      <div className="box">
+-        <label htmlFor="textbox">Email: </label>
+-        <div>
+-          <input type="text" id="textbox" value={studentData?.email} />
+-        </div>
+-      </div>
+-    </div>
+-  </div>
+-  <div
+-      className="container progress-div"
+-      style={{ marginTop: "1px", padding: "50px" }}
+-    >
+-      <form action="/student/home">
+-        <h4 className="sub-headings">Personal info: </h4>
+-        <div className="flex-container1">
+-          <div
+-            className="container1-flex-item1 text-center"
+-            style={{ display: "flex", flexDirection: "column" }}
+-          >
++ return (
++  <>
++    <div className="container progress-div" style={{ display: 'flex',
++    flexDirection: 'column',
++    alignItems: 'center',
++    justifyContent: 'center',
++    marginTop: '1px',
++    marginLeft: 'auto',
++    marginRight: 'auto',
++    padding: '50px',  }}>
++      <form >
++      <h4 className="sub-headings">Personal info: </h4>
++        <div className="flex-container1" style={{ display: "flex", flexDirection: "column"}}>
++          <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" ,marginLeft: '0px', marginRight: '0px',}}>
+             <img className="profile-photo" src={file} alt="Profile Photo" />
+-            <label className="label-title">Profile Photo</label>
+-            <div>
+-                <Link to ="/profileImage">
+-                <button>
+-                  Edit
+-                </button>
+-                </Link>
+-              </div>
+-
+-            <div style={{ padding: 10 }} />
+-            <div className="file-input-div">
+-              <input
+-                type="file"
+-                className="file-input-field form-control"
+-                onChange={handleChange}
+-                disabled={disabled}
+-              />
++            <label className="label-title">
++              Profile Photo
++              <Button onClick={() => setOpenProfilePopup(true)}>
++                {" "}
++                <EditIcon style={{ color: "#808080", marginRight: "8px" }} />
++              </Button>
++              {openProfilePopup && (
++                <Popup
++                  title="Edit Profile Photo"
++                  openPopup={openProfilePopup}
++                  setOpenPopup={setOpenProfilePopup}
++                 
++                >
++                  <ProfileImage />
++                </Popup>
++              )}
++            </label>
++              {/* <div style={{ padding: 10 }} /> */}
++              {/* <div className="file-input-div">
++                <input
++                  type="file"
++                  className="file-input-field form-control"
++                  onChange={handleChange}
++                  disabled={disabled}
++                />
++              </div> */}
++         
+             </div>
+-          </div>
+ 
+-          <div className="container1-flex-item2" style={{padding:10}}>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">Name</label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="First Name"
+-                    value={firstName}
+-                   onChange={(e)=>{
+-                    setFName(e.target.value);
+-                }}
+-                    disabled={disabled}
+-                    required
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    First Name<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="Middle Name"
+-                    value={middleName}
+-                    onChange={(e)=>{
+-                     setMName(e.target.value);
+-                 }}
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">Middle Name</label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="Last Name"
+-                    value={lastName}
+-                    onChange={(e)=>{
+-                     setLName(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    Last Name<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Index Number
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="Index Number"
+-                    value={indexNumber}
+-                    onChange={(e)=>{
+-                     setIndex(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Date of Birth
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="date"
+-                    className="form-control"
+-                    placeholder="DOB"
+-                    value={DOB}
+-                    onChange={(e)=>{
+-                     setDOB(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Gender
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <select
+-                    className="form-select"
+-                    name="gender"
+-                    id="gender"
+-                    disabled={disabled}
+-                    value={gender}
+-                    onChange={(e)=>{
+-                      setGender(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select your Gender
+-                    </option>
+-                    <option value="male">Male</option>
+-                    <option value="female">Female</option>
+-                  </select>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Phone Number
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="tel"
+-                    className="form-control"
+-                    placeholder="Phone Number 1"
+-                    value={phoneNumber1}
+-                    onChange={(e)=>{
+-                     setPNumber1(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    Phone Number 1<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="tel"
+-                    className="form-control"
+-                    placeholder="Phone Number 2"
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    Phone Number 2<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  References
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="References"
+-                    value={references}
+-                    onChange={(e)=>{
+-                     setReferences(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
++            <div style={{ padding: 10 }}>
++            
++            <Card className="p-info" sx={{alignItems:"center" ,padding:"10px",marginBottom:5 ,WidthFull:"10"}}>
++            <div className="container1-flex-item2S" >
++
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">Name</label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="First Name"
++                      value={firstName}
++                      onChange={(e) => {
++                        setFName(e.target.value);
++                      }}
++                      disabled={disabled}                   
++                      required
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      First Name<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="Middle Name"
++                      value={middleName}
++                      onChange={(e) => {
++                        setMName(e.target.value);
++                      }}
++                      disabled={disabled}     
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title" >Middle Name</label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="Last Name"
++                      value={lastName}
++                      onChange={(e) => {
++                        setLName(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}                    
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      Last Name<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title" >
++                    Index Number
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="Index Number"
++                      value={indexNumber}
++                      onChange={(e) => {
++                        setIndex(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Date of Birth
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="date"
++                      className="form-control"
++                      placeholder="DOB"
++                      value={DOB}
++                      onChange={(e) => {
++                        setDOB(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Gender
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <select
++                      className="form-select"
++                      name="gender"
++                      id="gender"
++                      disabled={disabled}
++                      value={gender}
++                      onChange={(e) => {
++                        setGender(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select your Gender
++                      </option>
++                      <option value="male">Male</option>
++                      <option value="female">Female</option>
++                    </select>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Phone Number
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="tel"
++                      className="form-control"
++                      placeholder="Phone Number 1"
++                      value={phoneNumber1}
++                      onChange={(e) => {
++                        setPNumber1(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      Phone Number 1<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="tel"
++                      className="form-control"
++                      placeholder="Phone Number 2"
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      Phone Number 2<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    References
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="References"
++                      value={references}
++                      onChange={(e) => {
++                        setReferences(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++        
++              </div>
+             </div>
++            <button
++        type="button"
++        className="btn btn-primary"
++        onClick={()=>setOpenPersonalPopup(true)}
++        style={{ marginBottom: "10px", marginLeft: "10px" }}
++      >
++        Edit
++      </button>
++      {openPersonalPopup && (
++        <Popup
++          title="Edit Personal Info"
++          openPopup={openPersonalPopup}
++          setOpenPopup={setOpenPersonalPopup}
++        >
++          <PersonalInfo />
++        </Popup>
++      
++                  )}
++            </Card>
+           </div>
+-        </div>
+-
+-        <h4 className="sub-headings">Academic Details: </h4>
+-        <div className="">
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Faculty
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <select
+-                    className="form-select"
+-                    name="faculty"
+-                    id="faculty"
+-                    disabled={disabled}
+-                    value={faculty}
+-                    onChange={(e)=>{
+-                      setFaculty(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select your Faculty
+-                    </option>
+-                    <option value="Agriculture">Agriculture</option>
+-                    <option value="Allied Health Science">
+-                      Allied Health Science
+-                    </option>
+-                    <option value="Engineering">Engineering</option>
+-                    <option value="Fisheries and Marine Sciences & Technology">
+-                      Fisheries and Marine Sciences & Technology
+-                    </option>
+-                    <option value="Graduate Studies">Graduate Studies</option>
+-                    <option value="Humanities and Social Sciences">
+-                      Humanities and Social Sciences
+-                    </option>
+-                    <option value="Management & Finance">
+-                      Management & Finance
+-                    </option>
+-                    <option value="Medicine">Medicine</option>
+-                    <option value="Science">Science</option>
+-                    <option value="Technology">Technology</option>
+-                  </select>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Date of Graduating
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <input
+-                    type="date"
+-                    className="form-control"
+-                    placeholder="Graduating Year"
+-                    value={DOG}
+-                    onChange={(e)=>{
+-                     setDOG(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-            </div>
+-          </div>
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Field
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <select
+-                    className="form-select"
+-                    name="field"
+-                    id="field"
+-                    disabled={disabled}
+-                    value={field}
+-                    onChange={(e)=>{
+-                      setField(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select Your Field
+-                    </option>
+-                    <option value="Field1">Electrical Engineer</option>
+-                    <option value="Field2">Civil Engineer</option>
+-                    <option value="Field3">Software Engineer</option>
+-                    <option value="Field4">Accounting</option>
+-                    <option value="Field4">Doctor</option>
+-                  </select>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="container2-flex-item"></div>
+-          </div>
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Sub Speciality
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <select
+-                    className="form-select"
+-                    name="subSpeciality"
+-                    id="subSpeciality"
+-                    disabled={disabled}
+-                    value={subSpeciality}
+-                    onChange={(e)=>{
+-                      setSpeciality(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select your Sub Speciality
+-                    </option>
+-                    <option value="SubSpeciality1">Sub Speciality 1</option>
+-                    <option value="SubSpeciality2">Sub Speciality 2</option>
+-                    <option value="SubSpeciality3">Sub Speciality 3</option>
+-                    <option value="SubSpeciality4">Sub Speciality 4</option>
+-                  </select>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="container2-flex-item"></div>
+-          </div>
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item3">
+-                <label className="label-title">Projects</label>
+-              </div>
+-              <div className="container2-flex-item-sub-item4">
+-                <div className="input-filed input-filed-cls">
+-                  <textarea
+-                    class="form-control"
+-                    rows="3"
+-                    disabled={disabled}
+-                    value={projects}
+-                    onChange={(e)=>{
+-                      setProjects(e.target.value);
+-                  }}
+-                  ></textarea>
+-                </div>
+-              </div>
+-            </div>
+-          </div>
+-        </div>
+-
+-        <h4 className="sub-headings">Extracurricular Activities: </h4>
+-        <div className="">
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item3">
+-                <label className="label-title">References</label>
+-              </div>
+-              <div className="container2-flex-item-sub-item4">
+-                <div className="input-filed input-filed-cls">
+-                  <textarea
+-                    class="form-control"
+-                    rows="3"
+-                    disabled={disabled}
+-                    value={eActivities}
+-                    onChange={(e)=>{
+-                      setEActivities(e.target.value);
+-                  }}
+-                  ></textarea>
+-                </div>
++          </div>
++          <h4 className="sub-headings">Academic Details: </h4>
++<Card  sx={{alignItems:"center" ,padding:1,marginBottom:5}}>
++          
++          <div className="" style={{ padding: 10 }}>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Faculty
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <select
++                      className="form-select"
++                      name="faculty"
++                      id="faculty"
++                      disabled={disabled}
++                      value={faculty}
++                      onChange={(e) => {
++                        setFaculty(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select your Faculty
++                      </option>
++                      <option value="Agriculture">Agriculture</option>
++                      <option value="Allied Health Science">
++                        Allied Health Science
++                      </option>
++                      <option value="Engineering">Engineering</option>
++                      <option value="Fisheries and Marine Sciences & Technology">
++                        Fisheries and Marine Sciences & Technology
++                      </option>
++                      <option value="Graduate Studies">Graduate Studies</option>
++                      <option value="Humanities and Social Sciences">
++                        Humanities and Social Sciences
++                      </option>
++                      <option value="Management & Finance">
++                        Management & Finance
++                      </option>
++                      <option value="Medicine">Medicine</option>
++                      <option value="Science">Science</option>
++                      <option value="Technology">Technology</option>
++                    </select>
++                  </div>
++                </div>
++              </div>
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Date of Graduating
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <input
++                      type="date"
++                      className="form-control"
++                      placeholder="Graduating Year"
++                      value={DOG}
++                      onChange={(e) => {
++                        setDOG(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++              </div>
++            </div>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Field
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <select
++                      className="form-select"
++                      name="field"
++                      id="field"
++                      disabled={disabled}
++                      value={field}
++                      onChange={(e) => {
++                        setField(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select Your Field
++                      </option>
++                      <option value="Field1">Electrical Engineer</option>
++                      <option value="Field2">Civil Engineer</option>
++                      <option value="Field3">Software Engineer</option>
++                      <option value="Field4">Accounting</option>
++                      <option value="Field4">Doctor</option>
++                    </select>
++                  </div>
++                </div>
++              </div>
++              <div className="container2-flex-item"></div>
++            </div>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Sub Speciality
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <select
++                      className="form-select"
++                      name="subSpeciality"
++                      id="subSpeciality"
++                      disabled={disabled}
++                      value={subSpeciality}
++                      onChange={(e) => {
++                        setSpeciality(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select your Sub Speciality
++                      </option>
++                      <option value="SubSpeciality1">Sub Speciality 1</option>
++                      <option value="SubSpeciality2">Sub Speciality 2</option>
++                      <option value="SubSpeciality3">Sub Speciality 3</option>
++                      <option value="SubSpeciality4">Sub Speciality 4</option>
++                    </select>
++                  </div>
++                </div>
++              </div>
++              <div className="container2-flex-item"></div>
++            </div>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item3">
++                  <label className="label-title">Projects</label>
++                </div>
++                <div className="container2-flex-item-sub-item4">
++                  <div className="input-filed input-filed-cls">
++                    <textarea
++                      class="form-control"
++                      rows="3"
++                      disabled={disabled}
++                      value={projects}
++                      onChange={(e) => {
++                        setProjects(e.target.value);
++                      }}
++                    ></textarea>
++                  </div>
++                </div>
++              </div>
++            </div>
++          </div>
++          <button
++        type="button"
++        className="btn btn-primary"
++        onClick={()=>setOpenAcademicPopup(true)}
++        style={{ marginBottom: "10px", marginLeft: "10px" }}
++      >
++        Edit
++      </button>
++      {openAcademicPopup && (
++        <Popup
++          title="Edit Personal Info"
++          openPopup={openAcademicPopup}
++          setOpenPopup={setOpenAcademicPopup}
++        >
++          <AcademicDetails />
++        </Popup>
++      
++                  )}
++          </Card>
++          <h4 className="sub-headings">Extracurricular Activities: </h4>
++
++          <Card sx={{alignItems:"center" ,padding:1,marginBottom:5,width:"100%"}}>
++
++         
++
++          <div className="">
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item3">
++                  <label className="label-title">References</label>
++                </div>
++                <div className="container2-flex-item-sub-item4">
++                  <div className="input-filed input-filed-cls">
++                    <textarea
++                      class="form-control"
++                      rows="3"
++                      disabled={disabled}
++                      value={eActivities}
++                      onChange={(e) => {
++                        setEActivities(e.target.value);
++                      }}
++                    ></textarea>
++                  </div>
+                 </div>
+-                <div>
+-            {disabled ? (
+-              <button type="button" className="btn btn-primary" onClick={handleEdit}>
+-                Edit
+-              </button>
+-            ) : (
+-              <button type="submit" className="btn btn-primary" onClick={handleSave}>
+-                Save
+-              </button>
+-            )}
+-          </div>
+-        </div>
+-</div>
+-</div>
+-       
+-    </form>
+-    </div>
++                {/* <div>
++                  {disabled ? (
++                    <button
++                      type="button"
++                      className="btn btn-primary"
++                      onClick={handleEdit}
++                    >
++                      Edit
++                    </button>
++                  ) : (
++                    <button
++                      type="submit"
++                      className="btn btn-primary"
++                      onClick={handleSave}
++                    >
++                      Save
++                    </button>
++                  )}
++                </div> */}
++              </div>
++            </div>
++            
++          </div>
++          <button
++        type="button"
++        className="btn btn-primary"
++        onClick={()=>setOpenExtraPopup(true)}
++        style={{ marginBottom: "10px", marginLeft: "10px" }}
++      >
++        Edit
++      </button>
++
++      {openExtraPopup && (
++        <Popup
++          title="Edit Personal Info"
++          openPopup={openExtraPopup}
++          setOpenPopup={setOpenExtraPopup}
++        >
++          <ExtraC_popup/>
++        </Popup>
++      
++                  )}
++
++          </Card>
++        </form>
++      </div>
++      
+     </>
+   );
+-}
++}
+\ No newline at end of file
+Index: src/components/pages/student/signIn/signIn.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState } from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport Button from \"@mui/material/Button\";\r\nimport Card from \"@mui/material/Card\";\r\nimport CardContent from \"@mui/material/CardContent\";\r\nimport Typography from \"@mui/material/Typography\";\r\nimport { toast } from \"react-toastify\";\r\nimport { styled } from \"@mui/material/styles\";\r\nimport Box from \"@mui/material/Box\";\r\nimport Paper from \"@mui/material/Paper\";\r\nimport Grid from \"@mui/material/Grid\";\r\nimport axios from \"axios\";\r\nimport { Modal} from 'react-bootstrap';\r\nimport Footer from \"../../../footer/footer\";\r\nimport MainHeader from \"../../../mainHeader/mainHeader\";\r\n\r\n\r\n  export default function StudentSignIn({ isLogedIn, onLogout }) {\r\n    const content = (\r\n      <>\r\n        <Link to=\"/student/home\">Student Home</Link>\r\n        <Link to=\"/student/profile/\"> Profile</Link>\r\n        \r\n      </>\r\n    \r\n    );\r\n    \r\n    const [email, setEmail] = useState(\"\");\r\n    const [password, setPassword] = useState(\"\");\r\n    const [show, setShow] = useState(false);\r\n\r\n\r\n    const handleSubmit = (event) => {   // function that execute when pressing submit button\"\r\n      event.preventDefault();\r\n  \r\n      if (!email || !password) {\r\n        alert(\"Please fill all fields\");\r\n        return;\r\n      }\r\n  \r\n      // Add your registration logic here\r\n  \r\n        const newStudent={\r\n            email,\r\n            password,\r\n        }\r\n       axios.post(\"http://localhost:1234/student/login-student\",newStudent ).then(res=>{\r\n        //console.log(res.data.data);\r\n        if(res.data.status===\"ok\"){\r\n          //const token=res.data.token;\r\n          const token=res.data.data;\r\n          window.localStorage.setItem(\"token\",token);\r\n          //console.log(token);\r\n          console.log(\"haii\");\r\n          window.location.href = '/student-home';\r\n         // console.log(token);\r\n          /* setTimeout(() => {\r\n            setShow(true);\r\n            alert(\"Successfully Logged In\");\r\n          }, 1000); */\r\n        }else{\r\n          window.alert(res.data.error);\r\n        }\r\n        //console.log(res.data);\r\n       // alert(\"Successfully Logged In\");\r\n       // setAlertMessage(res.data.message);\r\n        //alert(res.data.message);\r\n       }).catch(error=>console.error('Error: ',error));\r\n\r\n\r\n       setEmail(\"\");\r\n       setPassword(\"\");\r\n    } \r\n/*     <Modal show={show} onHide={() => setShow(false)}>\r\n  <Modal.Header closeButton>\r\n    <Modal.Title>Login Successful</Modal.Title>\r\n  </Modal.Header>\r\n  <Modal.Footer>\r\n    <Button variant=\"primary\" onClick={() => setShow(false)}>\r\n      OK\r\n    </Button>\r\n  </Modal.Footer>\r\n</Modal> */\r\n\r\n  \r\n    return (\r\n      <>\r\n      <div>\r\n        <MainHeader content={content}\r\n          isLogedIn={isLogedIn}\r\n          onLogout={onLogout}/>\r\n      </div>\r\n      <div>\r\n        <Box sx={{ flexGrow: 1 }}>\r\n          <Grid container spacing={1} align=\"center\">\r\n            <Grid item xs={12}>\r\n              <Card\r\n                sx={{\r\n                  maxWidth: \"50%\",\r\n                  mt: 5,\r\n                  alignContent: \"center\",\r\n                  justifyItems: \"flex-end\",\r\n                }}\r\n              >\r\n                <CardContent>\r\n                  <Typography\r\n                    sx={{ fontSize: 18, fontWeight: \"bold\" }}\r\n                    color=\"Black\"\r\n                    gutterBottom\r\n                  >\r\n                    Log to your Account\r\n                  </Typography>\r\n                  <form onSubmit={handleSubmit}>\r\n                    <TextField\r\n                      label=\"Email\"\r\n                      variant=\"outlined\"\r\n                      type=\"email\"\r\n                      value={email}\r\n                      onChange={(e)=>{\r\n                        setEmail(e.target.value);\r\n                    }}\r\n                      fullWidth\r\n                      margin=\"normal\"\r\n                    />\r\n                    <TextField\r\n                      label=\"Password\"\r\n                      variant=\"outlined\"\r\n                      type=\"password\"\r\n                      value={password}\r\n                      onChange={(e)=>{\r\n                            setPassword(e.target.value);\r\n                      }}\r\n                      fullWidth\r\n                      margin=\"normal\"\r\n                    />\r\n                    <div>\r\n                    <Button variant=\"contained\" color=\"primary\" type=\"submit\"> Sign In</Button>\r\n                      {/* {alertMessage && \r\n                                 <div className=\"alert\">{alertMessage}</div>\r\n                      } */}\r\n                    </div>\r\n                  </form>\r\n                </CardContent>\r\n              </Card>\r\n            </Grid>\r\n          </Grid>\r\n          <hr />\r\n          <Grid container spacing={2}>\r\n            <Grid\r\n              item\r\n              xs={12}\r\n              align=\"right\"\r\n              mr={\"25%\"}\r\n              sx={{ alignItems: \"flex-end\" }}\r\n            >\r\n            <div className=\"student\">\r\n              <Link to=\"/student-register\">\r\n                <Button variant=\"contained\">\r\n                  Sign Up \r\n                </Button>\r\n              </Link>\r\n            </div>\r\n            </Grid>\r\n          </Grid>\r\n        </Box>\r\n      </div>\r\n      <div>\r\n      <Footer/>\r\n      </div>\r\n      </>\r\n    );\r\n  }  \r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/student/signIn/signIn.js b/src/components/pages/student/signIn/signIn.js
+--- a/src/components/pages/student/signIn/signIn.js	
++++ b/src/components/pages/student/signIn/signIn.js	
+@@ -5,111 +5,74 @@
+ import Card from "@mui/material/Card";
+ import CardContent from "@mui/material/CardContent";
+ import Typography from "@mui/material/Typography";
+-import { toast } from "react-toastify";
+-import { styled } from "@mui/material/styles";
+ import Box from "@mui/material/Box";
+-import Paper from "@mui/material/Paper";
+ import Grid from "@mui/material/Grid";
+ import axios from "axios";
+-import { Modal} from 'react-bootstrap';
+ import Footer from "../../../footer/footer";
+ import MainHeader from "../../../mainHeader/mainHeader";
+ 
++// Import your desired login image
++import loginImage from "../../../../images/im2.jpg";
+ 
+-  export default function StudentSignIn({ isLogedIn, onLogout }) {
+-    const content = (
+-      <>
+-        <Link to="/student/home">Student Home</Link>
+-        <Link to="/student/profile/"> Profile</Link>
+-        
+-      </>
+-    
+-    );
+-    
+-    const [email, setEmail] = useState("");
+-    const [password, setPassword] = useState("");
+-    const [show, setShow] = useState(false);
++export default function StudentSignIn({ isLogedIn, onLogout }) {
++  const content = (
++    <div>
++      <Typography variant="h5" component="h2" style={{ fontWeight: 'bold' }}>
++        Login
++      </Typography>
++    </div>
++  );
++
++  const [email, setEmail] = useState("");
++  const [password, setPassword] = useState("");
+ 
+-
+-    const handleSubmit = (event) => {   // function that execute when pressing submit button"
+-      event.preventDefault();
+-  
+-      if (!email || !password) {
+-        alert("Please fill all fields");
+-        return;
+-      }
+-  
+-      // Add your registration logic here
+-  
+-        const newStudent={
+-            email,
+-            password,
+-        }
+-       axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
+-        //console.log(res.data.data);
+-        if(res.data.status==="ok"){
+-          //const token=res.data.token;
+-          const token=res.data.data;
+-          window.localStorage.setItem("token",token);
+-          //console.log(token);
++  const handleSubmit = (event) => {
++    event.preventDefault();
++
++    if (!email || !password) {
++      alert("Please fill all fields");
++      return;
++    }
++
++    const newStudent = {
++      email,
++      password,
++    };
++
++    axios
++      .post("http://localhost:1234/student/login-student", newStudent)
++      .then((res) => {
++        if (res.data.status === "ok") {
++          const token = res.data.data;
++          window.localStorage.setItem("token", token);
+           console.log("haii");
+-          window.location.href = '/student-home';
+-         // console.log(token);
+-          /* setTimeout(() => {
+-            setShow(true);
+-            alert("Successfully Logged In");
+-          }, 1000); */
+-        }else{
++          window.location.href = "/student-home";
++        } else {
+           window.alert(res.data.error);
+         }
+-        //console.log(res.data);
+-       // alert("Successfully Logged In");
+-       // setAlertMessage(res.data.message);
+-        //alert(res.data.message);
+-       }).catch(error=>console.error('Error: ',error));
+-
++      })
++      .catch((error) => console.error("Error: ", error));
+ 
+-       setEmail("");
+-       setPassword("");
+-    } 
+-/*     <Modal show={show} onHide={() => setShow(false)}>
+-  <Modal.Header closeButton>
+-    <Modal.Title>Login Successful</Modal.Title>
+-  </Modal.Header>
+-  <Modal.Footer>
+-    <Button variant="primary" onClick={() => setShow(false)}>
+-      OK
+-    </Button>
+-  </Modal.Footer>
+-</Modal> */
++    setEmail("");
++    setPassword("");
++  };
+ 
+-  
+-    return (
+-      <>
++  return (
++    <>
+       <div>
+-        <MainHeader content={content}
+-          isLogedIn={isLogedIn}
+-          onLogout={onLogout}/>
++        <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+       </div>
+       <div>
+-        <Box sx={{ flexGrow: 1 }}>
+-          <Grid container spacing={1} align="center">
+-            <Grid item xs={12}>
+-              <Card
+-                sx={{
+-                  maxWidth: "50%",
+-                  mt: 5,
+-                  alignContent: "center",
+-                  justifyItems: "flex-end",
+-                }}
+-              >
+-                <CardContent>
+-                  <Typography
+-                    sx={{ fontSize: 18, fontWeight: "bold" }}
+-                    color="Black"
+-                    gutterBottom
+-                  >
+-                    Log to your Account
++        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:"-80px" , marginBottom: "-120px" }}>
++          <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}>
++            <CardContent>
++              <Grid container spacing={2} direction="row" alignItems="center">
++                <Grid item xs={6}>
++                  <img src={loginImage} alt="Login" className="l-photo"  style={{ width: "100%", height: "100%", objectFit: "cover" }} />
++                </Grid>
++                <Grid item xs={6}>
++                  <Typography variant="h5" component="h2" style={{ fontWeight: "bold", textAlign: "center" }}>
++                    Log into your Account
+                   </Typography>
+                   <form onSubmit={handleSubmit}>
+                     <TextField
+@@ -117,9 +80,7 @@
+                       variant="outlined"
+                       type="email"
+                       value={email}
+-                      onChange={(e)=>{
+-                        setEmail(e.target.value);
+-                    }}
++                      onChange={(e) => setEmail(e.target.value)}
+                       fullWidth
+                       margin="normal"
+                     />
+@@ -128,46 +89,28 @@
+                       variant="outlined"
+                       type="password"
+                       value={password}
+-                      onChange={(e)=>{
+-                            setPassword(e.target.value);
+-                      }}
++                      onChange={(e) => setPassword(e.target.value)}
+                       fullWidth
+                       margin="normal"
+                     />
+-                    <div>
+-                    <Button variant="contained" color="primary" type="submit"> Sign In</Button>
+-                      {/* {alertMessage && 
+-                                 <div className="alert">{alertMessage}</div>
+-                      } */}
++                    <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
++                      <Button variant="contained" color="primary" type="submit">
++                        Sign In
++                      </Button>
+                     </div>
+                   </form>
+-                </CardContent>
+-              </Card>
+-            </Grid>
+-          </Grid>
+-          <hr />
+-          <Grid container spacing={2}>
+-            <Grid
+-              item
+-              xs={12}
+-              align="right"
+-              mr={"25%"}
+-              sx={{ alignItems: "flex-end" }}
+-            >
+-            <div className="student">
+-              <Link to="/student-register">
+-                <Button variant="contained">
+-                  Sign Up 
+-                </Button>
+-              </Link>
+-            </div>
+-            </Grid>
+-          </Grid>
++                </Grid>
++              </Grid>
++            </CardContent>
++          </Card>
+         </Box>
+       </div>
+       <div>
+-      <Footer/>
++        <Footer />
++     
++   
++
+       </div>
+-      </>
+-    );
+-  }  
++    </>
++  );
++}

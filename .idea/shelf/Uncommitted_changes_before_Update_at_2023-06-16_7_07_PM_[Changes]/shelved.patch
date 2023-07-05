@@ -1,0 +1,1919 @@
+Index: src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState } from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport Button from \"@mui/material/Button\";\r\nimport Card from \"@mui/material/Card\";\r\nimport CardContent from \"@mui/material/CardContent\";\r\nimport Typography from \"@mui/material/Typography\";\r\nimport { toast } from \"react-toastify\";\r\nimport { styled } from \"@mui/material/styles\";\r\nimport Box from \"@mui/material/Box\";\r\nimport Paper from \"@mui/material/Paper\";\r\nimport Grid from \"@mui/material/Grid\";\r\nimport axios from \"axios\";\r\n//import ArrowForwardIosIcon from \"@mui/icons-material/ArrowForwardIos\";\r\n\r\nconst Item = styled(Paper)(({ theme }) => ({\r\n  backgroundColor: theme.palette.mode === \"dark\" ? \"#1A2027\" : \"#fff\",\r\n  ...theme.typography.body2,\r\n  padding: theme.spacing(1),\r\n  textAlign: \"center\",\r\n  color: theme.palette.text.secondary,\r\n}));\r\n\r\nexport default function StudentRegistrationBasic() {\r\n  const [email, setEmail] = useState(\"\");\r\n  const [password, setPassword] = useState(\"\");\r\n  const [confirmPassword, setConfirmPassword] = useState(\"\");\r\n\r\n  const handleEmailChange = (event) => {\r\n    setEmail(event.target.value);\r\n    console.log(\"email\", email);\r\n  };\r\n\r\n  const handlePasswordChange = (event) => {\r\n    setPassword(event.target.value);\r\n    console.log(\"password\", password);\r\n  };\r\n\r\n  const handleConfirmPasswordChange = (event) => {\r\n    setConfirmPassword(event.target.value);\r\n    console.log(\"confirmPassword\", confirmPassword);\r\n  };\r\n\r\n  const handleSubmit = (event) => {    // function that execute when pressing submit button\"\r\n    event.preventDefault();\r\n\r\n    if (!email || !password || !confirmPassword) {\r\n      alert(\"Please fill all fields\");\r\n      //toast.error(\"Please fill in all fields\");\r\n      return;\r\n    }\r\n\r\n    if (password !== confirmPassword) {\r\n      alert(\"Passwords do not match\");\r\n      //toast.error(\"Passwords do not match\");\r\n      return;\r\n    }\r\n\r\n    // Add your registration logic here\r\n\r\n \r\n    const newStudent={\r\n      email,\r\n      password,\r\n  }\r\n // console.log(newStudent);\r\n/*  axios.post(\"http://localhost:1234/student/register\",newStudent ).then(()=>{\r\n  alert(\"Student Added frontEnd\")\r\n }).catch((err)=>{\r\n  alert(err)\r\n }); */\r\n axios.post(\"http://localhost:1234/student/register\",newStudent ).then(res=>{\r\n  if(res.data.error ==\"User Exists\"){\r\n    alert(\"You have already Registered.Please Sign In\");\r\n    window.location.href = '/student-signIn';\r\n  }else{\r\n    console.log(res.data);\r\n    \r\n    const token=res.data.data;\r\n    window.localStorage.setItem(\"token\",token);\r\n\r\n    window.location.href = '/student-home';\r\n    alert(\"Student Succefully Registered\");\r\n  }\r\n }).catch(error=>console.error('Error: ',error));\r\n\r\n \r\n\r\n //toast.success(\"Successfully registered!\");\r\n setEmail(\"\");\r\n setPassword(\"\");\r\n setConfirmPassword(\"\");      \r\n  };\r\n\r\n  return (\r\n    <div>\r\n    <Box sx={{ flexGrow: 1 }}>\r\n      <Grid container spacing={1} align=\"center\">\r\n        <Grid item xs={12}>\r\n          <Card\r\n            sx={{\r\n              maxWidth: \"50%\",\r\n              mt: 5,\r\n              alignContent: \"center\",\r\n              justifyItems: \"flex-end\",\r\n            }}\r\n          >\r\n            <CardContent>\r\n              <Typography\r\n                sx={{ fontSize: 18, fontWeight: \"bold\" }}\r\n                color=\"Black\"\r\n                gutterBottom\r\n              >\r\n                 Create Your Account\r\n              </Typography>\r\n              <form onSubmit={handleSubmit}>\r\n                <TextField\r\n                  label=\"Email\"\r\n                  variant=\"outlined\"\r\n                  type=\"email\"\r\n                  value={email}\r\n                  onChange={handleEmailChange}\r\n                  fullWidth\r\n                  margin=\"normal\"\r\n                />\r\n                <TextField\r\n                  label=\"Password\"\r\n                  variant=\"outlined\"\r\n                  type=\"password\"\r\n                  value={password}\r\n                  onChange={handlePasswordChange}\r\n                  fullWidth\r\n                  margin=\"normal\"\r\n                />\r\n                <TextField\r\n                  label=\"Confirm Password\"\r\n                  variant=\"outlined\"\r\n                  type=\"password\"\r\n                  value={confirmPassword}\r\n                  onChange={handleConfirmPasswordChange}\r\n                  fullWidth\r\n                  margin=\"normal\"\r\n                />\r\n                   <Button variant=\"contained\" color=\"primary\" type=\"submit\">\r\n                                      Sign Up\r\n                                  </Button>\r\n              </form>\r\n            </CardContent>\r\n          </Card>\r\n        </Grid>\r\n      </Grid>\r\n      <hr/>\r\n      <Grid container spacing={2}>\r\n        <Grid\r\n          item\r\n          xs={12}\r\n          align=\"right\"\r\n          mr={\"25%\"}\r\n          sx={{ alignItems: \"flex-end\" }}\r\n        >\r\n          <div className=\"student\">\r\n          <div style={{marginTop:\"7px\"}}>\r\n                    <Link to=\"/student-signin\">Do you have an account? click here to sign in.</Link>\r\n                  </div>\r\n          </div>\r\n        </Grid>\r\n      </Grid>\r\n    </Box>\r\n  </div>\r\n  );\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js b/src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js
+--- a/src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js	
++++ b/src/components/pages/student/studentRegistration/step1/studentRegistrationBasic/studentRegistrationBasic.js	
+@@ -46,50 +46,50 @@
+ 
+     if (!email || !password || !confirmPassword) {
+       alert("Please fill all fields");
+-      //toast.error("Please fill in all fields");
++      toast.error("Please fill in all fields");
+       return;
+     }
+ 
+     if (password !== confirmPassword) {
+       alert("Passwords do not match");
+-      //toast.error("Passwords do not match");
++      toast.error("Passwords do not match");
+       return;
+     }
+ 
+     // Add your registration logic here
+ 
+- 
++
+     const newStudent={
+       email,
+       password,
+   }
+- // console.log(newStudent);
+-/*  axios.post("http://localhost:1234/student/register",newStudent ).then(()=>{
++  console.log(newStudent);
++  axios.post("http://localhost:4000/student/register",newStudent ).then(()=>{
+   alert("Student Added frontEnd")
+  }).catch((err)=>{
+   alert(err)
+- }); */
+- axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
+-  if(res.data.error =="User Exists"){
++ });
++ axios.post("http://localhost:4000/student/register",newStudent ).then(res=>{
++  if(res.data.error ==="User Exists"){
+     alert("You have already Registered.Please Sign In");
+     window.location.href = '/student-signIn';
+   }else{
+     console.log(res.data);
+-    
++
+     const token=res.data.data;
+     window.localStorage.setItem("token",token);
+ 
+     window.location.href = '/student-home';
+-    alert("Student Succefully Registered");
++    alert("Student Successfully Registered");
+   }
+  }).catch(error=>console.error('Error: ',error));
+ 
+- 
++
+ 
+- //toast.success("Successfully registered!");
++ toast.success("Successfully registered!");
+  setEmail("");
+  setPassword("");
+- setConfirmPassword("");      
++ setConfirmPassword("");
+   };
+ 
+   return (
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>{\r\n  \"name\": \"frontend\",\r\n  \"version\": \"0.1.0\",\r\n  \"private\": true,\r\n  \"dependencies\": {\r\n    \"@emotion/react\": \"^11.10.6\",\r\n    \"@emotion/styled\": \"^11.10.6\",\r\n    \"@mui/material\": \"^5.11.15\",\r\n    \"@testing-library/jest-dom\": \"^5.16.5\",\r\n    \"@testing-library/react\": \"^13.4.0\",\r\n    \"@testing-library/user-event\": \"^13.5.0\",\r\n    \"axios\": \"^1.3.4\",\r\n    \"react\": \"^18.2.0\",\r\n    \"react-bootstrap\": \"^2.7.4\",\r\n    \"react-dom\": \"^18.2.0\",\r\n    \"react-router-dom\": \"^6.8.2\",\r\n    \"react-scripts\": \"5.0.1\",\r\n    \"react-scroll\": \"^1.8.9\",\r\n    \"react-toastify\": \"^9.1.2\",\r\n    \"web-vitals\": \"^2.1.4\"\r\n  },\r\n  \"scripts\": {\r\n    \"start\": \"react-scripts start\",\r\n    \"build\": \"react-scripts build\",\r\n    \"test\": \"react-scripts test\",\r\n    \"eject\": \"react-scripts eject\"\r\n  },\r\n  \"eslintConfig\": {\r\n    \"extends\": [\r\n      \"react-app\",\r\n      \"react-app/jest\"\r\n    ]\r\n  },\r\n  \"browserslist\": {\r\n    \"production\": [\r\n      \">0.2%\",\r\n      \"not dead\",\r\n      \"not op_mini all\"\r\n    ],\r\n    \"development\": [\r\n      \"last 1 chrome version\",\r\n      \"last 1 firefox version\",\r\n      \"last 1 safari version\"\r\n    ]\r\n  }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/package.json b/package.json
+--- a/package.json	
++++ b/package.json	
+@@ -13,6 +13,7 @@
+     "react": "^18.2.0",
+     "react-bootstrap": "^2.7.4",
+     "react-dom": "^18.2.0",
++    "react-router": "^6.13.0",
+     "react-router-dom": "^6.8.2",
+     "react-scripts": "5.0.1",
+     "react-scroll": "^1.8.9",
+Index: src/components/pages/company/companySignup/companySignup.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState } from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport Button from \"@mui/material/Button\";\r\nimport Card from \"@mui/material/Card\";\r\nimport CardContent from \"@mui/material/CardContent\";\r\nimport Typography from \"@mui/material/Typography\";\r\nimport { toast } from \"react-toastify\";\r\nimport { styled } from \"@mui/material/styles\";\r\nimport Box from \"@mui/material/Box\";\r\nimport Paper from \"@mui/material/Paper\";\r\nimport Grid from \"@mui/material/Grid\";\r\n//import ArrowForwardIosIcon from \"@mui/icons-material/ArrowForwardIos\";\r\nimport MainHeader from \"../../../mainHeader/mainHeader\";\r\nimport Footer from \"../../../footer/footer\";\r\nimport axios from \"axios\";\r\n// import NumberComplet from \"../../step2/components/numberComplete/NumberComplete\"\r\n// import NumberInComplet from \"../../step2/components/numberInComplete/NumberInComplete\";\r\n// import VerticalSeparator from \"../../step2/components/verticalSeparator/VerticalSeparator\";\r\n\r\nconst Item = styled(Paper)(({ theme }) => ({\r\n  backgroundColor: theme.palette.mode === \"dark\" ? \"#1A2027\" : \"#fff\",\r\n  ...theme.typography.body2,\r\n  padding: theme.spacing(1),\r\n  textAlign: \"center\",\r\n  color: theme.palette.text.secondary,\r\n}));\r\n\r\nfunction CompanySignup({ isLogedIn, onLogout }) {\r\n  const content = (\r\n    <>\r\n      <Link to=\"/\">Home</Link>\r\n      <Link to=\"/company-signup\">Sign Up</Link>\r\n      <Link to=\"/company-signin\">Sign In</Link>\r\n    </>\r\n    \r\n  );\r\n  const [email, setEmail] = useState(\"\");\r\n  const [password, setPassword] = useState(\"\");\r\n  const [confirmPassword, setConfirmPassword] = useState(\"\");\r\n\r\n  const handleEmailChange = (event) => {\r\n    setEmail(event.target.value);\r\n    console.log(\"email\", email);\r\n  };\r\n\r\n  const handlePasswordChange = (event) => {\r\n    setPassword(event.target.value);\r\n    console.log(\"password\", password);\r\n  };\r\n\r\n  const handleConfirmPasswordChange = (event) => {\r\n    setConfirmPassword(event.target.value);\r\n    console.log(\"confirmPassword\", confirmPassword);\r\n  };\r\n\r\n  const handleSubmit = (event) => {\r\n    event.preventDefault();\r\n\r\n    if (!email || !password || !confirmPassword) {\r\n     // toast.error(\"Please fill in all fields\");\r\n      alert(\"Please fill all fields\");\r\n      return;\r\n    }\r\n\r\n    if (password !== confirmPassword) {\r\n      alert(\"Passwords do not match\");\r\n      //toast.error(\"Passwords do not match\");\r\n      return;\r\n    }\r\n\r\n    // Add your registration logic here\r\n    const newCompany={\r\n      email,\r\n      password,\r\n  }\r\n\r\n axios.post(\"http://localhost:1234/company/register\",newCompany ).then(res=>{\r\n  if(res.data.error ==\"User Exists\"){\r\n    alert(\"You have already Registered.Please Sign In\");\r\n    window.location.href = '/company-signIn';\r\n  }else{\r\n    console.log(res.data);\r\n    \r\n    const token=res.data.data;\r\n    window.localStorage.setItem(\"token\",token);\r\n\r\n    window.location.href = '/company-home';\r\n    alert(\"Company Succefully Registered\");\r\n  }\r\n }).catch(error=>console.error('Error: ',error));\r\n\r\n    //toast.success(\"Successfully registered!\");\r\n    setEmail(\"\");\r\n    setPassword(\"\");\r\n    setConfirmPassword(\"\");\r\n  };\r\n\r\n  return (\r\n    <>\r\n    <div>\r\n    <MainHeader\r\n          content={content}\r\n          isLogedIn={isLogedIn}\r\n          onLogout={onLogout}\r\n           />\r\n    <Box sx={{ flexGrow: 1 }}>\r\n      <Grid container spacing={1} align=\"center\">\r\n        <Grid item xs={12}>\r\n          <Card\r\n            sx={{\r\n              maxWidth: \"50%\",\r\n              mt: 5,\r\n              alignContent: \"center\",\r\n              justifyItems: \"flex-end\",\r\n            }}\r\n          >\r\n            <CardContent>\r\n              <Typography\r\n                sx={{ fontSize: 18, fontWeight: \"bold\" }}\r\n                color=\"Black\"\r\n                gutterBottom\r\n              >\r\n                Create Your Account\r\n              </Typography>\r\n              <form onSubmit={handleSubmit}>\r\n                <TextField\r\n                  label=\"Email\"\r\n                  variant=\"outlined\"\r\n                  type=\"email\"\r\n                  value={email}\r\n                  onChange={handleEmailChange}\r\n                  fullWidth\r\n                  margin=\"normal\"\r\n                />\r\n                <TextField\r\n                  label=\"Password\"\r\n                  variant=\"outlined\"\r\n                  type=\"password\"\r\n                  value={password}\r\n                  onChange={handlePasswordChange}\r\n                  fullWidth\r\n                  margin=\"normal\"\r\n                />\r\n                <TextField\r\n                  label=\"Confirm Password\"\r\n                  variant=\"outlined\"\r\n                  type=\"password\"\r\n                  value={confirmPassword}\r\n                  onChange={handleConfirmPasswordChange}\r\n                  fullWidth\r\n                  margin=\"normal\"\r\n                />\r\n                   <Button variant=\"contained\" color=\"primary\" type=\"submit\">\r\n                                      Sign Up\r\n                                  </Button>\r\n              </form>\r\n            </CardContent>\r\n          </Card>\r\n        </Grid>\r\n      </Grid>\r\n      <hr/>\r\n      <Grid container spacing={2}>\r\n        <Grid\r\n          item\r\n          xs={12}\r\n          align=\"right\"\r\n          mr={\"25%\"}\r\n          sx={{ alignItems: \"flex-end\" }}\r\n        >\r\n          <div className=\"student\">\r\n          <div style={{marginTop:\"7px\"}}>\r\n                    <Link to=\"/company-signIn\">Do you have an account? click here to sign In.</Link>\r\n                  </div>\r\n          </div>\r\n        </Grid>\r\n      </Grid>\r\n    </Box>\r\n    <Footer />\r\n  </div>\r\n  </>\r\n  );\r\n}\r\n\r\nexport default CompanySignup;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/company/companySignup/companySignup.js b/src/components/pages/company/companySignup/companySignup.js
+--- a/src/components/pages/company/companySignup/companySignup.js	
++++ b/src/components/pages/company/companySignup/companySignup.js	
+@@ -26,15 +26,22 @@
+   color: theme.palette.text.secondary,
+ }));
+ 
+-function CompanySignup({ isLogedIn, onLogout }) {
+-  const content = (
+-    <>
+-      <Link to="/">Home</Link>
+-      <Link to="/company-signup">Sign Up</Link>
+-      <Link to="/company-signin">Sign In</Link>
+-    </>
+-    
+-  );
++export default function CompanySignup() {
++
++    const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
++    const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
++
++    const handleLogout = () => {
++        localStorage.removeItem("token");
++        localStorage.removeItem("user");
++        console.log("User has been logged out");
++        setLoggedIn(false);
++        setUser(null);
++        window.location = "/";
++    };
++
++
++
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const [confirmPassword, setConfirmPassword] = useState("");
+@@ -58,14 +65,14 @@
+     event.preventDefault();
+ 
+     if (!email || !password || !confirmPassword) {
+-     // toast.error("Please fill in all fields");
++      toast.error("Please fill in all fields");
+       alert("Please fill all fields");
+       return;
+     }
+ 
+     if (password !== confirmPassword) {
+       alert("Passwords do not match");
+-      //toast.error("Passwords do not match");
++      toast.error("Passwords do not match");
+       return;
+     }
+ 
+@@ -75,22 +82,29 @@
+       password,
+   }
+ 
+- axios.post("http://localhost:1234/company/register",newCompany ).then(res=>{
+-  if(res.data.error =="User Exists"){
++      console.log(newCompany);
++      axios.post("http://localhost:4000/company/register",newCompany ).then(()=>{
++          alert("Student Added frontEnd")
++      }).catch((err)=>{
++          alert(err)
++      });
++
++ axios.post("http://localhost:4000/company/register",newCompany ).then(res=>{
++  if(res.data.error ==="User Exists"){
+     alert("You have already Registered.Please Sign In");
+     window.location.href = '/company-signIn';
+   }else{
+     console.log(res.data);
+-    
++
+     const token=res.data.data;
+     window.localStorage.setItem("token",token);
+ 
+     window.location.href = '/company-home';
+-    alert("Company Succefully Registered");
++    alert("Company Successfully Registered");
+   }
+  }).catch(error=>console.error('Error: ',error));
+ 
+-    //toast.success("Successfully registered!");
++    toast.success("Successfully registered!");
+     setEmail("");
+     setPassword("");
+     setConfirmPassword("");
+@@ -99,11 +113,19 @@
+   return (
+     <>
+     <div>
+-    <MainHeader
+-          content={content}
+-          isLogedIn={isLogedIn}
+-          onLogout={onLogout}
+-           />
++
++        <MainHeader content=
++                        {loggedIn ? (
++                            <>
++                                <Link to="/company-signup">Company Signup</Link>
++                                <Link to="/company-home">Welcome, {user.firstName} {user.lastName}!</Link>
++                            </>
++                        ) : (
++                            <Link to="/company-login">Company Login</Link>
++                        )}>
++        </MainHeader>
++
++
+     <Box sx={{ flexGrow: 1 }}>
+       <Grid container spacing={1} align="center">
+         <Grid item xs={12}>
+@@ -182,4 +204,3 @@
+   );
+ }
+ 
+-export default CompanySignup;
+Index: src/components/pages/company/companyLogin/companyLogin.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState } from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nimport Footer from \"../../../footer/footer\";\r\nimport MainHeader from \"../../../mainHeader/mainHeader\";\r\n\r\n\r\nfunction CompanyLogin({ isLogedIn, onLogout }) {\r\n  const content = (\r\n    <>\r\n      {/* <Link to=\"/\">Home</Link> */}\r\n      <Link to=\"/company-login\">Company Login</Link>\r\n      <Link to=\"/company-home\">Company Home</Link>\r\n    </>\r\n    \r\n  );\r\n\r\n  const [formData, setFormData] = useState({ username: \"\", password: \"\" });\r\n\r\n  const formHandler = (e) => {\r\n    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));\r\n  };\r\n\r\n  return (\r\n    <div className=\"page-container\">\r\n      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />\r\n      <div className=\"container\">\r\n        <div className=\"row justify-content-center\">\r\n          <div className=\"col-md-6\">\r\n          \r\n              <div className=\"card-header text-center loginN\">Login</div>\r\n              <div className=\"card-body\">\r\n                <form className=\"loginbox-content\">\r\n                  <div className=\"form-group mb-3\">\r\n                    <label for=\"Username\" className=\"form-label\"><b style={{fontSize:\"20px\"}}>Username:</b></label>\r\n                    <input\r\n                      type=\"s-UserName\"\r\n                      className=\"form-control\"\r\n                      id=\"s-Username\"\r\n                      aria-describedby=\"UserNameHelp\"\r\n                      placeholder=\"Enter Username\"\r\n                    />\r\n                  </div>\r\n                  <div className=\"form-group mb-3\">\r\n                  <label for=\"password\" className=\"form-label\" style={{fontSize:\"20px\"}}>\r\n                    <b>Password:</b>\r\n                  </label>\r\n                    <input\r\n                      type=\"s-password\"\r\n                      className=\"form-control\"\r\n                      id=\"s-password\"\r\n                      name=\"password\"\r\n                      placeholder=\"Enter password\"\r\n                      value={formData.password}\r\n                      onChange={formHandler}\r\n                    />\r\n                  </div>\r\n                  <div className=\"mb-3 form-check\" style={{marginLeft:\"22px\"}}>\r\n                  <input\r\n                    type=\"checkbox\"\r\n                    className=\"form-check-input\"\r\n                    id=\"exampleCheck1\"\r\n                  ></input>\r\n                  <label className=\"form-check-label\" for=\"exampleCheck1\">\r\n                    Remember username\r\n                  </label>\r\n                </div>\r\n                \r\n                  <button\r\n                    type=\"Log In\"\r\n                    className=\"btn btn-primary\"\r\n                  >\r\n                    Login\r\n                  </button>\r\n                  <div style={{marginTop:\"7px\"}}>\r\n                    <Link to=\"/company-signup\">Don't you have an account? click here to sign up.</Link>\r\n                  </div>\r\n                </form>\r\n              </div>\r\n            \r\n          </div>\r\n        </div>\r\n      </div>\r\n      <Footer />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default CompanyLogin;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/company/companyLogin/companyLogin.js b/src/components/pages/company/companyLogin/companyLogin.js
+--- a/src/components/pages/company/companyLogin/companyLogin.js	
++++ b/src/components/pages/company/companyLogin/companyLogin.js	
+@@ -2,86 +2,140 @@
+ import { Link } from "react-router-dom";
+ import Footer from "../../../footer/footer";
+ import MainHeader from "../../../mainHeader/mainHeader";
++import axios from "axios";
++
++function CompanyLogin() {
++  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
++  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
++
++  const handleLogout = () => {
++    localStorage.removeItem("token");
++    localStorage.removeItem("user");
++    console.log("User has been logged out");
++    setLoggedIn(false);
++    setUser(null);
++    window.location = "/";
++  };
++
+ 
+ 
+-function CompanyLogin({ isLogedIn, onLogout }) {
+-  const content = (
+-    <>
+-      {/* <Link to="/">Home</Link> */}
+-      <Link to="/company-login">Company Login</Link>
+-      <Link to="/company-home">Company Home</Link>
+-    </>
+-    
+-  );
++  const [email, setEmail] = useState("");
++  const [password, setPassword] = useState("");
++  const [show, setShow] = useState(false);
++
+ 
+-  const [formData, setFormData] = useState({ username: "", password: "" });
++  const handleSubmit = (event) => {   // function that execute when pressing submit button"
++    event.preventDefault();
+ 
+-  const formHandler = (e) => {
+-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+-  };
++    if (!email || !password) {
++      alert("Please fill all fields");
++      return;
++    }
+ 
++    // Add your registration logic here
++
++    const newCompany={
++      email,
++      password,
++    }
++    axios.post("http://localhost:4000/company/login-company",newCompany ).then(res=>{
++      //console.log(res.data.data);
++      if(res.data.status==="ok"){
++        const token=res.data.token;
++        //const token=res.data.data;
++        localStorage.setItem("token", res.data);
++        localStorage.setItem('user', JSON.stringify(res.user));
++
++
++        console.log(token);
++        console.log("hali");
++        window.location.href = '/company-home';
++        // console.log(token);
++        /* setTimeout(() => {
++          setShow(true);
++          alert("Successfully Logged In");
++        }, 1000); */
++      }else{
++        window.alert(res.data.error);
++      }
++      //console.log(res.data);
++      // alert("Successfully Logged In");
++      // setAlertMessage(res.data.message);
++      //alert(res.data.message);
++    }).catch(error=>console.error('Error: ',error));
++
++
++    setEmail("");
++    setPassword("");
++  }
++
+   return (
+-    <div className="page-container">
+-      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+-      <div className="container">
+-        <div className="row justify-content-center">
+-          <div className="col-md-6">
+-          
++      <div className="page-container">
++        <MainHeader content=
++                        {loggedIn ? (
++                            <>
++                              <Link to="/company-login">Company Login</Link>
++                              <Link to="/company-home">Welcome, {user.firstName} {user.lastName}!</Link>
++                            </>
++                        ) : (
++                            <Link to="/company-login">Company Login</Link>
++                        )}>
++        </MainHeader>
++        <div className="container">
++          <div className="row justify-content-center">
++            <div className="col-md-6">
+               <div className="card-header text-center loginN">Login</div>
+               <div className="card-body">
+-                <form className="loginbox-content">
++                <form className="loginbox-content" onSubmit={handleSubmit}>
+                   <div className="form-group mb-3">
+-                    <label for="Username" className="form-label"><b style={{fontSize:"20px"}}>Username:</b></label>
++                    <label htmlFor="username" className="form-label">
++                      <b style={{ fontSize: "20px" }}>Email:</b>
++                    </label>
+                     <input
+-                      type="s-UserName"
+-                      className="form-control"
+-                      id="s-Username"
+-                      aria-describedby="UserNameHelp"
+-                      placeholder="Enter Username"
++                        className="form-control"
++                        id="username"
++                        aria-describedby="UserNameHelp"
++                        type="email"
++                        value={email}
++                        onChange={(e)=>{
++                          setEmail(e.target.value);
++                        }}
+                     />
+                   </div>
+                   <div className="form-group mb-3">
+-                  <label for="password" className="form-label" style={{fontSize:"20px"}}>
+-                    <b>Password:</b>
+-                  </label>
++                    <label htmlFor="password" className="form-label" style={{ fontSize: "20px" }}>
++                      <b>Password:</b>
++                    </label>
+                     <input
+-                      type="s-password"
+-                      className="form-control"
+-                      id="s-password"
+-                      name="password"
+-                      placeholder="Enter password"
+-                      value={formData.password}
+-                      onChange={formHandler}
++                        className="form-control"
++                        id="password"
++
++                        type="password"
++                        value={password}
++                        onChange={(e)=>{
++                          setPassword(e.target.value);
++                        }}
+                     />
+                   </div>
+-                  <div className="mb-3 form-check" style={{marginLeft:"22px"}}>
+-                  <input
+-                    type="checkbox"
+-                    className="form-check-input"
+-                    id="exampleCheck1"
+-                  ></input>
+-                  <label className="form-check-label" for="exampleCheck1">
+-                    Remember username
+-                  </label>
+-                </div>
+-                
+-                  <button
+-                    type="Log In"
+-                    className="btn btn-primary"
+-                  >
++                  <div className="mb-3 form-check" style={{ marginLeft: "22px" }}>
++                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
++                    <label className="form-check-label" htmlFor="exampleCheck1">
++                      Remember username
++                    </label>
++                  </div>
++                  <button type="submit" className="btn btn-primary">
+                     Login
+                   </button>
+-                  <div style={{marginTop:"7px"}}>
+-                    <Link to="/company-signup">Don't you have an account? click here to sign up.</Link>
++                  <div style={{ marginTop: "7px" }}>
++                    <Link to="/company-signup">Don't have an account? Click here to sign up.</Link>
+                   </div>
+                 </form>
+               </div>
+-            
+-          </div>
+-        </div>
+-      </div>
+-      <Footer />
+-    </div>
++            </div>
++          </div>
++        </div>
++        <Footer />
++      </div>
+   );
+ }
+ 
+Index: src/components/mainHeader/headerTop/headerTop.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport \"./headerTop.css\";\r\n\r\nfunction HeaderTop(props) {\r\n  return (\r\n    <div class=\"header-top\">\r\n      <div>\r\n{/*         <p className=\"notloggin\">\r\n          {props.isLogedIn ? \"\" : \"You are not logged in.\"}\r\n        </p> */}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\nexport default HeaderTop;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/mainHeader/headerTop/headerTop.js b/src/components/mainHeader/headerTop/headerTop.js
+--- a/src/components/mainHeader/headerTop/headerTop.js	
++++ b/src/components/mainHeader/headerTop/headerTop.js	
+@@ -1,13 +1,36 @@
+-import React from "react";
++import React, {useState} from "react";
++import { Link } from 'react-router-dom';
+ import "./headerTop.css";
+ 
+ function HeaderTop(props) {
++
++    const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token'));
++
++    // logout handle
++    const handleLogout = () => {
++        localStorage.removeItem('token');
++        console.log('User has been Log Out');
++        setLoggedIn(false);
++        window.location = '/';
++    };
++
+   return (
+     <div class="header-top">
+       <div>
+-{/*         <p className="notloggin">
+-          {props.isLogedIn ? "" : "You are not logged in."}
+-        </p> */}
++{         <p className="notloggin">
++          {loggedIn ? (<button  onClick={handleLogout}>
++              Logout
++          </button>) : (
++              <div className="Logbutton">
++                  <l-text1>Signup or SignIn?</l-text1>
++                  <button className="logbar-item">
++                      <Link to="/home" className="loginl">
++                          Log In
++                      </Link>
++                  </button>
++              </div>
++          )}
++        </p> }
+       </div>
+     </div>
+   );
+Index: src/components/pages/student/profileImage/profileImage.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState,useEffect } from \"react\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport { Link } from \"react-router-dom\";\r\nimport axios from \"axios\";\r\n\r\nexport default function ProfileImage(){\r\n    const[profileImage,setImage]=useState(\"\");\r\n    const[studentData,setData]=useState(\"\");\r\n    const [file, setFile] = useState(\r\n      \"https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg\"\r\n    );\r\n    console.log(studentData?._id);\r\n\r\n    const handleFileChange=(event)=> {       // Perform any save operations here\r\n        const file=event.target.files[0];\r\n        console.log(file);\r\n        setImage(event.target.files[0]);\r\n        setFile(URL.createObjectURL(event.target.files[0]))\r\n      };\r\n\r\n    function handleSubmit(event){\r\n      event.preventDefault(); // prevent defult form submission behaviors, pause the refershing\r\n\r\n    const formData = new FormData();\r\n    formData.append(\"profileImage\", profileImage);  //\"profileImage\" is the name goven to profileImage file\r\n    console.log(formData);\r\n\r\n        axios.post(\"http://localhost:1234/student/uploadImage/\"+studentData?._id,formData,{\r\n              headers:{\r\n                \"Content-Type\": \"multipart/form-data\",   // encrypt the sending data type\r\n              },\r\n            } ).then(res=>{\r\n            alert(\"Update Profile Image Successfully!\");\r\n        }).catch(error=>console.error('Error:',error));\r\n    }\r\n\r\n    useEffect(()=>{\r\n        const fetchData =async()=>{\r\n            const token = await  window.localStorage.getItem(\"token\");\r\n            axios.post(\"http://localhost:1234/student/studentData\",{},{\r\n              headers:{\r\n                Authorization: `Bearer ${token}`,\r\n              },\r\n            })\r\n            .then(res=>{\r\n\r\n              if (res.data.status==\"ok\"){\r\n                setImage(res.data.profileImage);\r\n                setData(res.data.data);  \r\n              }else{\r\n                window.alert(res.data.error);\r\n              }\r\n            })\r\n            .catch(error=>\r\n            console.error(\"Error: \",error));\r\n          }\r\n        fetchData();\r\n    },[]);\r\n\r\n\r\n\r\n    return(\r\n        <>\r\n        <div className=\"container\">\r\n        <p>Profile Image Upload</p> \r\n\r\n        <div>\r\n            <form onSubmit={handleSubmit}>\r\n            <div>\r\n              <img className=\"profile-photo\" src={file} alt=\"\" />\r\n            </div>\r\n              <input type=\"file\" onChange={handleFileChange} />\r\n              <div>\r\n              <button type=\"submit\">Upload</button>\r\n              </div>\r\n            </form>\r\n        </div>\r\n        </div>\r\n        </>\r\n    )\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/student/profileImage/profileImage.js b/src/components/pages/student/profileImage/profileImage.js
+--- a/src/components/pages/student/profileImage/profileImage.js	
++++ b/src/components/pages/student/profileImage/profileImage.js	
+@@ -1,82 +1,127 @@
+-import React, { useState,useEffect } from "react";
++import React, { useState, useEffect } from "react";
+ import TextField from "@mui/material/TextField";
+ import { Link } from "react-router-dom";
+ import axios from "axios";
+ 
+-export default function ProfileImage(){
+-    const[profileImage,setImage]=useState("");
+-    const[studentData,setData]=useState("");
+-    const [file, setFile] = useState(
+-      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+-    );
+-    console.log(studentData?._id);
++export default function ProfileImage() {
++  const [profileImage, setImage] = useState("");
++  const [studentData, setData] = useState("");
++  const [imageUrl, setImageUrl] = useState("");
++  const [file, setFile] = useState(
++    "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
++  );
++  console.log(studentData?._id);
+ 
+-    const handleFileChange=(event)=> {       // Perform any save operations here
+-        const file=event.target.files[0];
+-        console.log(file);
+-        setImage(event.target.files[0]);
+-        setFile(URL.createObjectURL(event.target.files[0]))
+-      };
++  const handleFileChange = (event) => {
++    // Perform any save operations here
++    const file = event.target.files[0];
++    console.log(file);
++    setImage(event.target.files[0]);
++    setFile(URL.createObjectURL(event.target.files[0]));
++  };
++  ////////////////////////////////////
++
++  // function handleSubmit(event) {
++  //   event.preventDefault();
+ 
+-    function handleSubmit(event){
+-      event.preventDefault(); // prevent defult form submission behaviors, pause the refershing
++  //   if (profileImage) {
++  //     const reader = new FileReader();
++  //     reader.onload = (e) => {
++  //       const imageData = e.target.result;
++
++  //       // Make API request to upload the image
++  //       axios
++  //         .post(
++  //           "http://localhost:1234/student/uploadImage/" + studentData?._id,
++  //           { imageData }
++  //         ) // Corrected property name to "imageData"
++  //         .then((response) => {
++  //           console.log(response.data); // Success message
++  //           // Retrieve the uploaded image URL from the response
++  //           const { imageUrl } = response.data;
++  //           setImageUrl(imageUrl);
++  //         })
++  //         .catch((error) => {
++  //           console.error(error);
++  //         });
++  //     };
++  //     reader.readAsDataURL(profileImage);
++  //   }
++  // }
++
++  ////////////////////////////
++  function handleSubmit(event) {
++    event.preventDefault(); // prevent defult form submission behaviors, pause the refershing
+ 
+     const formData = new FormData();
+-    formData.append("profileImage", profileImage);  //"profileImage" is the name goven to profileImage file
++    formData.append("profileImage", profileImage); //"profileImage" is the name goven to profileImage file
+     console.log(formData);
+ 
+-        axios.post("http://localhost:1234/student/uploadImage/"+studentData?._id,formData,{
+-              headers:{
+-                "Content-Type": "multipart/form-data",   // encrypt the sending data type
+-              },
+-            } ).then(res=>{
+-            alert("Update Profile Image Successfully!");
+-        }).catch(error=>console.error('Error:',error));
+-    }
++    axios
++      .post(
++        "http://localhost:1234/student/uploadImage/" + studentData?._id,
++        formData,
++        {
++          headers: {
++            "Content-Type": "multipart/form-data", // encrypt the sending data type
++          },
++        }
++      )
++      .then((res) => {
++        alert("Update Profile Image Successfully!");
++      })
++      .catch((error) => console.error("Error:", error));
++  }
+ 
+-    useEffect(()=>{
+-        const fetchData =async()=>{
+-            const token = await  window.localStorage.getItem("token");
+-            axios.post("http://localhost:1234/student/studentData",{},{
+-              headers:{
+-                Authorization: `Bearer ${token}`,
+-              },
+-            })
+-            .then(res=>{
+-
+-              if (res.data.status=="ok"){
+-                setImage(res.data.profileImage);
+-                setData(res.data.data);  
+-              }else{
+-                window.alert(res.data.error);
+-              }
+-            })
+-            .catch(error=>
+-            console.error("Error: ",error));
+-          }
+-        fetchData();
+-    },[]);
++  useEffect(() => {
++    const fetchData = async () => {
++      const token = await window.localStorage.getItem("token");
++      axios
++        .post(
++          "http://localhost:1234/student/studentData",
++          {},
++          {
++            headers: {
++              Authorization: `Bearer ${token}`,
++            },
++          }
++        )
++        .then((res) => {
++          if (res.data.status == "ok") {
++            setData(res.data.data);
++          } else {
++            window.alert(res.data.error);
++          }
++        })
++        .catch((error) => console.error("Error: ", error));
++    };
++    fetchData();
++  }, []);
+ 
+-
+-
+-    return(
+-        <>
+-        <div className="container">
+-        <p>Profile Image Upload</p> 
++  return (
++    <>
++      <div className="container">
++        <p>Profile Image Upload</p>
+ 
+         <div>
+-            <form onSubmit={handleSubmit}>
++          <form onSubmit={handleSubmit}>
+             <div>
+-              <img className="profile-photo" src={file} alt="" />
++              <img
++                className="profile-photo"
++                src={"http://localhost:1234/" + studentData.profileImage}
++                alt=""
++              />
++              {/* {imageUrl && (
++                <img className="profile-photo" src={imageUrl} alt="" />
++              )} */}
+             </div>
+-              <input type="file" onChange={handleFileChange} />
+-              <div>
++            <input type="file" onChange={handleFileChange} />
++            <div>
+               <button type="submit">Upload</button>
+-              </div>
+-            </form>
++            </div>
++          </form>
+         </div>
+-        </div>
+-        </>
+-    )
++      </div>
++    </>
++  );
+ }
+-
+Index: src/components/Home/Home.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nimport Footer from \"../footer/footer\";\r\nimport MainHeader from \"../mainHeader/mainHeader\";\r\nimport \"./home.css\";\r\n\r\nfunction Home({ isLogedIn, onLogout }) {\r\n  const content = (\r\n    <>\r\n      <Link to=\"/\">Home</Link>\r\n    </>\r\n  );\r\n  return (\r\n    <div className=\"page-container\">\r\n      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />\r\n      <div className=\"container\">\r\n        <div className=\"d-flex flex-lg-row flex-column\">\r\n          <div className=\"home-left-div p-4 w-100 \">\r\n            <h1 className=\"main-head\">About</h1>\r\n            <p className=\"text-left\">\r\n              Voluptate est magna sint ad pariatur. Voluptate sit nostrud qui\r\n              mollit eiusmod duis aliqua. Non ullamco aute et nulla. Pariatur\r\n              irure magna ad sit qui occaecat. Exercitation eiusmod nulla\r\n              excepteur sunt ipsum labore. Sint est enim quis occaecat qui\r\n              adipisicing. Cupidatat dolor reprehenderit irure enim. Consectetur\r\n              irure ut sunt tempor veniam eiusmod proident sit. Sit proident\r\n              reprehenderit laboris laboris mollit. Aliquip aute nisi sint qui\r\n              incididunt incididunt eu deserunt pariatur occaecat qui\r\n              adipisicing. Veniam sint adipisicing cupidatat sunt est consequat\r\n              excepteur. Enim ipsum anim non eu amet ut. Proident elit commodo\r\n              est sint enim. Consequat dolore consequat dolor laborum ullamco\r\n              Lorem duis nulla sunt officia.\r\n            </p>\r\n            \r\n          </div>\r\n          <div className=\"home-right-div p-4 w-100 d-flex flex-column\">\r\n            <h1 className=\"main-head\">Are you?</h1>\r\n            <Link to=\"/student-register\" type=\"button\" className=\"form-control text-white student-button btn btn-primary m-2 mb-4\">\r\n              A Student\r\n            </Link>\r\n            <Link to=\"/lecturer-login\" type=\"button\" className=\"form-control text-white student-button btn btn-primary m-2 mb-4\">\r\n              A Lecturer\r\n            </Link>\r\n            <Link to=\"/company-login\" type=\"button\" className=\"form-control text-white student-button btn btn-primary m-2\">\r\n              A Company\r\n            </Link>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <Footer />\r\n    </div>\r\n  );\r\n}\r\n\r\nexport default Home;\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Home/Home.js b/src/components/Home/Home.js
+--- a/src/components/Home/Home.js	
++++ b/src/components/Home/Home.js	
+@@ -18,30 +18,35 @@
+           <div className="home-left-div p-4 w-100 ">
+             <h1 className="main-head">About</h1>
+             <p className="text-left">
+-              Voluptate est magna sint ad pariatur. Voluptate sit nostrud qui
+-              mollit eiusmod duis aliqua. Non ullamco aute et nulla. Pariatur
+-              irure magna ad sit qui occaecat. Exercitation eiusmod nulla
+-              excepteur sunt ipsum labore. Sint est enim quis occaecat qui
+-              adipisicing. Cupidatat dolor reprehenderit irure enim. Consectetur
+-              irure ut sunt tempor veniam eiusmod proident sit. Sit proident
+-              reprehenderit laboris laboris mollit. Aliquip aute nisi sint qui
+-              incididunt incididunt eu deserunt pariatur occaecat qui
+-              adipisicing. Veniam sint adipisicing cupidatat sunt est consequat
+-              excepteur. Enim ipsum anim non eu amet ut. Proident elit commodo
+-              est sint enim. Consequat dolore consequat dolor laborum ullamco
+-              Lorem duis nulla sunt officia.
++              The University of Ruhuna Faculty of Engineering Job Bank is a website that connects students,
++              alumni,
++              and faculty with job opportunities in the engineering field. The website provides a searchable database of jobs,
++              the ability to create a profile and upload a resume, the ability to receive job alerts,
++              and the ability to network with other engineers.
++              The University of Ruhuna Faculty of Engineering Job Bank is a valuable resource for anyone looking for a job in engineering.
+             </p>
+-            
+           </div>
+           <div className="home-right-div p-4 w-100 d-flex flex-column">
+             <h1 className="main-head">Are you?</h1>
+-            <Link to="/student-register" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
++            <Link
++              to="/student-signIn"
++              type="button"
++              className="form-control text-white student-button btn btn-primary m-2 mb-4"
++            >
+               A Student
+             </Link>
+-            <Link to="/lecturer-login" type="button" className="form-control text-white student-button btn btn-primary m-2 mb-4">
++            <Link
++              to="/lecturer-login"
++              type="button"
++              className="form-control text-white student-button btn btn-primary m-2 mb-4"
++            >
+               A Lecturer
+             </Link>
+-            <Link to="/company-login" type="button" className="form-control text-white student-button btn btn-primary m-2">
++            <Link
++              to="/company-login"
++              type="button"
++              className="form-control text-white student-button btn btn-primary m-2"
++            >
+               A Company
+             </Link>
+           </div>
+Index: src/components/pages/student/profile/studentProfile.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState,useEffect } from \"react\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport { Link } from \"react-router-dom\";\r\nimport axios from \"axios\";\r\n//import Popup from \"./popup1\";\r\n//import CompanyRegister from '../../company/companyRegistration/companyRegister/CompanyRegister';\r\n//import \"./CompanyRegister.css\"\r\n\r\nexport default function Profile() {\r\n  const [file, setFile] = useState(\r\n    \"https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg\"\r\n  );\r\n  const[token,setToken]=useState(\"\");\r\n  const[studentData,setData]=useState(\"\");\r\n  const [firstName,setFName]=useState(\"\");\r\n  const [middleName,setMName]=useState(\"\");\r\n  const [lastName,setLName]=useState(\"\");\r\n  const [indexNumber,setIndex]=useState(\"\");\r\n  const [DOB,setDOB]=useState(\"\");\r\n  const [DOG,setDOG]=useState(\"\");\r\n  const [gender,setGender]=useState(\"\");\r\n  const [phoneNumber1,setPNumber1]=useState(\"\");\r\n  const [phoneNumber2,setPNumber2]=useState(\"\");\r\n  const [references,setReferences]=useState(\"\");\r\n  const [faculty,setFaculty]=useState(\"\");\r\n  const [field,setField]=useState(\"\");\r\n  const [subSpeciality,setSpeciality]=useState(\"\");\r\n  const [projects, setProjects]=useState(\"\");\r\n  const [eActivities, setEActivities]=useState(\"\");\r\n  const[profileImage,setProfileImage]=useState(\"\");\r\n  const [disabled, setDisabled] = useState(true);\r\n\r\n  function handleChange(e) {\r\n    console.log(e.target.files);\r\n    setFile(URL.createObjectURL(e.target.files[0]));\r\n  }\r\n\r\n  function handleEdit() {\r\n    setDisabled(false);\r\n  }\r\n\r\n  function handleSave() {       // Perform any save operations here\r\n    setDisabled(true);\r\n    sendData();\r\n  }\r\n\r\n  function sendData(){     // function that execute when pressing submit button\"\r\n  const newStudent={\r\n        firstName,\r\n       middleName,\r\n        lastName, \r\n       indexNumber,\r\n        DOB,\r\n        gender,\r\n        phoneNumber1,\r\n        phoneNumber2,\r\n        references,\r\n        faculty,\r\n        field,\r\n        subSpeciality,\r\n        projects,\r\n        DOG,\r\n        eActivities, \r\n\r\n    }\r\n     // Connection of backend and frontend using axios //\r\n  axios.put(\"http://localhost:1234/student/update/\"+studentData?._id,newStudent ).then(res=>{\r\n    console.log(res.data);\r\n    alert(\"Updated Successfully!\");\r\n  }).catch(error=>console.error('Error: ',error));\r\n}\r\n\r\n  useEffect(()=>{\r\n      const fetchData =async()=>{\r\n          const token = await  window.localStorage.getItem(\"token\");\r\n          axios.post(\"http://localhost:1234/student/studentData\",{},{\r\n            headers:{\r\n              Authorization: `Bearer ${token}`,\r\n            },\r\n          })\r\n          .then(res=>{\r\n            if (res.data.status==\"ok\"){\r\n              setData(res.data.data);\r\n              console.log(res.data.data.firstName);\r\n\r\n              setFName(res.data.data.firstName);\r\n              setMName(res.data.data.middleName);\r\n              setLName(res.data.data.lastName);\r\n              setIndex(res.data.data.indexNumber);\r\n              setDOB(res.data.data.DOB);\r\n              setDOG(res.data.data.DOG);\r\n              setGender(res.data.data.gender);\r\n              setPNumber1(res.data.data.phoneNumber1);\r\n              setReferences(res.data.data.references);\r\n              setFaculty(res.data.data.faculty);\r\n              setField(res.data.data.field);\r\n              setSpeciality(res.data.data.subSpeciality);\r\n              setProjects(res.data.data.projects);\r\n              setEActivities(res.data.data.EActivities);\r\n              setProfileImage(res.data.data.profileImage);\r\n\r\n            }else{\r\n              window.alert(res.data.error);\r\n              \r\n            }\r\n          })\r\n          .catch(error=> console.error(\"Error: \",error));\r\n        }\r\n      fetchData();\r\n},[]);\r\n\r\n  return (\r\n    <>\r\n    <div>\r\n    <h1>Profile</h1>\r\n    <div className=\"profile\">\r\n      <div className=\"box\">\r\n        <label htmlFor=\"textbox\">Email: </label>\r\n        <div>\r\n          <input type=\"text\" id=\"textbox\" value={studentData?.email} />\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n  <div\r\n      className=\"container progress-div\"\r\n      style={{ marginTop: \"1px\", padding: \"50px\" }}\r\n    >\r\n      <form action=\"/student/home\">\r\n        <h4 className=\"sub-headings\">Personal info: </h4>\r\n        <div className=\"flex-container1\">\r\n          <div\r\n            className=\"container1-flex-item1 text-center\"\r\n            style={{ display: \"flex\", flexDirection: \"column\" }}\r\n          >\r\n            <img className=\"profile-photo\" src={file} alt=\"Profile Photo\" />\r\n            <label className=\"label-title\">Profile Photo</label>\r\n            <div>\r\n                <Link to =\"/profileImage\">\r\n                <button>\r\n                  Edit\r\n                </button>\r\n                </Link>\r\n              </div>\r\n\r\n            <div style={{ padding: 10 }} />\r\n            <div className=\"file-input-div\">\r\n              <input\r\n                type=\"file\"\r\n                className=\"file-input-field form-control\"\r\n                onChange={handleChange}\r\n                disabled={disabled}\r\n              />\r\n            </div>\r\n          </div>\r\n\r\n          <div className=\"container1-flex-item2\" style={{padding:10}}>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">Name</label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"First Name\"\r\n                    value={firstName}\r\n                   onChange={(e)=>{\r\n                    setFName(e.target.value);\r\n                }}\r\n                    disabled={disabled}\r\n                    required\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    First Name<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Middle Name\"\r\n                    value={middleName}\r\n                    onChange={(e)=>{\r\n                     setMName(e.target.value);\r\n                 }}\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">Middle Name</label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Last Name\"\r\n                    value={lastName}\r\n                    onChange={(e)=>{\r\n                     setLName(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    Last Name<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Index Number\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Index Number\"\r\n                    value={indexNumber}\r\n                    onChange={(e)=>{\r\n                     setIndex(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Date of Birth\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"date\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"DOB\"\r\n                    value={DOB}\r\n                    onChange={(e)=>{\r\n                     setDOB(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Gender\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"gender\"\r\n                    id=\"gender\"\r\n                    disabled={disabled}\r\n                    value={gender}\r\n                    onChange={(e)=>{\r\n                      setGender(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select your Gender\r\n                    </option>\r\n                    <option value=\"male\">Male</option>\r\n                    <option value=\"female\">Female</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  Phone Number\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"tel\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Phone Number 1\"\r\n                    value={phoneNumber1}\r\n                    onChange={(e)=>{\r\n                     setPNumber1(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    Phone Number 1<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"tel\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Phone Number 2\"\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n                <div className=\"text-center\">\r\n                  <label className=\"hint-title\">\r\n                    Phone Number 2<span className=\"asterisk-mark\">*</span>\r\n                  </label>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n            <div className=\"sub-flex-container\">\r\n              <div className=\"sub-flex-item1\">\r\n                <label className=\"label-title\">\r\n                  References\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"sub-flex-item2\">\r\n                <div className=\"input-filed\">\r\n                  <input\r\n                    type=\"text\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"References\"\r\n                    value={references}\r\n                    onChange={(e)=>{\r\n                     setReferences(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n              <div className=\"sub-flex-item2\"></div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <h4 className=\"sub-headings\">Academic Details: </h4>\r\n        <div className=\"\">\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Faculty\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"faculty\"\r\n                    id=\"faculty\"\r\n                    disabled={disabled}\r\n                    value={faculty}\r\n                    onChange={(e)=>{\r\n                      setFaculty(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select your Faculty\r\n                    </option>\r\n                    <option value=\"Agriculture\">Agriculture</option>\r\n                    <option value=\"Allied Health Science\">\r\n                      Allied Health Science\r\n                    </option>\r\n                    <option value=\"Engineering\">Engineering</option>\r\n                    <option value=\"Fisheries and Marine Sciences & Technology\">\r\n                      Fisheries and Marine Sciences & Technology\r\n                    </option>\r\n                    <option value=\"Graduate Studies\">Graduate Studies</option>\r\n                    <option value=\"Humanities and Social Sciences\">\r\n                      Humanities and Social Sciences\r\n                    </option>\r\n                    <option value=\"Management & Finance\">\r\n                      Management & Finance\r\n                    </option>\r\n                    <option value=\"Medicine\">Medicine</option>\r\n                    <option value=\"Science\">Science</option>\r\n                    <option value=\"Technology\">Technology</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Date of Graduating\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <input\r\n                    type=\"date\"\r\n                    className=\"form-control\"\r\n                    placeholder=\"Graduating Year\"\r\n                    value={DOG}\r\n                    onChange={(e)=>{\r\n                     setDOG(e.target.value);\r\n                 }}\r\n                    required\r\n                    disabled={disabled}\r\n                  ></input>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Field\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"field\"\r\n                    id=\"field\"\r\n                    disabled={disabled}\r\n                    value={field}\r\n                    onChange={(e)=>{\r\n                      setField(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select Your Field\r\n                    </option>\r\n                    <option value=\"Field1\">Electrical Engineer</option>\r\n                    <option value=\"Field2\">Civil Engineer</option>\r\n                    <option value=\"Field3\">Software Engineer</option>\r\n                    <option value=\"Field4\">Accounting</option>\r\n                    <option value=\"Field4\">Doctor</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"container2-flex-item\"></div>\r\n          </div>\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item1\">\r\n                <label className=\"label-title\">\r\n                  Sub Speciality\r\n                  <span className=\"asterisk-mark\">*</span>\r\n                </label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item2\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <select\r\n                    className=\"form-select\"\r\n                    name=\"subSpeciality\"\r\n                    id=\"subSpeciality\"\r\n                    disabled={disabled}\r\n                    value={subSpeciality}\r\n                    onChange={(e)=>{\r\n                      setSpeciality(e.target.value);\r\n                  }}\r\n                  >\r\n                    <option selected disabled>\r\n                      Select your Sub Speciality\r\n                    </option>\r\n                    <option value=\"SubSpeciality1\">Sub Speciality 1</option>\r\n                    <option value=\"SubSpeciality2\">Sub Speciality 2</option>\r\n                    <option value=\"SubSpeciality3\">Sub Speciality 3</option>\r\n                    <option value=\"SubSpeciality4\">Sub Speciality 4</option>\r\n                  </select>\r\n                </div>\r\n              </div>\r\n            </div>\r\n            <div className=\"container2-flex-item\"></div>\r\n          </div>\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item3\">\r\n                <label className=\"label-title\">Projects</label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item4\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <textarea\r\n                    class=\"form-control\"\r\n                    rows=\"3\"\r\n                    disabled={disabled}\r\n                    value={projects}\r\n                    onChange={(e)=>{\r\n                      setProjects(e.target.value);\r\n                  }}\r\n                  ></textarea>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <h4 className=\"sub-headings\">Extracurricular Activities: </h4>\r\n        <div className=\"\">\r\n          <div className=\"flex-container2\">\r\n            <div className=\"container2-flex-item\">\r\n              <div className=\"container2-flex-item-sub-item3\">\r\n                <label className=\"label-title\">References</label>\r\n              </div>\r\n              <div className=\"container2-flex-item-sub-item4\">\r\n                <div className=\"input-filed input-filed-cls\">\r\n                  <textarea\r\n                    class=\"form-control\"\r\n                    rows=\"3\"\r\n                    disabled={disabled}\r\n                    value={eActivities}\r\n                    onChange={(e)=>{\r\n                      setEActivities(e.target.value);\r\n                  }}\r\n                  ></textarea>\r\n                </div>\r\n                </div>\r\n                <div>\r\n            {disabled ? (\r\n              <button type=\"button\" className=\"btn btn-primary\" onClick={handleEdit}>\r\n                Edit\r\n              </button>\r\n            ) : (\r\n              <button type=\"submit\" className=\"btn btn-primary\" onClick={handleSave}>\r\n                Save\r\n              </button>\r\n            )}\r\n          </div>\r\n        </div>\r\n</div>\r\n</div>\r\n       \r\n    </form>\r\n    </div>\r\n    </>\r\n  );\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/student/profile/studentProfile.js b/src/components/pages/student/profile/studentProfile.js
+--- a/src/components/pages/student/profile/studentProfile.js	
++++ b/src/components/pages/student/profile/studentProfile.js	
+@@ -1,4 +1,4 @@
+-import React, { useState,useEffect } from "react";
++import React, { useState, useEffect } from "react";
+ import TextField from "@mui/material/TextField";
+ import { Link } from "react-router-dom";
+ import axios from "axios";
+@@ -10,24 +10,24 @@
+   const [file, setFile] = useState(
+     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+   );
+-  const[token,setToken]=useState("");
+-  const[studentData,setData]=useState("");
+-  const [firstName,setFName]=useState("");
+-  const [middleName,setMName]=useState("");
+-  const [lastName,setLName]=useState("");
+-  const [indexNumber,setIndex]=useState("");
+-  const [DOB,setDOB]=useState("");
+-  const [DOG,setDOG]=useState("");
+-  const [gender,setGender]=useState("");
+-  const [phoneNumber1,setPNumber1]=useState("");
+-  const [phoneNumber2,setPNumber2]=useState("");
+-  const [references,setReferences]=useState("");
+-  const [faculty,setFaculty]=useState("");
+-  const [field,setField]=useState("");
+-  const [subSpeciality,setSpeciality]=useState("");
+-  const [projects, setProjects]=useState("");
+-  const [eActivities, setEActivities]=useState("");
+-  const[profileImage,setProfileImage]=useState("");
++  const [token, setToken] = useState("");
++  const [studentData, setData] = useState("");
++  const [firstName, setFName] = useState("");
++  const [middleName, setMName] = useState("");
++  const [lastName, setLName] = useState("");
++  const [indexNumber, setIndex] = useState("");
++  const [DOB, setDOB] = useState("");
++  const [DOG, setDOG] = useState("");
++  const [gender, setGender] = useState("");
++  const [phoneNumber1, setPNumber1] = useState("");
++  const [phoneNumber2, setPNumber2] = useState("");
++  const [references, setReferences] = useState("");
++  const [faculty, setFaculty] = useState("");
++  const [field, setField] = useState("");
++  const [subSpeciality, setSpeciality] = useState("");
++  const [projects, setProjects] = useState("");
++  const [eActivities, setEActivities] = useState("");
++  const [img, setProfileImage] = useState("");
+   const [disabled, setDisabled] = useState(true);
+ 
+   function handleChange(e) {
+@@ -39,534 +39,559 @@
+     setDisabled(false);
+   }
+ 
+-  function handleSave() {       // Perform any save operations here
++  function handleSave() {
++    // Perform any save operations here
+     setDisabled(true);
+     sendData();
+   }
+ 
+-  function sendData(){     // function that execute when pressing submit button"
+-  const newStudent={
+-        firstName,
+-       middleName,
+-        lastName, 
+-       indexNumber,
+-        DOB,
+-        gender,
+-        phoneNumber1,
+-        phoneNumber2,
+-        references,
+-        faculty,
+-        field,
+-        subSpeciality,
+-        projects,
+-        DOG,
+-        eActivities, 
+-
+-    }
+-     // Connection of backend and frontend using axios //
+-  axios.put("http://localhost:1234/student/update/"+studentData?._id,newStudent ).then(res=>{
+-    console.log(res.data);
+-    alert("Updated Successfully!");
+-  }).catch(error=>console.error('Error: ',error));
+-}
++  function sendData() {
++    // function that execute when pressing submit button"
++    const newStudent = {
++      firstName,
++      middleName,
++      lastName,
++      indexNumber,
++      DOB,
++      gender,
++      phoneNumber1,
++      phoneNumber2,
++      references,
++      faculty,
++      field,
++      subSpeciality,
++      projects,
++      DOG,
++      eActivities,
++    };
++    // Connection of backend and frontend using axios //
++    axios
++      .put(
++        "http://localhost:1234/student/update/" + studentData?._id,
++        newStudent
++      )
++      .then((res) => {
++        console.log(res.data);
++        alert("Updated Successfully!");
++      })
++      .catch((error) => console.error("Error: ", error));
++  }
+ 
+-  useEffect(()=>{
+-      const fetchData =async()=>{
+-          const token = await  window.localStorage.getItem("token");
+-          axios.post("http://localhost:1234/student/studentData",{},{
+-            headers:{
++  useEffect(() => {
++    const fetchData = async () => {
++      const token = await window.localStorage.getItem("token");
++      axios
++        .post(
++          "http://localhost:1234/student/studentData",
++          {},
++          {
++            headers: {
+               Authorization: `Bearer ${token}`,
+             },
+-          })
+-          .then(res=>{
+-            if (res.data.status=="ok"){
+-              setData(res.data.data);
+-              console.log(res.data.data.firstName);
+-
+-              setFName(res.data.data.firstName);
+-              setMName(res.data.data.middleName);
+-              setLName(res.data.data.lastName);
+-              setIndex(res.data.data.indexNumber);
+-              setDOB(res.data.data.DOB);
+-              setDOG(res.data.data.DOG);
+-              setGender(res.data.data.gender);
+-              setPNumber1(res.data.data.phoneNumber1);
+-              setReferences(res.data.data.references);
+-              setFaculty(res.data.data.faculty);
+-              setField(res.data.data.field);
+-              setSpeciality(res.data.data.subSpeciality);
+-              setProjects(res.data.data.projects);
+-              setEActivities(res.data.data.EActivities);
+-              setProfileImage(res.data.data.profileImage);
+-
+-            }else{
+-              window.alert(res.data.error);
+-              
+-            }
+-          })
+-          .catch(error=> console.error("Error: ",error));
+-        }
+-      fetchData();
+-},[]);
++          }
++        )
++        .then((res) => {
++          if (res.data.status == "ok") {
++            setData(res.data.data);
++            setFName(res.data.data.firstName);
++            console.log(firstName);
++            setMName(res.data.data.middleName);
++            setLName(res.data.data.lastName);
++            setIndex(res.data.data.indexNumber);
++            setDOB(res.data.data.DOB);
++            setDOG(res.data.data.DOG);
++            setGender(res.data.data.gender);
++            setPNumber1(res.data.data.phoneNumber1);
++            setReferences(res.data.data.references);
++            setFaculty(res.data.data.faculty);
++            setField(res.data.data.field);
++            setSpeciality(res.data.data.subSpeciality);
++            setProjects(res.data.data.projects);
++            setEActivities(res.data.data.EActivities);
++            setProfileImage(res.data.data.profileImage);
++          } else {
++            window.alert(res.data.error);
++          }
++        })
++        .catch((error) => console.error("Error: ", error));
++    };
++    fetchData();
++  }, []);
+ 
+   return (
+     <>
+-    <div>
+-    <h1>Profile</h1>
+-    <div className="profile">
+-      <div className="box">
+-        <label htmlFor="textbox">Email: </label>
+-        <div>
+-          <input type="text" id="textbox" value={studentData?.email} />
+-        </div>
+-      </div>
+-    </div>
+-  </div>
+-  <div
+-      className="container progress-div"
+-      style={{ marginTop: "1px", padding: "50px" }}
+-    >
+-      <form action="/student/home">
+-        <h4 className="sub-headings">Personal info: </h4>
+-        <div className="flex-container1">
+-          <div
+-            className="container1-flex-item1 text-center"
+-            style={{ display: "flex", flexDirection: "column" }}
+-          >
+-            <img className="profile-photo" src={file} alt="Profile Photo" />
+-            <label className="label-title">Profile Photo</label>
+-            <div>
+-                <Link to ="/profileImage">
+-                <button>
+-                  Edit
+-                </button>
++      <div>
++        <h1>Profile</h1>
++        <div className="profile">
++          <div className="box">
++            <label htmlFor="textbox">Email: </label>
++            <div>
++              <input type="text" id="textbox" value={studentData?.email} />
++            </div>
++          </div>
++        </div>
++      </div>
++      <div
++        className="container progress-div"
++        style={{ marginTop: "1px", padding: "50px" }}
++      >
++        <form action="/student/home">
++          <h4 className="sub-headings">Personal info: </h4>
++          <div className="flex-container1">
++            <div
++              className="container1-flex-item1 text-center"
++              style={{ display: "flex", flexDirection: "column" }}
++            >
++              <div className="container2-flex-item-sub-item2">
++                <div className="input-filed input-filed-cls">
++                  <img
++                    className="profile-photo"
++                    src={"http://localhost:1234/" + studentData.profileImage}
++                    alt=""
++                  />
++                </div>
++                <div className="text-center">
++                  <label className="hint-title">Profile Photo</label>
++                </div>
++              </div>
++              <label className="label-title">Profile Photo</label>
++              <div>
++                <Link to="/profileImage">
++                  <button>Edit</button>
+                 </Link>
+               </div>
+ 
+-            <div style={{ padding: 10 }} />
+-            <div className="file-input-div">
+-              <input
+-                type="file"
+-                className="file-input-field form-control"
+-                onChange={handleChange}
+-                disabled={disabled}
+-              />
+-            </div>
+-          </div>
++              <div style={{ padding: 10 }} />
++              <div className="file-input-div">
++                <input
++                  type="file"
++                  className="file-input-field form-control"
++                  onChange={handleChange}
++                  disabled={disabled}
++                />
++              </div>
++            </div>
+ 
+-          <div className="container1-flex-item2" style={{padding:10}}>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">Name</label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="First Name"
+-                    value={firstName}
+-                   onChange={(e)=>{
+-                    setFName(e.target.value);
+-                }}
+-                    disabled={disabled}
+-                    required
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    First Name<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="Middle Name"
+-                    value={middleName}
+-                    onChange={(e)=>{
+-                     setMName(e.target.value);
+-                 }}
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">Middle Name</label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="Last Name"
+-                    value={lastName}
+-                    onChange={(e)=>{
+-                     setLName(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    Last Name<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Index Number
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="Index Number"
+-                    value={indexNumber}
+-                    onChange={(e)=>{
+-                     setIndex(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Date of Birth
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="date"
+-                    className="form-control"
+-                    placeholder="DOB"
+-                    value={DOB}
+-                    onChange={(e)=>{
+-                     setDOB(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Gender
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <select
+-                    className="form-select"
+-                    name="gender"
+-                    id="gender"
+-                    disabled={disabled}
+-                    value={gender}
+-                    onChange={(e)=>{
+-                      setGender(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select your Gender
+-                    </option>
+-                    <option value="male">Male</option>
+-                    <option value="female">Female</option>
+-                  </select>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  Phone Number
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="tel"
+-                    className="form-control"
+-                    placeholder="Phone Number 1"
+-                    value={phoneNumber1}
+-                    onChange={(e)=>{
+-                     setPNumber1(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    Phone Number 1<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="tel"
+-                    className="form-control"
+-                    placeholder="Phone Number 2"
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-                <div className="text-center">
+-                  <label className="hint-title">
+-                    Phone Number 2<span className="asterisk-mark">*</span>
+-                  </label>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-            <div className="sub-flex-container">
+-              <div className="sub-flex-item1">
+-                <label className="label-title">
+-                  References
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="sub-flex-item2">
+-                <div className="input-filed">
+-                  <input
+-                    type="text"
+-                    className="form-control"
+-                    placeholder="References"
+-                    value={references}
+-                    onChange={(e)=>{
+-                     setReferences(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-              <div className="sub-flex-item2"></div>
+-              <div className="sub-flex-item2"></div>
+-            </div>
+-          </div>
+-        </div>
++            <div className="container1-flex-item2" style={{ padding: 10 }}>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">Name</label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="First Name"
++                      value={firstName}
++                      onChange={(e) => {
++                        setFName(e.target.value);
++                      }}
++                      disabled={disabled}
++                      required
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      First Name<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="Middle Name"
++                      value={middleName}
++                      onChange={(e) => {
++                        setMName(e.target.value);
++                      }}
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">Middle Name</label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="Last Name"
++                      value={lastName}
++                      onChange={(e) => {
++                        setLName(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      Last Name<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Index Number
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="Index Number"
++                      value={indexNumber}
++                      onChange={(e) => {
++                        setIndex(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Date of Birth
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="date"
++                      className="form-control"
++                      placeholder="DOB"
++                      value={DOB}
++                      onChange={(e) => {
++                        setDOB(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Gender
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <select
++                      className="form-select"
++                      name="gender"
++                      id="gender"
++                      disabled={disabled}
++                      value={gender}
++                      onChange={(e) => {
++                        setGender(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select your Gender
++                      </option>
++                      <option value="male">Male</option>
++                      <option value="female">Female</option>
++                    </select>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    Phone Number
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="tel"
++                      className="form-control"
++                      placeholder="Phone Number 1"
++                      value={phoneNumber1}
++                      onChange={(e) => {
++                        setPNumber1(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      Phone Number 1<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="tel"
++                      className="form-control"
++                      placeholder="Phone Number 2"
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                  <div className="text-center">
++                    <label className="hint-title">
++                      Phone Number 2<span className="asterisk-mark">*</span>
++                    </label>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++              </div>
++              <div className="sub-flex-container">
++                <div className="sub-flex-item1">
++                  <label className="label-title">
++                    References
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="sub-flex-item2">
++                  <div className="input-filed">
++                    <input
++                      type="text"
++                      className="form-control"
++                      placeholder="References"
++                      value={references}
++                      onChange={(e) => {
++                        setReferences(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++                <div className="sub-flex-item2"></div>
++                <div className="sub-flex-item2"></div>
++              </div>
++            </div>
++          </div>
+ 
+-        <h4 className="sub-headings">Academic Details: </h4>
+-        <div className="">
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Faculty
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <select
+-                    className="form-select"
+-                    name="faculty"
+-                    id="faculty"
+-                    disabled={disabled}
+-                    value={faculty}
+-                    onChange={(e)=>{
+-                      setFaculty(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select your Faculty
+-                    </option>
+-                    <option value="Agriculture">Agriculture</option>
+-                    <option value="Allied Health Science">
+-                      Allied Health Science
+-                    </option>
+-                    <option value="Engineering">Engineering</option>
+-                    <option value="Fisheries and Marine Sciences & Technology">
+-                      Fisheries and Marine Sciences & Technology
+-                    </option>
+-                    <option value="Graduate Studies">Graduate Studies</option>
+-                    <option value="Humanities and Social Sciences">
+-                      Humanities and Social Sciences
+-                    </option>
+-                    <option value="Management & Finance">
+-                      Management & Finance
+-                    </option>
+-                    <option value="Medicine">Medicine</option>
+-                    <option value="Science">Science</option>
+-                    <option value="Technology">Technology</option>
+-                  </select>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Date of Graduating
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <input
+-                    type="date"
+-                    className="form-control"
+-                    placeholder="Graduating Year"
+-                    value={DOG}
+-                    onChange={(e)=>{
+-                     setDOG(e.target.value);
+-                 }}
+-                    required
+-                    disabled={disabled}
+-                  ></input>
+-                </div>
+-              </div>
+-            </div>
+-          </div>
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Field
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <select
+-                    className="form-select"
+-                    name="field"
+-                    id="field"
+-                    disabled={disabled}
+-                    value={field}
+-                    onChange={(e)=>{
+-                      setField(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select Your Field
+-                    </option>
+-                    <option value="Field1">Electrical Engineer</option>
+-                    <option value="Field2">Civil Engineer</option>
+-                    <option value="Field3">Software Engineer</option>
+-                    <option value="Field4">Accounting</option>
+-                    <option value="Field4">Doctor</option>
+-                  </select>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="container2-flex-item"></div>
+-          </div>
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item1">
+-                <label className="label-title">
+-                  Sub Speciality
+-                  <span className="asterisk-mark">*</span>
+-                </label>
+-              </div>
+-              <div className="container2-flex-item-sub-item2">
+-                <div className="input-filed input-filed-cls">
+-                  <select
+-                    className="form-select"
+-                    name="subSpeciality"
+-                    id="subSpeciality"
+-                    disabled={disabled}
+-                    value={subSpeciality}
+-                    onChange={(e)=>{
+-                      setSpeciality(e.target.value);
+-                  }}
+-                  >
+-                    <option selected disabled>
+-                      Select your Sub Speciality
+-                    </option>
+-                    <option value="SubSpeciality1">Sub Speciality 1</option>
+-                    <option value="SubSpeciality2">Sub Speciality 2</option>
+-                    <option value="SubSpeciality3">Sub Speciality 3</option>
+-                    <option value="SubSpeciality4">Sub Speciality 4</option>
+-                  </select>
+-                </div>
+-              </div>
+-            </div>
+-            <div className="container2-flex-item"></div>
+-          </div>
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item3">
+-                <label className="label-title">Projects</label>
+-              </div>
+-              <div className="container2-flex-item-sub-item4">
+-                <div className="input-filed input-filed-cls">
+-                  <textarea
+-                    class="form-control"
+-                    rows="3"
+-                    disabled={disabled}
+-                    value={projects}
+-                    onChange={(e)=>{
+-                      setProjects(e.target.value);
+-                  }}
+-                  ></textarea>
+-                </div>
+-              </div>
+-            </div>
+-          </div>
+-        </div>
++          <h4 className="sub-headings">Academic Details: </h4>
++          <div className="">
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Faculty
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <select
++                      className="form-select"
++                      name="faculty"
++                      id="faculty"
++                      disabled={disabled}
++                      value={faculty}
++                      onChange={(e) => {
++                        setFaculty(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select your Faculty
++                      </option>
++                      <option value="Agriculture">Agriculture</option>
++                      <option value="Allied Health Science">
++                        Allied Health Science
++                      </option>
++                      <option value="Engineering">Engineering</option>
++                      <option value="Fisheries and Marine Sciences & Technology">
++                        Fisheries and Marine Sciences & Technology
++                      </option>
++                      <option value="Graduate Studies">Graduate Studies</option>
++                      <option value="Humanities and Social Sciences">
++                        Humanities and Social Sciences
++                      </option>
++                      <option value="Management & Finance">
++                        Management & Finance
++                      </option>
++                      <option value="Medicine">Medicine</option>
++                      <option value="Science">Science</option>
++                      <option value="Technology">Technology</option>
++                    </select>
++                  </div>
++                </div>
++              </div>
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Date of Graduating
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <input
++                      type="date"
++                      className="form-control"
++                      placeholder="Graduating Year"
++                      value={DOG}
++                      onChange={(e) => {
++                        setDOG(e.target.value);
++                      }}
++                      required
++                      disabled={disabled}
++                    ></input>
++                  </div>
++                </div>
++              </div>
++            </div>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Field
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <select
++                      className="form-select"
++                      name="field"
++                      id="field"
++                      disabled={disabled}
++                      value={field}
++                      onChange={(e) => {
++                        setField(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select Your Field
++                      </option>
++                      <option value="Field1">Electrical Engineer</option>
++                      <option value="Field2">Civil Engineer</option>
++                      <option value="Field3">Software Engineer</option>
++                      <option value="Field4">Accounting</option>
++                      <option value="Field4">Doctor</option>
++                    </select>
++                  </div>
++                </div>
++              </div>
++              <div className="container2-flex-item"></div>
++            </div>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item1">
++                  <label className="label-title">
++                    Sub Speciality
++                    <span className="asterisk-mark">*</span>
++                  </label>
++                </div>
++                <div className="container2-flex-item-sub-item2">
++                  <div className="input-filed input-filed-cls">
++                    <select
++                      className="form-select"
++                      name="subSpeciality"
++                      id="subSpeciality"
++                      disabled={disabled}
++                      value={subSpeciality}
++                      onChange={(e) => {
++                        setSpeciality(e.target.value);
++                      }}
++                    >
++                      <option selected disabled>
++                        Select your Sub Speciality
++                      </option>
++                      <option value="SubSpeciality1">Sub Speciality 1</option>
++                      <option value="SubSpeciality2">Sub Speciality 2</option>
++                      <option value="SubSpeciality3">Sub Speciality 3</option>
++                      <option value="SubSpeciality4">Sub Speciality 4</option>
++                    </select>
++                  </div>
++                </div>
++              </div>
++              <div className="container2-flex-item"></div>
++            </div>
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item3">
++                  <label className="label-title">Projects</label>
++                </div>
++                <div className="container2-flex-item-sub-item4">
++                  <div className="input-filed input-filed-cls">
++                    <textarea
++                      class="form-control"
++                      rows="3"
++                      disabled={disabled}
++                      value={projects}
++                      onChange={(e) => {
++                        setProjects(e.target.value);
++                      }}
++                    ></textarea>
++                  </div>
++                </div>
++              </div>
++            </div>
++          </div>
+ 
+-        <h4 className="sub-headings">Extracurricular Activities: </h4>
+-        <div className="">
+-          <div className="flex-container2">
+-            <div className="container2-flex-item">
+-              <div className="container2-flex-item-sub-item3">
+-                <label className="label-title">References</label>
+-              </div>
+-              <div className="container2-flex-item-sub-item4">
+-                <div className="input-filed input-filed-cls">
+-                  <textarea
+-                    class="form-control"
+-                    rows="3"
+-                    disabled={disabled}
+-                    value={eActivities}
+-                    onChange={(e)=>{
+-                      setEActivities(e.target.value);
+-                  }}
+-                  ></textarea>
+-                </div>
++          <h4 className="sub-headings">Extracurricular Activities: </h4>
++          <div className="">
++            <div className="flex-container2">
++              <div className="container2-flex-item">
++                <div className="container2-flex-item-sub-item3">
++                  <label className="label-title">References</label>
++                </div>
++                <div className="container2-flex-item-sub-item4">
++                  <div className="input-filed input-filed-cls">
++                    <textarea
++                      class="form-control"
++                      rows="3"
++                      disabled={disabled}
++                      value={eActivities}
++                      onChange={(e) => {
++                        setEActivities(e.target.value);
++                      }}
++                    ></textarea>
++                  </div>
+                 </div>
+                 <div>
+-            {disabled ? (
+-              <button type="button" className="btn btn-primary" onClick={handleEdit}>
+-                Edit
+-              </button>
+-            ) : (
+-              <button type="submit" className="btn btn-primary" onClick={handleSave}>
+-                Save
+-              </button>
+-            )}
+-          </div>
+-        </div>
+-</div>
+-</div>
+-       
+-    </form>
+-    </div>
++                  {disabled ? (
++                    <button
++                      type="button"
++                      className="btn btn-primary"
++                      onClick={handleEdit}
++                    >
++                      Edit
++                    </button>
++                  ) : (
++                    <button
++                      type="submit"
++                      className="btn btn-primary"
++                      onClick={handleSave}
++                    >
++                      Save
++                    </button>
++                  )}
++                </div>
++              </div>
++            </div>
++          </div>
++        </form>
++      </div>
+     </>
+   );
+ }
+Index: src/components/pages/student/signIn/signIn.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, { useState } from \"react\";\r\nimport { Link } from \"react-router-dom\";\r\nimport TextField from \"@mui/material/TextField\";\r\nimport Button from \"@mui/material/Button\";\r\nimport Card from \"@mui/material/Card\";\r\nimport CardContent from \"@mui/material/CardContent\";\r\nimport Typography from \"@mui/material/Typography\";\r\nimport { toast } from \"react-toastify\";\r\nimport { styled } from \"@mui/material/styles\";\r\nimport Box from \"@mui/material/Box\";\r\nimport Paper from \"@mui/material/Paper\";\r\nimport Grid from \"@mui/material/Grid\";\r\nimport axios from \"axios\";\r\nimport { Modal} from 'react-bootstrap';\r\nimport Footer from \"../../../footer/footer\";\r\nimport MainHeader from \"../../../mainHeader/mainHeader\";\r\n\r\n\r\n  export default function StudentSignIn({ isLogedIn, onLogout }) {\r\n    const content = (\r\n      <>\r\n        <Link to=\"/student/home\">Student Home</Link>\r\n        <Link to=\"/student/profile/\"> Profile</Link>\r\n        \r\n      </>\r\n    \r\n    );\r\n    \r\n    const [email, setEmail] = useState(\"\");\r\n    const [password, setPassword] = useState(\"\");\r\n    const [show, setShow] = useState(false);\r\n\r\n\r\n    const handleSubmit = (event) => {   // function that execute when pressing submit button\"\r\n      event.preventDefault();\r\n  \r\n      if (!email || !password) {\r\n        alert(\"Please fill all fields\");\r\n        return;\r\n      }\r\n  \r\n      // Add your registration logic here\r\n  \r\n        const newStudent={\r\n            email,\r\n            password,\r\n        }\r\n       axios.post(\"http://localhost:1234/student/login-student\",newStudent ).then(res=>{\r\n        //console.log(res.data.data);\r\n        if(res.data.status===\"ok\"){\r\n          //const token=res.data.token;\r\n          const token=res.data.data;\r\n          window.localStorage.setItem(\"token\",token);\r\n          //console.log(token);\r\n          console.log(\"haii\");\r\n          window.location.href = '/student-home';\r\n         // console.log(token);\r\n          /* setTimeout(() => {\r\n            setShow(true);\r\n            alert(\"Successfully Logged In\");\r\n          }, 1000); */\r\n        }else{\r\n          window.alert(res.data.error);\r\n        }\r\n        //console.log(res.data);\r\n       // alert(\"Successfully Logged In\");\r\n       // setAlertMessage(res.data.message);\r\n        //alert(res.data.message);\r\n       }).catch(error=>console.error('Error: ',error));\r\n\r\n\r\n       setEmail(\"\");\r\n       setPassword(\"\");\r\n    } \r\n/*     <Modal show={show} onHide={() => setShow(false)}>\r\n  <Modal.Header closeButton>\r\n    <Modal.Title>Login Successful</Modal.Title>\r\n  </Modal.Header>\r\n  <Modal.Footer>\r\n    <Button variant=\"primary\" onClick={() => setShow(false)}>\r\n      OK\r\n    </Button>\r\n  </Modal.Footer>\r\n</Modal> */\r\n\r\n  \r\n    return (\r\n      <>\r\n      <div>\r\n        <MainHeader content={content}\r\n          isLogedIn={isLogedIn}\r\n          onLogout={onLogout}/>\r\n      </div>\r\n      <div>\r\n        <Box sx={{ flexGrow: 1 }}>\r\n          <Grid container spacing={1} align=\"center\">\r\n            <Grid item xs={12}>\r\n              <Card\r\n                sx={{\r\n                  maxWidth: \"50%\",\r\n                  mt: 5,\r\n                  alignContent: \"center\",\r\n                  justifyItems: \"flex-end\",\r\n                }}\r\n              >\r\n                <CardContent>\r\n                  <Typography\r\n                    sx={{ fontSize: 18, fontWeight: \"bold\" }}\r\n                    color=\"Black\"\r\n                    gutterBottom\r\n                  >\r\n                    Log to your Account\r\n                  </Typography>\r\n                  <form onSubmit={handleSubmit}>\r\n                    <TextField\r\n                      label=\"Email\"\r\n                      variant=\"outlined\"\r\n                      type=\"email\"\r\n                      value={email}\r\n                      onChange={(e)=>{\r\n                        setEmail(e.target.value);\r\n                    }}\r\n                      fullWidth\r\n                      margin=\"normal\"\r\n                    />\r\n                    <TextField\r\n                      label=\"Password\"\r\n                      variant=\"outlined\"\r\n                      type=\"password\"\r\n                      value={password}\r\n                      onChange={(e)=>{\r\n                            setPassword(e.target.value);\r\n                      }}\r\n                      fullWidth\r\n                      margin=\"normal\"\r\n                    />\r\n                    <div>\r\n                    <Button variant=\"contained\" color=\"primary\" type=\"submit\"> Sign In</Button>\r\n                      {/* {alertMessage && \r\n                                 <div className=\"alert\">{alertMessage}</div>\r\n                      } */}\r\n                    </div>\r\n                  </form>\r\n                </CardContent>\r\n              </Card>\r\n            </Grid>\r\n          </Grid>\r\n          <hr />\r\n          <Grid container spacing={2}>\r\n            <Grid\r\n              item\r\n              xs={12}\r\n              align=\"right\"\r\n              mr={\"25%\"}\r\n              sx={{ alignItems: \"flex-end\" }}\r\n            >\r\n            <div className=\"student\">\r\n              <Link to=\"/student-register\">\r\n                <Button variant=\"contained\">\r\n                  Sign Up \r\n                </Button>\r\n              </Link>\r\n            </div>\r\n            </Grid>\r\n          </Grid>\r\n        </Box>\r\n      </div>\r\n      <div>\r\n      <Footer/>\r\n      </div>\r\n      </>\r\n    );\r\n  }  \r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/pages/student/signIn/signIn.js b/src/components/pages/student/signIn/signIn.js
+--- a/src/components/pages/student/signIn/signIn.js	
++++ b/src/components/pages/student/signIn/signIn.js	
+@@ -25,7 +25,7 @@
+       </>
+     
+     );
+-    
++
+     const [email, setEmail] = useState("");
+     const [password, setPassword] = useState("");
+     const [show, setShow] = useState(false);
+@@ -45,13 +45,16 @@
+             email,
+             password,
+         }
+-       axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
++       axios.post("http://localhost:4000/student/login-student",newStudent ).then(res=>{
+         //console.log(res.data.data);
+         if(res.data.status==="ok"){
+-          //const token=res.data.token;
+-          const token=res.data.data;
+-          window.localStorage.setItem("token",token);
+-          //console.log(token);
++          const token=res.data.token;
++          //const token=res.data.data;
++          localStorage.setItem("token", res.data);
++          localStorage.setItem('user', JSON.stringify(res.user));
++
++
++          console.log(token);
+           console.log("haii");
+           window.location.href = '/student-home';
+          // console.log(token);
+@@ -135,7 +138,7 @@
+                       margin="normal"
+                     />
+                     <div>
+-                    <Button variant="contained" color="primary" type="submit"> Sign In</Button>
++                    <Button variant="contained" color="primary" type="submit"> Log In</Button>
+                       {/* {alertMessage && 
+                                  <div className="alert">{alertMessage}</div>
+                       } */}
