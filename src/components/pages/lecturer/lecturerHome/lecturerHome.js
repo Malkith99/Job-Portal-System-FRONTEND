@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 
-export default function LecturerMainHome({ isLogedIn, onLogout }) { // make a change
+export default function LecturerMainHome({ isLogedIn, onLogout }) {
     const content = (
         <>
             <Link to="/lecturer-home">Lecturer Home</Link>
