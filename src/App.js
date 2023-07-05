@@ -13,16 +13,24 @@ import StudentSignIn from './components/pages/student/signIn/signIn';
 import StudentHome from './components/pages/student/home/StudentHome';
 import StudentRegistrationStep_2 from './components/pages/student/studentRegistration/step2/UserDetailsMain';
 import StudentAppliation from './components/pages/student/MyApplications/MyApplications';
+
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
 import CompanyProfile from './components/pages/company/companyRegistration/CompanyRegisterMain';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
+
 import AllResponses from './components/pages/company/studentResponces/allResponces'; 
+
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
 import AdminStudent from './components/pages/Admin/StudentData/StudentData';
+
+
+import LecturerSignUp from './components/pages/lecturer/lecturerSignup/lecturerSignup';
+import LecturerSignIn from './components/pages/lecturer/lecturerSignIn/lecturerSignIn';
+import LecturerMainHome from './components/pages/lecturer/lecturerHome/lecturerHome';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -54,6 +62,11 @@ function App() {
           <Route path="/lecturer-login" element={<LecturerSignup/>}></Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
           <Route path="/admin" element={<AdminStudent/>}></Route>
+
+          <Route path="lecturer-signUp" element={<LecturerSignUp/>}></Route>
+          <Route path="lecturer-signIn" element={<LecturerSignIn/>}></Route>
+          <Route path="lecturer-home" element={<LecturerMainHome/>}></Route>
+
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
           </Routes>

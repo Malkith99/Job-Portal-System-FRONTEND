@@ -4,7 +4,7 @@ import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 import axios from "axios";
 
-function CompanyLogin() {
+export default function LecturerSignIn() {
     const [loggedIn] = useState(!!localStorage.getItem("token"));
     const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
@@ -136,5 +136,3 @@ function CompanyLogin() {
         </div>
     );
 }
-
-export default CompanyLogin;

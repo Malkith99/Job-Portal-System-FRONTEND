@@ -23,7 +23,7 @@ styled(Paper)(({ theme }) => ({
 }));
 
 
-export default function CompanySignup() {
+export default function LecturerSignUp() {
   const [loggedIn] = useState(!!localStorage.getItem("token"));
   const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
