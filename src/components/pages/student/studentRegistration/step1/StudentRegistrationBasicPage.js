@@ -17,11 +17,11 @@ export default function StudentRegistrationBasicPage({ isLogedIn, onLogout }) {
   return (
     <div>
       <div className="page-container">
-       <MainHeader
+        <MainHeader
           content={content}
           isLogedIn={isLogedIn}
           onLogout={onLogout}
-           />
+        />
         <div className="content-wrap"></div>
         <div>
           <StudentRegistrationBasic />
