@@ -1,0 +1,12 @@
+.profile {
+    flex: auto;
+}
+
+.loginN {
+    padding-top: 5rem;
+
+    color: navy;
+    font-weight: 900;
+    text-align: left;
+    font-size: xx-large;
+}

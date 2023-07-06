@@ -67,12 +67,12 @@ function CompanyLogin({ isLogedIn, onLogout }) {
                 </div>
                 
                   <div style={{alignItems:"center", justifyContent:"center",display:"flex"}}>
-                    <button
-                      type="Log In"
-                      className="btn btn-primary"
-                    >
-                      Login
-                    </button>
+                  <button
+                    type="Log In"
+                    className="btn btn-primary"
+                  >
+                    Login
+                  </button>
                   </div>
                   <div style={{marginTop:"7px",textAlign:"center"}}>
                     <Link to="/company-signup">Don't you have an account? click here to sign up.</Link>
