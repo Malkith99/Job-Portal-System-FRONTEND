@@ -5,7 +5,7 @@ function AvailableCompanies() {
   return (
     <>
       <div id="frontpage-course-list">
-        <h2 className="loginN p-4">Available Comanies:</h2>
+        <h2 className="loginN p-4">Available Companies:</h2>
         <div className="courses frontpage-course-list-all">
           <div className="row">
             <div className="col-md-3">
