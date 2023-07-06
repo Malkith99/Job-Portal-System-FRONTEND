@@ -148,7 +148,7 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   fullWidth
                   margin="normal"
                 />
-                <TextField
+                <TextField 
                   label="Confirm Password"
                   variant="outlined"
                   type="password"
@@ -158,7 +158,7 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   margin="normal"
                 />
                 <Link to="/company-home">
-                   <Button variant="contained" color="primary" type="submit">
+                <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
                 </Link>
