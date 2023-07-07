@@ -1,9 +1,10 @@
 .main-header-top {
-    background-color: #f2f2f2;
-    padding: 1px;
+    background-color: #0073a5;
+    padding: 3px;
     display: flex;
     justify-content: flex-end; /* Align items to the right */
     align-items: center;
+    
 }
 
 .main-loggin {
