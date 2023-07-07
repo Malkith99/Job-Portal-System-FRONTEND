@@ -79,7 +79,7 @@ export default function CompanyLogin() {
                         {loggedIn ? (
                             <>
                               <Link to="/company-login">Company Login</Link>
-                              <Link to="/company-home">Welcome, {user.firstName} {user.lastName}!</Link>
+                              {/* <Link to="/company-home">Welcome {user.firstName} {user.lastName}!</Link> */}
                             </>
                         ) : (
                             <Link to="/company-login">Company Login</Link>
