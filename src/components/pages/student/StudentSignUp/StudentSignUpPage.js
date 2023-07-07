@@ -16,14 +16,12 @@ export default function StudentSignUpPage({ isLogedIn, onLogout }) {
       <div className="page-container">
           <MainHeader
               content={
-                  loggedIn ? (
+
                       <>
-                          <Link to="/company-signup">Company Signup</Link>
-                          <Link to="/company-home">Welcome, {user.firstName} {user.lastName}!</Link>
+                          <Link to="/student-signUp">Student Signup</Link>
+                          <Link>Welcome !</Link>
                       </>
-                  ) : (
-                      <Link to="/company-login">Student Signup</Link>
-                  )
+
               }
           />
         <div className="content-wrap"></div>
