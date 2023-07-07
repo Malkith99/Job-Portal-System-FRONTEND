@@ -27,7 +27,7 @@ export default function StudentHome({ isLogedIn, onLogout }) {
   useEffect(() => {
     console.log(token);
   }, [token]);
-
+  
   return (
       <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
