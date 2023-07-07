@@ -17,7 +17,6 @@
 
 .scroll-btn {
   border-radius: 30px;
-  /* background-image: url(../components/companyPhotos/Asanka\ Madushan.jpeg); */
   font-size: 22px;
   font-weight: bolder;
   padding: 50px 100px 50px 100px;
@@ -57,11 +56,13 @@
   flex: 30%;
   min-width: max-content;
   width: 100%;
-  background-color: rgb(194, 194, 204);
+  background-color: rgb(223, 220, 246);
   border-radius: 10px;
   padding: 20px;
   transition: 0.3s;
-  border: 2px solid transparent;
+  height: 250px;
+  /* border: 2px solid ; */  
+
 }
 
 .response:hover {

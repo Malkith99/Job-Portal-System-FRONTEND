@@ -25,12 +25,12 @@ export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
             >
               Approve
             </button>
-            <button
+            {/* <button
               className="btn btn-primary reject butdet"
               style={{ background: "rgb(128, 57, 57)", marginRight: "25px" }}
             >
               Reject
-            </button>
+            </button> */}
           </div>
         </div>
         <Footer/>

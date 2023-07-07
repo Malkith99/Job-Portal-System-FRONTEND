@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "./CompanyProfile.css";
+import axios from 'axios'; 
 
 export default function CompanyProfile() {
   const [file, setFile] = useState(

@@ -35,22 +35,27 @@ function CompanyHome() {
 
   const [jobpoolm] = useState([
     {
+      id: 1,
       title: "Job Vacancy 1:",
       text: "Job Vacancy 1 ",
     },
     {
+      id: 2,
       title: "Job Vacancy 2:",
       text: "Job Vacancy 2 ",
     },
     {
+      id: 3,
       title: "Job Vacancy 3:",
       text: "Job Vacancy 3 ",
     },
     {
+      id: 4,
       title: "Job Vacancy 4:",
       text: "Job Vacancy 4 ",
     },
     {
+      id: 5,
       title: "Job Vacancy 5:",
       text: "Job Vacancy 5 ",
     },
@@ -58,22 +63,27 @@ function CompanyHome() {
 
   const [responses] = useState([
     {
+      id: 1,
       title: "Response 1:",
       text: "Name of the Applicant 1 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 2,
       title: "Response 2:",
       text: "Name of the Applicant 2 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 3,
       title: "Response 3:",
       text: "Name of the Applicant 3 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 4,
       title: "Response 4:",
       text: "Name of the Applicant 4 ,aslo can add the cv of the each applicant",
     },
     {
+      id: 5,
       title: "Response 5:",
       text: "Name of the Applicant 5 ,aslo can add the cv of the each applicant",
     },
@@ -137,9 +147,10 @@ function CompanyHome() {
           </div>
         </div>
       </div>
-      <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+      <h4 className="sub-headings" style={{ marginBottom: "2rem" }}>
         My Job Pool Section :
-      </h1>
+      </h4>
+      <h4 className="sub-headings">Personal info: </h4>
       <div>
         <div>
           <section className="res-sec">
@@ -158,7 +169,7 @@ function CompanyHome() {
                       <button
                         className="btn btn-primary butdet"
                         onClick={() => {
-                          navigate("/company-job-pool");
+                          navigate(`/company-job-pool?id=${response.id}`);
                         }}
                         style={{
                           background: "#2B547E",
@@ -220,7 +231,7 @@ function CompanyHome() {
                         <button
                           className="btn btn-primary butdet"
                           onClick={() => {
-                            navigate("/all-student-responces");
+                            navigate(`/all-student-responces?id=${response.id}`);
                           }}
                           style={{ background: "#2B547E", marginLeft: "-12px" }}
                         >

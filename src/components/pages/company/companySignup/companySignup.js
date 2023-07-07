@@ -168,7 +168,7 @@ const handleChange = (e) => {
                   fullWidth
                   margin="normal"
                 />
-                <TextField 
+                <TextField
                   label="Confirm Password"
                   variant="outlined"
                   type="password"
@@ -178,7 +178,7 @@ const handleChange = (e) => {
                   margin="normal"
                 />
                 <Link to="/company-home">
-                <Button variant="contained" color="primary" type="submit">
+                   <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
                 </Link>

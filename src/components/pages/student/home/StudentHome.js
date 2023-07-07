@@ -29,11 +29,11 @@ export default function StudentHome({ isLogedIn, onLogout }) {
   }, [token]);
 
   return (
-    <div>
+      <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div className="page">
         <div className="strip-section">
-         
+     
           <div className="strip-content">
             <h2 className="section-title text-style">
               Find the Job <br /> that is perfect for you
@@ -68,9 +68,9 @@ export default function StudentHome({ isLogedIn, onLogout }) {
           <p>Paragraph 2</p>
           <p>Paragraph 3</p> */}
         </div>
-      </div>
-      <Footer />
-    </div>
+       </div>
+       <Footer />
+     </div> 
   );
 }
 
@@ -90,4 +90,4 @@ export default function StudentHome({ isLogedIn, onLogout }) {
                 </Button>
               </Link>
             </div>
-        </div> */ 
+        </div> */
