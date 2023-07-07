@@ -121,11 +121,11 @@ export default function StudentSignup() {
           >
             <CardContent>
               <Typography
-                sx={{ fontSize: 18, fontWeight: "bold" }}
+                sx={{ fontSize: 25, fontWeight: "bold",fontFamily:"cursive",color:"#00264d"}}
                 color="Black"
                 gutterBottom
               >
-                 Create Your Account
+                 Create Your Account!
               </Typography>
               <form onSubmit={handleSubmit}>
                 <TextField
@@ -166,7 +166,7 @@ export default function StudentSignup() {
           </Card>
         </Grid>
       </Grid>
-      <hr/>
+    
       <Grid container spacing={2}>
         <Grid
           item
