@@ -29,7 +29,7 @@ function HeaderTop() {
                         <button onClick={handleLogout}>Logout</button>
                     </p>
                 ) : (
-                    <div className="main-notlogin">
+                    <div className="main-notlogin" style={{color:"white"}}>
                         <l-text1>
                             You are not logged in.</l-text1>
 
