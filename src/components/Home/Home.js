@@ -72,13 +72,7 @@ function Home({ isLogedIn, onLogout }) {
             >
               A Company
             </Link>
-            <Link
-              to="/admin"
-              type="button"
-              className="form-control text-white student-button btn btn-primary m-2"
-            >
-              Admin
-            </Link>
+
           </div>
         </div>
       </div>
