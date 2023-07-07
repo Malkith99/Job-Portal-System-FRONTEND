@@ -12,7 +12,7 @@ import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 
 // Import your desired login image
-import loginImage from "../../../../images/im2.jpg";
+import loginImage from "../../../../../src/images/im2.jpg";
 
 export default function StudentSignIn({ isLogedIn, onLogout }) {
   const content = (

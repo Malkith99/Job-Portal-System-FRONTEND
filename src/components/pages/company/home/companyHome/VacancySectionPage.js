@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 // import CompanyHome from "./companyHome/CompanyHome";
@@ -8,8 +8,8 @@ import '../companyHome/CompanyHomePage.css'
 function VacancyPage({ isLogedIn, onLogout }) {
   const content = (
     <>
-      {/* <Link to="/company-home">Company Home</Link>
-      <Link to="/company-profile">Profile</Link> */}
+      <Link to="/company-Homepage">Company Home</Link>
+      <Link to="/company-profile">Profile</Link>
     </>
   );
   return (
