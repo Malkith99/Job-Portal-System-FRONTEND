@@ -1,20 +1,45 @@
-.header-top {
-    background-color: #0073a5;
-    padding-top: 3px;
-    padding-bottom: 0.1px;
-  
-    height: 34px;
-  
-    position: relative;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .notloggin {
-    text-align: right;
+.main-header-top {
+    background-color: #f2f2f2;
+    padding: 1px;
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
     align-items: center;
-    justify-content: center;
-    padding-right: 8px;
-    color: white;
-  }
-  
+}
+
+.main-loggin {
+    display: flex;
+    align-items: center;
+}
+
+.main-loggin l-text1 {
+    margin-right: 5px;
+}
+
+.main-loggin button {
+    background-color: #e74c3c;
+    color: #fff;
+    border: none;
+    padding: 1px 1px;
+    cursor: pointer;
+}
+
+.main-notlogin {
+    display: flex;
+    align-items: center;
+}
+
+.main-notlogin l-text1 {
+    margin-right: 10px;
+}
+
+.main-notlogin .main-logbar-item {
+    background-color: #3498db;
+    border: none;
+    padding: 1px 10px;
+    cursor: pointer;
+}
+
+.main-notlogin .main-logbar-item a {
+    color: #fff;
+    text-decoration: none;
+}

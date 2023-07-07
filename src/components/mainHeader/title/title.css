@@ -15,11 +15,11 @@
     height: fit-content;
     /* border-bottom: white solid 2px; */
     text-decoration: underline white;
-    text-underline-offset: 17px;
+    text-underline-offset: 15px;
     vertical-align: middle !important;
     text-align: center;
     letter-spacing: 15px;
-    font-size: 59px;
+    font-size: 45px;
     align-items: center;
     justify-content: center;
     padding-right: 8px;
@@ -42,88 +42,7 @@
       text-align:center ;
   } */
   
-  @media only screen and (max-width: 1113px) {
-    .title {
-      font-size: 57px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  
-  @media only screen and (max-width: 903px) {
-    .title {
-      font-size: 55px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 860px) {
-    .title {
-      font-size: 54px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 838px) {
-    .title {
-      font-size: 53px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 828px) {
-    .title {
-      font-size: 51px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 817px) {
-    .title {
-      font-size: 48px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 773px) {
-    .title {
-      font-size: 45px;
-      letter-spacing: 4px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 724px) {
-    .title {
-      font-size: 40px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 433px) {
-    .title {
-      font-size: 37px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 412px) {
-    .title {
-      font-size: 36px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 406px) {
+  @media only screen and (max-width: 1010px) {
     .title {
       font-size: 35px;
       letter-spacing: 5px;
@@ -131,67 +50,4 @@
       text-underline-offset: 10px;
     }
   }
-  @media only screen and (max-width: 400px) {
-    .title {
-      font-size: 30px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 370px) {
-    .title {
-      font-size: 31px;
-      letter-spacing: 2px;
-      vertical-align: middle !important;
-      text-underline-offset: 8px;
-    }
-  }
-  @media only screen and (max-width: 347px) {
-    .title {
-      font-size: 28px;
-      letter-spacing: 3px;
-      vertical-align: middle !important;
-      text-underline-offset: 8px;
-    }
-  }
-  @media only screen and (max-width: 330px) {
-    .title {
-      font-size: 25px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 320px) {
-    .title {
-      font-size: 23px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 310px) {
-    .title {
-      font-size: 20px;
-      letter-spacing: 5px;
-      vertical-align: middle !important;
-      text-underline-offset: 10px;
-    }
-  }
-  @media only screen and (max-width: 280px) {
-    .title {
-      font-size: 23px;
-      letter-spacing: 1px;
-      vertical-align: middle !important;
-      text-underline-offset: 6px;
-    }
-  }
-  @media only screen and (max-width: 269px) {
-    .title {
-      font-size: 21px;
-      letter-spacing: 1px;
-      vertical-align: middle !important;
-      text-underline-offset: 5px;
-    }
-  }
+  
