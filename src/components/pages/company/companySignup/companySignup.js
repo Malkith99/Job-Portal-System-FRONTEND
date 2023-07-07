@@ -177,7 +177,7 @@ const handleChange = (e) => {
                   fullWidth
                   margin="normal"
                 />
-                <Link to="/company-home">
+                <Link to="/company-HomePage">
                    <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>

@@ -4,13 +4,14 @@ import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 import { Card } from "@mui/material";
 import '../companyHome/ResponsesVac.css';
+import { Link } from "react-router-dom";
 export default function ResponseVac({ isLogedIn, onLogout }) {
-    const content = (
-      <>
-        {/* <Link to="/company-home">Company Home</Link>
-        <Link to="/company-profile">Profile</Link> */}
-      </>
-    );
+  const content = (
+    <>
+      <Link to="/company-Homepage">Company Home</Link>
+      <Link to="/company-profile">Profile</Link>
+    </>
+  );
     const navigate = useNavigate();
     const [jobpoolm] = useState([
         {
