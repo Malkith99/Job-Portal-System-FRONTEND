@@ -131,8 +131,8 @@ export default function Profile() {
     fetchData();
   }, []);
 
- return (
-  <>
+  return (
+    <>
     <div className="container progress-div" style={{ display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -142,7 +142,7 @@ export default function Profile() {
     marginRight: 'auto',
     padding: '50px',  }}>
       <form >
-      <h4 className="sub-headings">Personal info: </h4>
+          <h4 className="sub-headings">Personal info: </h4>
         <div className="flex-container1" style={{ display: "flex", flexDirection: "column"}}>
           <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" ,marginLeft: '0px', marginRight: '0px',}}>
             <img className="profile-photo" src={file} alt="Profile Photo" />
@@ -158,7 +158,7 @@ export default function Profile() {
                   openPopup={openProfilePopup}
                   setOpenPopup={setOpenProfilePopup}
                  
-                >
+            >
                   <ProfileImage />
                 </Popup>
               )}
@@ -194,7 +194,7 @@ export default function Profile() {
                       onChange={(e) => {
                         setFName(e.target.value);
                       }}
-                      disabled={disabled}                   
+                      disabled={disabled}
                       required
                     ></input>
                   </div>
@@ -214,7 +214,7 @@ export default function Profile() {
                       onChange={(e) => {
                         setMName(e.target.value);
                       }}
-                      disabled={disabled}     
+                      disabled={disabled}
                     ></input>
                   </div>
                   <div className="text-center">
@@ -232,7 +232,7 @@ export default function Profile() {
                         setLName(e.target.value);
                       }}
                       required
-                      disabled={disabled}                    
+                      disabled={disabled}
                     ></input>
                   </div>
                   <div className="text-center">
@@ -591,7 +591,7 @@ export default function Profile() {
         >
           <AcademicDetails />
         </Popup>
-      
+
                   )}
           </Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
@@ -638,10 +638,10 @@ export default function Profile() {
                     </button>
                   )}
                 </div> */}
+                </div>
               </div>
-            </div>
             
-          </div>
+            </div>
           <button
         type="button"
         className="btn btn-primary"

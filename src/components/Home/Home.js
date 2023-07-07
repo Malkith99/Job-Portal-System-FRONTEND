@@ -52,14 +52,14 @@ function Home({ isLogedIn, onLogout }) {
           <div className="home-right-div p-4 w-100 d-flex flex-column">
             <h1 className="main-head">Are you?</h1>
             <Link
-              to="/student-register"
+              to="/student-signin"
               type="button"
               className="form-control text-white student-button btn btn-primary m-2 mb-4"
             >
               A Student
             </Link>
             <Link
-              to="/lecturer-login"
+              to="lecturer-login"
               type="button"
               className="form-control text-white student-button btn btn-primary m-2 mb-4"
             >

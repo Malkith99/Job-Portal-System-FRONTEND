@@ -158,11 +158,7 @@ export default function StudentRegistrationBasic() {
           mr={"25%"}
           sx={{ alignItems: "flex-end" }}
         >
-          <div className="student">
-          <div style={{marginTop:"7px"}}>
-                    <Link to="/student-signin">Do you have an account? click here to sign in.</Link>
-                  </div>
-          </div>
+          
         </Grid>
       </Grid>
     </Box>
