@@ -17,15 +17,17 @@ import StudentAppliation from './components/pages/student/MyApplications/MyAppli
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
-import CompanyProfile from './components/pages/company/companyRegistration/CompanyRegisterMain';
+import CompanyProfile from './components/pages/company/companyProfile/companyProfile/CompanyProfile';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
+
+import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
+
 
 import AllResponses from './components/pages/company/studentResponces/allResponces'; 
 
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
 import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
-import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
-import AdminStudent from './components/pages/Admin/StudentData/StudentData';
+
 
 
 import LecturerSignUp from './components/pages/lecturer/lecturerSignup/lecturerSignup';
@@ -36,6 +38,8 @@ import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
 import LecturerDetails from './components/pages/lecturer/lectureDetails/LecturerDetails';
 import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
 import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
+import EmailVerify from './components/EmailVerify/emailVerify';
+
 import CompanyHomePage from './components/pages/company/home/companyHome/CompanyHomePage';
 import VacancyPage from './components/pages/company/home/companyHome/VacancySectionPage';
 import ResponseVac from './components/pages/company/home/companyHome/ResponsesVac';
@@ -86,6 +90,8 @@ function App() {
           <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
           <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
+
+          <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
           <Route path='/company-HomePage' element={<CompanyHomePage/>}></Route>
           <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
          <Route path='/Response-vac' element={<ResponseVac/>}></Route>
