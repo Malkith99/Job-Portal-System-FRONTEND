@@ -53,7 +53,7 @@ function Home({ isLogedIn, onLogout }) {
             <h1 className="main-head">Are you?</h1>
             <Link
 
-              to="/student-signUp"
+              to="/student-signIn"
 
               type="button"
               className="form-control text-white student-button btn btn-primary m-2 mb-4"

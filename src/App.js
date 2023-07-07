@@ -24,18 +24,13 @@ import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
 
 
 import AllResponses from './components/pages/company/studentResponces/allResponces'; 
-
 import ProfileImage from './components/pages/student/profileImage/profileImageMain';
-import LecturerSignup from './components/pages/lecturer/lecturerSignup/lecturerSignup';
-
 
 
 import LecturerSignUp from './components/pages/lecturer/lecturerSignup/lecturerSignup';
-import LecturerSignIn from './components/pages/lecturer/lecturerSignIn/lecturerSignIn';
-import LecturerMainHome from './components/pages/lecturer/lecturerHome/lecturerHome';
 import LecturerLogin from './components/pages/lecturer/lecturerLogin/lecturerLogin';
-import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
 import LecturerDetails from './components/pages/lecturer/lectureDetails/LecturerDetails';
+import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
 import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
 import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
 import EmailVerify from './components/EmailVerify/emailVerify';
@@ -75,15 +70,14 @@ function App() {
 
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
-          {/* <Route path="/lecturer-login" element={<LecturerSignup/>}></Route> */}
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
-          <Route path="/admin" element={<AdminStudent/>}></Route>
+          {/* <Route path="/admin" element={<AdminStudent/>}></Route> */}
+
           <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
           <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
-
           <Route path="lecturer-signUp" element={<LecturerSignUp/>}></Route>
-          <Route path="lecturer-signIn" element={<LecturerSignIn/>}></Route>
-          <Route path="lecturer-home" element={<LecturerMainHome/>}></Route>
+          <Route path="lecturer-signIn" element={<LecturerLogin/>}></Route>
+          <Route path="lecturer-home" element={<LectureMainHome/>}></Route>
 
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
