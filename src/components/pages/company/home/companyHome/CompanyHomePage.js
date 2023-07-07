@@ -14,9 +14,9 @@ import Button from "@mui/material/Button";
 function CompanyHomePage({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/company-home">Company Home</Link>
+      <Link to="/company-HomePage">Company Home</Link>
       <Link to="/company-profile">Profile</Link>
-      <Link to="/company-HomePage">new-Company-Home</Link>
+    
     </>
   );
   return (

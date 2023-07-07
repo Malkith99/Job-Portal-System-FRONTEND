@@ -21,8 +21,8 @@ const VacancySection = (props) => {
   //   console.log(props.data[0].jobPosition)
   return (
     <div>
-      <div className="container">
-        <h2 style={{fontFamily:"gorgia" ,fontSmooth:"10",fontWeight:"10px"}}> Vacancy Details</h2>
+      <div className="container mt-3">
+        
         <form>
           <div className="flex-container1">
             <div
