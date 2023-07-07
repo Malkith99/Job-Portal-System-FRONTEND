@@ -27,8 +27,9 @@ import loginImage from "../../../../../src/images/im2.jpg";
       </>
     
     );
-    const [loggedIn] = useState(!!localStorage.getItem("token"));
-    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+    const [loggedIn] = useState(!!localStorage.getItem("token")); // The double exclamation marks are used to convert the value retrieved from localStorage into a boolean value.
+    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));//JSON.parse is a function that converts a JSON-formatted string into a JavaScript object.
+  
 
 
     const [data, setData] = useState({ email: "", password: "" });
@@ -172,7 +173,7 @@ import loginImage from "../../../../../src/images/im2.jpg";
             </div>
                   </form>
                 <div style={{textAlign:"center",marginTop:"10px"}}>
-                  <Link to="/student-register" >Don't you have an account? click here to sign up.</Link>
+                  <Link to="/student-signUp" >Don't you have an account? click here to sign up.</Link>
                 </div>
             </Grid>
           </Grid>
