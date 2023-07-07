@@ -38,6 +38,7 @@ import EmailVerify from './components/EmailVerify/emailVerify';
 import CompanyHomePage from './components/pages/company/home/companyHome/CompanyHomePage';
 import VacancyPage from './components/pages/company/home/companyHome/VacancySectionPage';
 import ResponseVac from './components/pages/company/home/companyHome/ResponsesVac';
+import AdminHome from './components/pages/Admin/AdminHome/adminHome';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -71,7 +72,7 @@ function App() {
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
-          {/* <Route path="/admin" element={<AdminStudent/>}></Route> */}
+          <Route path="/admin" element={<AdminHome/>}></Route>
 
           <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
           <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
