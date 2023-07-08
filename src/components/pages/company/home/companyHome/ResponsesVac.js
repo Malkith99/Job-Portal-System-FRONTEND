@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 import { Card } from "@mui/material";
-
+import { Link } from "react-router-dom";
 import "../companyHome/ResponsesVac.css";
 import { BorderColor } from "@mui/icons-material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -16,8 +16,8 @@ import FilePresentOutlinedIcon from '@mui/icons-material/FilePresentOutlined';
 export default function ResponseVac({ isLogedIn, onLogout }) {
   const content = (
     <>
-      {/* <Link to="/company-home">Company Home</Link>
-        <Link to="/company-profile">Profile</Link> */}
+      <Link to="/company-HomePage">Company Home</Link>
+        <Link to="/company-profile">Profile</Link>
     </>
   );
   const navigate = useNavigate();

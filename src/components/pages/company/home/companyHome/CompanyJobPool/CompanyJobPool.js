@@ -8,7 +8,7 @@ export default function CompanyJobPool  ({ isLogedIn, onLogout }){
   
     const content = (
         <>
-          <Link to="/company-home">Company Home</Link>
+          <Link to="/company-HomePage">Company Home</Link>
         </>
       );
   return (
