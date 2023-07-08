@@ -16,7 +16,7 @@ import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 
 // Import your desired login image
-import loginImage from "../../../../../src/images/im2.jpg";
+import loginImage from "../../../../../src/images/im6.jpg";
 
   export default function StudentSignIn({ isLogedIn, onLogout }) {
     const content = (
@@ -125,23 +125,36 @@ import loginImage from "../../../../../src/images/im2.jpg";
                             )}>
             </MainHeader>
       </div>
-      <div>
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:"-80px" , marginBottom: "-120px" }}>
-          <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}>
-                <CardContent>
-              <Grid container spacing={2} direction="row" alignItems="center">
-                <Grid item xs={6}>
-                  <img src={loginImage} alt="Login" className="l-photo"  style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      <div className="container" style={{alignItems: "center"}}>
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "70vh",marginTop:"-80px" , marginBottom: "-120px" }}>
+          {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
+          <CardContent>
+              <Grid container spacing={2} direction="row" alignItems="center" >
+                <Grid item xs={5}>
+                  <div style={{width:"100%",padding: "0px", margin: "0 auto"}}>
+                  <img
+                    src={loginImage}
+                    alt="Login"
+                    className="l-photo"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                  </div>
                 </Grid>
                 <Grid item xs={6}>
-                  <Typography variant="h5" component="h2" style={{ fontWeight: "bold", textAlign: "center" }}>
+                  <Typography variant="h5" component="h2" style={{ fontWeight: "bold", textAlign: "center",marginLeft:"10px" }}>
                     Log into your Account
                   </Typography>
-                  <form onSubmit={handleSubmit}>
+                  <div className="card-body" style={{ marginTop: "10px", width: "70%", margin: "0 auto"}}>
+                  <form className="loginbox-content" onSubmit={handleSubmit}>
                     <TextField
                       label="Email"
                       variant="outlined"
                       type="email"
+                      name="email"
                       value={data.email}
                       onChange={handleChange}
                       fullWidth
@@ -151,6 +164,7 @@ import loginImage from "../../../../../src/images/im2.jpg";
                       label="Password"
                       variant="outlined"
                       type="password"
+                      name="password"
                       value={data.password}
                       onChange={handleChange}
                       fullWidth
@@ -167,18 +181,19 @@ import loginImage from "../../../../../src/images/im2.jpg";
 
                     <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
                       <Button variant="contained" color="primary" type="submit">
-                        Sign In
+                        LOGIN
                 </Button>
                 
             </div>
                   </form>
-                <div style={{textAlign:"center",marginTop:"10px"}}>
+                  </div>
+                <div style={{textAlign:"center",marginTop:"7px"}}>
                   <Link to="/student-signUp" >Don't you have an account? click here to sign up.</Link>
                 </div>
             </Grid>
           </Grid>
             </CardContent>
-          </Card>
+          {/* </Card> */}
         </Box>
       </div>
       <div>
