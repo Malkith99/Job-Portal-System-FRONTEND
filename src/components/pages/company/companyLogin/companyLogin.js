@@ -141,6 +141,7 @@ export default function CompanyLogin() {
                         type="email"
                         fullWidth
                         margin="normal"
+                        name="email"
                         onChange={handleChange}
                         value={data.email}
                         required
@@ -151,7 +152,7 @@ export default function CompanyLogin() {
                          type="password"
                         fullWidth
                         margin="normal"
-                       
+                       name="password"
                         onChange={handleChange}
                         value={data.password}
                         required
