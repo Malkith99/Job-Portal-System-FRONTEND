@@ -15,11 +15,8 @@ import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import axios from "axios";
 import { red } from "@mui/material/colors";
-// import NumberComplet from "../../step2/components/numberComplete/NumberComplete"
-// import NumberInComplet from "../../step2/components/numberInComplete/NumberInComplete";
-// import VerticalSeparator from "../../step2/components/verticalSeparator/VerticalSeparator";
 
-const Item = styled(Paper)(({ theme }) => ({
+styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
   padding: theme.spacing(1),
@@ -27,7 +24,8 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function CompanySignup({ isLogedIn, onLogout }) {
+export default function CompanySignup() {
+
   const content = (
     <>
       <Link to="/">Home</Link>
@@ -36,9 +34,28 @@ function CompanySignup({ isLogedIn, onLogout }) {
     </>
     
   );
+ // const [loggedIn] = useState(!!localStorage.getItem("token")); // The double exclamation marks are used to convert the value retrieved from localStorage into a boolean value.
+  //const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));//JSON.parse is a function that converts a JSON-formatted string into a JavaScript object.
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    role: "company",
+});
+
+const [error, setError] = useState("");
+const [msg, setMsg] = useState("");
+
+const handleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value });
+};
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
@@ -55,10 +72,10 @@ function CompanySignup({ isLogedIn, onLogout }) {
     console.log("confirmPassword", confirmPassword);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    if (!email || !password || !confirmPassword) {
+    if (!data.email || !data.password || !confirmPassword) {
      // toast.error("Please fill in all fields");
       alert("Please fill all fields");
       return;
@@ -71,40 +88,43 @@ function CompanySignup({ isLogedIn, onLogout }) {
     }
 
     // Add your registration logic here
-    const newCompany={
-      email,
-      password,
-  }
 
- axios.post("http://localhost:1234/company/register",newCompany ).then(res=>{
-  if(res.data.error =="User Exists"){
-    alert("You have already Registered.Please Sign In");
-    window.location.href = '/company-signIn';
-  }else{
-    console.log(res.data);
+    try {
+      const url = "http://localhost:4000/users";
+      const res = await axios.post(url, data);
+      if(res.data.message =="User with given email already exists!"){
+        setMsg(res.data.message);
+        alert("You have already Registered.Please Sign In");
+        //window.location.href = '/company-signIn';
+      }
+  } catch (error) {
+      if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+          setError(error.response.data.message);
+      }
+  }
+//  axios.post("http://localhost:1234/company/register",data ).then(res=>{
+//   if(res.data.error =="User Exists"){
+//     alert("You have already Registered.Please Sign In");
+//     window.location.href = '/company-signIn';
+//   }else{
+//     console.log(res.data);
     
-    const token=res.data.data;
-    window.localStorage.setItem("token",token);
+//     const token=res.data.data;
+//     window.localStorage.setItem("token",token);
 
-    window.location.href = '/company-home';
-    alert("Company Succefully Registered");
-  }
- }).catch(error=>console.error('Error: ',error));
+//     window.location.href = '/company-home';
+//     alert("Company Succefully Registered");
+//   }
+//  }).catch(error=>console.error('Error: ',error));
 
-    //toast.success("Successfully registered!");
-    setEmail("");
-    setPassword("");
     setConfirmPassword("");
+    setData("");
   };
 
   return (
     <>
     <div>
-    <MainHeader
-          content={content}
-          isLogedIn={isLogedIn}
-          onLogout={onLogout}
-           />
+    <MainHeader/>
     <div className=" text-center sign ">Sign Up</div>
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={1} align="center">
@@ -133,8 +153,8 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   label="Email"
                   variant="outlined"
                   type="email"
-                  value={email}
-                  onChange={handleEmailChange}
+                  value={data.email}
+                  onChange={handleChange}
                   fullWidth
                   margin="normal"
                   
@@ -143,8 +163,8 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   label="Password"
                   variant="outlined"
                   type="password"
-                  value={password}
-                  onChange={handlePasswordChange}
+                  value={data.password}
+                  onChange={handleChange}
                   fullWidth
                   margin="normal"
                 />
@@ -157,7 +177,7 @@ function CompanySignup({ isLogedIn, onLogout }) {
                   fullWidth
                   margin="normal"
                 />
-                <Link to="/company-home">
+                <Link to="/company-HomePage">
                    <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
@@ -177,4 +197,4 @@ function CompanySignup({ isLogedIn, onLogout }) {
   );
 }
 
-export default CompanySignup;
+

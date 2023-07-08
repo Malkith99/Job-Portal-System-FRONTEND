@@ -15,12 +15,14 @@ function VacancyPage({ isLogedIn, onLogout }) {
   return (
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-      <div>
+      <div className="container mt-5">
         <div>
+        <h2 style={{fontFamily:"gorgia" ,fontSmooth:"10",fontWeight:"10px",fontWeight:"10"}}> Vacancy Details :</h2>
       <VacancySection/>
       </div>
-      <Footer />
+      
     </div>
+    <Footer />
     </div>
   );
 }

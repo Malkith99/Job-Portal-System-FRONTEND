@@ -1,7 +1,9 @@
 import { Fragment, useEffect, useState } from "react";
+//Fragment is imported from React to avoid unnecessary HTML wrappers.
+//useEffect and useState are imported from React to manage side effects and state within the component.
 import success from "../../../src/images/done.png";
-import salonlogo from "../../images/LOGO_OF_RUHUNA.jpg"
-import styles from "./styles.module.css";
+import unilogo from "../../images/LOGO_OF_RUHUNA.jpg"
+import styles from "./emailVerify.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -11,10 +13,10 @@ const EmailVerify = () => {
     useEffect(() => {
         const verifyEmailUrl = async () => {
             try {
-                const url = `http://localhost:4000/api/users/${param.id}/verify/${param.token}`;
+                const url = `http://localhost:4000/users/${param.id}/verify/${param.token}`;
                 const { data } = await axios.get(url);
                 console.log(data);
-                window.location.href = '/home';
+                window.location.href = '/home'; //if request is successful, the page us redirected to "/home"
                 setValidUrl(true);
             } catch (error) {
                 console.log(error)
@@ -25,9 +27,9 @@ const EmailVerify = () => {
     }, [param])
     return (
         <Fragment>
-            {validUrl ? (
+            {validUrl ? (                                //inline conditional rendering is used
                 <div className={styles.constructor}>
-                    <img src={salonlogo} alt="salon_logo" className={styles.salon_logo} />
+                    <img src={unilogo} alt="uni_logo" className={styles.uni_logo} />
                     <img src={success} alt="success_img" className={styles.success_img} />
                     <h1>Email Verified Successfully</h1>
                     <Link to="/login">

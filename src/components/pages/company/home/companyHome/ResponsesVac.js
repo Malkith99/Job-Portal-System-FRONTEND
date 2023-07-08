@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 import { Card } from "@mui/material";
+
 import "../companyHome/ResponsesVac.css";
 import { BorderColor } from "@mui/icons-material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
@@ -42,6 +43,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
       text: "Job Vacancy 5 ",
     },
   ]);
+
 
   return (
     <div>
