@@ -11,6 +11,9 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
+
+
+import loginImage from "../../../../../images/im2.jpg";
 //import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 
@@ -107,27 +110,48 @@ export default function StudentSignup() {
   };
 
   return (
-    <div>
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1} align="center">
-        <Grid item xs={12}>
-          <Card
-            sx={{
-              maxWidth: "50%",
-              mt: 5,
-              alignContent: "center",
-              justifyItems: "flex-end",
-            }}
-          >
-            <CardContent>
-              <Typography
-                sx={{ fontSize: 25, fontWeight: "bold",fontFamily:"cursive",color:"#00264d"}}
-                color="Black"
-                gutterBottom
-              >
-                 Create Your Account!
-              </Typography>
-              <form onSubmit={handleSubmit}>
+    <>
+
+    <div className="container">
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:"-100px" , marginBottom: "-200px" }}>
+        {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
+              <CardContent>
+            <Grid container spacing={2} direction="row" alignItems="center">
+              <Grid item xs={6}>
+                <img src={loginImage} alt="Login" className="l-photo"  style={{ width: "80%", height: "100%", objectFit: "cover" }} />
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="h5" component="h2" style={{ fontWeight: "bold", textAlign: "center" }}>
+                  Create your Account !
+                </Typography>
+                <form onSubmit={handleSubmit}>
+                <TextField
+                  label="First Name"
+                  variant="outlined"
+                  type="firstName"
+                  onChange={handleChange}
+                  value={data.firstName}
+                  fullWidth
+                  margin="normal"
+                />
+                                <TextField
+                  label="Last Name"
+                  variant="outlined"
+                  type="lastName"
+                  onChange={handleChange}
+                  value={data.lastName}
+                  fullWidth
+                  margin="normal"
+                />
+                  <TextField
+                  label="Role"
+                  variant="outlined"
+                  type="Student"
+                  //onChange={handleChange}
+                  value={data.role}
+                  fullWidth
+                  margin="normal"
+                />
                 <TextField
                   label="Email"
                   variant="outlined"
@@ -155,30 +179,31 @@ export default function StudentSignup() {
                   fullWidth
                   margin="normal"
                 />
-  
-                            {error && <div className="signup_error_msg">{error}</div>}
+                     {error && <div className="signup_error_msg">{error}</div>}
                              {msg && <div className="signup_success_msg">{msg}</div>}
-                   <Button variant="contained" color="primary" type="submit">
+                              <div className="mb-3 form-check" style={{ marginLeft: "22px" }}>
+                                  <input type="checkbox" className="form-check-input" id="exampleCheck1" />
+                                  <label className="form-check-label" htmlFor="exampleCheck1">
+                                      Remember username
+                                  </label>
+                              </div>
+
+                  <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
+                  <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
-              </form>
-            </CardContent>
-          </Card>
+              
+          </div>
+                </form>
+              <div style={{textAlign:"center",marginTop:"10px"}}>
+                <Link to="/student-signIn" >Do you have an account? click here to sign in.</Link>
+              </div>
+          </Grid>
         </Grid>
-      </Grid>
-    
-      <Grid container spacing={2}>
-        <Grid
-          item
-          xs={12}
-          align="right"
-          mr={"25%"}
-          sx={{ alignItems: "flex-end" }}
-        >
-          
-        </Grid>
-      </Grid>
-    </Box>
-  </div>
+          </CardContent>
+        {/* </Card> */}
+      </Box>
+    </div>
+    </>
   );
 }
