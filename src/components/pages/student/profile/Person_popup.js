@@ -12,7 +12,7 @@ export default function PersonalInfo() {
           <label className="label-title">Name</label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
@@ -27,7 +27,7 @@ export default function PersonalInfo() {
           </div>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
@@ -39,7 +39,7 @@ export default function PersonalInfo() {
           </div>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
@@ -61,7 +61,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
@@ -80,7 +80,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="date"
               className="form-control"
@@ -99,7 +99,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <select className="form-select" name="gender" id="gender">
               <option selected disabled>
                 Select your Gender
@@ -119,7 +119,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="tel"
               className="form-control"
@@ -134,7 +134,7 @@ export default function PersonalInfo() {
           </div>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="tel"
               className="form-control"
@@ -157,7 +157,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
