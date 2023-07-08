@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import "./adminHome.css"; // Import the CSS file
+import { BorderColor } from '@mui/icons-material';
 
 function AdminHome() {
     const [users, setUsers] = useState([]);
@@ -56,42 +57,48 @@ function AdminHome() {
     return (
         <>
             <MainHeader/>
-            <div className="admin-home-container"> {/* Apply a container class */}
-                <h1>User List</h1>
-                <div className="filter-buttons">
+            <div className="admin-home-container container"> {/* Apply a container class */}
+                <h1 className='sign'style={{display:"flex",justifyContent:"center",marginBottom:"50px"}}>User List</h1>
+                <div className="filter-buttons"
+                    style={{display:"flex",justifyContent:"center"}}>
                     <button
                         onClick={() => handleRoleFilter('')}
                         className={selectedRole === '' ? 'active' : ''}
+                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2",fontSize:"20px",color:"#f2f2f2"}}
                     >
                         All
                     </button>
                     <button
                         onClick={() => handleRoleFilter('admin')}
                         className={selectedRole === 'admin' ? 'active' : ''}
+                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
                     >
                         Admin
                     </button>
                     <button
                         onClick={() => handleRoleFilter('company')}
                         className={selectedRole === 'company' ? 'active' : ''}
+                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
                     >
                         Company
                     </button>
                     <button
                         onClick={() => handleRoleFilter('student')}
                         className={selectedRole === 'student' ? 'active' : ''}
+                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
                     >
                         Student
                     </button>
                     <button
                         onClick={() => handleRoleFilter('lecturer')}
                         className={selectedRole === 'lecturer' ? 'active' : ''}
+                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
                     >
                         Lecturer
                     </button>
                 </div>
 
-                {selectedRole && <h2>Showing {selectedRole} users</h2>}
+                {selectedRole && <h2 style={{display:"flex",justifyContent:"center",margin:"10px"}}>Showing {selectedRole} users</h2>}
                 {filteredUsers.length > 0 ? (
                     <table className="user-table"> {/* Apply a class to the table */}
                         <thead>
@@ -121,7 +128,7 @@ function AdminHome() {
                         </tbody>
                     </table>
                 ) : (
-                    <p>No users found</p>
+                    <p style={{display:"flex",justifyContent:"center",margin:"10px",fontSize:"20px"}}>No users found</p>
                 )}
             </div>
             <Footer />
