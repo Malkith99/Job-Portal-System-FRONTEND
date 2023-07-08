@@ -113,7 +113,7 @@ export default function StudentSignup() {
     <>
 
     <div className="container">
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:"-100px" , marginBottom: "-200px" }}>
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:"-150px" , marginBottom: "-200px" }}>
         {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
               <CardContent>
             <Grid container spacing={2} direction="row" alignItems="center">
