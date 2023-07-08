@@ -20,7 +20,7 @@ export default function CompanyLogin() {
       {/* <Link to="/">Home</Link> */}
       <Link to="/">Home</Link>
       <Link to="/company-login">Company Login</Link>
-      {/* <Link to="/company-home">Company Home</Link> */}
+      {/* <Link to="/company-HomePage">Company Home</Link> */}
     </>
   );
 
@@ -54,8 +54,8 @@ export default function CompanyLogin() {
       console.log(data);
       console.log("User has been Log In");
       console.log(`User ${data._id} has been login`);
-      window.location = "/company-home";
-      window.location.href = "/company-home";
+      window.location = "/company-HomePage";
+      window.location.href = "/company-HomePage";
     } catch (error) {
       if (
         error.response &&
@@ -85,7 +85,7 @@ export default function CompanyLogin() {
           loggedIn ? (
             <>
               <Link to="/company-login">Company Login</Link>
-              {/* <Link to="/company-home">Welcome {user.firstName} {user.lastName}!</Link> */}
+              {/* <Link to="/company-HomePage">Welcome {user.firstName} {user.lastName}!</Link> */}
             </>
           ) : (
             <Link to="/company-login">Company Login</Link>

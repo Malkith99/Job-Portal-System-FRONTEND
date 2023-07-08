@@ -113,7 +113,7 @@ const handleChange = (e) => {
 //     const token=res.data.data;
 //     window.localStorage.setItem("token",token);
 
-//     window.location.href = '/company-home';
+//     window.location.href = '/company-HomePage';
 //     alert("Company Succefully Registered");
 //   }
 //  }).catch(error=>console.error('Error: ',error));
