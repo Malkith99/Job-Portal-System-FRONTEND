@@ -3,6 +3,8 @@ import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import "./adminHome.css"; // Import the CSS file
 import { BorderColor } from '@mui/icons-material';
+import adminImage from "../../../../images/admin.png"
+
 
 function AdminHome() {
     const [users, setUsers] = useState([]);
@@ -57,48 +59,60 @@ function AdminHome() {
     return (
         <>
             <MainHeader/>
-            <div className="admin-home-container container"> {/* Apply a container class */}
-                <h1 className='sign'style={{display:"flex",justifyContent:"center",marginBottom:"50px"}}>User List</h1>
-                <div className="filter-buttons"
-                    style={{display:"flex",justifyContent:"center"}}>
-                    <button
-                        onClick={() => handleRoleFilter('')}
-                        className={selectedRole === '' ? 'active' : ''}
-                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2",fontSize:"20px",color:"#f2f2f2"}}
-                    >
-                        All
-                    </button>
-                    <button
-                        onClick={() => handleRoleFilter('admin')}
-                        className={selectedRole === 'admin' ? 'active' : ''}
-                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
-                    >
-                        Admin
-                    </button>
-                    <button
-                        onClick={() => handleRoleFilter('company')}
-                        className={selectedRole === 'company' ? 'active' : ''}
-                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
-                    >
-                        Company
-                    </button>
-                    <button
-                        onClick={() => handleRoleFilter('student')}
-                        className={selectedRole === 'student' ? 'active' : ''}
-                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
-                    >
-                        Student
-                    </button>
-                    <button
-                        onClick={() => handleRoleFilter('lecturer')}
-                        className={selectedRole === 'lecturer' ? 'active' : ''}
-                        style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
-                    >
-                        Lecturer
-                    </button>
+            <h1 className='sign'style={{display:"flex",justifyContent:"center",marginBottom:"50px",fontSize:"45px",color:"#004d99"}}><u>User List</u></h1>
+            <div className="admin-home-container container"
+            style={{display:"flex"}}> {/* Apply a container class */}
+                
+                <div style={{display:"flex",flex:"25%",justifyContent:"center",alignItems:"center"}}>
+                <img
+                        src={adminImage}
+                        className="image"
+                        alt="adminImage"
+                        
+                        
+                        />
                 </div>
+                
 
-                {selectedRole && <h2 style={{display:"flex",justifyContent:"center",margin:"10px"}}>Showing {selectedRole} users</h2>}
+                <div style={{flex:"75%",justifyContent:"center",marginLeft:"10%",marginTop:"6%"}}>
+                    <div className="filter-buttons" style={{display:"flex",justifyContent:"center",padding:"5px"}}>
+                        <button
+                            onClick={() => handleRoleFilter('')}
+                            className={selectedRole === '' ? 'active' : ''}
+                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2",fontSize:"20px",color:"#f2f2f2"}}
+                        >
+                            All
+                        </button>
+                        <button
+                            onClick={() => handleRoleFilter('admin')}
+                            className={selectedRole === 'admin' ? 'active' : ''}
+                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
+                        >
+                            Admin
+                        </button>
+                        <button
+                            onClick={() => handleRoleFilter('company')}
+                            className={selectedRole === 'company' ? 'active' : ''}
+                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
+                        >
+                            Company
+                        </button>
+                        <button
+                            onClick={() => handleRoleFilter('student')}
+                            className={selectedRole === 'student' ? 'active' : ''}
+                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
+                        >
+                            Student
+                        </button>
+                        <button
+                            onClick={() => handleRoleFilter('lecturer')}
+                            className={selectedRole === 'lecturer' ? 'active' : ''}
+                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
+                        >
+                            Lecturer
+                        </button>
+                    </div>
+                    {selectedRole && <h2 style={{display:"flex",justifyContent:"center",margin:"10px"}}>Showing {selectedRole} users</h2>}
                 {filteredUsers.length > 0 ? (
                     <table className="user-table"> {/* Apply a class to the table */}
                         <thead>
@@ -130,6 +144,8 @@ function AdminHome() {
                 ) : (
                     <p style={{display:"flex",justifyContent:"center",margin:"10px",fontSize:"20px"}}>No users found</p>
                 )}
+                    
+                </div>
             </div>
             <Footer />
         </>
