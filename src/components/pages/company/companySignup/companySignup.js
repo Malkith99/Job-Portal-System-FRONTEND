@@ -14,6 +14,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import axios from "axios";
+import loginImage from "../../../../../src/images/im7.jpg";
 import { red } from "@mui/material/colors";
 
 styled(Paper)(({ theme }) => ({
@@ -125,30 +126,42 @@ const handleChange = (e) => {
     <>
     <div>
     <MainHeader/>
-    <div className=" text-center sign ">Sign Up</div>
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={1} align="center">
-        <Grid item xs={12}>
-          <Card
-            sx={{
-              maxWidth: "50%",
-              // mt: 1,
-              alignContent: "center",
-              justifyItems: "flex-end",
-              
-            }}
-          >
-            
-            <CardContent>
-              <Typography
-                className=""
-                sx={{ fontSize: 18, fontWeight: "bold" }}
-                color="Black"
-                gutterBottom
-              >
-                
-              </Typography>
-              <form onSubmit={handleSubmit}>
+    <div className="container">
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            marginTop: "-200px",
+            marginBottom: "-250px",
+          }}
+        >
+<CardContent>
+              <Grid container spacing={2} direction="row" alignItems="center">
+                <Grid item xs={6}>
+                  <img
+                    src={loginImage}
+                    alt="Login"
+                    className="l-photo"
+                    style={{
+                      width: "95%",
+                      height: "98%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Grid>
+                <Grid item xs={6}>
+                  <Typography
+                    variant="h5"
+                    component="h2"
+                    style={{ fontWeight: "bold", textAlign: "center" }}
+                  >
+                    Log into your Account
+                  </Typography>
+                  <div className="card-body">
+                    <form className="loginbox-content" onSubmit={handleSubmit}>
+                      
                 <TextField
                   label="Email"
                   variant="outlined"
@@ -177,21 +190,41 @@ const handleChange = (e) => {
                   fullWidth
                   margin="normal"
                 />
+                <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          marginTop: 16,
+                        }}
+                      >
                 <Link to="/company-HomePage">
                    <Button variant="contained" color="primary" type="submit">
                                       Sign Up
                                   </Button>
                 </Link>
-                   
+                </div>
               </form>
+              </div>
+              <div
+                    className="mb-3 form-check"
+                    style={{ marginLeft: "22px" }}
+                  >
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="exampleCheck1"
+                    ></input>
+                    <label className="form-check-label" for="exampleCheck1">
+                      Remember username
+                    </label>
+                  </div>
+              </Grid>
+              </Grid>
             </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-      
-      
     </Box>
+    </div>
     <Footer />
+  
   </div>
   </>
   );
