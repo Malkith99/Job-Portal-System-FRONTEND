@@ -128,6 +128,33 @@ export default function StudentSignup() {
                  Create Your Account!
               </Typography>
               <form onSubmit={handleSubmit}>
+              <TextField
+                  label="First Name"
+                  variant="outlined"
+                  type="firstName"
+                  onChange={handleChange}
+                  value={data.firstName}
+                  fullWidth
+                  margin="normal"
+                />
+                                <TextField
+                  label="Last Name"
+                  variant="outlined"
+                  type="lastName"
+                  onChange={handleChange}
+                  value={data.lastName}
+                  fullWidth
+                  margin="normal"
+                />
+                  <TextField
+                  label="Role"
+                  variant="outlined"
+                  type="Student"
+                  //onChange={handleChange}
+                  value={data.role}
+                  fullWidth
+                  margin="normal"
+                />
                 <TextField
                   label="Email"
                   variant="outlined"
