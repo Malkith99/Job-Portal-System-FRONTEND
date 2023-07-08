@@ -56,3 +56,7 @@
     margin: 0.75rem 0.5rem;
     width: 60%;
   }
+  .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
