@@ -5,6 +5,7 @@ import CompanyProfile from '../company/companyProfile/companyProfile/CompanyProf
 import { Button } from 'react-bootstrap'
 import { Label } from '@mui/icons-material'
 import {Link} from 'react-router-dom'
+import DetailsCompany from './DetailsCompany'
 
 export default function CompanyApplication({isLogedIn, onLogout}){
   const content = (
@@ -20,7 +21,7 @@ export default function CompanyApplication({isLogedIn, onLogout}){
             <p className='sign'>Company Details:</p>
             <div>
                 <div>
-                    <p>methanata company eke details tika enna ona</p>
+                    <DetailsCompany/>
                 </div>
                 <div>
                     <Link to='/student-application-for-student'>
