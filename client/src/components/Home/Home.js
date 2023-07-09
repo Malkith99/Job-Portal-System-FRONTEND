@@ -7,11 +7,39 @@ import Carousel from "../carousel/carousel";
 import AvailableCompanies from "../availableCompanies/availableCompanies";
 
 function Home({ isLogedIn, onLogout }) {
-  const content = (
-    <>
-      <Link to="/">Home</Link>
-    </>
-  );
+    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+    const [loggedIn] = useState(!!localStorage.getItem("token"));
+
+    const content = (
+        <>
+            {loggedIn ? (
+                user.role === "company" ? (
+                    <div>
+                        <Link to="/company-profile">Profile</Link>
+                        <Link to="/company-HomePage">Company Home</Link>
+                    </div>
+                ) : user.role === "student" ? (
+                    <div>
+                        <Link to="/student-profile">Profile</Link>
+                        <Link to="/student-home">Student Home</Link>
+                    </div>
+                ) : user.role === "lecturer" ? (
+                    <div>
+                        <Link to="/lecturer-profile">User Profile</Link>
+                        <Link to="/lecturer-home">Lecturer Home</Link>
+                    </div>
+                ) : user.role === "admin" ? (
+                    <div>
+                        <Link to="/adminHome">Admin Home</Link>
+                    </div>
+                ) : null
+            ) : (
+                <div className="Main-page-moving-letters">
+                    welcome to UOR JOB Bank
+                </div>
+            )}
+        </>
+    );
   return (
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />

@@ -75,7 +75,7 @@ function App() {
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
-          <Route path="/admin" element={<AdminHome/>}></Route>
+          <Route path="/adminHome" element={<AdminHome/>}></Route>
 
           <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
           <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
