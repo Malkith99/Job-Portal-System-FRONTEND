@@ -1,6 +1,6 @@
 .flyer {
   margin: 5px auto 15px auto;
-  border: 100%;
+
   border: 2px solid rgba(145, 145, 145, 0.425);
   object-fit: cover;
   width: 200px;
@@ -24,7 +24,7 @@
 
 .scroll-btn-col{
   justify-content: center;
-  padding: auto;
+
   flex: 50%;
   
 }
@@ -107,4 +107,4 @@
   .res {
     align-items: center;
   }
-} ;
+}

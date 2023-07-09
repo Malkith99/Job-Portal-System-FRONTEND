@@ -4,134 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad22102-18f0-4940-b618-449e8596423d" name="Changes" comment="Debug app.js">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-07-07_10_23_AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_2023-07-07_10_23_AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+    <list default="true" id="1ad22102-18f0-4940-b618-449e8596423d" name="Changes" comment="New view and add client and server">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddStudent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AllStudent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CounterClass.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CounterFunction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmailVerify/emailVerify.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/EmailVerify/emailVerify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home/home.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/availableCompanies/availabaleCompanies.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/availableCompanies/availableCompanies.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/carousel/carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer/footer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/headerBottom/headerBottom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/headerBottom/headerBottom.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/headerTop/headerTop.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/headerTop/headerTop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/mainHeader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/profileLogo/profileLogo.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/profileLogo/profileLogo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/title/title.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/title/title.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Admin/AdminHome/adminHome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Admin/AdminHome/adminHome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Admin/StudentData/StudentData.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/Admin/StudentData/StudentData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyDetails/CompanyDetails.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyDetails/CompanyProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyDetails/CompanyProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyLogin/companyLogin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyProfile/CompanyProfileMain.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyProfile/CompanyProfileMain.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyProfile/companyProfile/CompanyProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyProfile/companyProfile/CompanyProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companySignup/companySignup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyVacancyView/CompanyVacancy.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/CompanyMainHome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyHome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyHome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyHomePage.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyHomePage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyJobPool/UpdateJob.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/ResponsesVac.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/ResponsesVac.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VacancySectionPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/allResponces.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/studentResponces.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/home/LectureMainHome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/lectureDetails/LecturerDetails.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/lectureDetails/LecturerProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/lectureDetails/LecturerProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/lecturerLogin/lecturerLogin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/lecturerSignup/lecturerSignup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTable.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/MyApplications/MyApplications.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/StudentSignIn/StudentSignIn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/StudentSignUp/SignUp/StudentSignUp.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/StudentSignUp/StudentSignUpPage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/datatablesource.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/feed2.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/feeds.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/feeds.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/feeds2.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/Academic_Popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/Extracuricular_popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/Person_popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/ProfilePopup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfileMain.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profileImage/profileImage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profileImage/profileImageMain.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/signIn/signIn.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationForStudent.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentJobApplication.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/popup/popup.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/LOGO_OF_RUHUNA.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/University-of-Ruhuna-Logo-removebg 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/admin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/done.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/im1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/im2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/im3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/im5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/im6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/im7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/images/strip_company.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/pages/company/home/companyHome/CompanyHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/pages/company/home/companyHome/CompanyHome.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +96,7 @@
       <workItem from="1688664407505" duration="557000" />
       <workItem from="1688704997441" duration="286000" />
       <workItem from="1688705499135" duration="145000" />
-      <workItem from="1688875793272" duration="1328000" />
+      <workItem from="1688875793272" duration="2091000" />
     </task>
     <task id="LOCAL-00001" summary="Debug student signing and signup page and main head">
       <option name="closed" value="true" />
@@ -247,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688705523439</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="New view and add client and server">
+      <option name="closed" value="true" />
+      <created>1688877189290</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688877189290</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,6 +139,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Debug student signing and signup page and main head" />
     <MESSAGE value="Debug app.js" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug app.js" />
+    <MESSAGE value="New view and add client and server" />
+    <option name="LAST_COMMIT_MESSAGE" value="New view and add client and server" />
   </component>
 </project>
