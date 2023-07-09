@@ -25,7 +25,7 @@ The University of Ruhuna Job Bank website will be built using the following tech
 
 - **Front-end**: HTML, CSS, JavaScript, and a modern front-end framework like React or Angular.
 - **Back-end**: A server-side programming language such as Python, Ruby, or Node.js, along with a web framework like Django, Ruby on Rails, or Express.js.
-- **Database**: A relational database management system (RDBMS) like MySQL, PostgreSQL, or SQLite to store user information, job details, and recommendations.
+- **Database**: A relational database management system (RDBMS) like MySQL, PostgresSQL, or SQLite to store user information, job details, and recommendations.
 - **Authentication and Authorization**: A secure authentication and authorization mechanism, such as JSON Web Tokens (JWT), to manage user login and access control.
 - **Version Control**: Git will be used for version control and collaboration among the development team.
 - **Deployment**: The website can be deployed on a cloud platform like AWS, Google Cloud, or Azure, or on a shared hosting provider.
@@ -39,7 +39,7 @@ To set up the University of Ruhuna Job Bank project locally, follow these steps:
 3. Set up the database and configure the database connection in the project's configuration files.
 4. Install the required dependencies by running `npm install` or `pip install -r requirements.txt` (depending on the chosen back-end framework).
 5. Start the development server by running `npm start` or `python manage.py runserver`.
-6. Access the website through your browser at [localhost:3000] or [localhost:8000] (or the appropriate port configured).
+6. Access the website through your browser at [localhost:3000] or [localhost:4000] (or the appropriate port configured).
 
 ## Contributing
 
@@ -61,4 +61,4 @@ The University of Ruhuna Job Bank project is licensed under the [MIT License](LI
 
 ## Contact
 
-If you have any questions or need assistance with the University of Ruhuna Job Bank project, please contact the development team at [https://github.com/SupunTd/JB/issues]. We appreciate your interest and support!
+If you have any questions or need assistance with the University of Ruhuna Job Bank project, please contact the development team . We appreciate your interest and support!
