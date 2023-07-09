@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad22102-18f0-4940-b618-449e8596423d" name="Changes" comment="remove email verification">
+    <list default="true" id="1ad22102-18f0-4940-b618-449e8596423d" name="Changes" comment="new app.js">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
     </list>
@@ -97,7 +97,7 @@
       <workItem from="1688704997441" duration="286000" />
       <workItem from="1688705499135" duration="145000" />
       <workItem from="1688875793272" duration="3082000" />
-      <workItem from="1688880030232" duration="66000" />
+      <workItem from="1688880030232" duration="362000" />
     </task>
     <task id="LOCAL-00001" summary="Debug student signing and signup page and main head">
       <option name="closed" value="true" />
@@ -171,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688878430514</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new app.js">
+      <option name="closed" value="true" />
+      <created>1688880149362</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1688880149362</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +191,7 @@
     <MESSAGE value="New view and add client and server" />
     <MESSAGE value="Change app.js" />
     <MESSAGE value="remove email verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove email verification" />
+    <MESSAGE value="new app.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="new app.js" />
   </component>
 </project>
