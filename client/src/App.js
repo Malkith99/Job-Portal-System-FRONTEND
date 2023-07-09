@@ -35,7 +35,8 @@ import StudentApplicationLecturer from "../src/components/pages/studentApplicati
 
 
 import AdminHome from './components/pages/Admin/AdminHome/adminHome';
-
+import CompanyApplication from './components/pages/student/CompanyApplication';
+import StudentApplicationForStudent from './components/pages/studentApplication/StudentApplicationForStudent';
 function App() {
 
  
@@ -81,7 +82,9 @@ function App() {
 
           <Route path='/company-HomePage' element={<CompanyHomePage/>}></Route>
           <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
-         <Route path='/Response-vac' element={<ResponseVac/>}></Route>
+            <Route path='/Response-vac' element={<ResponseVac/>}></Route>
+            <Route path='/Company-details(application)' element={<CompanyApplication/>}></Route>
+            <Route path='/student-application-for-student' element={<StudentApplicationForStudent/>}></Route>
 
 
 
