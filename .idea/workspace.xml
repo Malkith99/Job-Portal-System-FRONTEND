@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1ad22102-18f0-4940-b618-449e8596423d" name="Changes" comment="New view and add client and server">
+    <list default="true" id="1ad22102-18f0-4940-b618-449e8596423d" name="Changes" comment="Change app.js">
       <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/EmailVerify/emailVerify.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/EmailVerify/emailVerify.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +97,7 @@
       <workItem from="1688664407505" duration="557000" />
       <workItem from="1688704997441" duration="286000" />
       <workItem from="1688705499135" duration="145000" />
-      <workItem from="1688875793272" duration="2276000" />
+      <workItem from="1688875793272" duration="2601000" />
     </task>
     <task id="LOCAL-00001" summary="Debug student signing and signup page and main head">
       <option name="closed" value="true" />
@@ -137,7 +139,31 @@
       <option name="project" value="LOCAL" />
       <updated>1688877994756</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="New view and add client and server">
+      <option name="closed" value="true" />
+      <created>1688878221684</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688878221684</updated>
+    </task>
+    <task id="LOCAL-00007" summary="New view and add client and server">
+      <option name="closed" value="true" />
+      <created>1688878307926</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1688878307926</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Change app.js">
+      <option name="closed" value="true" />
+      <created>1688878327930</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1688878327930</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +173,7 @@
     <MESSAGE value="Debug student signing and signup page and main head" />
     <MESSAGE value="Debug app.js" />
     <MESSAGE value="New view and add client and server" />
-    <option name="LAST_COMMIT_MESSAGE" value="New view and add client and server" />
+    <MESSAGE value="Change app.js" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change app.js" />
   </component>
 </project>

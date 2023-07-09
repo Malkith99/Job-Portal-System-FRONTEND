@@ -31,7 +31,7 @@ import LectureMainHome from './components/pages/lecturer/home/LectureMainHome';
 
 import StudentApplicationCompany from "../src/components/pages/studentApplication/StudentApplicationCompany";
 import StudentApplicationLecturer from "../src/components/pages/studentApplication/StudentApplicationLecturer";
-import EmailVerify from './components/EmailVerify/emailVerify';
+
 
 
 import AdminHome from './components/pages/Admin/AdminHome/adminHome';
@@ -78,10 +78,14 @@ function App() {
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
           <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
 
-          <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
+
           <Route path='/company-HomePage' element={<CompanyHomePage/>}></Route>
           <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
          <Route path='/Response-vac' element={<ResponseVac/>}></Route>
+
+
+
+
 
             <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
           </Routes>
