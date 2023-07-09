@@ -83,7 +83,6 @@ function App() {
           <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
          <Route path='/Response-vac' element={<ResponseVac/>}></Route>
 
-
             <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
           </Routes>
         </div>
