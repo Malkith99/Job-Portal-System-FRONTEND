@@ -74,7 +74,7 @@ export default function OutlinedCard() {
       <Card variant="outlined" style={{ margin: 10 ,width: "100%", height:"330px", backgroundColor: "rgb(194,194,204)" }} >
         <CardContent>
           <Typography sx={{ mt:1,fontSize: 20,  fontWeight: 'bold',
-          fontFamily: 'Georgia, serif',fontSize:"25px" }} color="rgb(12,23,112)"  >
+          fontFamily: 'Georgia, serif' }} color="rgb(12,23,112)"  >
             {card.title}
           </Typography>
           <Typography variant="h5" component="div">
