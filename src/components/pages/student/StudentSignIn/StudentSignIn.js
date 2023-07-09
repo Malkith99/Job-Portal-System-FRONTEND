@@ -21,8 +21,8 @@ import loginImage from "../../../../../src/images/im6.jpg";
   export default function StudentSignIn({ isLogedIn, onLogout }) {
     const content = (
       <>
-        <Link to="/student/home">Student Home</Link>
-        <Link to="/student/profile/"> Profile</Link>
+        <Link to="/student-home">Student Home</Link>
+        <Link to="/student-profile/"> Profile</Link>
         
       </>
     

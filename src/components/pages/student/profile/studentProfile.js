@@ -135,7 +135,7 @@ export default function Profile() {
     <div className="container progress-div"
       style={{ marginTop: "1px", padding: "50px" }}
     >
-      <form action="/student/home">
+      <form action="/student-home">
         <h4 className="sub-headings">Personal info: </h4>
         <div className="flex-container1">
           <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" }}>
