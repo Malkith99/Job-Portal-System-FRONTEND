@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../footer/footer";
 import MainHeader from "../mainHeader/mainHeader";
@@ -7,10 +7,38 @@ import Carousel from "../carousel/carousel";
 import AvailableCompanies from "../availableCompanies/availableCompanies";
 
 function Home({ isLogedIn, onLogout }) {
+  const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const [loggedIn] = useState(!!localStorage.getItem("token"));
+
   const content = (
-    <>
-      <Link to="/">Home</Link>
-    </>
+      <>
+        {loggedIn ? (
+            user.role === "company" ? (
+                <div>
+                  <Link to="/company-profile">Profile</Link>
+                  <Link to="/company-HomePage">Company Home</Link>
+                </div>
+            ) : user.role === "student" ? (
+                <div>
+                  <Link to="/student-profile">Profile</Link>
+                  <Link to="/student-home">Student Home</Link>
+                </div>
+            ) : user.role === "lecturer" ? (
+                <div>
+                  <Link to="/lecturer-profile">User Profile</Link>
+                  <Link to="/lecturer-home">Lecturer Home</Link>
+                </div>
+            ) : user.role === "admin" ? (
+                <div>
+                  <Link to="/adminHome">Admin Home</Link>
+                </div>
+            ) : null
+        ) : (
+            <div className="Main-page-moving-letters">
+              welcome to UOR JOB Bank
+            </div>
+        )}
+      </>
   );
   return (
     <div className="page-container">
@@ -34,18 +62,12 @@ function Home({ isLogedIn, onLogout }) {
           <div className="home-left-div p-4 w-100 ">
             <h1 className="main-head">About</h1>
             <p className="text-left">
-              Voluptate est magna sint ad pariatur. Voluptate sit nostrud qui
-              mollit eiusmod duis aliqua. Non ullamco aute et nulla. Pariatur
-              irure magna ad sit qui occaecat. Exercitation eiusmod nulla
-              excepteur sunt ipsum labore. Sint est enim quis occaecat qui
-              adipisicing. Cupidatat dolor reprehenderit irure enim. Consectetur
-              irure ut sunt tempor veniam eiusmod proident sit. Sit proident
-              reprehenderit laboris laboris mollit. Aliquip aute nisi sint qui
-              incididunt incididunt eu deserunt pariatur occaecat qui
-              adipisicing. Veniam sint adipisicing cupidatat sunt est consequat
-              excepteur. Enim ipsum anim non eu amet ut. Proident elit commodo
-              est sint enim. Consequat dolore consequat dolor laborum ullamco
-              Lorem duis nulla sunt officia.
+                The University of Ruhuna Faculty of Engineering Job Bank is a website that connects students,
+                alumni,
+                and faculty with job opportunities in the engineering field. The website provides a searchable database of jobs,
+                the ability to create a profile and upload a resume, the ability to receive job alerts,
+                and the ability to network with other engineers.
+                The University of Ruhuna Faculty of Engineering Job Bank is a valuable resource for anyone looking for a job in engineering.
             </p>
             
           </div>
@@ -74,13 +96,7 @@ function Home({ isLogedIn, onLogout }) {
             >
               A Company
             </Link>
-            <Link
-              to="/admin"
-              type="button"
-              className="form-control text-white student-button btn btn-primary m-2"
-            >
-              Admin
-            </Link>
+
           </div>
         </div>
       </div>
