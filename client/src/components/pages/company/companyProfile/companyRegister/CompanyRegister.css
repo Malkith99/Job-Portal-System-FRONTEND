@@ -1,0 +1,106 @@
+.headings-cls {
+  margin-top: -20px;
+  margin-bottom: 45px;
+}
+
+.input-filed {
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.asterisk-mark {
+  color: red;
+  font-weight: 900;
+}
+
+.flex-container1 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.container1-flex-item {
+  flex: 30%;
+  color: rgb(7, 7, 73);
+  font-size: large;
+  font-weight: bolder;
+}
+
+.flex-container2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  column-gap: 20px;
+}
+
+.container2-flex-item1 {
+  flex: 31%;
+  color: rgb(7, 7, 73);
+  font-size: large;
+  font-weight: bolder;
+}
+
+.container2-flex-item2 {
+  flex: 65%;
+  color: rgb(7, 7, 73);
+  font-size: large;
+  font-weight: bolder;
+}
+
+@media (max-width: 800px) {
+  .container1-flex-item,
+  .container2-flex-item1,
+  .container2-flex-item2 {
+    flex: 100%;
+  }
+}
+
+@media (max-width: 1400px) {
+  .file-in {
+    width: 32.2%;
+  }
+}
+@media (max-width: 1200px) {
+  .file-in {
+    width: 32%;
+  }
+}
+@media (max-width: 990px) {
+  .file-in {
+    width: 31.4%;
+  }
+}
+@media (max-width: 800px) {
+  .file-in {
+    width: 100%;
+  }
+}
+@media (min-width: 1400px) {
+  .file-in {
+    width: 32.2%;
+  }
+}
+.file-in{
+  padding-bottom: 20px;
+}
+
+
+
+.profile-photo-2 {
+  margin: 0px auto 15px 0px;
+  border-radius: 100%;
+  border: 2px solid rgba(145, 145, 145, 0.425);
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+
+@media (max-width: 800px) {
+  .container1-flex-item,
+  .container2-flex-item1,
+  .container2-flex-item2 {
+    flex: 100%;
+  }
+}

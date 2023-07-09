@@ -84,7 +84,7 @@ function App() {
           <Route path="lecturer-home" element={<LectureMainHome/>}></Route>
 
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
-          <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
+          <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
           <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
           <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
