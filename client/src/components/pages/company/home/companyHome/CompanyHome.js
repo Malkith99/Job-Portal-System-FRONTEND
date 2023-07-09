@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { Element, Link as ScrollLink } from "react-scroll";
 import axios from "axios";
 import "./CompanyHome.css";
-import {Bar} from "react-chartjs-2";
-
 
 
 function CompanyHome() {
