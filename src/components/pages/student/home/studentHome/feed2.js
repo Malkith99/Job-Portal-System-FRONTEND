@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import './feeds2.css';
+import { Link } from 'react-router-dom';
 
 export default function Feed2() {
   return (
@@ -44,7 +45,9 @@ function Card({ image, title, description }) {
 
       </div>
       <div className='button-section'>
-        <Button className='card_btn'>View</Button>
+        <Link to="/Company-details(application)">
+          <Button className='card_btn'>View</Button>
+        </Link>
       </div>
     </div>
   );

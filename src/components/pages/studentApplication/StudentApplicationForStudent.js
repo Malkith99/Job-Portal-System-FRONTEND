@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Footer from "../../../footer/Footer";
-import MainHeader from "../../../MainHeader/MainHeader";
+import Footer from "../../footer/footer";
+import MainHeader from "../../mainHeader/mainHeader";
 import StudentApplication from "./StudentApplication";
 
 
 export default function StudentApplicationForStudent({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/student/home">Home</Link>
-      <Link to="/student/profile">Profile</Link>
+      <Link to="/student-home">Home</Link>
+      <Link to="/student-profile">Profile</Link>
     </>
   );
   return (

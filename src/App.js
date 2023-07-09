@@ -39,6 +39,8 @@ import CompanyHomePage from './components/pages/company/home/companyHome/Company
 import VacancyPage from './components/pages/company/home/companyHome/VacancySectionPage';
 import ResponseVac from './components/pages/company/home/companyHome/ResponsesVac';
 import AdminHome from './components/pages/Admin/AdminHome/adminHome';
+import CompanyApplication from './components/pages/student/CompanyApplication';
+import StudentApplicationForStudent from './components/pages/studentApplication/StudentApplicationForStudent';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -89,7 +91,9 @@ function App() {
           <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
           <Route path='/company-HomePage' element={<CompanyHomePage/>}></Route>
           <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
-         <Route path='/Response-vac' element={<ResponseVac/>}></Route>
+          <Route path='/Response-vac' element={<ResponseVac/>}></Route>
+          <Route path='/Company-details(application)' element={<CompanyApplication/>}></Route>
+          <Route path='/student-application-for-student' element={<StudentApplicationForStudent/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>
