@@ -34,18 +34,12 @@ function Home({ isLogedIn, onLogout }) {
           <div className="home-left-div p-4 w-100 ">
             <h1 className="main-head">About</h1>
             <p className="text-left">
-              Voluptate est magna sint ad pariatur. Voluptate sit nostrud qui
-              mollit eiusmod duis aliqua. Non ullamco aute et nulla. Pariatur
-              irure magna ad sit qui occaecat. Exercitation eiusmod nulla
-              excepteur sunt ipsum labore. Sint est enim quis occaecat qui
-              adipisicing. Cupidatat dolor reprehenderit irure enim. Consectetur
-              irure ut sunt tempor veniam eiusmod proident sit. Sit proident
-              reprehenderit laboris laboris mollit. Aliquip aute nisi sint qui
-              incididunt incididunt eu deserunt pariatur occaecat qui
-              adipisicing. Veniam sint adipisicing cupidatat sunt est consequat
-              excepteur. Enim ipsum anim non eu amet ut. Proident elit commodo
-              est sint enim. Consequat dolore consequat dolor laborum ullamco
-              Lorem duis nulla sunt officia.
+            The University of Ruhuna Faculty of Engineering Job Bank is a website that connects students,
+                alumni,
+                and faculty with job opportunities in the engineering field. The website provides a searchable database of jobs,
+                the ability to create a profile and upload a resume, the ability to receive job alerts,
+                and the ability to network with other engineers.
+                The University of Ruhuna Faculty of Engineering Job Bank is a valuable resource for anyone looking for a job in engineering.
             </p>
             
           </div>
