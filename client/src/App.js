@@ -9,6 +9,9 @@ import StudentSignIn from './components/pages/student/StudentSignIn/StudentSignI
 import StudentHome from './components/pages/student/home/StudentHome';
 import StudentSignUpPage from './components/pages/student/StudentSignUp/StudentSignUpPage';
 import StudentAppliation from './components/pages/student/MyApplications/MyApplications';
+import CompanyVacancyViewStudent from './components/pages/student/home/studentHome/CompanyJobView/CompanyJobView';
+
+
 
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
@@ -40,6 +43,7 @@ import StudentApplicationForStudent from './components/pages/studentApplication/
 import StudentJobApplication from './components/pages/studentApplication/StudentJobApplication';
 import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
+
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
 
@@ -60,6 +64,7 @@ function App() {
           <Route path="/student-profile" element={<Profile/> }> </Route>
           <Route path="/student-home" element={<StudentHome/> }> </Route>
           <Route path="/student-applications" element={<StudentAppliation/> }> </Route>
+            <Route path="/company-vacancy-view-student/:vacancyId" element={<CompanyVacancyViewStudent/>}></Route>
 
 
           <Route path="/company-signup" element={<CompanySignUp/> }> </Route>

@@ -106,6 +106,7 @@ function Home({ isLogedIn, onLogout }) {
       </div>
 
 */}
+        <div className="container">
         <h1>Welcome to University of Ruhuna JOB Bank</h1>
         <p>Find your dream job today!</p>
         {loggedIn ? (
@@ -116,7 +117,7 @@ function Home({ isLogedIn, onLogout }) {
             </button>
         )}
 
-
+        </div>
 
       <div className="container">
           <AvailableCompanies/>
