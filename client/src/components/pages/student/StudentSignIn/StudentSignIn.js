@@ -126,7 +126,7 @@ import loginImage from "../../../../../src/images/im6.jpg";
             </MainHeader>
       </div>
       <div className="container" style={{alignItems: "center"}}>
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "70vh",marginTop:"-80px" , marginBottom: "-120px" }}>
+        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "120vh",marginTop:"-80px" , marginBottom: "-120px" }}>
           {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
           <CardContent>
               <Grid container spacing={2} direction="row" alignItems="center" >

@@ -98,7 +98,7 @@ export default function CompanyLogin() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "150vh",
             marginTop: "-200px",
             marginBottom: "-250px",
           }}
@@ -112,7 +112,7 @@ export default function CompanyLogin() {
             }}
           > */}
             <CardContent>
-              <Grid container spacing={2} direction="row" alignItems="center">
+              <Grid container spacing={3} direction="row" alignItems="center">
                 <Grid item xs={6}>
                   <img
                     src={loginImage}
