@@ -21,7 +21,7 @@ function HeaderTop() {
         <div className="main-header-top">
             <div>
                 {loggedIn ? (
-                    <p className="main-loggin">
+                    <p className="main-login">
                         <l-text1>
                             Welcome, {user.firstName} {user.lastName}!
                         </l-text1>
@@ -29,14 +29,16 @@ function HeaderTop() {
                         <button onClick={handleLogout}>Logout</button>
                     </p>
                 ) : (
-                    <div className="main-notlogin" style={{color:"white"}}>
-                        <l-text1>
-                            You are not logged in.</l-text1>
-
+                    <div className="main-notlogin" style={{ color: "white" }}>
+                        <l-text1 style={{ marginBottom: "10px", fontSize: "16px" }}>
+                            You are not logged in. <Link to="/all-sign-in" style={{ textDecoration: "none", color: "white" }} type="button">(Log In)</Link>
+                        </l-text1>
                     </div>
+
                 )}
             </div>
         </div>
+
     );
 }
 export default HeaderTop;
