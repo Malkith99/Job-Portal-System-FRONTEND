@@ -27,7 +27,7 @@ function SignInSignUp({ isLogedIn, onLogout }) {
       setMsg("Company password is correct!\nYou can setup or access your account now"); // Set success message
       setError(""); // Clear the error message
       setShowPopup(true); // Show the popup
-      window.location.href = "/company-signIn";
+      window.location.href = "/company-signup";
     } else {
       setError("Company password is incorrect!"); // Set error message
       setMsg(""); // Clear the success message
@@ -45,7 +45,7 @@ function SignInSignUp({ isLogedIn, onLogout }) {
       // Set success message
       setError(""); // Clear the error message
       setShowPopup(true); // Show the popup
-      window.location.href = "/lecturer-login";
+      window.location.href = "/lecturer-signUp";
     } else {
       setError("Lecturer password is incorrect!"); // Set error message
       setMsg(""); // Clear the success message
@@ -80,7 +80,7 @@ function SignInSignUp({ isLogedIn, onLogout }) {
               <h1 className="main-head">Are you?</h1>
 
               <Link
-                  to="/student-signIn"
+                  to="/student-signUp"
                   type="button"
                   className="form-control text-white student-button btn btn-primary m-2 mb-4"
               >
