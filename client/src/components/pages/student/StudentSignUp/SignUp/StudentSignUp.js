@@ -52,7 +52,7 @@ export default function StudentSignup() {
   const handleChange = (e) => {
     setData({ ...data, [e.target.name]: e.target.value });
 };
-  const handleSubmit = (event) => {    // function that execute when pressing submit button"
+  const handleSubmit = (event) => {    // function that execute when pressing submit button
     event.preventDefault();
 
     if (!data.email || !data.password || !confirmPassword) {
@@ -63,7 +63,7 @@ export default function StudentSignup() {
 
     if (data.password !== confirmPassword) {
       alert("Passwords do not match");
-      //toast.error("Passwords do not match");
+      toast.error("Passwords do not match");
       return;
     }
 
@@ -75,7 +75,8 @@ export default function StudentSignup() {
             const url = "http://localhost:4000/api/users";
             const response = await axios.post(url, data);
             setMsg(response.data.message);
-            window.location = "/";
+            alert("You have already Registered.Please Sign In");
+     window.location.href = '/student-signIn';
         } catch (error) {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
                 setError(error.response.data.message);
@@ -98,7 +99,7 @@ export default function StudentSignup() {
 //     window.localStorage.setItem("token",token);
 
 //     window.location.href = '/student-home';
-//     alert("Student Succefully Registered");
+//     alert("Student Successfully Registered");
 //   }
 //  }).catch(error=>console.error('Error: ',error));
 
@@ -113,7 +114,7 @@ export default function StudentSignup() {
     <>
 
     <div className="container">
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "100vh",marginTop:"-150px" , marginBottom: "-200px" }}>
+      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "150vh",marginTop:"-150px" , marginBottom: "-200px" }}>
         {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
               <CardContent>
             <Grid container spacing={2} direction="row" alignItems="center">
@@ -147,36 +148,40 @@ export default function StudentSignup() {
                   label="Role"
                   variant="outlined"
                   type="Student"
-                  //onChange={handleChange}
+                  onChange={handleChange}
                   value={data.role}
                   fullWidth
                   margin="normal"
+                  disabled
                 />
-                <TextField
-                  label="Email"
-                  variant="outlined"
-                  type="email"
-                  onChange={handleChange}
-                  value={data.email}
-                  fullWidth
-                  margin="normal"
-                />
-                <TextField
-                  label="Password"
-                  variant="outlined"
-                  type="password"
-                  onChange={handleChange}
-                  value={data.password}
-                  fullWidth
-                  margin="normal"
-                />
+                    <TextField
+                        type="email"
+                        label="Email"
+                        name="email"
+                        onChange={handleChange}
+                        value={data.email}
+                        required
+                        fullWidth
+                        margin="normal"
+                    />
+                    <TextField
+                        type="password"
+                        label="Password"
+                        name="password"
+                        onChange={handleChange}
+                        value={data.password}
+                        required
+                        fullWidth
+                        margin="normal"
+                    />
                 <TextField
                   label="Confirm Password"
-                  variant="outlined"
+
                   type="password"
                   value={confirmPassword}
                   onChange={handleConfirmPasswordChange}
                   fullWidth
+                  required
                   margin="normal"
                 />
                      {error && <div className="signup_error_msg">{error}</div>}

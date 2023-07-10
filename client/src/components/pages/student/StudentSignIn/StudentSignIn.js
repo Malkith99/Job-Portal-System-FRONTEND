@@ -66,6 +66,7 @@ import loginImage from "../../../../../src/images/im6.jpg";
         console.log(user.firstName);
         console.log(data);
         console.log("User has been Log In");
+        toast.error("User has been Log In");
         console.log(`User ${data._id} has been login`);
         window.location = "/";
     } catch (error) {
