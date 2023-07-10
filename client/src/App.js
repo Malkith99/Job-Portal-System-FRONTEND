@@ -42,7 +42,8 @@ import AdminHome from './components/pages/Admin/AdminHome/adminHome';
 import CompanyApplication from './components/pages/student/CompanyApplication';
 import StudentApplicationForStudent from './components/pages/studentApplication/StudentApplicationForStudent';
 import StudentJobApplication from './components/pages/studentApplication/StudentJobApplication';
-
+import AllSignIn from './components/SignUpSignIn/AllSignIn';
+import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
 
@@ -96,21 +97,23 @@ function App() {
           <Route path='/Company-details(application)' element={<CompanyApplication/>}></Route>
           <Route path='/student-application-for-student' element={<StudentApplicationForStudent/>}></Route>
           <Route path='/job-application/:id' element={<StudentJobApplication/>}></Route>
+            <Route path="/home" element={<SignInSignUp/>}></Route>
+            <Route path="/all-sign-in" element={<AllSignIn/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>
    /*<div className="App">
       <h1>Hello React</h1>
-      <CounterCalss/>      /* calling the counter class  */ 
-      /*<hr></hr> 
-      <CounterFunction/>              
+      <CounterCalss/>      /* calling the counter class  */
+      /*<hr></hr>
+      <CounterFunction/>
   </div> */
       /*<div>
       <Header/>
       <AddStudent/>
       </div>*/
 
-  
+
   );
 }
 

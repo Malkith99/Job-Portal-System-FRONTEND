@@ -54,9 +54,13 @@ function Home({ isLogedIn, onLogout }) {
           University of Ruhuna - Matara
         </h2>
         <Carousel />
-        
-        
+
+
       </div>
+
+
+        {/*
+
       <div className="container mt-2">
         <div className="d-flex flex-lg-row flex-column">
           <div className="home-left-div p-4 w-100 ">
@@ -96,16 +100,24 @@ function Home({ isLogedIn, onLogout }) {
             >
               A Company
             </Link>
-            <Link
-              to="/admin"
-              type="button"
-              className="form-control text-white student-button btn btn-primary m-2"
-            >
-              Admin
-            </Link>
+
           </div>
         </div>
       </div>
+
+*/}
+        <h1>Welcome to University of Ruhuna JOB Bank</h1>
+        <p>Find your dream job today!</p>
+        {loggedIn ? (
+            <p>Hi {user.firstName} {user.lastName}</p>
+        ) : (
+            <button className="jobsearchbutton">
+                <Link to="/all-sign-in">Search Jobs</Link>
+            </button>
+        )}
+
+
+
       <div className="container">
           <AvailableCompanies/>
       </div>
