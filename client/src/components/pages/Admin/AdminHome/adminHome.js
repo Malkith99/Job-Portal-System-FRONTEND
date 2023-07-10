@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import "./adminHome.css"; // Import the CSS file
-import { BorderColor } from '@mui/icons-material';
 import adminImage from "../../../../images/admin.png"
-
 
 function AdminHome() {
     const [users, setUsers] = useState([]);
@@ -13,9 +11,8 @@ function AdminHome() {
 
     useEffect(() => {
         fetchUsers().then(() => {});
-        handleRoleFilter(''); // Set the initial filter to empty string ('') to show all users
+        handleRoleFilter('');
     }, []);
-
 
     const fetchUsers = async () => {
         try {
@@ -33,9 +30,7 @@ function AdminHome() {
         }
     };
 
-
     const handleRoleFilter = (role) => {
-
         setSelectedRole(role);
         if (role === '') {
             setFilteredUsers(users); // Set filteredUsers to all users
@@ -44,7 +39,6 @@ function AdminHome() {
             setFilteredUsers(filtered);
         }
     };
-
 
     const handleEdit = (userId) => {
         // Implement the edit functionality
@@ -56,10 +50,22 @@ function AdminHome() {
         console.log(`Delete user with ID: ${userId}`);
     };
 
+    // Count the number of users for each role
+    const countUsersByRole = (role) => {
+        return filteredUsers.reduce((count, user) => {
+            if (user.role === role) {
+                return count + 1;
+            }
+            return count;
+        }, 0);
+    };
+
+
+
     return (
         <>
             <MainHeader/>
-            <h1 className='sign'style={{display:"flex",justifyContent:"center",marginBottom:"50px",fontSize:"45px",color:"#004d99"}}><u>User List</u></h1>
+            <h1 className='sign' style={{display:"flex",justifyContent:"center",marginBottom:"50px",fontSize:"45px",color:"#004d99"}}><u>User List</u></h1>
             <div className="admin-home-container container"
             style={{display:"flex"}}> {/* Apply a container class */}
                 
@@ -79,7 +85,7 @@ function AdminHome() {
                         <button
                             onClick={() => handleRoleFilter('')}
                             className={selectedRole === '' ? 'active' : ''}
-                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2",fontSize:"20px",color:"#f2f2f2"}}
+                            style={{marginRight:"5px",width:"20%",height:"40px",background:"#000066",borderColor:"#000066",fontSize:"20px",color:"#f2f2f2"}}
                         >
                             All
                         </button>
@@ -112,7 +118,11 @@ function AdminHome() {
                             Lecturer
                         </button>
                     </div>
-                    {selectedRole && <h2 style={{display:"flex",justifyContent:"center",margin:"10px"}}>Showing {selectedRole} users</h2>}
+                    {selectedRole && (
+                        <h2 style={{ display: "flex", justifyContent: "center", margin: "10px" }}>
+                            Showing {countUsersByRole(selectedRole)} {selectedRole} users
+                        </h2>
+                    )}
                 {filteredUsers.length > 0 ? (
                     <table className="user-table"> {/* Apply a class to the table */}
                         <thead>
@@ -146,6 +156,10 @@ function AdminHome() {
                 )}
                     
                 </div>
+
+
+
+
             </div>
             <Footer />
         </>
