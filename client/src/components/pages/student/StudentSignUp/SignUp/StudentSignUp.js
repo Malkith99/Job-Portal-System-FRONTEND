@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React,{ useState } from "react";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { toast } from "react-toastify";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
-
-
-import loginImage from "../../../../../images/im2.jpg";
-//import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 
 styled(Paper)(({ theme }) => ({
@@ -25,49 +20,25 @@ styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+
 export default function StudentSignup() {
+
+
     const [data, setData] = useState({
+        firstName: "",
+        lastName: "",
         email: "",
         password: "",
         role: "student",
     });
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
-  const [msg, setMsg] = useState("");
 
-//   const handleEmailChange = (event) => {
-//     setEmail(event.target.value);
-//     console.log("email", email);
-//   };
+    const [error, setError] = useState("");
+    const [msg, setMsg] = useState("");
 
-//   const handlePasswordChange = (event) => {
-//     setPassword(event.target.value);
-//     console.log("password", password);
-//   };
+    const handleChange = (e) => {
+        setData({ ...data, [e.target.name]: e.target.value });
+    };
 
-  const handleConfirmPasswordChange = (event) => {
-    setConfirmPassword(event.target.value);
-    console.log("confirmPassword", confirmPassword);
-  };
-  const handleChange = (e) => {
-    setData({ ...data, [e.target.name]: e.target.value });
-};
-  const handleSubmit = (event) => {    // function that execute when pressing submit button
-    event.preventDefault();
-
-    if (!data.email || !data.password || !confirmPassword) {
-      alert("Please fill all fields");
-      //toast.error("Please fill in all fields");
-      return;
-    }
-
-    if (data.password !== confirmPassword) {
-      alert("Passwords do not match");
-      toast.error("Passwords do not match");
-      return;
-    }
-
-    // Add your registration logic here
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -75,140 +46,104 @@ export default function StudentSignup() {
             const url = "http://localhost:4000/api/users";
             const response = await axios.post(url, data);
             setMsg(response.data.message);
-            alert("You have already Registered.Please Sign In");
-     window.location.href = '/student-signIn';
+            window.location = "/";
         } catch (error) {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
                 setError(error.response.data.message);
             }
         }
     };
- 
-//     const newStudent={
-//       email,
-//       password,
-//   }
-//  axios.post("http://localhost:1234/student/register",newStudent ).then(res=>{
-//   if(res.data.error =="User Exists"){
-//     alert("You have already Registered.Please Sign In");
-//     window.location.href = '/student-signIn';
-//   }else{
-//     console.log(res.data);
-    
-//     const token=res.data.data;
-//     window.localStorage.setItem("token",token);
 
-//     window.location.href = '/student-home';
-//     alert("Student Successfully Registered");
-//   }
-//  }).catch(error=>console.error('Error: ',error));
+    return (
+        <>
+            <div>
 
- 
+                <Box sx={{ flexGrow: 1 }}>
+                    <Grid container spacing={1} align="center">
+                        <Grid item xs={12}>
+                            <Card sx={{ maxWidth: "50%", mt: 5, alignContent: "center", justifyItems: "flex-end" }}>
+                                <CardContent>
+                                    <Typography sx={{ fontSize: 18, fontWeight: "bold" }} color="Black" gutterBottom>
+                                        Create Your Account
+                                    </Typography>
+                                    <form onSubmit={handleSubmit}>
+                                        <TextField
+                                            type="text"
+                                            label="First Name"
+                                            name="firstName"
+                                            onChange={handleChange}
+                                            value={data.firstName}
+                                            required
+                                            fullWidth
+                                            margin="normal"
+                                        />
+                                        <TextField
+                                            type="text"
+                                            label="Last Name"
+                                            name="lastName"
+                                            onChange={handleChange}
+                                            value={data.lastName}
+                                            required
+                                            fullWidth
+                                            margin="normal"
+                                        />
+                                        <TextField
+                                            type="text"
+                                            label="Role"
+                                            name="role"
+                                            onChange={handleChange}
+                                            value="Student"
+                                            required
+                                            fullWidth
+                                            margin="normal"
+                                            disabled
+                                        />
 
- //toast.success("Successfully registered!");
+                                        <TextField
+                                            type="email"
+                                            label="Email"
+                                            name="email"
+                                            onChange={handleChange}
+                                            value={data.email}
+                                            required
+                                            fullWidth
+                                            margin="normal"
+                                        />
 
- setConfirmPassword("");      
-  };
+                                        <TextField
+                                            type="password"
+                                            label="Password"
+                                            name="password"
+                                            onChange={handleChange}
+                                            value={data.password}
+                                            required
+                                            fullWidth
+                                            margin="normal"
+                                        />
 
-  return (
-    <>
 
-    <div className="container">
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "150vh",marginTop:"-150px" , marginBottom: "-200px" }}>
-        {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
-              <CardContent>
-            <Grid container spacing={2} direction="row" alignItems="center">
-              <Grid item xs={6}>
-                <img src={loginImage} alt="Login" className="l-photo"  style={{ width: "80%", height: "100%", objectFit: "cover" }} />
-              </Grid>
-              <Grid item xs={6}>
-                <Typography variant="h5" component="h2" style={{ fontWeight: "bold", textAlign: "center" }}>
-                  Create your Account !
-                </Typography>
-                <form onSubmit={handleSubmit}>
-                <TextField
-                  label="First Name"
-                  variant="outlined"
-                  type="firstName"
-                  onChange={handleChange}
-                  value={data.firstName}
-                  fullWidth
-                  margin="normal"
-                />
-                                <TextField
-                  label="Last Name"
-                  variant="outlined"
-                  type="lastName"
-                  onChange={handleChange}
-                  value={data.lastName}
-                  fullWidth
-                  margin="normal"
-                />
-                  <TextField
-                  label="Role"
-                  variant="outlined"
-                  type="Student"
-                  onChange={handleChange}
-                  value={data.role}
-                  fullWidth
-                  margin="normal"
-                  disabled
-                />
-                    <TextField
-                        type="email"
-                        label="Email"
-                        name="email"
-                        onChange={handleChange}
-                        value={data.email}
-                        required
-                        fullWidth
-                        margin="normal"
-                    />
-                    <TextField
-                        type="password"
-                        label="Password"
-                        name="password"
-                        onChange={handleChange}
-                        value={data.password}
-                        required
-                        fullWidth
-                        margin="normal"
-                    />
-                <TextField
-                  label="Confirm Password"
-
-                  type="password"
-                  value={confirmPassword}
-                  onChange={handleConfirmPasswordChange}
-                  fullWidth
-                  required
-                  margin="normal"
-                />
-                     {error && <div className="signup_error_msg">{error}</div>}
-                             {msg && <div className="signup_success_msg">{msg}</div>}
-                              <div className="mb-3 form-check" style={{ marginLeft: "22px" }}>
-                                  <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                  <label className="form-check-label" htmlFor="exampleCheck1">
-                                      Remember username
-                                  </label>
-                              </div>
-
-                  <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
-                  <Button variant="contained" color="primary" type="submit">
-                                      Sign Up
-                                  </Button>
-              
-          </div>
-                </form>
-              <div style={{textAlign:"center",marginTop:"10px"}}>
-                <Link to="/student-signIn" >Do you have an account? click here to sign in.</Link>
-              </div>
-          </Grid>
-        </Grid>
-          </CardContent>
-        {/* </Card> */}
-      </Box>
-    </div>
-    </>
-  );
+                                        {error && <div className="signup_error_msg">{error}</div>}
+                                        {msg && <div className="signup_success_msg">{msg}</div>}
+                                        <Button variant="contained" color="primary" type="submit">
+                                            Sign Up
+                                        </Button>
+                                    </form>
+                                </CardContent>
+                            </Card>
+                        </Grid>
+                    </Grid>
+                    <hr />
+                    <Grid container spacing={2}>
+                        <Grid item xs={12} align="right" mr={"25%"} sx={{ alignItems: "flex-end" }}>
+                            <div className="student">
+                                <div style={{ marginTop: "7px" }}>
+                                    <Link to="/student-signIn">Do you have an account? Click here to sign in.</Link>
+                                </div>
+                            </div>
+                        </Grid>
+                    </Grid>
+                </Box>
+            </div>
+        </>
+    );
 }

@@ -129,7 +129,7 @@ import loginImage from "../../../../../src/images/im2.jpg";
             </div>
                   </form>
                 <div style={{textAlign:"center",marginTop:"10px"}}>
-                  <Link to="/student-register" >Don't you have an account? click here to sign up.</Link>
+                  <Link to="/student-signUp" >Don't you have an account? click here to sign up.</Link>
                 </div>
             </Grid>
           </Grid>
