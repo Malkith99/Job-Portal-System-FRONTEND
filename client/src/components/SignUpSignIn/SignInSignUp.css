@@ -1,0 +1,67 @@
+.main-head {
+    color: navy;
+    font-weight: 900;
+    text-align: left;
+    font-size: xx-large;
+  }
+  .loginN {
+    padding-top: 5rem;
+  
+    color: navy;
+    font-weight: 900;
+    text-align: left;
+    font-size: xx-large;
+  }
+  .loginbox-content {
+    padding-left: 50px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .input {
+    border-radius: 10px;
+  }
+  .student-button {
+    height: 45px;
+    border-radius: 10px;
+    border-color: rgb(7, 7, 73);
+    font-size: 22px;
+    margin-top: 30px;
+    font-weight: bolder;
+    color: rgb(7, 7, 73);
+    background: rgb(7, 7, 73);
+  }
+  
+  @media only screen and (max-width: 850px) {
+    .student-button {
+      font-size: 12px;
+    }
+  }
+  
+  .l {
+    height: 45px;
+    width: 35rem;
+    background-color: rgb(7, 7, 73);
+    border-radius: 10px;
+    border-color: rgb(7, 7, 73);
+    margin-top: 41px;
+    font-size: 22px;
+    font-weight: bolder;
+  }
+  
+  .student-button:active {
+    background-color: rgb(7, 7, 73);
+  }
+
+
+
+
+
+  
+
+  
+ 
