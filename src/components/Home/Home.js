@@ -106,8 +106,8 @@ function Home({ isLogedIn, onLogout }) {
       </div>
 
 */}
-        <div className="container">
-        <h1>Welcome to University of Ruhuna JOB Bank</h1>
+        <div className="container-middle">
+        <h1>Welcome! to University of Ruhuna JOB Bank</h1>
         <p>Find your dream job today!</p>
         {loggedIn ? (
             <p>Hi {user.firstName} {user.lastName}</p>
