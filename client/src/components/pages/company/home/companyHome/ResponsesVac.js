@@ -19,8 +19,8 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
 
 
 
-    const jobVUrl = `http://localhost:4000/api/vacancies/${user._id}`;
-    const rUrl = `http://localhost:4000/api/responses/${user._id}`;
+    const jobVUrl = URL +`/api/vacancies/${user._id}`;
+    const rUrl = URL +`/api/responses/${user._id}`;
 
     useEffect(() => {
         console.log(user);
@@ -45,7 +45,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
     }, []);
 
     const deleteVacancyResponce = (vacancyId) => {
-        const url = `http://localhost:4000/api/vacancies/${user._id}/${vacancyId}`;
+        const url = URL +`/api/vacancies/${user._id}/${vacancyId}`;
         axios.delete(url)
             .then(response => {
                 console.log('Vacancy deleted successfully');

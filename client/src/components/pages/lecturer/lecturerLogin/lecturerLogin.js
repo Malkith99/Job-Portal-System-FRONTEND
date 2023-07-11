@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 import axios from "axios";
+import {URL} from "../../../../env";
 
 function CompanyLogin() {
   const [loggedIn] = useState(!!localStorage.getItem("token"));
@@ -20,7 +21,7 @@ function CompanyLogin() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const url = "http://localhost:4000/api/auth";
+      const url = URL +"/api/auth";
       const { data: res } = await axios.post(url, data);
       setMsg(res.message);
 

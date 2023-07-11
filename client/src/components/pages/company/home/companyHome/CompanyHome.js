@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Element, Link as ScrollLink } from "react-scroll";
 import axios from "axios";
 import "./CompanyHome.css";
+import {URL} from "../../../../../env";
 
 
 function CompanyHome() {
@@ -13,7 +14,7 @@ function CompanyHome() {
     const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
     const deleteVacancy = (vacancyId) => {
-        const url = `http://localhost:4000/api/vacancies/${user._id}/${vacancyId}`;
+        const url = URL +`/api/vacancies/${user._id}/${vacancyId}`;
         axios
             .delete(url)
             .then((response) => {
@@ -36,8 +37,8 @@ function CompanyHome() {
         navigate(`/edit-vacancy/${vacancyId}`);
     };
 
-    const jobVacanciesUrl = `http://localhost:4000/api/vacancies/${user._id}`;
-    const responsesUrl = `http://localhost:4000/api/responses/${user._id}`;
+    const jobVacanciesUrl = URL +`/api/vacancies/${user._id}`;
+    const responsesUrl = URL +`/api/responses/${user._id}`;
 
     useEffect(() => {
         axios

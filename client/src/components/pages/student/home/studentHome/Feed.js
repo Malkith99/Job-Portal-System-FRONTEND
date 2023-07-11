@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Feed.css';
 import { useNavigate } from 'react-router-dom';
-
+import {URL} from "../../../../../env";
 export default function Feed() {
     const navigate = useNavigate();
     const [jobpool, setJobpool] = useState([]);
@@ -11,7 +11,7 @@ export default function Feed() {
     useEffect(() => {
         const fetchJobVacancies = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/vacancies');
+                const response = await axios.get(URL +'/api/vacancies');
                 setJobpool(response.data);
             } catch (error) {
                 console.error('Failed to fetch job vacancies:', error);
@@ -20,7 +20,7 @@ export default function Feed() {
 
         const fetchCompanies = async () => {
             try {
-                const response = await axios.get('http://localhost:4000/api/vacancies');
+                const response = await axios.get(URL +'/api/vacancies');
                 setCompanies(response.data);
             } catch (error) {
                 console.error('Failed to fetch companies:', error);

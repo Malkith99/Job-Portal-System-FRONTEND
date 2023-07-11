@@ -12,6 +12,7 @@ import Grid from "@mui/material/Grid";
 import MainHeader from "../../../mainHeader/mainHeader";
 import Footer from "../../../footer/footer";
 import axios from "axios";
+import {URL} from "../../../../env";
 
 
 styled(Paper)(({ theme }) => ({
@@ -46,7 +47,7 @@ export default function CompanySignup() {
         e.preventDefault();
 
         try {
-            const url = "http://localhost:4000/api/users";
+            const url = URL +"/api/users";
             const response = await axios.post(url, data);
             setMsg(response.data.message);
         } catch (error) {

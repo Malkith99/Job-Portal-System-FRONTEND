@@ -17,7 +17,7 @@ const VacancySection = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4000/api/studentVacancies/${vacancyId}`);
+        const response = await axios.get(URL +`/api/studentVacancies/${vacancyId}`);
         setVacancy(response.data.vacancy);
         setCompanyId(response.data.userId); // Set the companyId from the response
         setFile(response.data.vacancy.flyer);

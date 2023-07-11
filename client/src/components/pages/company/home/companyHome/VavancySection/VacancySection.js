@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import "./VacancySection.css";
-
+import {URL} from "../../../../../../env";
 
 function handleSave() {
 
@@ -56,7 +56,7 @@ const VacancySection = (props) => {
       formData.append('userId', user._id);
 
       console.log(formData.get('userId'));
-      const url = "http://localhost:4000/api/vacancies";
+      const url = URL +"/api/vacancies";
       await axios.post(url, formData, {
             headers: {
               'Content-Type': 'application/json',

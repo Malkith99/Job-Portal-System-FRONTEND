@@ -4,6 +4,7 @@ import Footer from '../../../footer/footer';
 import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
 import {Line} from "react-chartjs-2";
+import {URL} from "../../../../env";
 
 
 function AdminHome() {
@@ -27,7 +28,7 @@ function AdminHome() {
 
     const fetchUsers = async () => {
         try {
-            const response = await fetch('http://localhost:4000/api/users');
+            const response = await fetch(URL +'/api/users');
             const data = await response.json();
 
             if (response.ok) {

@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import loginImage from "../../../../../src/images/im1.jpg";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import {URL} from "../../../../env";
 function CompanySignIn() {
     const [loggedIn] = useState(!!localStorage.getItem("token"));
     const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
@@ -27,7 +28,7 @@ function CompanySignIn() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url = "http://localhost:4000/api/auth";
+            const url = URL +"/api/auth";
             const { data: res } = await axios.post(url, data);
             setMsg(res.message);
 

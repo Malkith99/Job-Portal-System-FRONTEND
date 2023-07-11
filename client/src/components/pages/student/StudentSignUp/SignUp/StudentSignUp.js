@@ -10,6 +10,7 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
+import {URL} from "../../../../../env";
 
 
 styled(Paper)(({ theme }) => ({
@@ -43,7 +44,7 @@ export default function StudentSignup() {
         e.preventDefault();
 
         try {
-            const url = "http://localhost:4000/api/users";
+            const url = URL +"/api/users";
             const response = await axios.post(url, data);
             setMsg(response.data.message);
             window.location = "/";

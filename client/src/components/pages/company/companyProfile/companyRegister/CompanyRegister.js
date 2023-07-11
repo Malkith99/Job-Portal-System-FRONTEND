@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./CompanyRegister.css";
+import {URL} from "../../../../../env";
 
 function CompanyRegister() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
@@ -52,7 +53,7 @@ function CompanyRegister() {
         userId: user._id,
       };
 
-      const url = "http://localhost:4000/api/users/";
+      const url = URL +"/api/users/";
       await axios.put(url, updatedUser);
 
       console.log("User StudentProfile successfully updated");
