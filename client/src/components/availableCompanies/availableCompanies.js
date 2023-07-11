@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./availabaleCompanies.css"
-import {URL} from "../../../env";
+import {URL} from "../../env";
 
 function AvailableCompanies() {
   const [users, setUsers] = useState([]);
