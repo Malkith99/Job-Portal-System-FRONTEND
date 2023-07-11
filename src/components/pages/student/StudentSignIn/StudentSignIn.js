@@ -1,35 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { toast } from "react-toastify";
-import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import axios from "axios";
-import { Modal} from 'react-bootstrap';
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
+import axios from "axios";
+import {URL} from "../../../../env";
 
-// Import your desired login image
-import loginImage from "../../../../../src/images/im6.jpg";
-
-  export default function StudentSignIn({ isLogedIn, onLogout }) {
-    const content = (
-      <>
-        <Link to="/student-home">Student Home</Link>
-        <Link to="/student-profile/"> Profile</Link>
-        
-      </>
-    
-    );
-    const [loggedIn] = useState(!!localStorage.getItem("token")); // The double exclamation marks are used to convert the value retrieved from localStorage into a boolean value.
-    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));//JSON.parse is a function that converts a JSON-formatted string into a JavaScript object.
-  
+function StudentSignIn() {
+    const [loggedIn] = useState(!!localStorage.getItem("token"));
+    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
 
     const [data, setData] = useState({ email: "", password: "" });
@@ -40,165 +18,124 @@ import loginImage from "../../../../../src/images/im6.jpg";
         setData({ ...data, [input.name]: input.value });
     };
 
-  const handleSubmit = async (event) => {
-      event.preventDefault();
-  
-      if (!data.email || !data.password) {
-        alert("Please fill all fields");
-        return;
-      }
-      try {
-        const url = "http://localhost:4000/api/auth";
-        const { data: res } = await axios.post(url, data);
-        setMsg(res.message);
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const url = URL +"/api/auth";
+            const { data: res } = await axios.post(url, data);
+            setMsg(res.message);
 
-        localStorage.setItem("token", res.data);
-        localStorage.setItem('user', JSON.stringify(res.user));
+            localStorage.setItem("token", res.data);
+            localStorage.setItem('user', JSON.stringify(res.user));
 
-        // Create admin token if the user is an admin
-        if (res.user.email === "admin@gmail.com") {
-            localStorage.setItem("adminToken", res.data);
-            console.log("Admin has been Log In");
+            // Create admin token if the user is an admin
+            if (res.user.email === "admin@gmail.com") {
+                localStorage.setItem("adminToken", res.data);
+                console.log("Admin has been Log In");
+            }
+
+            //check if user has carted
+            const user = JSON.parse(localStorage.getItem('user'));
+            console.log(user.firstName);
+            console.log(data);
+            console.log("User has been Log In");
+            console.log(`User ${data._id} has been login`);
+            window.location = "/";
+        } catch (error) {
+            if (
+                error.response &&
+                error.response.status >= 400 &&
+                error.response.status <= 500
+            ) {
+                setError(error.response.data.message);
+            }
         }
-
-        //check if user has carted
-        const user = JSON.parse(localStorage.getItem('user'));
-        console.log(user.firstName);
-        console.log(data);
-        console.log("User has been Log In");
-        console.log(`User ${data._id} has been login`);
-        window.location = "/";
-    } catch (error) {
-        if (
-            error.response &&
-            error.response.status >= 400 &&
-            error.response.status <= 500
-        ) {
-            setError(error.response.data.message);
-        }
-    }
-  
-    // const newStudent = {
-    //         email,
-    //         password,
-    //     };
-    //    axios.post("http://localhost:1234/student/login-student",newStudent ).then(res=>{
-    //     //console.log(res.data.data);
-    //     if(res.data.status==="ok"){
-    //       //const token=res.data.token;
-    //       const token=res.data.data;
-    //       window.localStorage.setItem("token",token);
-    //       //console.log(token);
-      
-    //       window.location.href = '/student-home';
-    //      // console.log(token);
-    //       /* setTimeout(() => {
-    //         setShow(true);
-    //         alert("Successfully Logged In");
-    //       }, 1000); */
-    //     }else{
-    //       window.alert(res.data.error);
-    //     }
-    //     //console.log(res.data);
-    //    // alert("Successfully Logged In");
-    //    // setAlertMessage(res.data.message);
-    //     //alert(res.data.message);
-    //    }).catch(error=>console.error('Error: ',error));
-
-
-    //    setEmail("");
-    //    setPassword("");
     };
+    axios.interceptors.request.use(
+        (config) => {
+            const token = localStorage.getItem("token");
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`;
+            }
+            return config;
+        },
+        (error) => {
+            return Promise.reject(error);
+        }
+    );
 
-  
+
+
+
     return (
-      <>
-      <div>
-      <MainHeader content=
+        <div className="page-container">
+            <MainHeader content=
                             {loggedIn ? (
                                 <>
                                     <Link to="/student-login">Student Login</Link>
                                     <Link to="/student-home">Welcome, {user.firstName} {user.lastName}!</Link>
                                 </>
                             ) : (
-                                <Link to="/student-login">Student Login</Link>
+                                <Link to="/company-login">Student Login</Link>
                             )}>
             </MainHeader>
-      </div>
-      <div className="container" style={{alignItems: "center"}}>
-        <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", height: "70vh",marginTop:"-80px" , marginBottom: "-120px" }}>
-          {/* <Card sx={{ maxWidth: 1000 ,height: "500px" , marginTop: "2px", marginBottom: "5px"}}> */}
-          <CardContent>
-              <Grid container spacing={2} direction="row" alignItems="center" >
-                <Grid item xs={5}>
-                  <div style={{width:"100%",padding: "0px", margin: "0 auto"}}>
-                  <img
-                    src={loginImage}
-                    alt="Login"
-                    className="l-photo"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                  </div>
-                </Grid>
-                <Grid item xs={6}>
-                  <Typography variant="h5" component="h2" style={{ fontWeight: "bold", textAlign: "center",marginLeft:"10px" }}>
-                    Log into your Account
-                  </Typography>
-                  <div className="card-body" style={{ marginTop: "10px", width: "70%", margin: "0 auto"}}>
-                  <form className="loginbox-content" onSubmit={handleSubmit}>
-                    <TextField
-                      label="Email"
-                      variant="outlined"
-                      type="email"
-                      name="email"
-                      value={data.email}
-                      onChange={handleChange}
-                      fullWidth
-                      margin="normal"
-                    />
-                    <TextField
-                      label="Password"
-                      variant="outlined"
-                      type="password"
-                      name="password"
-                      value={data.password}
-                      onChange={handleChange}
-                      fullWidth
-                      margin="normal"
-                    />
-                      {error && <div className="login_error_msg">{error}</div>}
+            <div className="container">
+                <div className="row justify-content-center">
+                    <div className="col-md-6">
+                        <div className="card-header text-center loginN">Login</div>
+                        <div className="card-body">
+                            <form className="loginbox-content" onSubmit={handleSubmit}>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="username" className="form-label">
+                                        <b style={{ fontSize: "20px" }}>Email:</b>
+                                    </label>
+                                    <input
+                                        className="form-control"
+                                        type="email"
+                                        placeholder="Email"
+                                        name="email"
+                                        onChange={handleChange}
+                                        value={data.email}
+                                        required
+                                    />
+                                </div>
+                                <div className="form-group mb-3">
+                                    <label htmlFor="password" className="form-label" style={{ fontSize: "20px" }}>
+                                        <b>Password:</b>
+                                    </label>
+                                    <input
+                                        className="form-control"
+                                        type="password"
+                                        placeholder="Password"
+                                        name="password"
+                                        onChange={handleChange}
+                                        value={data.password}
+                                        required
+                                    />
+                                </div>
+                                {error && <div className="login_error_msg">{error}</div>}
                                 {msg && <div className="login_success_msg">{msg}</div>}
+
                                 <div className="mb-3 form-check" style={{ marginLeft: "22px" }}>
                                     <input type="checkbox" className="form-check-input" id="exampleCheck1" />
                                     <label className="form-check-label" htmlFor="exampleCheck1">
                                         Remember username
                                     </label>
                                 </div>
-
-                    <div style={{ display: "flex", justifyContent: "center", marginTop: 16 }}>
-                      <Button variant="contained" color="primary" type="submit">
-                        LOGIN
-                </Button>
-                
-            </div>
-                  </form>
-                  </div>
-                <div style={{textAlign:"center",marginTop:"7px"}}>
-                  <Link to="/student-signUp" >Don't you have an account? click here to sign up.</Link>
+                                <button type="submit" className="btn btn-primary">
+                                    Login
+                                </button>
+                                <div style={{ marginTop: "7px" }}>
+                                    <Link to="/student-signUp">Don't have an account? Click here to sign up.</Link>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </Grid>
-          </Grid>
-            </CardContent>
-          {/* </Card> */}
-        </Box>
-      </div>
-      <div>
-        <Footer />
-      </div>
-      </>
+            </div>
+            <Footer />
+        </div>
     );
-  }
+}
+
+export default StudentSignIn;

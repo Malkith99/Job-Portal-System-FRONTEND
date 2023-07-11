@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# Full_Stack_UOR_JB
+# University of Ruhuna Job Bank
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the University of Ruhuna Job Bank project! This software project aims to create a job bank website that connects three primary user roles: companies, students, and lecturers. Companies will be able to post job opportunities, students can apply for those jobs, and lecturers can provide recommendations for students.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+1. **Company Portal**: Companies can create accounts and post job opportunities to the University of Ruhuna Job Bank. They can provide detailed job descriptions, required qualifications, application deadlines, and other relevant information.
 
-### `npm start`
+2. **Student Portal**: Students can create accounts, browse through available job opportunities, and apply for the ones that match their interests and qualifications. They can upload their resumes, cover letters, and other supporting documents.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. **Lecturer Portal**: Lecturers can access the system to review and provide recommendations for students who have applied for jobs. They can evaluate students based on their academic performance, skills, and other relevant criteria.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+4. **Search and Filtering**: The website will provide search and filtering functionalities to enable students to find jobs that align with their preferences. They can search by job title, industry, location, or any other relevant criteria.
 
-### `npm test`
+5. **Notifications and Reminders**: The system will send notifications and reminders to keep users informed about important updates, such as application deadlines, interview invitations, and recommendation requests.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+6. **User Profiles**: Each user will have a profile where they can manage their personal information, update their resumes, view their application history, and track the status of their applications.
 
-### `npm run build`
+7. **Admin Dashboard**: An admin dashboard will be available to manage the system, including user accounts, job postings, and overall system settings.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The University of Ruhuna Job Bank website will be built using the following technologies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Front-end**: HTML, CSS, JavaScript, and a modern front-end framework like React or Angular.
+- **Back-end**: A server-side programming language such as Python, Ruby, or Node.js, along with a web framework like Django, Ruby on Rails, or Express.js.
+- **Database**: A relational database management system (RDBMS) like MySQL, PostgresSQL, or SQLite to store user information, job details, and recommendations.
+- **Authentication and Authorization**: A secure authentication and authorization mechanism, such as JSON Web Tokens (JWT), to manage user login and access control.
+- **Version Control**: Git will be used for version control and collaboration among the development team.
+- **Deployment**: The website can be deployed on a cloud platform like AWS, Google Cloud, or Azure, or on a shared hosting provider.
 
-### `npm run eject`
+## Setup Instructions
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+To set up the University of Ruhuna Job Bank project locally, follow these steps:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Clone the project repository from GitHub: [repository URL].
+2. Install [programming language] and [database management system] if not already installed.
+3. Set up the database and configure the database connection in the project's configuration files.
+4. Install the required dependencies by running `npm install` or `pip install -r requirements.txt` (depending on the chosen back-end framework).
+5. Start the development server by running `npm start` or `python manage.py runserver`.
+6. Access the website through your browser at [localhost:3000] or [localhost:4000] (or the appropriate port configured).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Contributing
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Contributions to the University of Ruhuna Job Bank project are welcome! If you would like to contribute, please follow these steps:
 
-## Learn More
+1. Fork the project repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them with descriptive commit messages.
+4. Push your changes to your forked repository.
+5. Submit a pull request
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+with a detailed explanation of your changes.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Please ensure that your code follows the project's coding guidelines and passes any relevant tests before submitting a pull request.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The University of Ruhuna Job Bank project is licensed under the [MIT License](LICENSE). Feel free to use, modify, and distribute the code as per the terms of the license.
 
-### Analyzing the Bundle Size
+## Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If you have any questions or need assistance with the University of Ruhuna Job Bank project, please contact the development team . We appreciate your interest and support!

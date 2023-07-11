@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
 import CompanyHome from "./companyHome/CompanyHome";
-import CompanyHomePage from "./companyHome/CompanyHomePage";
+
 function CompanyMainHome({ isLogedIn, onLogout }) {
   const content = (
     <>

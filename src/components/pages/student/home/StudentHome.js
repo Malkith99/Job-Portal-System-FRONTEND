@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import MainHeader from '../../../mainHeader/mainHeader';
 import Footer from '../../../footer/footer';
-import Feeds from './studentHome/feeds';
 import './StudentHome.css';
 import stripImage from '../../../../images/im3.jpg';
 import SearchIcon from '@mui/icons-material/Search';
 import TextField from '@mui/material/TextField';
 import { IconButton } from '@mui/material';
-import Card from "../../student/home/studentHome/feed2";
-import feed2 from '../../student/home/studentHome/feed2';
+import Card from "../../student/home/studentHome/Feed";
+
 export default function StudentHome({ isLogedIn, onLogout }) {
   const [searchQuery, setSearchQuery] = useState('');
   const content = (

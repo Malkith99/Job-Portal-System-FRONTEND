@@ -11,73 +11,66 @@ import Typography from "@mui/material/Typography";
 import loginImage from "../../../../../src/images/im1.jpg";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
-export default function CompanyLogin() {
-  const [loggedIn] = useState(!!localStorage.getItem("token")); // The double exclamation marks are used to convert the value retrieved from localStorage into a boolean value.
-  const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}")); //JSON.parse is a function that converts a JSON-formatted string into a JavaScript object.
+import {URL} from "../../../../env";
+function CompanySignIn() {
+    const [loggedIn] = useState(!!localStorage.getItem("token"));
+    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
-  const content = (
-    <>
-      {/* <Link to="/">Home</Link> */}
-      <Link to="/">Home</Link>
-      <Link to="/company-login">Company Login</Link>
-      {/* <Link to="/company-HomePage">Company Home</Link> */}
-    </>
-  );
 
-  const [data, setData] = useState({ email: "", password: "" });
-  const [error, setError] = useState("");
-  const [msg, setMsg] = useState("");
+    const [data, setData] = useState({ email: "", password: "" });
+    const [error, setError] = useState("");
+    const [msg, setMsg] = useState("");
 
-  const handleChange = ({ currentTarget: input }) => {
-    setData({ ...data, [input.name]: input.value });
-  };
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const url = "http://localhost:4000/auth";
-      const { data: res } = await axios.post(url, data);
-      setMsg(res.message);
+    const handleChange = ({ currentTarget: input }) => {
+        setData({ ...data, [input.name]: input.value });
+    };
 
-      localStorage.setItem("token", res.data);
-      localStorage.setItem("user", JSON.stringify(res.user));
-      //convert the res.user object into a JSON-formatted string.
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const url = URL +"/api/auth";
+            const { data: res } = await axios.post(url, data);
+            setMsg(res.message);
 
-      // Create admin token if the user is an admin
-      if (res.user.email === "admin@gmail.com") {
-        localStorage.setItem("adminToken", res.data);
-        console.log("Admin has been Log In");
-      }
+            localStorage.setItem("token", res.data);
+            localStorage.setItem('user', JSON.stringify(res.user));
 
-      //check if user has carted
-      // const user = JSON.parse(localStorage.getItem('user'));
-      console.log(user.firstName);
-      console.log(data);
-      console.log("User has been Log In");
-      console.log(`User ${data._id} has been login`);
-      window.location = "/company-HomePage";
-      window.location.href = "/company-HomePage";
-    } catch (error) {
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status <= 500
-      ) {
-        setError(error.response.data.message);
-      }
-    }
-  };
-  axios.interceptors.request.use(
-    (config) => {
-      const token = localStorage.getItem("token");
-      if (token) {
-        config.headers.Authorization = `Bearer ${token}`;
-      }
-      return config;
-    },
-    (error) => {
-      return Promise.reject(error);
-    }
-  );
+            // Create admin token if the user is an admin
+            if (res.user.email === "admin@gmail.com") {
+                localStorage.setItem("adminToken", res.data);
+                console.log("Admin has been Log In");
+            }
+
+            //check if user has carted
+            const user = JSON.parse(localStorage.getItem('user'));
+            console.log(user.firstName);
+            console.log(data);
+            console.log("User has been Log In");
+            console.log(`User ${data._id} has been login`);
+            window.location = "/";
+        } catch (error) {
+            if (
+                error.response &&
+                error.response.status >= 400 &&
+                error.response.status <= 500
+            ) {
+                setError(error.response.data.message);
+            }
+        }
+    };
+    axios.interceptors.request.use(
+        (config) => {
+            const token = localStorage.getItem("token");
+            if (token) {
+                config.headers.Authorization = `Bearer ${token}`;
+            }
+            return config;
+        },
+        (error) => {
+            return Promise.reject(error);
+        }
+    );
+
   return (
     <div className="page-container" >
       <MainHeader
@@ -98,7 +91,7 @@ export default function CompanyLogin() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "100vh",
+            height: "150vh",
             marginTop: "-200px",
             marginBottom: "-250px",
           }}
@@ -112,7 +105,7 @@ export default function CompanyLogin() {
             }}
           > */}
             <CardContent>
-              <Grid container spacing={2} direction="row" alignItems="center">
+              <Grid container spacing={3} direction="row" alignItems="center">
                 <Grid item xs={6}>
                   <img
                     src={loginImage}
@@ -205,3 +198,4 @@ export default function CompanyLogin() {
     </div>
   );
 }
+export default CompanySignIn;

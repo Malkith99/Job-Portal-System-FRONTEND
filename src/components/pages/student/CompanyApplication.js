@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import MainHeader from '../../mainHeader/mainHeader'
 import Footer from '../../footer/footer'
-import CompanyProfile from '../company/companyProfile/companyProfile/CompanyProfile'
+import CompanyProfile from '../company/companyProfile/companyRegister/CompanyRegister'
 import { Button } from 'react-bootstrap'
 import { Label } from '@mui/icons-material'
 import {Link} from 'react-router-dom'

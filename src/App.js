@@ -1,9 +1,5 @@
-
 import './App.css';
-//import CounterCalss from './components/CounterClass';
-//import CounterFunction from './components/CounterFunction';
-import Header from './components/Header';                        //import header file from the components
-import AddStudent from './components/AddStudent';
+
 import {BrowserRouter , Route, Routes } from "react-router-dom"
 import AllStudents from './components/AllStudent';
 import Home from './components/Home/Home';
@@ -13,11 +9,14 @@ import StudentSignIn from './components/pages/student/StudentSignIn/StudentSignI
 import StudentHome from './components/pages/student/home/StudentHome';
 import StudentSignUpPage from './components/pages/student/StudentSignUp/StudentSignUpPage';
 import StudentAppliation from './components/pages/student/MyApplications/MyApplications';
+import CompanyVacancyViewStudent from './components/pages/student/home/studentHome/CompanyJobView/CompanyJobView';
+
+
 
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
-import CompanyProfile from './components/pages/company/companyProfile/companyProfile/CompanyProfile';
+import CompanyProfile from './components/pages/company/companyProfile/CompanyRegisterMain';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
 
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
@@ -42,6 +41,8 @@ import AdminHome from './components/pages/Admin/AdminHome/adminHome';
 import CompanyApplication from './components/pages/student/CompanyApplication';
 import StudentApplicationForStudent from './components/pages/studentApplication/StudentApplicationForStudent';
 import StudentJobApplication from './components/pages/studentApplication/StudentJobApplication';
+import AllSignIn from './components/SignUpSignIn/AllSignIn';
+import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
 
 function App() {
 /*    const [isLogedIn, setIsLogedIn] = useState(true);
@@ -63,29 +64,29 @@ function App() {
           <Route path="/student-profile" element={<Profile/> }> </Route>
           <Route path="/student-home" element={<StudentHome/> }> </Route>
           <Route path="/student-applications" element={<StudentAppliation/> }> </Route>
+            <Route path="/company-vacancy-view-student/:vacancyId" element={<CompanyVacancyViewStudent/>}></Route>
 
 
           <Route path="/company-signup" element={<CompanySignUp/> }> </Route>
           <Route path="/company-signin" element={<CompanySignIn/> }> </Route>
-          {/* <Route path="/company-HomePage" element={<CompanyHome/> }> </Route> */}
+          { <Route path="/company-home" element={<CompanyHome/> }> </Route> }
           <Route path="/company-profile" element={<CompanyProfile/> }> </Route>
           <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
             <Route path="/company-login" element={<CompanyLogin/>}></Route>
-
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
           <Route path="/profileImage" element={<ProfileImage/> }> </Route>
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
-          <Route path="/admin" element={<AdminHome/>}></Route>
+          <Route path="/adminHome" element={<AdminHome/>}></Route>
 
           <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
           <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
-          <Route path="lecturer-signUp" element={<LecturerSignUp/>}></Route>
-          <Route path="lecturer-signIn" element={<LecturerLogin/>}></Route>
-          <Route path="lecturer-home" element={<LectureMainHome/>}></Route>
+          <Route path="/lecturer-signUp" element={<LecturerSignUp/>}></Route>
+          <Route path="/lecturer-signIn" element={<LecturerLogin/>}></Route>
+          <Route path="/lecturer-home" element={<LectureMainHome/>}></Route>
 
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
-          <Route path ="/" element={<AllStudents/>}></Route>      {/*normaly the home page featers at the end*/}
-          <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
+          <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
+          <Route path='/lecturer-profile' element={<LecturerDetails/>}></Route>
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
           <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
 
@@ -96,21 +97,23 @@ function App() {
           <Route path='/Company-details(application)' element={<CompanyApplication/>}></Route>
           <Route path='/student-application-for-student' element={<StudentApplicationForStudent/>}></Route>
           <Route path='/job-application/:id' element={<StudentJobApplication/>}></Route>
+            <Route path="/home" element={<SignInSignUp/>}></Route>
+            <Route path="/all-sign-in" element={<AllSignIn/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>
    /*<div className="App">
       <h1>Hello React</h1>
-      <CounterCalss/>      /* calling the counter class  */ 
-      /*<hr></hr> 
-      <CounterFunction/>              
+      <CounterCalss/>      /* calling the counter class  */
+      /*<hr></hr>
+      <CounterFunction/>
   </div> */
       /*<div>
       <Header/>
       <AddStudent/>
       </div>*/
 
-  
+
   );
 }
 

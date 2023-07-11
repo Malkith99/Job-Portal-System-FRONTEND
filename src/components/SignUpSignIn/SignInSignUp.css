@@ -12,15 +12,6 @@
     text-align: left;
     font-size: xx-large;
   }
-  .sign {
-    margin-top: 35px;
-  
-    color: navy;
-    font-weight: 900;
-    text-align: left;
-    font-size: xx-large;
-  }
-  
   .loginbox-content {
     padding-left: 50px;
   }
@@ -47,16 +38,9 @@
   
   @media only screen and (max-width: 850px) {
     .student-button {
-      font-size: 20px;
+      font-size: 12px;
     }
   }
-  
-  @media only screen and (max-width: 280px) {
-    .student-button {
-      font-size: 20px;
-    }
-  }
- 
   
   .l {
     height: 45px;
@@ -72,6 +56,11 @@
   .student-button:active {
     background-color: rgb(7, 7, 73);
   }
+
+
+
+
+
   
 
   
