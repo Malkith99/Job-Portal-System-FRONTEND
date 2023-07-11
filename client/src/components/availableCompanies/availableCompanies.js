@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./availabaleCompanies.css"
+import {URL} from "../../../env";
 
 function AvailableCompanies() {
   const [users, setUsers] = useState([]);
@@ -10,7 +11,7 @@ function AvailableCompanies() {
 
   const fetchUsers = async () => {
     try {
-      const response = await fetch("http://localhost:4000/api/users");
+      const response = await fetch(URL +"/api/users");
       const data = await response.json();
 
       if (response.ok) {

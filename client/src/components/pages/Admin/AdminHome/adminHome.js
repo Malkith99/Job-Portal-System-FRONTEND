@@ -3,19 +3,22 @@ import MainHeader from '../../../mainHeader/mainHeader';
 import Footer from '../../../footer/footer';
 import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
-import {Bar} from "react-chartjs-2";
+import {Line} from "react-chartjs-2";
 
 
 function AdminHome() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [selectedRole, setSelectedRole] = useState('');
-
+    const [showGraph, setShowGraph] = useState(false);
 
     useEffect(() => {
         fetchUsers().then(() => {});
         handleRoleFilter('');
 
+        setTimeout(() => {
+            setShowGraph(true);
+        }, 3000); // Display the graph after 3 seconds
     }, []);
 
     useEffect(() => {
@@ -75,21 +78,19 @@ function AdminHome() {
     // Generate data for the chart based on filtered users
     const generateChartData = () => {
         const roles = ['admin', 'lecturer', 'company', 'student'];
-        return {
+        const chartData = {
             labels: roles,
             datasets: [
                 {
-                    label: 'Users by Role',
-                    backgroundColor: 'rgba(75,192,192,0.2)',
-                    borderColor: 'rgba(75,192,192,1)',
-                    borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(75,192,192,0.4)',
-                    hoverBorderColor: 'rgba(75,192,192,1)',
                     data: roles.map((role) => filteredUsers.filter((user) => user.role === role).length),
                 },
             ],
         };
+        console.log(chartData); // Display chartData in the console
+        return chartData;
     };
+
+    const chartData = generateChartData();
 
 
 
@@ -186,32 +187,20 @@ function AdminHome() {
                 </div>
             </div>
             {/*
-            //graph error give white error message
+            <div style={{ width: '800px', height: '400px' }}>
+                {showGraph ? (
+                    filteredUsers.length > 0 ? (
 
-            <div style={{ width: '500px', height: '400px' }}>
-                <Bar
-                    data={generateChartData()}
-                    options={{
-                        maintainAspectRatio: false,
-                        scales: {
-                            y: {
-                                beginAtZero: true,
-                                ticks: {
-                                    precision: 0,
-                                },
-                            },
-                        },
-                        plugins: {
-                            legend: {
-                                display: true,
-                                position: 'bottom',
-                            },
-                        },
-                    }}
-                />
+                        <Line data={chartData} />
+
+                    ) : (
+                        <p>No data available for the graph.</p>
+                    )
+                ) : (
+                    <p>Total Users: {filteredUsers.length}</p>
+                )}
             </div>
 */}
-
             <Footer />
         </>
     );
