@@ -19,7 +19,8 @@ const connectionParams = {
 };
 
 try {
-    mongoose.connect(process.env.DB, connectionParams);
+    mongoose.connect("mongodb+srv://malkithamanda:99Mathematics@cluster0.qvv4jwk.mongodb.net/jobBank_db?retryWrites=true&w=majority"
+        , connectionParams);
     console.log("Connected to the database successfully");
 } catch (error) {
     console.log(error);
