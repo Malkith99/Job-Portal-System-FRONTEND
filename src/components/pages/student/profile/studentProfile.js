@@ -6,7 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import Popup from "../../../popup/popup";
 import Button from "@mui/material/Button";
-import ProfileImage from "../profileImage/profileImage";
+import ProfileImage from "./ProfilePopup";
 import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";
@@ -14,9 +14,10 @@ import ExtraC_popup from "./Extracuricular_popup";
 
 
 export default function Profile() {
-  const [file, setFile] = useState(
-    "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  );
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+
+  const [file, setFile] = useState("");
   const [token, setToken] = useState("");
   const [studentData, setData] = useState("");
   const [firstName, setFName] = useState("");
@@ -42,6 +43,9 @@ export default function Profile() {
 
   const [openExtraPopup, setOpenExtraPopup] = useState(false);
 
+
+
+
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -51,92 +55,85 @@ export default function Profile() {
     setDisabled(false);
   }
 
-  function handleSave() {
-    
-    setDisabled(true);
-    sendData();
+  useEffect(() => {
+    // This function will be called whenever any of the input fields change
+    handleSave().then(() => {});
+  }, [file, firstName, middleName, lastName, indexNumber]);
+
+
+  async function handleSave() {
+    try {
+      const updatedUser = {
+        profilePhoto:file,
+        firstName,
+        middleName,
+        lastName,
+        indexNumber,
+        DOB,
+        gender,
+        userId: user._id,
+      };
+
+      const url = "http://localhost:4000/api/users/";
+      await axios.put(url, updatedUser);
+
+      console.log("User StudentProfile successfully updated");
+      alert("User StudentProfile successfully updated");
+    } catch (error) {
+      console.error(error);
+    }
   }
 
-  function sendData() {
-    // function that execute when pressing submit button"
-    const newStudent = {
-      firstName,
-      middleName,
-      lastName,
-      indexNumber,
-      DOB,
-      gender,
-      phoneNumber1,
-      phoneNumber2,
-      references,
-      faculty,
-      field,
-      subSpeciality,
-      projects,
-      DOG,
-      eActivities,
-    };
-    // Connection of backend and frontend using axios //
-    axios
-      .put(
-        "http://localhost:1234/student/update/" + studentData?._id,
-        newStudent
-      )
-      .then((res) => {
-        console.log(res.data);
-        alert("Updated Successfully!");
-      })
-      .catch((error) => console.error("Error: ", error));
-  }
+
 
   useEffect(() => {
-    const fetchData = async () => {
-      const token = await window.localStorage.getItem("token");
-      axios
-        .post(
-          "http://localhost:1234/student/studentData",
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((res) => {
-          if (res.data.status == "ok") {
-            setData(res.data.data);
-            console.log(res.data.data.firstName);
+    if (user._id) {
+      fetchUserData().then(() => {});
+    }
+  }, [user._id]);
 
-            setFName(res.data.data.firstName);
-            setMName(res.data.data.middleName);
-            setLName(res.data.data.lastName);
-            setIndex(res.data.data.indexNumber);
-            setDOB(res.data.data.DOB);
-            setDOG(res.data.data.DOG);
-            setGender(res.data.data.gender);
-            setPNumber1(res.data.data.phoneNumber1);
-            setReferences(res.data.data.references);
-            setFaculty(res.data.data.faculty);
-            setField(res.data.data.field);
-            setSpeciality(res.data.data.subSpeciality);
-            setProjects(res.data.data.projects);
-            setEActivities(res.data.data.EActivities);
-            setProfileImage(res.data.data.profileImage);
-          } else {
-            window.alert(res.data.error);
-          }
-        })
-        .catch((error) => console.error("Error: ", error));
-    };
-    fetchData();
-  }, []);
+  const fetchUserData = async () => {
+    try {
+      const userId = user._id;
+      const url = `http://localhost:4000/api/users/${userId}`;
+      const response = await axios.get(url);
+      const userData = response.data.user;
+      setUser(userData);
+      console.log(userData);
+      setData(response.data.data);
+      setFile(userData.profilePhoto);
+      setFName(userData.firstName);
+      setMName(userData.middleName);
+      setLName(userData.lastName);
+      setIndex(userData.indexNumber);
+      setDOB(userData.DOB);
+      setDOG(userData.DOG);
+      setGender(userData.gender);
+      setPNumber1(userData.phoneNumber1);
+      setReferences(userData.references);
+      setFaculty(userData.faculty);
+      setField(userData.field);
+      setSpeciality(userData.subSpeciality);
+      setProjects(userData.projects);
+      setEActivities(userData.EActivities);
+      setProfileImage(userData.profileImage);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+
+  const handleData = (data) => {
+    setFile(data);
+  };
+
 
   return (
     <div className="container progress-div"
       style={{ marginTop: "1px", padding: "50px" }}
     >
       <form action="/student-home">
-        <h4 className="sub-headings">Personal info: </h4>
+        <h4 className="sub-headings">Personal info: </h4>S
         <div className="flex-container1">
           <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" }}>
             <img className="profile-photo" src={file} alt="Profile Photo" />
@@ -150,9 +147,9 @@ export default function Profile() {
                   title="Edit Profile Photo"
                   openPopup={openProfilePopup}
                   setOpenPopup={setOpenProfilePopup}
-                 
+
             >
-                  <ProfileImage />
+                  <ProfileImage sendData={handleData} />
                 </Popup>
               )}
               </label>
@@ -381,7 +378,7 @@ export default function Profile() {
               <div className="sub-flex-item2"></div>
             </div>
           </div>
-          
+
         </div>
         <button
         type="button"
@@ -399,7 +396,7 @@ export default function Profile() {
         >
           <PersonalInfo />
         </Popup>
-      
+
                   )}
 
         <h4 className="sub-headings">Academic Details: </h4>
@@ -579,7 +576,7 @@ export default function Profile() {
         </Popup>
 
                   )}
-          
+
         <h4 className="sub-headings">Extracurricular Activities: </h4>
         <div className="">
           <div className="flex-container2">
@@ -621,7 +618,7 @@ export default function Profile() {
                 </div> */}
           </div>
         </div>
-            
+
 </div>
           <button
         type="button"
@@ -640,11 +637,11 @@ export default function Profile() {
         >
           <ExtraC_popup/>
         </Popup>
-      
+
                   )}
-       
+
     </form>
     </div>
-    
+
   );
 };

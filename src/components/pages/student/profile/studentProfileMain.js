@@ -6,9 +6,7 @@ import { Link } from "react-router-dom";
 
 
 export default function StudentProfile({ isLogedIn, onLogout }) {
-  const [searchQuery, setSearchQuery] = React.useState("");
-
-  const content = (
+    const content = (
     <>
       <Link to="/student-home">Student Home</Link>
       <Link to="/student-applications">My Applications</Link>

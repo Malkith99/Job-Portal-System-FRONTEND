@@ -23,7 +23,7 @@ import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
 
 
 import AllResponses from './components/pages/company/studentResponces/allResponces'; 
-import ProfileImage from './components/pages/student/profileImage/profileImageMain';
+
 
 
 import LecturerSignUp from './components/pages/lecturer/lecturerSignup/lecturerSignup';
@@ -74,7 +74,7 @@ function App() {
           <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
             <Route path="/company-login" element={<CompanyLogin/>}></Route>
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
-          <Route path="/profileImage" element={<ProfileImage/> }> </Route>
+
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
           <Route path="/adminHome" element={<AdminHome/>}></Route>
 
