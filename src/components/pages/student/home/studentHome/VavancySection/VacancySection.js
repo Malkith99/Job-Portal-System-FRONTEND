@@ -4,7 +4,7 @@ import "./VacancySection.css";
 import { useParams } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import {URL} from "../../../../../../env";
 const VacancySection = () => {
   const [file, setFile] = useState("");
   const [vacancy, setVacancy] = useState(null);

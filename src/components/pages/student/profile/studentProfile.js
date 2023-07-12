@@ -12,7 +12,7 @@ import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";
 import ExtraC_popup from "./Extracuricular_popup";
 
-
+import {URL} from "../../../../env";
 export default function Profile() {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
@@ -74,7 +74,7 @@ export default function Profile() {
         userId: user._id,
       };
 
-      const url = "http://localhost:4000/api/users/";
+      const url = URL +"/api/users/";
       await axios.put(url, updatedUser);
 
       console.log("User StudentProfile successfully updated");
@@ -95,7 +95,7 @@ export default function Profile() {
   const fetchUserData = async () => {
     try {
       const userId = user._id;
-      const url = `http://localhost:4000/api/users/${userId}`;
+      const url = URL +`/api/users/${userId}`;
       const response = await axios.get(url);
       const userData = response.data.user;
       setUser(userData);
