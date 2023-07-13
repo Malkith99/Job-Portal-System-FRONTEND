@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default function PersonalInfo() {
+export default function PersonalInfo(props) {
+  const {middleName, lastName, indexNumber } = props;
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+
+  const [firstName, setFirstName] = useState(""||user.firstName)
+
+
   function handleSave(event) {
-    // event.preventDefault(); 
+     event.preventDefault();
   }
 
   return (
@@ -18,6 +24,8 @@ export default function PersonalInfo() {
               className="form-control"
               placeholder="First Name"
               required
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
             ></input>
           </div>
           <div className="text-center">
@@ -32,6 +40,7 @@ export default function PersonalInfo() {
               type="text"
               className="form-control"
               placeholder="Middle Name"
+              value={middleName}
             ></input>
           </div>
           <div className="text-center">
@@ -45,6 +54,7 @@ export default function PersonalInfo() {
               className="form-control"
               placeholder="Last Name"
               required
+              value={lastName}
             ></input>
           </div>
           <div className="text-center">
@@ -67,6 +77,7 @@ export default function PersonalInfo() {
               className="form-control"
               placeholder="Index Number"
               required
+              value={indexNumber}
             ></input>
           </div>
         </div>
