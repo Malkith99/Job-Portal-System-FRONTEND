@@ -64,7 +64,7 @@ export default function Profile() {
   async function handleSave() {
     try {
       const updatedUser = {
-        profilePhoto:file,
+        profilePhoto: file,
         firstName,
         middleName,
         lastName,
@@ -72,17 +72,24 @@ export default function Profile() {
         DOB,
         gender,
         userId: user._id,
+        token: user.token, // Include the user token in the updatedUser object
       };
 
-      const url = URL +"/api/users/";
+      const url = URL + "/api/users/";
       await axios.put(url, updatedUser);
 
+      // Update the user token in localStorage
+      const updatedUserLocal = { ...user, token: user.token }; // Include the updated token
+      localStorage.setItem('user', JSON.stringify(updatedUserLocal));
+
       console.log("User StudentProfile successfully updated");
-      alert("User StudentProfile successfully updated");
+      //alert("User StudentProfile successfully updated");
     } catch (error) {
       console.error(error);
     }
   }
+
+
 
 
 
@@ -133,7 +140,7 @@ export default function Profile() {
       style={{ marginTop: "1px", padding: "50px" }}
     >
       <form action="/student-home">
-        <h4 className="sub-headings">Personal info: </h4>S
+        <h4 className="sub-headings">Personal info: </h4>
         <div className="flex-container1">
           <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" }}>
             <img className="profile-photo" src={file} alt="Profile Photo" />
@@ -146,9 +153,7 @@ export default function Profile() {
                 <Popup
                   title="Edit Profile Photo"
                   openPopup={openProfilePopup}
-                  setOpenPopup={setOpenProfilePopup}
-
-            >
+                  setOpenPopup={setOpenProfilePopup}>
                   <ProfileImage sendData={handleData} />
                 </Popup>
               )}
