@@ -77,6 +77,10 @@ function CompanyHome() {
     return (
 
         <>
+
+
+
+
 //table plotting
             <table style={{ borderCollapse: 'collapse', width: '100%' }}>
                 <thead>
@@ -326,6 +330,7 @@ function CompanyHome() {
                     ))}
 
                 </div>
+
             </Element>
         </div>
         </>

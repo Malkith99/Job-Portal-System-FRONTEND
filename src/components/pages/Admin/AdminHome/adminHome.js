@@ -3,28 +3,21 @@ import MainHeader from '../../../mainHeader/mainHeader';
 import Footer from '../../../footer/footer';
 import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
-import {Line} from "react-chartjs-2";
+import {Bar} from 'recharts';
 import {URL} from "../../../../env";
-
 
 function AdminHome() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [selectedRole, setSelectedRole] = useState('');
-    const [showGraph, setShowGraph] = useState(false);
+    const [chartData, setChartData] = useState({});
 
     useEffect(() => {
         fetchUsers().then(() => {});
         handleRoleFilter('');
 
-        setTimeout(() => {
-            setShowGraph(true);
-        }, 3000); // Display the graph after 3 seconds
     }, []);
 
-    useEffect(() => {
-
-    }, [filteredUsers]);
 
     const fetchUsers = async () => {
         try {
@@ -46,11 +39,15 @@ function AdminHome() {
         setSelectedRole(role);
         if (role === '') {
             setFilteredUsers(users); // Set filteredUsers to all users
+            createChartData(users); // Generate chart data for all users
         } else {
             const filtered = users.filter((user) => user.role === role);
             setFilteredUsers(filtered);
+            createChartData(filtered); // Generate chart data for filtered users
         }
     };
+
+
 
     const handleEdit = (userId) => {
         // Implement the edit functionality
@@ -77,23 +74,25 @@ function AdminHome() {
 
 
     // Generate data for the chart based on filtered users
-    const generateChartData = () => {
-        const roles = ['admin', 'lecturer', 'company', 'student'];
-        const chartData = {
+    const createChartData = (usersData) => {
+        const roles = ['admin', 'company', 'student', 'lecturer']; // Define the roles
+
+        const data = roles.map((role) => {
+            return usersData.filter((user) => user.role === role).length;
+        });
+
+        setChartData({
             labels: roles,
             datasets: [
                 {
-                    data: roles.map((role) => filteredUsers.filter((user) => user.role === role).length),
+                    label: 'User Role',
+                    data: data,
+                    backgroundColor: 'rgba(75, 192, 192, 0.6)', // Customize the background color
                 },
             ],
-        };
-        console.log(chartData); // Display chartData in the console
-        return chartData;
+        });
+        console.log(data);
     };
-
-    const chartData = generateChartData();
-
-
 
 
 
@@ -188,20 +187,27 @@ function AdminHome() {
                 </div>
             </div>
             {/*
-            <div style={{ width: '800px', height: '400px' }}>
-                {showGraph ? (
-                    filteredUsers.length > 0 ? (
 
-                        <Line data={chartData} />
-
-                    ) : (
-                        <p>No data available for the graph.</p>
-                    )
+            <div>
+                <h2>User Graph</h2>
+                {chartData.labels && chartData.datasets ? (
+                    <Bar
+                        data={chartData}
+                        options={{
+                            responsive: true,
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                },
+                            },
+                        }}
+                    />
                 ) : (
-                    <p>Total Users: {filteredUsers.length}</p>
+                    <p>No data available for the graph</p>
                 )}
             </div>
 */}
+
             <Footer />
         </>
     );

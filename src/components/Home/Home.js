@@ -43,6 +43,7 @@ function Home({ isLogedIn, onLogout }) {
   return (
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+
       <div className="container">
         <h2
           style={{

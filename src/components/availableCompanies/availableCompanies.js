@@ -1,31 +1,44 @@
 import React, { useState, useEffect } from "react";
 import "./availabaleCompanies.css"
 import {URL} from "../../env";
+import {toast} from "react-toastify";
 
 function AvailableCompanies() {
   const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
+
+
   useEffect(() => {
-    fetchUsers().then(() => {});
+    const fetchData = async () => {
+      try {
+        const response = await fetch(URL + "/api/users");
+        const data = await response.json();
+
+        if (response.ok) {
+          setUsers(data.users);
+          toast.success("Server is running");
+          const filteredCompanies = data.users.filter((user) => user.role === "company");
+          setFilteredUsers(filteredCompanies);
+        } else {
+          console.log(data.message);
+        }
+      } catch (error) {
+        console.error(`Error retrieving users: ${error.message}`);
+        toast.error("Server is not running");
+      }
+    };
+
+    const initialTimer = setTimeout(() => {
+      fetchData().then(r => {});
+    }, 1000); // Initial delay of 1 second
+
+    return () => {
+      clearTimeout(initialTimer);
+    };
   }, []);
 
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch(URL +"/api/users");
-      const data = await response.json();
 
-      if (response.ok) {
-        setUsers(data.users);
 
-        const filteredCompanies = data.users.filter((user) => user.role === "company");
-        setFilteredUsers(filteredCompanies);
-      } else {
-        console.log(data.message);
-      }
-    } catch (error) {
-      console.error(`Error retrieving users: ${error.message}`);
-    }
-  };
 
   return (
       <>
