@@ -47,6 +47,7 @@ function AvailableCompanies() {
 
 
 
+
   return (
       <>
         <div id="frontpage-course-list">

@@ -35,7 +35,7 @@ function Home({ isLogedIn, onLogout }) {
                 ) : null
             ) : (
                 <div className="Main-page-moving-letters">
-                    welcome to UOR JOB Bank
+                    WELCOME TO UOR JOB PORTAL SYSTEM
                 </div>
             )}
         </>
