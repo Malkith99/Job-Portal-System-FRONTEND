@@ -6,7 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import Popup from "../../../popup/popup";
 import Button from "@mui/material/Button";
-import ProfileImage from "./ProfilePopup";
+import ProfileImage from "./ProfileImagePopup"; //this is working and connected, upload image and check
 import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {toast} from "react-toastify";
 
 function ProfilePic(props) {
     const [file, setFile] = useState("");
@@ -14,7 +15,8 @@ function ProfilePic(props) {
 
     function handleSave() {
         props.sendData(file);
-        alert("Save successful. Please close the window manually.");
+        //alert("Save successful. Please close the window manually.");
+        toast.info("Save successful. Please close the window manually.");
     }
 
     function handleFileChange(e) {
