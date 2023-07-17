@@ -6,6 +6,7 @@ import axios from "axios";
 import allSignInPageImage from "../../images/im6.jpg";
 import "./AllSignin.css";
 import {URL} from "../../env";
+import {toast} from "react-toastify";
 function CompanyLogin() {
     const [loggedIn] = useState(!!localStorage.getItem("token"));
     const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
@@ -33,9 +34,12 @@ function CompanyLogin() {
             if (res.user.email === "admin@gmail.com") {
                 localStorage.setItem("adminToken", res.data);
                 console.log("Admin has been Log In");
+                toast.info("Admin has been Log In");
                 window.location = "/adminHome";
             }
-
+            else{
+                window.location = "/";
+            }
             //check if user has carted
             const user = JSON.parse(localStorage.getItem("user"));
             console.log(user.firstName);
@@ -43,7 +47,7 @@ function CompanyLogin() {
             console.log("User has been Log In");
             console.log(`User ${data._id} has been login`);
             setShowPopup(true);
-            window.location = "/";
+
         } catch (error) {
             if (
                 error.response &&
@@ -52,6 +56,7 @@ function CompanyLogin() {
             ) {
                 setError(error.response.data.message);
             }
+            toast.error("Server Down");
         }
     };
 
