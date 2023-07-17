@@ -60,7 +60,7 @@ function Home({ isLogedIn, onLogout }) {
       </div>
 
 
-        {/*
+
 
       <div className="container mt-2">
         <div className="d-flex flex-lg-row flex-column">
@@ -106,7 +106,7 @@ function Home({ isLogedIn, onLogout }) {
         </div>
       </div>
 
-*/}
+        {/*
         <div className="container-middle">
         <h1>Welcome! to University of Ruhuna JOB Bank</h1>
         <p>Find your dream job today!</p>
@@ -119,7 +119,7 @@ function Home({ isLogedIn, onLogout }) {
         )}
 
         </div>
-
+*/}
       <div className="container">
           <AvailableCompanies/>
       </div>
