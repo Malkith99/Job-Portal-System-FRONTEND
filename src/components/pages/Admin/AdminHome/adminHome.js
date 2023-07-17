@@ -3,7 +3,7 @@ import MainHeader from '../../../mainHeader/mainHeader';
 import Footer from '../../../footer/footer';
 import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
-import {Bar} from 'recharts';
+//import {Bar} from 'recharts';
 import {URL} from "../../../../env";
 
 function AdminHome() {
