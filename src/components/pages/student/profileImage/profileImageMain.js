@@ -1,11 +1,11 @@
 import * as React from "react";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
-import  Profile from "./studentProfile";
+import  ProfileImage from "./profileImage";
 import { Link } from "react-router-dom";
 
 
-export default function StudentProfile({ isLogedIn, onLogout }) {
+export default function StudentProfileImage({ isLogedIn, onLogout }) {
   const [searchQuery, setSearchQuery] = React.useState("");
 
   const content = (
@@ -28,7 +28,7 @@ export default function StudentProfile({ isLogedIn, onLogout }) {
       <div style={{ display: "flex"}}>
         
           <div style={{ borderBottomWidth: 10 }} />
-          <Profile disabled={true} data ={null}/>
+          <ProfileImage/>
           <div style={{ borderLeftWidth: 10,borderTop:2000 }} />
         </div> 
         <Footer />
