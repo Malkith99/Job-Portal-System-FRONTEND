@@ -6,7 +6,7 @@ import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import Popup from "../../../popup/popup";
 import Button from "@mui/material/Button";
-import ProfileImage from "../profileImage/profileImage";
+import ProfileImage from "./ProfilePopup";
 import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup";
 import AcademicDetails from "./Academic_Popup";
@@ -14,10 +14,10 @@ import ExtraC_popup from "./Extracuricular_popup";
 
 import {URL} from "../../../../env";
 export default function Profile() {
+
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
-  const [file, setFile] = useState(
-    "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  );
+
+  const [file, setFile] = useState("");
   const [token, setToken] = useState("");
   const [studentData, setData] = useState("");
   const [firstName, setFName] = useState("");
