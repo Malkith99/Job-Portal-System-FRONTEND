@@ -1,15 +1,23 @@
 import React, {useState} from "react";
 
 export default function PersonalInfo(props) {
-  const {middleName, lastName, indexNumber } = props;
+  const {indexNumber } = props;
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
-  const [firstName, setFirstName] = useState(""||user.firstName)
-
-
+  const [firstName, setFName] = useState(""||user.firstName)
+  const [middleName, setMName] = useState(""||user.middleName);
+  const [lastName, setLName] = useState(""||user.lastName);
   function handleSave(event) {
-     event.preventDefault();
+    const data2 = {
+      firstName: firstName,
+      middleName: middleName,
+      lastName: lastName
+    };
+    console.log(data2);
+    props.sendData(JSON.stringify(data2));
+    alert("Save successful. Please close the window manually.");
   }
+
 
   return (
     <div className="container1-flex-item2">
@@ -25,7 +33,7 @@ export default function PersonalInfo(props) {
               placeholder="First Name"
               required
               value={firstName}
-              onChange={(event) => setFirstName(event.target.value)}
+              onChange={(event) => setFName(event.target.value)}
             ></input>
           </div>
           <div className="text-center">
@@ -41,6 +49,7 @@ export default function PersonalInfo(props) {
               className="form-control"
               placeholder="Middle Name"
               value={middleName}
+              onChange={(event) => setMName(event.target.value)}
             ></input>
           </div>
           <div className="text-center">
@@ -55,6 +64,7 @@ export default function PersonalInfo(props) {
               placeholder="Last Name"
               required
               value={lastName}
+              onChange={(event) => setLName(event.target.value)}
             ></input>
           </div>
           <div className="text-center">

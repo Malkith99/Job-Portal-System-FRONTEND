@@ -18,7 +18,7 @@ export default function Profile() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
   const [file, setFile] = useState("");
-  const [token, setToken] = useState("");
+
   const [studentData, setData] = useState("");
   const [firstName, setFName] = useState("");
   const [middleName, setMName] = useState("");
@@ -130,8 +130,16 @@ export default function Profile() {
   };
 
 
-  const handleData = (data) => {
-    setFile(data);
+  const handleData = (data1) => {
+    setFile(data1);
+  };
+
+  //catch user updated data from popup  window
+  const handlePersonalInfo = (data2) => {
+    const parsedData = JSON.parse(data2);
+    setFName(parsedData.firstName);
+    setMName(parsedData.middleName);
+    setLName(parsedData.lastName);
   };
 
 
@@ -399,7 +407,7 @@ export default function Profile() {
           openPopup={openPersonalPopup}
           setOpenPopup={setOpenPersonalPopup}
         >
-          <PersonalInfo />
+          <PersonalInfo sendData={handlePersonalInfo}/>
         </Popup>
 
                   )}
