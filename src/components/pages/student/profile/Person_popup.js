@@ -9,13 +9,15 @@ export default function PersonalInfo(props) {
   const [lastName, setLName] = useState(""||user.lastName);
   const [indexNumber, setIndex] = useState(""||user.indexNumber);
   const [DOB, setDOB] = useState(""||user.DOB);
+    const [gender, setGender] = useState(""||user.gender);
   function handleSave(event) {
     const data2 = {
       firstName: firstName,
       middleName: middleName,
       lastName: lastName,
       indexNumber:indexNumber,
-      DOB:DOB
+      DOB:DOB,
+      gender:gender
     };
     console.log(data2);
     props.sendData(JSON.stringify(data2));
@@ -127,15 +129,21 @@ export default function PersonalInfo(props) {
             </label>
           </div>
           <div className="sub-flex-item2">
-            <div className="input-filed-s">
-              <select className="form-select" name="gender" id="gender">
-                <option selected disabled>
-                  Select your Gender
-                </option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-            </div>
+
+                <div className="input-filed-s">
+                    <select
+                        className="form-select"
+                        name="gender" id="gender"
+                        value={gender}
+                        onChange={(event) => setGender(event.target.value)}>
+                        <option disabled defaultValue>
+                            Select your Gender
+                        </option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
           </div>
           <div className="sub-flex-item2"></div>
           <div className="sub-flex-item2"></div>
