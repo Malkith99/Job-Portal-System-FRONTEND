@@ -58,7 +58,7 @@ export default function Profile() {
   useEffect(() => {
     // This function will be called whenever any of the input fields change
     handleSave().then(() => {});
-  }, [file, firstName, middleName, lastName, indexNumber,DOB]);
+  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender]);
 
 
   async function handleSave() {
@@ -142,6 +142,7 @@ export default function Profile() {
     setLName(parsedData.lastName);
     setIndex(parsedData.indexNumber);
     setDOB(parsedData.DOB);
+    setGender(parsedData.gender);
   };
 
 
