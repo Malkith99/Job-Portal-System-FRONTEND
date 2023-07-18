@@ -1,79 +1,149 @@
-.main-head {
-    color: navy;
-    font-weight: 900;
-    text-align: left;
-    font-size: xx-large;
-  }
-  .loginN {
-    padding-top: 5rem;
-  
-    color: navy;
-    font-weight: 900;
-    text-align: left;
-    font-size: xx-large;
-  }
-  .sign {
-    margin-top: 35px;
-  
-    color: navy;
-    font-weight: 900;
-    text-align: left;
-    font-size: xx-large;
-  }
-  
-  .loginbox-content {
-    padding-left: 50px;
-  }
-  
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  .input {
-    border-radius: 10px;
-  }
-  .student-button {
-    height: 45px;
-    background-color: rgb(7, 7, 73);
-    border-radius: 10px;
-    border-color: rgb(7, 7, 73);
-    font-size: 22px;
-    margin-top: 30px;
-    font-weight: bolder;
-    color: rgb(7, 7, 73);
-    background: rgb(7, 7, 73);
-  }
-  
-  @media only screen and (max-width: 850px) {
-    .student-button {
-      font-size: 20px;
-    }
-  }
-  
-  @media only screen and (max-width: 280px) {
-    .student-button {
-      font-size: 20px;
-    }
-  }
- 
-  
-  .l {
-    height: 45px;
-    width: 35rem;
-    background-color: rgb(7, 7, 73);
-    border-radius: 10px;
-    border-color: rgb(7, 7, 73);
-    margin-top: 41px;
-    font-size: 22px;
-    font-weight: bolder;
-  }
-  
-  .student-button:active {
-    background-color: rgb(7, 7, 73);
-  }
-  
+.page-cc {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 20px;
+}
 
-  
- 
+.m-front-page {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.m-front-page h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.m-front-page p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.jobsearchbutton {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 20px 30px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.jobsearchbutton a {
+  color: white;
+  text-decoration: none;
+}
+
+.m-container {
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.m-middle-section {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.m-design-sample h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.m-sample-images {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.m-sample-images img {
+  width: 200px;
+  height: 200px;
+  margin-right: 10px;
+}
+
+.m-design-sample p {
+  font-size: 16px;
+}
+
+@keyframes moving-letters {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(+500%);
+  }
+}
+
+.Main-page-moving-letters {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: moving-letters 20s linear infinite;
+  font-size: 24px;
+}
+
+.m-front-page {
+  animation: fade-in 2s ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.m-container {
+  animation: slide-in 2s ease-out;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate {
+  animation: fade-in 1s ease-in;
+}
+.container-middle {
+  text-align: center;
+  margin: 20px;
+}
+
+h1 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #777;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.jobsearchbutton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.jobsearchbutton a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.jobsearchbutton:hover {
+  background-color: #0056b3;
+}
+
+p.loggedInMessage {
+  font-size: 18px;
+  margin-bottom: 10px;
+}

@@ -1,6 +1,15 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import "./VacancySection.css";
+import {URL} from "../../../../../../env";
+
+function handleSave() {
+
+}
+
 const VacancySection = (props) => {
+
+  const user = JSON.parse(localStorage.getItem('user'));
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
   );
@@ -8,21 +17,143 @@ const VacancySection = (props) => {
   function handleEdit() {
     setDisabled(false);
   }
-
-  function handleSave() {
-    setDisabled(true);
-    // Perform any save operations here
-  }
   function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
+    const selectedFile = e.target.files[0];
+
+    // Read the selected file as a data URL
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      const base64String = event.target.result;
+      setFile(base64String); // Set the base64 string as the file data in the state
+    };
+    reader.readAsDataURL(selectedFile);
   }
+
+  async function handleSubmit() {
+    //setDisabled(true);
+    // Perform validation checks
+    if (!jobPosition || !contactNumber || !background || !companyName || !salary  || !levelOfEducation || !companyEmail || !companyLocation || !dueDate || !skills || !jobDescription) {
+      console.log('Please fill in all the required fields.');
+      alert('Please fill in all the required fields.');
+      return;
+    }
+    try {
+      const formData = new FormData();
+      formData.append('flyer', file); // Assuming you have a variable `flyerFile` that contains the selected file
+
+      // Add other form fields to the FormData
+      formData.append('jobPosition', jobPosition);
+      formData.append('contactNumber', contactNumber);
+      formData.append('background', background);
+      formData.append('companyName', companyName);
+      formData.append('salary', salary);
+      formData.append('levelOfEducation', levelOfEducation);
+      formData.append('companyEmail', companyEmail);
+      formData.append('companyLocation', companyLocation);
+      formData.append('dueDate', dueDate);
+      formData.append('skills', skills);
+      formData.append('jobDescription', jobDescription);
+      formData.append('userId', user._id);
+
+      console.log(formData.get('userId'));
+      const url = URL +"/api/vacancies";
+      await axios.post(url, formData, {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+      );
+      window.location.href = '/company-HomePage';
+      // Handle success, e.g., show a success message or redirect to another page
+    } catch (error) {
+      console.log("Fail to post job");
+      console.error('Failed to post the job:', error);
+      // Handle error, e.g., show an error message
+    }
+  }
+
+
+
+
+
+
+
+  const [jobPosition, setJobPosition] = useState('');
+
+  const [contactNumber, setContactNumber] = useState('');
+  const [background, setBackground] = useState('');
+  const [companyName, setCompanyName] = useState(`${user.firstName || ' '}${user.middleName || ' '}${user.lastName || ' '}`);
+
+  const [salary, setSalary] = useState('');
+  const [levelOfEducation, setLevelOfEducation] = useState('');
+  const [companyEmail, setCompanyEmail] = useState(user.email||'');
+  const [companyLocation, setCompanyLocation] = useState('');
+  const [dueDate, setDueDate] = useState('');
+  const [skills, setSkills] = useState('');
+  const [jobDescription, setJobDescription] = useState('');
+
+
+
+  function handleChangeJobPosition(e) {
+    setJobPosition(e.target.value);
+  }
+
+  function handleChangeContactNumber(e) {
+    setContactNumber(e.target.value);
+  }
+
+  function handleChangeBackground(e) {
+    setBackground(e.target.value);
+  }
+
+  function handleChangeCompanyName(e) {
+    setCompanyName(e.target.value);
+  }
+
+
+  function handleChangeSalary(e) {
+    setSalary(e.target.value);
+  }
+
+  function handleChangeLevelOfEducation(e) {
+    setLevelOfEducation(e.target.value);
+  }
+
+  function handleChangeCompanyEmail(e) {
+    setCompanyEmail(e.target.value);
+  }
+
+  function handleChangeCompanyLocation(e) {
+    setCompanyLocation(e.target.value);
+  }
+
+  function handleChangeDueDate(e) {
+    setDueDate(e.target.value);
+  }
+
+  function handleChangeSkills(e) {
+    setSkills(e.target.value);
+  }
+
+  function handleChangeJobDescription(e) {
+    setJobDescription(e.target.value);
+  }
+
+
+
+
+
+
+
+
+
+
 
   //   console.log(props.data[0].jobPosition)
   return (
     <div>
-      <div className="container mt-3">
-        
+
+      <div className="container">
         <form>
           <div className="flex-container1">
             <div
@@ -31,7 +162,7 @@ const VacancySection = (props) => {
             >
               <img className="profile-photo-3" src={file} alt="Profile Photo" />
 
-              <label for="flyer" className="">
+              <label form="flyer" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
@@ -39,17 +170,17 @@ const VacancySection = (props) => {
               </label>
               <div className="file-in">
                 <input
-                  type="file"
-                  className=" form-control"
-                  onChange={handleChange}
-                  disabled={props.disabled && disabled}
+                    type="file"
+                    className=" form-control"
+                    onChange={handleChange}
+                    disabled={props.disabled && disabled}
                 />
               </div>
             </div>
           </div>
           <div className="flex-container1">
             <div className="container1-flex-item">
-              <label for="jobPosition" className="">
+              <label form="jobPosition" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
@@ -57,17 +188,17 @@ const VacancySection = (props) => {
               </label>
               <div className="input-filed input-filed-cls">
                 <input
-                  type="text"
-                  className="form-control"
-                  id="jobPosition"
-                  placeholder="Job Position"
-                  // required
-                  //   value={"HandJob"}
-                  disabled={props.disabled && disabled}
-                ></input>
+                    type="text"
+                    className="form-control"
+                    id="jobPosition"
+                    placeholder="Job Position"
+                    value={jobPosition}
+                    onChange={handleChangeJobPosition}
+                    disabled={props.disabled && disabled}
+                />
               </div>
 
-              <label for="contactNumber" className="">
+              <label form="contactNumber" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
@@ -75,13 +206,14 @@ const VacancySection = (props) => {
               </label>
               <div className="input-filed input-filed-cls">
                 <input
-                  type="tel"
-                  className="form-control"
-                  id="contactNumber"
-                  placeholder="Contact Number"
-                  // required
-                 disabled={props.disabled && disabled}
-                ></input>
+                    type="tel"
+                    className="form-control"
+                    id="contactNumber"
+                    placeholder="Contact Number"
+                    value={contactNumber}
+                    onChange={handleChangeContactNumber}
+                    disabled={props.disabled && disabled}
+                />
               </div>
 
               <label for="background" className="">
@@ -95,32 +227,24 @@ const VacancySection = (props) => {
                 style={{ flexDirection: "row" }}
               >
                 <select
-                  className="form-select"
-                  name="background"
-                  id="background"
-                  disabled={props.disabled && disabled}
+                    className="form-select"
+                    name="background"
+                    id="background"
+                    value={background}
+                    onChange={handleChangeBackground}
+                    disabled={props.disabled && disabled}
                 >
-                  <option selected disabled>
+                  <option value="" selected disabled>
                     Select the requiring Background
                   </option>
-                  <option value="Background1">Electrical Engineer</option>
-                  <option value="Background2">Civil Engineer</option>
-                  <option value="Background3">Software Engineer</option>
-                  <option value="Background4">Accounting</option>
-                  <option value="Background4">Doctor</option>
+                  <option value="Electrical Engineer">Electrical Engineer</option>
+                  <option value="Civil Engineer">Civil Engineer</option>
+                  <option value="Software Engineer">Software Engineer</option>
+                  <option value="Accounting">Accounting</option>
+                  <option value="Doctor">Doctor</option>
                 </select>
               </div>
-              {/* <label for="flyer" className="">
-                    <span className="asterisk-mark">*</span>Flyer
-                  </label>
-                  <div className="input-filed input-filed-cls">
-                    <input
-                      type="file"
-                      className=" form-control"
-                      onChange={handleChange}
-                      disabled={props.disabled && disabled}
-                    />
-                  </div> */}
+
             </div>
             <div className="container1-flex-item">
               <label for="companyName" className="">
@@ -130,15 +254,16 @@ const VacancySection = (props) => {
                 Company Name
               </label>
               <div className="input-filed input-filed-cls">
+
                 <input
-                  type="text"
-                  className="form-control"
-                  id="companyName"
-                  placeholder="Company Name"
-                  
-                  disabled={props.disabled && disabled}
-                  // required
-                ></input>
+                    type="text"
+                    className="form-control"
+                    id="companyName"
+                    placeholder="Company Name"
+                    value={companyName}
+                    onChange={handleChangeCompanyName}
+                    disabled={props.disabled && disabled}
+                />
               </div>
               <label for="salaryRange" className="">
                 <span className="asterisk-mark">
@@ -151,25 +276,16 @@ const VacancySection = (props) => {
                 style={{ display: "flex", flex: "row", columnGap: "20px" }}
               >
                 <input
-                  type="number"
-                  className="form-control"
-                  id="salaryRange salaryRangeMin"
-                  placeholder="Min"
-                  // required
-                  style={{ width: "50%" }}
-                  min="0"
-                  disabled={props.disabled && disabled}
-                ></input>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="salaryRange salaryRangeMax"
-                  placeholder="Max"
-                  // required
-                  style={{ width: "50%" }}
-                  min="0"
-                  disabled={props.disabled && disabled}
-                ></input>
+                    type="number"
+                    className="form-control"
+                    id="salary"
+                    placeholder="Salary"
+                    style={{ width: "50%" }}
+                    min="0"
+                    value={salary}
+                    onChange={handleChangeSalary}
+                    disabled={props.disabled && disabled}
+                />
               </div>
 
               <label for="levelOfEducation" className="">
@@ -180,19 +296,21 @@ const VacancySection = (props) => {
               </label>
               <div className="input-filed input-filed-cls">
                 <select
-                  className="form-select"
-                  name="levelOfEducation"
-                  id="levelOfEducation"
-                  disabled={props.disabled && disabled}
+                    className="form-select"
+                    name="levelOfEducation"
+                    id="levelOfEducation"
+                    value={levelOfEducation}
+                    onChange={handleChangeLevelOfEducation}
+                    disabled={props.disabled && disabled}
                 >
-                  <option selected disabled>
+                  <option value=""  selected disabled>
                     Requiring Level of Education
                   </option>
-                  <option value="Background1">Associate Degree</option>
-                  <option value="Background2">Bachelor</option>
-                  <option value="Background3">High School</option>
-                  <option value="Background4">Masters</option>
-                  <option value="Background4">Other Tertiary Education</option>
+                  <option value="Associate Degree">Associate Degree</option>
+                  <option value="Bachelor">Bachelor</option>
+                  <option value="High School">High School</option>
+                  <option value="Masters">Masters</option>
+                  <option value="Other Tertiary Education">Other Tertiary Education</option>
                 </select>
               </div>
             </div>
@@ -206,13 +324,14 @@ const VacancySection = (props) => {
               </label>
               <div className="input-filed input-filed-cls">
                 <input
-                  type="text"
-                  className="form-control"
-                  id="companyEmail"
-                  placeholder="Company Email"
-                  disabled={props.disabled && disabled}
-                  // required
-                ></input>
+                    type="text"
+                    className="form-control"
+                    id="companyEmail"
+                    placeholder="Company Email"
+                    value={companyEmail}
+                    onChange={handleChangeCompanyEmail}
+                    disabled={props.disabled && disabled}
+                />
               </div>
               <label for="companyLocation" className="">
                 <span className="asterisk-mark">
@@ -222,13 +341,14 @@ const VacancySection = (props) => {
               </label>
               <div className="input-filed input-filed-cls">
                 <input
-                  type="text"
-                  className="form-control"
-                  id="companyLocation"
-                  placeholder="Company Location"
-                  disabled={props.disabled && disabled}
-                  // required
-                ></input>
+                    type="text"
+                    className="form-control"
+                    id="companyLocation"
+                    placeholder="Company Location"
+                    value={companyLocation}
+                    onChange={handleChangeCompanyLocation}
+                    disabled={props.disabled && disabled}
+                />
               </div>
               <label for="dueDate" className="">
                 <span className="asterisk-mark">
@@ -238,19 +358,20 @@ const VacancySection = (props) => {
               </label>
               <div className="input-filed input-filed-cls">
                 <input
-                  type="date"
-                  className="form-control"
-                  placeholder="Due Date"
-                  disabled={props.disabled && disabled}
-                  // required
-                ></input>
+                    type="date"
+                    className="form-control"
+                    placeholder="Due Date"
+                    value={dueDate}
+                    onChange={handleChangeDueDate}
+                    disabled={props.disabled && disabled}
+                />
               </div>
             </div>
           </div>
 
           <div className="flex-container2">
-            <div className="container1-flex-item ">
-              <label for="skills" className="">
+            <div className="container2-flex-item1">
+              <label form="skills" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
@@ -263,12 +384,13 @@ const VacancySection = (props) => {
                   style={{ height: "80px" }}
                   id="skills"
                   placeholder="Skills"
+                  onChange={handleChangeSkills}
                   disabled={props.disabled && disabled}
                   // required
                 ></textarea>
               </div>
 
-              <label for="jobDescription" className="">
+              <label form="jobDescription" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
@@ -281,6 +403,7 @@ const VacancySection = (props) => {
                   style={{ height: "100px" }}
                   id="jobDescription"
                   placeholder="Job Description"
+                  onChange={handleChangeJobDescription}
                   disabled={props.disabled && disabled}
                   // required
                 ></textarea>
@@ -300,7 +423,10 @@ const VacancySection = (props) => {
           </div>
           <div className={`${props.disabled && "d-none"}`}>
             <div className="input-filed input-filed-cls">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick={(e) => {
+                e.preventDefault(); // Prevent the default form submission behavior
+                handleSubmit().then(() => {});
+              }}>
                 Post the Job
               </button>
             </div>

@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
-import CompanyRegister from "./companyProfile/CompanyProfile";
-import "./CompanyProfileMain.css";
+import CompanyRegister from "./companyRegister/CompanyRegister";
+import "./CompanyRegisterMain.css";
 
 function CompanyRegisterMain({ isLogedIn, onLogout }) {
   const content = (

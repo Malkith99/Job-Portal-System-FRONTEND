@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useEffect, useState} from "react";
+import {Link, useNavigate} from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 // import CompanyHome from "./companyHome/CompanyHome";
@@ -8,37 +8,68 @@ import stripImageC from "../../../../../images/strip_company.jpg";
 import cv_image from "../../../../../../src/images/im5.jpg";
 // import { Button } from "react-scroll";
 // import Button from "@mui/material";
-import "./CompanyHomePage.css"
+import "../companyHome/CompanyHomePage.css";
 import { Card } from "@mui/material";
 import Button from "@mui/material/Button";
+import axios from "axios";
+
+
+
+
 function CompanyHomePage({ isLogedIn, onLogout }) {
+
+
+
+
+
+
+
+
+
   const content = (
     <>
-      <Link to="/company-HomePage">Company Home</Link>
+       <Link to="/company-home">Company Feed</Link>
       <Link to="/company-profile">Profile</Link>
-    
     </>
   );
   return (
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-        <div className="container">
-          {/* ////////////////////////////////  company home page start ////////////////////////////////////////// */}
-          <div  style={{display:"flex",flexDirection:"row",marginLeft:"5%",marginRight:"5%"}}>
-            <div style={{flexBasis:"50%",marginTop:"5%"}}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "0",
+          // padding: "10px",
+        }}
+      >
+        <div className="section_1">
+          <div className="strip-content">
+            <div className="left-section">
               <h1
                 className="section_1-title text-style"
-                style={{fontSize:"40px"}}>
-                Hire the <br />Right person for your Company!
-                </h1>
-                <p className="para-style"
-                  style={{fontFamily:"Georgia",marginTop:"5px"}}>
+                style={{ padding: "0",fontSize:"40px" }}
+              >
+                Hire the <br /> right person for your Company!
+                <img
+                  src={stripImageC}
+                  className="image"
+                  alt="Strip"
+                  style={{
+                    float: "right",
+                    marginTop: "-120px",
+                    marginRight: "-50px",
+                  }}
+                />
+              </h1>
+              <p className="para-style">
                 No matter the skills, experience level, or qualifications you're
                 looking for, <br />
-                We connect you with the perfect candidates. Simplify your hiring
+                we connect you with the perfect candidates. Simplify your hiring
                 process and build a talented team with us.
-                </p>
-                <div className="button-container">
+              </p>
+              <div className="button-container">
                 <Link to="/vacancy-page">
                   <button type="button" className="btn btn-primary btn-lg">
                     Post a Job
@@ -46,24 +77,24 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                 </Link>
               </div>
             </div>
-            
-            <div style={{display:"flex",justifyContent:"flex-end"}}>
-              <img
-                    src={stripImageC}
-                    className="image"
-                    alt="Strip"
-                    style={{
-                      textAlign:"right",
-                      // marginTop: "-120px",
-                      // marginRight: "-50px",
-                      }}/>
-            </div>
-            
           </div>
-        <h4 style={{ fontFamily: "Georgia", marginTop: "5%",marginLeft:"5%"}}>
-          WHY WE ARE UNIQUE?
-        </h4>
-        <Card>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+      </div>
+      <h4 style={{ fontFamily: "Georgia", marginTop: "2%", marginLeft: "10%" }}>
+        WHY WE ARE UNIQUE?
+      </h4>
+      <Card>
         <div
           style={{
             display: "flex",
@@ -89,7 +120,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                   Seek for recommended candidate{" "}
                 </h3>
                 <span class="custom-card-description">
-                  You have oppotunity to apply for recomendation from University
+                  You have opportunity to apply for recommendation from University
                   lecturer about the candidate
                 </span>
               </div>
@@ -101,7 +132,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                 </h3>
                 <span class="custom-card-description">
                   We provide you the fresh graduates who has optimum
-                  qualifiacations matched for you.
+                  qualifications matched for you.
                 </span>
               </div>
             </Card>
@@ -145,7 +176,19 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
           </div>
         </div>
       </Card>
-        </div>
+
+
+
+        {/*New Job Pool*/}
+
+
+
+
+
+
+
+
+
       <Footer />
     </div>
   );

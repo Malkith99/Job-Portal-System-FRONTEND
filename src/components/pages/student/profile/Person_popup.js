@@ -1,8 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 
-export default function PersonalInfo() {
+export default function PersonalInfo(props) {
+  const {middleName, lastName, indexNumber } = props;
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+
+  const [firstName, setFirstName] = useState(""||user.firstName)
+
+
   function handleSave(event) {
-    // event.preventDefault(); 
+     event.preventDefault();
   }
 
   return (
@@ -12,12 +18,14 @@ export default function PersonalInfo() {
           <label className="label-title">Name</label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
               placeholder="First Name"
               required
+              value={firstName}
+              onChange={(event) => setFirstName(event.target.value)}
             ></input>
           </div>
           <div className="text-center">
@@ -27,11 +35,12 @@ export default function PersonalInfo() {
           </div>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
               placeholder="Middle Name"
+              value={middleName}
             ></input>
           </div>
           <div className="text-center">
@@ -39,12 +48,13 @@ export default function PersonalInfo() {
           </div>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
               placeholder="Last Name"
               required
+              value={lastName}
             ></input>
           </div>
           <div className="text-center">
@@ -61,12 +71,13 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"
               placeholder="Index Number"
               required
+              value={indexNumber}
             ></input>
           </div>
         </div>
@@ -80,7 +91,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="date"
               className="form-control"
@@ -99,7 +110,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <select className="form-select" name="gender" id="gender">
               <option selected disabled>
                 Select your Gender
@@ -119,7 +130,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="tel"
               className="form-control"
@@ -134,7 +145,7 @@ export default function PersonalInfo() {
           </div>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="tel"
               className="form-control"
@@ -157,7 +168,7 @@ export default function PersonalInfo() {
           </label>
         </div>
         <div className="sub-flex-item2">
-          <div className="input-filed">
+          <div className="input-filed-s">
             <input
               type="text"
               className="form-control"

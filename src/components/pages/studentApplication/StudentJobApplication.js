@@ -8,8 +8,8 @@ import StudentApplication from "./StudentApplication";
 export default function StudentJobApplication({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/student/home">Home</Link>
-      <Link to="/student/profile">Profile</Link>
+      <Link to="/student-home">Home</Link>
+      <Link to="/student-profile">Profile</Link>
     </>
   );
   return (
