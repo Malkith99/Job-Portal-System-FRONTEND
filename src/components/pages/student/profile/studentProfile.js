@@ -143,7 +143,7 @@ export default function Profile() {
     padding: '50px',  }}>
       <form >
           <h4 className="sub-headings">Personal info: </h4>
-        <div className="flex-container1" style={{ display: "flex", flexDirection: "column"}}>
+        <div className="" style={{ display: "flex", flexDirection: "column"}}>
           <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" ,marginLeft: '0px', marginRight: '0px',}}>
             <img className="profile-photo" src={file} alt="Profile Photo" />
             <label className="label-title">

@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import loginImage from "../../../../../src/images/im1.jpg";
+import loginImage from "../../../../images/im1.jpg";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 export default function CompanyLogin() {
@@ -139,6 +139,7 @@ export default function CompanyLogin() {
                         label="Email"
                         variant="outlined"
                         type="email"
+                        name="email"
                         fullWidth
                         margin="normal"
                         onChange={handleChange}
@@ -149,6 +150,7 @@ export default function CompanyLogin() {
                         label="Password"
                         variant="outlined"
                          type="password"
+                         name="password"
                         fullWidth
                         margin="normal"
                        

@@ -51,7 +51,7 @@ import loginImage from "../../../../../src/images/im6.jpg";
         const url = "http://localhost:4000/api/auth";
         const { data: res } = await axios.post(url, data);
         setMsg(res.message);
-
+        console.log(res);
         localStorage.setItem("token", res.data);
         localStorage.setItem('user', JSON.stringify(res.user));
 
@@ -59,6 +59,7 @@ import loginImage from "../../../../../src/images/im6.jpg";
         if (res.user.email === "admin@gmail.com") {
             localStorage.setItem("adminToken", res.data);
             console.log("Admin has been Log In");
+            window.location="/admin";
         }
 
         //check if user has carted
@@ -67,7 +68,7 @@ import loginImage from "../../../../../src/images/im6.jpg";
         console.log(data);
         console.log("User has been Log In");
         console.log(`User ${data._id} has been login`);
-        window.location = "/";
+        window.location = "/admin";
     } catch (error) {
         if (
             error.response &&
