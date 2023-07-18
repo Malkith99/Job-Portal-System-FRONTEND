@@ -1,17 +1,21 @@
 import React, {useState} from "react";
 
 export default function PersonalInfo(props) {
-  const {indexNumber } = props;
+  //const {indexNumber } = props;
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
   const [firstName, setFName] = useState(""||user.firstName)
   const [middleName, setMName] = useState(""||user.middleName);
   const [lastName, setLName] = useState(""||user.lastName);
+  const [indexNumber, setIndex] = useState(""||user.indexNumber);
+  const [DOB, setDOB] = useState(""||user.DOB);
   function handleSave(event) {
     const data2 = {
       firstName: firstName,
       middleName: middleName,
-      lastName: lastName
+      lastName: lastName,
+      indexNumber:indexNumber,
+      DOB:DOB
     };
     console.log(data2);
     props.sendData(JSON.stringify(data2));
@@ -88,6 +92,7 @@ export default function PersonalInfo(props) {
                   placeholder="Index Number"
                   required
                   value={indexNumber}
+                  onChange={(event) => setIndex(event.target.value)}
               ></input>
             </div>
           </div>
@@ -107,6 +112,8 @@ export default function PersonalInfo(props) {
                   className="form-control"
                   placeholder="DOB"
                   required
+                  value={DOB}
+                  onChange={(event) => setDOB(event.target.value)}
               ></input>
             </div>
           </div>
