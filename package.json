@@ -1,5 +1,6 @@
 {
   "name": "frontend",
+  "homepage": "http://demo.eminenceapps.com/grp19",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

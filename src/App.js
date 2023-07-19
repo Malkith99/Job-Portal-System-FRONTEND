@@ -44,18 +44,15 @@ import StudentJobApplication from './components/pages/studentApplication/Student
 import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
 
-function App() {
-/*    const [isLogedIn, setIsLogedIn] = useState(true);
-
-  const handlLogOut = () => {
-    setIsLogedIn(false);
-  }; */
+export default function App() {
+const basename='/grp19';
  
   return (
 
     <BrowserRouter>
         <div>
           {/* <Header/> */}
+          <Router basename={basename}>
           <Routes>
           <Route path="/" element ={<Home/>} ></Route>
 
@@ -100,21 +97,13 @@ function App() {
             <Route path="/home" element={<SignInSignUp/>}></Route>
             <Route path="/all-sign-in" element={<AllSignIn/>}></Route>
           </Routes>
+          </Router>
         </div>
     </BrowserRouter>
-   /*<div className="App">
-      <h1>Hello React</h1>
-      <CounterCalss/>      /* calling the counter class  */
-      /*<hr></hr>
-      <CounterFunction/>
-  </div> */
-      /*<div>
-      <Header/>
-      <AddStudent/>
-      </div>*/
+
 
 
   );
 }
 
-export default App;
+
