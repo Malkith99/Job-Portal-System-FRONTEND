@@ -8,7 +8,7 @@ import Popup from "../../../popup/popup";
 import Button from "@mui/material/Button";
 import ProfileImage from "./ProfileImagePopup"; //this is working and connected, upload image and check
 import Card from "@mui/material/Card";
-import PersonalInfo from "./Person_popup";
+import PersonalInfo from "./Person_popup"; //working route don't change the path
 import AcademicDetails from "./Academic_Popup";
 import ExtraC_popup from "./Extracuricular_popup";
 
@@ -58,7 +58,7 @@ export default function Profile() {
   useEffect(() => {
     // This function will be called whenever any of the input fields change
     handleSave().then(() => {});
-  }, [file, firstName, middleName, lastName, indexNumber]);
+  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender]);
 
 
   async function handleSave() {
@@ -140,6 +140,9 @@ export default function Profile() {
     setFName(parsedData.firstName);
     setMName(parsedData.middleName);
     setLName(parsedData.lastName);
+    setIndex(parsedData.indexNumber);
+    setDOB(parsedData.DOB);
+    setGender(parsedData.gender);
   };
 
 
