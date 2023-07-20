@@ -45,14 +45,14 @@ import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
 
 export default function App() {
-const basename='/grp19';
+const basename='grp13';
  
   return (
 
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
         <div>
           {/* <Header/> */}
-          <Router basename={basename}>
+          
           <Routes>
           <Route path="/" element ={<Home/>} ></Route>
 
@@ -97,7 +97,6 @@ const basename='/grp19';
             <Route path="/home" element={<SignInSignUp/>}></Route>
             <Route path="/all-sign-in" element={<AllSignIn/>}></Route>
           </Routes>
-          </Router>
         </div>
     </BrowserRouter>
 
