@@ -1,6 +1,6 @@
 import './App.css';
 
-import {BrowserRouter , Route, Routes } from "react-router-dom"
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom"
 import AllStudents from './components/AllStudent';
 import Home from './components/Home/Home';
 
@@ -54,6 +54,7 @@ export default function App() {
           {/* <Header/> */}
           
           <Routes>
+            <Route path ="*" element={<Navigate to="/"/>}></Route>
           <Route path="/" element ={<Home/>} ></Route>
 
           <Route path="/student-signUp" element={<StudentSignUpPage/> }> </Route>
