@@ -5,8 +5,8 @@ import MainHeader from "../mainHeader/mainHeader";
 import axios from "axios";
 import allSignInPageImage from "../../images/im6.jpg";
 import "./AllSignin.css";
-import {URL} from "../../env";
-import {toast} from "react-toastify";
+import { URL } from "../../env";
+import { toast } from "react-toastify";
 function CompanyLogin() {
     const [loggedIn] = useState(!!localStorage.getItem("token"));
     const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
@@ -23,7 +23,7 @@ function CompanyLogin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const url =  URL +"/api/auth";
+            const url = URL + "/api/auth";
             const { data: res } = await axios.post(url, data);
             setMsg(res.message);
 
@@ -37,7 +37,7 @@ function CompanyLogin() {
                 toast.info("Admin has been Log In");
                 window.location = "/adminHome";
             }
-            else{
+            else {
                 window.location = "/";
             }
             //check if user has carted
@@ -142,7 +142,7 @@ function CompanyLogin() {
                                         Remember username
                                     </label>
                                 </div>
-                                <button type="submit" className="asbtn-btn-primary" style={{backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', border: 'none', borderRadius: '4px'}}>
+                                <button type="submit" className="asbtn-btn-primary" style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', border: 'none', borderRadius: '4px' }}>
                                     Login
                                 </button>
 
@@ -157,9 +157,9 @@ function CompanyLogin() {
             {showPopup && (
                 <div className="popup">
                     <div className="popup-content">
-            <span className="close" onClick={() => setShowPopup(false)}>
-              &times;
-            </span>
+                        <span className="close" onClick={() => setShowPopup(false)}>
+                            &times;
+                        </span>
                         {error && <div className="login_error_msg">{error}</div>}
                         {msg && <div className="login_success_msg">{msg}</div>}
                     </div>
