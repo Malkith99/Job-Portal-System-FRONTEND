@@ -45,7 +45,6 @@ export default function Profile() {
 
 
 
-
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
