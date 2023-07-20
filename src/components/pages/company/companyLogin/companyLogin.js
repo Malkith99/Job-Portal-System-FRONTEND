@@ -135,7 +135,7 @@ function CompanySignIn() {
                         name="email"
                         fullWidth
                         margin="normal"
-                        name="email"
+                        
                         onChange={handleChange}
                         value={data.email}
                         required
@@ -147,7 +147,7 @@ function CompanySignIn() {
                          name="password"
                         fullWidth
                         margin="normal"
-                       name="password"
+                       
                         onChange={handleChange}
                         value={data.password}
                         required
