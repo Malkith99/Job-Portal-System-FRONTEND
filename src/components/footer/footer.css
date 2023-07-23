@@ -1,8 +1,9 @@
-.main-footer {
-  color:/*white*/ rgb(110, 106, 106);
-  background-color:/* #009fe5*/ white;
-  padding-top: 5rem;
+/* footer.css */
 
+.main-footer {
+  color: #333;
+  background-color: #f8f8f8;
+  padding-top: 1rem;
   align-items: center;
   justify-content: center;
   position: relative;
@@ -11,28 +12,98 @@
   text-align: center;
   padding-left: 3px;
   font-style: italic;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-.col-sm {
-  font-weight: 500;
-  font-size: 20px;
-  color: /*white*/ rgb(110, 106, 106);
-  text-align: center;
+
+.fcontainer {
+  max-width: 1200px;
+  margin: 0 auto;
 }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.col {
+  flex: 1;
+  padding: 20px;
+}
+
 .tit {
   font-size: 30px;
-  font-weight: 1000;
+  font-weight: 700;
   text-align: center;
   background-color: #009fe5;
   border-bottom-left-radius: 12%;
   border-bottom-right-radius: 12%;
   color: white;
+  padding: 15px;
 }
+
+.col h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.col p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.col p.footer-p {
+  margin-bottom: 5px;
+}
+
+.col p.footer-p:last-child {
+  margin-bottom: 0;
+}
+
+.col-sm {
+  font-weight: 500;
+  font-size: 20px;
+  color: #555;
+  text-align: center;
+  margin-top: 10px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+}
+
+.row hr {
+  width: 100%;
+  border-top: 1px solid #ccc;
+}
+
 .content-wrap {
   flex: 1;
 }
 
-.footer-p {
-  padding-bottom: 1px;
-  margin-bottom: 5px;
-  padding-top: 1px;
+/* Additional styles for the "WEB TECH SOLUTIONS" section */
+.col:last-child {
+  background-color: #f8f8f8;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
 }
+
+.col:last-child h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #009fe5;
+}
+
+/* Styles for the copyright text */
+.row p {
+  font-size: 14px;
+  font-style: italic;
+  color: #777;
+}
+
+.row p i {
+  color: #555;
+}
+

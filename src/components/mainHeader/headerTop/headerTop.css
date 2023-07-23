@@ -55,4 +55,14 @@
 .main-notlogin .main-logbar-item a {
     color: #fff;
     text-decoration: none;
+
+}
+
+.profileHeader {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: auto;
+    cursor: pointer;
 }

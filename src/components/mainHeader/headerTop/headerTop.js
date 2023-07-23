@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./headerTop.css";
-
-const HeaderTop = () => {
+import ProfileLogo from "../profileLogo/profileLogo";
+const HeaderTop = (props) => {
     const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("token"));
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
@@ -30,7 +30,14 @@ const HeaderTop = () => {
                             Welcome, {user.firstName} {user.lastName}{" "}
                             <button onClick={handleLogout}>(Logout)</button>
                         </l-text1>
+
+                        {/*<button onClick={handleLogout}>Logout</button>*/}
+                  <ProfileLogo class="profileHeader" onLogout={props.onLogout} />
+
+                    </p>
+
                     </div>
+
                 ) : (
                     <div className="main-notlogin">
                         <l-text1>
