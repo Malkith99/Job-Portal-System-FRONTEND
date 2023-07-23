@@ -91,7 +91,7 @@ function CompanySignIn() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "150vh",
+            height: "100vh",
             marginTop: "-200px",
             marginBottom: "-250px",
           }}
@@ -105,7 +105,7 @@ function CompanySignIn() {
             }}
           > */}
             <CardContent>
-              <Grid container spacing={3} direction="row" alignItems="center">
+              <Grid container spacing={2} direction="row" alignItems="center">
                 <Grid item xs={6}>
                   <img
                     src={loginImage}
@@ -132,10 +132,9 @@ function CompanySignIn() {
                         label="Email"
                         variant="outlined"
                         type="email"
-                        name="email"
                         fullWidth
                         margin="normal"
-                        
+                        name="email"
                         onChange={handleChange}
                         value={data.email}
                         required
@@ -144,10 +143,9 @@ function CompanySignIn() {
                         label="Password"
                         variant="outlined"
                          type="password"
-                         name="password"
                         fullWidth
                         margin="normal"
-                       
+                       name="password"
                         onChange={handleChange}
                         value={data.password}
                         required
