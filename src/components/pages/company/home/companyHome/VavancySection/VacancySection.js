@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import "./VacancySection.css";
 import {URL} from "../../../../../../env";
-
+import { toast } from "react-toastify";
 function handleSave() {
 
 }
@@ -63,7 +63,8 @@ const VacancySection = (props) => {
             },
           }
       );
-      window.location.href = '/company-HomePage';
+      toast.success("Jobs posted");
+      window.location.href = '/company-home';
       // Handle success, e.g., show a success message or redirect to another page
     } catch (error) {
       console.log("Fail to post job");

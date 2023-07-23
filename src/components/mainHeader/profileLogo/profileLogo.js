@@ -15,20 +15,18 @@ function ProfileLogo() {
         setUser(null);
         window.location = "/";
     };
-
+    const defaultProfileImage = "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg";
     return (
         <div>
-            {loggedIn ? (
-                <DropdownButton id="profile-dropdown" variant="light" align="end" title={user.profilePhoto && (
-                    <img src={user.profilePhoto} alt="Profile Logo" className="profile-logo-img" />
-                )}>
-                    {/*
-                    <Dropdown.Item>
-                        <Link to="/students-details">Profile</Link>
-                    </Dropdown.Item>
-                    <Dropdown.Divider />
-                    */}
 
+
+            {loggedIn ? (
+                <DropdownButton id="profile-dropdown" variant="light" align="end" title={user.profilePhoto ? (
+                    <img src={user.profilePhoto} alt="Profile Logo" className="profile-logo-img" />
+                ) : (
+                    <img src={defaultProfileImage} alt="Default Profile Logo" className="profile-logo-img" />
+                )}>
+                    {/* Add other dropdown items as needed */}
                     <Dropdown.Item>
                         <Link to="/" onClick={handleLogout}>
                             Logout
@@ -42,6 +40,7 @@ function ProfileLogo() {
                     </Dropdown.Item>
                 </DropdownButton>
             )}
+
         </div>
     );
 }
