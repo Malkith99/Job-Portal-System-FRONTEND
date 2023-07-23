@@ -17,14 +17,14 @@ function Main() {
   const imageObject = [
     Img1,
     Img2,
-    //Img3,
-    //Img4,
-    //Img5,
-    //Img6,
-    //Img7,
-    //Img8,
-    //Img9,
-    //Img10,
+    Img3,
+    Img4,
+    Img5,
+    Img6,
+    Img7,
+    Img8,
+    Img9,
+    Img10,
   ];
   return (
     <Carousel
@@ -37,9 +37,10 @@ function Main() {
       {imageObject?.map((imgSrc, imgId) => (
         <div key={imgSrc}>
           <img
-            height={500}
-            width={700}
-            style={{ objectFit: "cover" }}
+            className="carousel-im"
+            // height={400}
+            // width={700}
+            style={{ objectFit: "cover"}}
             src={imgSrc}
           />
         </div>
