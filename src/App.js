@@ -45,16 +45,17 @@ import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
 
 export default function App() {
-//const basename='grp13';
+const basename='grp13/';
  
   return (
 //basename={basename} when deploy put this in to the browserRouter instead
-    <BrowserRouter >
+     <BrowserRouter basename={basename} >
+    {/* <BrowserRouter > */}
         <div>
           {/* <Header/> */}
           
           <Routes>
-            <Route path ="*" element={<Navigate to="/"/>}></Route>
+            <Route path ="*" element={<Navigate to="/"/>}></Route>   {/*this route will be used as a catch-all route for any undefined or unmatched URLs. */}
           <Route path="/" element ={<Home/>} ></Route>
 
           <Route path="/student-signUp" element={<StudentSignUpPage/> }> </Route>
