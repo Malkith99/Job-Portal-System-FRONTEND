@@ -151,13 +151,13 @@
   }
 }
 
-.Main-page-moving-letters {
+/* .Main-page-moving-letters {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   animation: moving-letters 20s linear infinite;
   font-size: 24px;
-}
+} */
 
 .m-front-page {
   animation: fade-in 2s ease-in;
@@ -224,4 +224,89 @@ p {
 p.loggedInMessage {
   font-size: 18px;
   margin-bottom: 10px;
+}
+.carousel-im
+{
+  width: 100%;
+  max-height:400px
+}
+@media only screen and (max-width: 1020px) {
+  .carousel-im {
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .carousel-im {
+    height: 250px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .carousel-im {
+    height: 200px;
+  }
+}
+@media only screen and (max-width: 414px) {
+  .carousel-im {
+    height: 185px;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .carousel-im {
+    height: 180px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .carousel-im {
+    height: 160px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  .carousel-im {
+    height: 140px;
+  }
+}
+@media only screen and (max-width: 290px) {
+  .carousel-im {
+    height: 130px;
+  }
+}
+@media only screen and (max-width: 275px) {
+  .carousel-im {
+    height: 120px;
+  }
+}
+@media only screen and (max-width: 260px) {
+  .carousel-im {
+    height: 110px;
+  }
+}
+@media only screen and (max-width: 248px) {
+  .carousel-im {
+    height: 100px;
+  }
+}
+@media only screen and (max-width: 230px) {
+  .carousel-im {
+    height: 90px;
+  }
+}
+@media only screen and (max-width: 200px) {
+  .carousel-im {
+    height: 80px;
+  }
+}
+@media only screen and (max-width: 180px) {
+  .carousel-im {
+    height: 70px;
+  }
+}
+@media only screen and (max-width: 160px) {
+  .carousel-im {
+    height: 60px;
+  }
+}
+@media only screen and (max-width: 135px) {
+  .carousel-im {
+    height: 50px;
+  }
 }
