@@ -45,7 +45,7 @@ import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
 
 export default function App() {
-const basename='grp13/';
+const basename='grp13';
  
   return (
 //basename={basename} when deploy put this in to the browserRouter instead

@@ -14,7 +14,7 @@ const HeaderTop = () => {
         console.log("User has been logged out");
         setLoggedIn(false);
         setUser(null);
-        window.location = "/grp13/";
+        window.location = "/grp13";
     };
 
 
