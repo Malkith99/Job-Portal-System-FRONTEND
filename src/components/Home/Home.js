@@ -96,10 +96,10 @@ function Home({ isLogedIn, onLogout }) {
               type="button"
               className="form-control text-white student-button btn btn-primary m-2 mb-4"
             >
-              A Lecturer
+              A Lecturer / Refree
             </Link>
             <Link
-              to="/company-login"
+              to="company-login"
               type="button"
               className="form-control text-white student-button btn btn-primary m-2 mb-4"
             >
