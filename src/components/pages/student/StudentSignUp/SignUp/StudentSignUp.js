@@ -47,7 +47,7 @@ export default function StudentSignup() {
             const url = URL +"/api/users";
             const response = await axios.post(url, data);
             setMsg(response.data.message);
-            window.location = "/";
+            window.location = "/grp13/student-home";
         } catch (error) {
             if (error.response && error.response.status >= 400 && error.response.status <= 500) {
                 setError(error.response.data.message);
