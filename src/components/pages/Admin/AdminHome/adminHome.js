@@ -159,6 +159,7 @@ function AdminHome() {
                             <tr>
                                 <th>Photo</th>
                                 <th>Name</th>
+                                <th>Signup Date</th>
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th>Actions</th>
@@ -170,7 +171,8 @@ function AdminHome() {
                                     <td>
                                         <img src={user.profilePhoto} alt={user.name} className="user-photo" />
                                     </td>
-                                    <td>{user.name}</td>
+                                    <td>{user.firstName + " "+ user.lastName}</td>
+                                    <td>{user.signupDate}</td>
                                     <td>{user.email}</td>
                                     <td>{user.role}</td>
                                     <td>
