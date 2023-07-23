@@ -50,4 +50,60 @@
       text-underline-offset: 10px;
     }
   }
-  
+  @media only screen and (max-width: 400px) {
+    .title {
+      font-size: 32px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 383px) {
+    .title {
+      font-size: 30px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 372px) {
+    .title {
+      font-size: 28px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 333px) {
+    .title {
+      font-size: 26px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width:322px) {
+    .title {
+      font-size: 24px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 309px) {
+    .title {
+      font-size: 21px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 299px) {
+    .title {
+      font-size: 20px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+
