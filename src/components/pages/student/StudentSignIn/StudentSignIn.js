@@ -36,15 +36,18 @@ function StudentSignIn() {
             if (res.user.email === "admin@gmail.com") {
                 localStorage.setItem("adminToken", res.data);
                 console.log("Admin has been Log In");
+                window.location = "/grp13/adminHome";
+            }else{
+                const user = JSON.parse(localStorage.getItem('user'));
+                console.log(user.firstName);
+                console.log(data);
+                console.log("User has been Log In");
+                console.log(`User ${data._id} has been login`);
+                window.location = "/grp13/student-home";
             }
 
             //check if user has carted
-            const user = JSON.parse(localStorage.getItem('user'));
-            console.log(user.firstName);
-            console.log(data);
-            console.log("User has been Log In");
-            console.log(`User ${data._id} has been login`);
-            window.location = "/";
+
         } catch (error) {
             if (
                 error.response &&
@@ -76,11 +79,15 @@ function StudentSignIn() {
             <MainHeader content=
                             {loggedIn ? (
                                 <>
-                                    <Link to="/student-login">Student Login</Link>
+                                    {/* <Link to="/student-login">Student Login</Link> */}
                                     <Link to="/student-home">Welcome, {user.firstName} {user.lastName}!</Link>
                                 </>
                             ) : (
-                                <Link to="/student-login">Student Login</Link>
+                                <>
+                                  <Link to="/student-signIn">Student Login</Link> 
+
+                                 </>
+
                             )}>
             </MainHeader>
             <div className="container">
