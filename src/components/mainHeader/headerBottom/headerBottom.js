@@ -13,13 +13,13 @@ function HeaderBottom(props) {
           <div className="nav-bar-content" style={{ alignItems: "center" }}>
             <div className="nav-bar-left">{props.content}</div>
             <div className="nav-bar-right">
-              {loggedIn ? (
+              {/*loggedIn ? (
                 <span className="ml-auto">
                   <ProfileLogo onLogout={props.onLogout} />
                 </span>
               ) : (
                 ""
-              )}
+              )*/}
             </div>
           </div>
         </nav>
