@@ -25,7 +25,7 @@
   .input {
     border-radius: 10px;
   }
-  .student-button {
+  /* .student-button {
     height: 45px;
     border-radius: 10px;
     border-color: rgb(7, 7, 73);
@@ -34,13 +34,13 @@
     font-weight: bolder;
     color: rgb(7, 7, 73);
     background: rgb(7, 7, 73);
-  }
+  } */
   
-  @media only screen and (max-width: 850px) {
+  /* @media only screen and (max-width: 850px) {
     .student-button {
       font-size: 12px;
     }
-  }
+  } */
   
   .l {
     height: 45px;
@@ -53,9 +53,9 @@
     font-weight: bolder;
   }
   
-  .student-button:active {
+  /* .student-button:active {
     background-color: rgb(7, 7, 73);
-  }
+  } */
 
 
 
