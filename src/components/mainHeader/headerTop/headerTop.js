@@ -14,7 +14,7 @@ const HeaderTop = () => {
         console.log("User has been logged out");
         setLoggedIn(false);
         setUser(null);
-        window.location = "/";
+        window.location = "/grp13/";
     };
 
 
@@ -25,15 +25,15 @@ const HeaderTop = () => {
 
             <div>
                 {loggedIn ? (
-                    <p className="main-login">
-                        <l-text1>
-                            Welcome, {user.firstName} {user.lastName}!
+                    <div className="main-login">
+                        <l-text1 style={{ marginBottom: "10px", fontSize: "16px" }} >
+                            Welcome, {user.firstName} {user.lastName}{" "}
+                            <button onClick={handleLogout}>(Logout)</button>
                         </l-text1>
-                        <button onClick={handleLogout}>Logout</button>
-                    </p>
+                    </div>
                 ) : (
-                    <div className="main-notlogin" style={{ color: "white" }}>
-                        <l-text1 style={{ marginBottom: "10px", fontSize: "16px" }}>
+                    <div className="main-notlogin">
+                        <l-text1>
                             You are not logged in.{" "}
                             <Link to="/all-sign-in" style={{ textDecoration: "none", color: "white" }} type="button">
                                 (Log In)
