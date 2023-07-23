@@ -2,7 +2,8 @@
     background-color: #0073a5;
     padding: 3px;
     display: flex;
-    justify-content: flex-end; /* Align items to the right */
+    justify-content: flex-end;
+    /* Align items to the right */
     align-items: center;
 
 }
@@ -12,17 +13,24 @@
     align-items: center;
 }
 
-.main-loggin l-text1 {
-    margin-right: 5px;
+
+.main-login l-text1 {
+    margin-right: 10px;
+    color: #fff;
+    margin-Bottom: 10px;
+    font-Size: 16px;
+
+
 }
 
-.main-loggin button {
-    background-color: #e74c3c;
-    color: #fff;
+.main-login button {
+    color: white;
+    background-color: #0073a5;
     border: none;
     padding: 1px 1px;
     cursor: pointer;
 }
+
 
 .main-notlogin {
     display: flex;
@@ -32,6 +40,9 @@
 .main-notlogin l-text1 {
     margin-right: 10px;
     color: #fff;
+    margin-Bottom: 10px;
+    font-Size: 16px;
+
 }
 
 .main-notlogin .main-logbar-item {
@@ -44,6 +55,7 @@
 .main-notlogin .main-logbar-item a {
     color: #fff;
     text-decoration: none;
+
 }
 
 .profileHeader {

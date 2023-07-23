@@ -35,10 +35,13 @@ function CompanyLogin() {
                 localStorage.setItem("adminToken", res.data);
                 console.log("Admin has been Log In");
                 toast.info("Admin has been Log In");
-                window.location = "/adminHome";
+                window.location = "/grp13/adminHome";
             }
-            else {
-                window.location = "/";
+            else if (res.user.role === "student") {
+                window.location = "/grp13/student-home";
+            }
+            else if (res.user.role === "company") {
+                window.location = "/grp13/company-home";
             }
             //check if user has carted
             const user = JSON.parse(localStorage.getItem("user"));
