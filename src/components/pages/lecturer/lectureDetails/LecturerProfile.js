@@ -73,7 +73,7 @@ export const LecturerProfile = () => {
         userId: user._id,
       };
 
-      const url = "http://localhost:4000/api/users/";
+      const url = URL + "/api/users/";
       await axios.put(url, updatedUser);
 
       console.log("User StudentProfile successfully updated");
