@@ -41,7 +41,9 @@ export default function StudentSignup() {
     };
 
     const validateEmailDomain = (email) => {
-        const allowedDomains = ["gmail.com", "engug.ruh.ac.lk"];
+        const allowedDomains =
+            ["ruh.ac.lk",
+            "engug.ruh.ac.lk"];
         const domain = email.split("@")[1];
         return allowedDomains.includes(domain);
     };
@@ -52,7 +54,7 @@ export default function StudentSignup() {
         const isEmailValid = validateEmailDomain(data.email);
 
         if (!isEmailValid) {
-            setEmailError("Only @gmail.com and @engug.ruh.ac.lk email domains are allowed.");
+            setEmailError("Email domains are not allowed.");
         } else {
             setEmailError(""); // Clear the email error if it was previously shown
             try {
