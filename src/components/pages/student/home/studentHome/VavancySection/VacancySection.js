@@ -50,7 +50,7 @@ const VacancySection = () => {
         comment: 'Applied for the vacancy',
       };
 
-      const url = 'http://localhost:4000/api/responses';
+      const url = URL+'/api/responses';
       const response = await axios.post(url, newResponse);
       console.log('Response saved:', response.data);
 
