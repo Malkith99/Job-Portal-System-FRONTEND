@@ -1,78 +1,85 @@
-import React, { useState, useEffect } from "react";
-// import { Link } from "react-router-dom";
-import axios from "axios";
-import "./StudentData.css";
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+import Papa from 'papaparse';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import MainHeader from "../../../mainHeader/mainHeader";
+import Footer from "../../../footer/footer";
 
-export default function AdminStudent() {
-  const [students, setStudents] = useState([]);
-  //   const [img, setImg] = useState("");
-  //   const [fname, setfName] = useState("");
-  //   const [lname, setlName] = useState("");
-  //   const [email, setEmail] = useState(0);
+const ExcelTableDisplay = () => {
+  const [data, setData] = useState([]);
 
-  useEffect(() => {
-    function getStudents() {
-      axios
-        .get("http://localhost:1234/student/")
-        .then((res) => {
-          console.log(res.data);
-          setStudents(res.data);
-        })
-        .catch((err) => {
-          alert(err.message);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const content = e.target.result;
+      parseExcel(content);
+    };
+
+    reader.readAsArrayBuffer(file);
+  };
+
+  const parseExcel = (data) => {
+    const workbook = XLSX.read(data, { type: 'array' });
+    const sheetName = workbook.SheetNames[0];
+    const sheetData = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+
+    Papa.parse(sheetData, {
+      header: true,
+      complete: (parsedData) => {
+        // Assuming your Excel file has columns: "First Name", "Last Name", "Email", "Year"
+        const requiredColumns = ["First Name", "Last Name", "Email", "Year"];
+        const filteredData = parsedData.data.map((row) => {
+          return {
+            firstName: row[requiredColumns[0]],
+            lastName: row[requiredColumns[1]],
+            email: row[requiredColumns[2]],
+            year: row[requiredColumns[3]],
+          };
         });
-    }
-    getStudents();
-  }, []);
-  useEffect(() => {
-    console.log(students);
-    console.log("Haii");
-  }, [students]);
+
+        setData(filteredData);
+        showDataArrivedToast(); // Show the toast when data arrives
+      },
+    });
+  };
+
+  const showDataArrivedToast = () => {
+    toast.success('Data has arrived!', {
+      position: toast.POSITION.TOP_CENTER,
+      autoClose: 3000, // 3 seconds
+    });
+  };
 
   return (
-    <>
-      <h1>Student Data</h1>
       <div>
-        {/* {students.map((studentData) => (
-        <div>
-          <p>Name:{studentData.name}</p>
-          <p>Age:{studentData.age}</p>
-          <p>Gender:{studentData.gender}</p>
-        </div>
-        ))} */}
-
-        <table className="cart-table">
+        <MainHeader />
+        <input type="file" onChange={handleFileChange} />
+        <table>
           <thead>
-            <tr>
-              <th>Profile Image</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-            </tr>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Year</th>
+          </tr>
           </thead>
           <tbody>
-            {students.length>0 ? (
-            students.map((studentData) => (
-              <tr key={studentData._id}>
-                <td>
-                  <img
-                    src={"http//localhost:1234" + studentData.profileImage}
-                    alt=""
-                  />
-                </td>
-                <td>{studentData.firsttName}</td>
-                <td>{studentData.lastName}</td>
-                <td>{studentData.email}</td>
+          {data.map((row, index) => (
+              <tr key={index}>
+                <td>{row.firstName}</td>
+                <td>{row.lastName}</td>
+                <td>{row.email}</td>
+                <td>{row.year}</td>
               </tr>
-            ))
-            ):(
-              <tr>
-              <td colSpan="4">No students found</td>
-            </tr>
-            )}
+          ))}
           </tbody>
         </table>
+        <Footer />
       </div>
-    </>
   );
-}
+};
+
+export default ExcelTableDisplay;

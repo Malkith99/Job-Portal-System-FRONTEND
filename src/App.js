@@ -43,7 +43,7 @@ import StudentApplicationForStudent from './components/pages/studentApplication/
 import StudentJobApplication from './components/pages/studentApplication/StudentJobApplication';
 import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
-
+import StudentDetails from './components/pages/Admin/StudentData/StudentData';
 export default function App() {
 const basename='grp13';
  
@@ -97,6 +97,7 @@ const basename='grp13';
           <Route path='/job-application/:id' element={<StudentJobApplication/>}></Route>
             <Route path="/home" element={<SignInSignUp/>}></Route>
             <Route path="/all-sign-in" element={<AllSignIn/>}></Route>
+            <Route path="/studentDetails" element={<StudentDetails/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>

@@ -5,6 +5,7 @@ import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
 //import {Bar} from 'recharts';
 import {URL} from "../../../../env";
+import {Link} from "react-router-dom";
 
 function AdminHome() {
     const [users, setUsers] = useState([]);
@@ -99,6 +100,7 @@ function AdminHome() {
     return (
         <>
             <MainHeader />
+            <Link to="/studentDetails">Student Page</Link>
             <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px', fontSize: '45px', color: '#004d99' }}>
                 <u>User List</u>
             </h1>
