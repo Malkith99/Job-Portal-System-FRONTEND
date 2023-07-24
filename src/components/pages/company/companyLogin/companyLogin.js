@@ -39,15 +39,18 @@ function CompanySignIn() {
             if (res.user.email === "admin@gmail.com") {
                 localStorage.setItem("adminToken", res.data);
                 console.log("Admin has been Log In");
-            }
-
+                window.location = "/grp13/adminHome";
+            }else{
+              
             //check if user has carted
             const user = JSON.parse(localStorage.getItem('user'));
             console.log(user.firstName);
             console.log(data);
             console.log("User has been Log In");
             console.log(`User ${data._id} has been login`);
-            window.location = "/";
+            window.location = "/grp13/company-HomePage";
+            }
+
         } catch (error) {
             if (
                 error.response &&
