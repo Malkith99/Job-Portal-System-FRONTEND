@@ -17,15 +17,6 @@ import axios from "axios";
 
 
 function CompanyHomePage({ isLogedIn, onLogout }) {
-
-
-
-
-
-
-
-
-
   const content = (
     <>
        <Link to="/company-home">Company Feed</Link>
@@ -79,17 +70,6 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
             </div>
           </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
       </div>
       <h4 style={{ fontFamily: "Georgia", marginTop: "2%", marginLeft: "10%" }}>
         WHY WE ARE UNIQUE?
@@ -176,19 +156,6 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
           </div>
         </div>
       </Card>
-
-
-
-        {/*New Job Pool*/}
-
-
-
-
-
-
-
-
-
       <Footer />
     </div>
   );

@@ -78,7 +78,6 @@ const basename='grp13';
           <Route path="/adminHome" element={<AdminHome/>}></Route>
 
           <Route path="/lecturer-login" element={<LecturerLogin/>}></Route>
-          <Route path='/lecturer-home' element={<LectureMainHome/>}></Route>
           <Route path="/lecturer-signUp" element={<LecturerSignUp/>}></Route>
           <Route path="/lecturer-signIn" element={<LecturerLogin/>}></Route>
           <Route path="/lecturer-home" element={<LectureMainHome/>}></Route>
