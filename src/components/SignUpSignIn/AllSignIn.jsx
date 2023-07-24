@@ -43,6 +43,9 @@ function CompanyLogin() {
             else if (res.user.role === "company") {
                 window.location = "/grp13/company-home";
             }
+            else if (res.user.role === "lecturer") {
+                window.location = "/grp13/lecturer-home";
+            }
             //check if user has carted
             const user = JSON.parse(localStorage.getItem("user"));
             console.log(user.firstName);

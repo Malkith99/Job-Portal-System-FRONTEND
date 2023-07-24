@@ -21,7 +21,7 @@ function CompanyRegister() {
   async function fetchUserData() {
     try {
       const userId = user._id;
-      const url = `http://localhost:4000/api/users/${userId}`;
+      const url = URL+`/api/users/${userId}`;
       const response = await axios.get(url);
       const userData = response.data.user;
       setUser(userData);
