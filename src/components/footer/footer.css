@@ -53,6 +53,9 @@
   font-size: 16px;
   line-height: 1.6;
 }
+.col u {
+  color:white;
+}
 
 .col p.footer-p {
   margin-bottom: 5px;
