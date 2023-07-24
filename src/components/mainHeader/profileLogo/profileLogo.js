@@ -28,7 +28,7 @@ function ProfileLogo() {
                 )}>
                     {/* Add other dropdown items as needed */}
                     <Dropdown.Item>
-                        <Link to="/" onClick={handleLogout}>
+                        <Link onClick={handleLogout}>
                             Logout
                         </Link>
                     </Dropdown.Item>

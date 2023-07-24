@@ -72,11 +72,11 @@ export default function CustomizedTables() {
     searchQuery === ""
       ? rows
       : rows.filter((row) =>
-          row.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+        row.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
 
   function handleViewButtonClick(id) {
-    window.location.href = `/job-application/${id}`;
+    window.location.href = `/grp13/job-application/${id}`;
   }
 
   return (
@@ -119,7 +119,7 @@ export default function CustomizedTables() {
             <TableBody>
               {filteredRows.map((row) => (
                 <StyledTableRow
-                  
+
                 >
                   <StyledTableCell align="center">{row.name}</StyledTableCell>
                   <StyledTableCell align="center">

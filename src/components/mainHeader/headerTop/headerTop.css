@@ -8,7 +8,7 @@
 
 }
 
-.main-loggin {
+.main-login {
     display: flex;
     align-items: center;
 }
@@ -19,6 +19,8 @@
     color: #fff;
     margin-Bottom: 10px;
     font-Size: 16px;
+    display: flex;
+    align-items: center;
 
 
 }
@@ -58,11 +60,11 @@
 
 }
 
-.profileHeader {
+.main-login .profileHeader {
     width: 30px;
     height: 30px;
     object-fit: cover;
     border-radius: 50%;
-    margin-left: auto;
+    margin-left: 10px;
     cursor: pointer;
 }

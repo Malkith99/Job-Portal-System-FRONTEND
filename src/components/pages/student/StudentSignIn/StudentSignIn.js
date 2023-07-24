@@ -43,6 +43,7 @@ function StudentSignIn() {
                 console.log("Admin has been Log In");
                 window.location = "/grp13/adminHome";
             }else{
+                        //check if user has carted
                 const user = JSON.parse(localStorage.getItem('user'));
                 console.log(user.firstName);
                 console.log(data);
@@ -50,9 +51,6 @@ function StudentSignIn() {
                 console.log(`User ${data._id} has been login`);
                 window.location = "/grp13/student-home";
             }
-
-            //check if user has carted
-
         } catch (error) {
             if (
                 error.response &&
@@ -80,6 +78,7 @@ function StudentSignIn() {
 
 
   return (
+    <>
     <div className="page-container">
       <MainHeader
         content={
@@ -207,10 +206,11 @@ function StudentSignIn() {
           {/* </Card> */}
         </Box>
       </div>
-      <div>
-        <Footer />
-      </div>
     </div>
+    <div>
+    <Footer />
+    </div>
+      </> 
   );
 }
 
