@@ -3,6 +3,7 @@ import {Link, useNavigate} from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 import axios from "axios";
+import {URL} from "../../../../../env";
 export default function ResponseVac({ isLogedIn, onLogout }) {
     const content = (
       <>

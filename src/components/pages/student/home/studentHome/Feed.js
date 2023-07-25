@@ -40,7 +40,7 @@ export default function Feed() {
                 return (
                     <React.Fragment key={_id}>
                         {items.map((item, index) => {
-                            const { jobPosition, salary,dueDate, flyer,description, companyId } = item;
+                            const { jobPosition, salary,dueDate, flyer,jobDescription, companyId } = item;
 
                             // Find the corresponding company
                             const company = companies.find((c) => c._id === companyId);
@@ -54,9 +54,9 @@ export default function Feed() {
                                     <h3 className={`card_title ${jobPosition.length > 25 ? 'card_title--small' : ''}`}>
                                         {jobPosition}
                                     </h3>
+                                    <p className="due-date">Description: {jobDescription}</p>
                                     <p className="salary">Salary: {salary}</p>
                                     <p className="due-date">Due Date: {dueDate}</p>
-                                    <p className="due-date">Description: {description}</p>
                                     {company && <p className="company-name">Company: {company.firstName}</p>}
                                     <div className='button-section'>
                                         <button className='button-section' onClick={() => {
