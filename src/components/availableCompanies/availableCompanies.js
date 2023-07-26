@@ -42,7 +42,7 @@ function AvailableCompanies() {
   }, []);
 
   if (isServerRunning === null) {
-    return <div>Loading...</div>; // Show a loading message while checking server status
+    return <div style={{fontFamily:"inherit"}} >Loading...</div>; // Show a loading message while checking server status
   }
 
 
@@ -51,13 +51,18 @@ function AvailableCompanies() {
   return (
       <>
         <div id="frontpage-course-list">
-          <h2 className="loginN">Available Companies</h2>
+          <h2 className="text-style">Available Companies</h2>
           <div className="courses frontpage-course-list-all">
             {isServerRunning ? (
-                <div className="row">
+                <div className="row" >
                   {filteredUsers.map((user) => (
                       <div className="col-md-3" key={user.id}>
                         <div className="fp-coursebox">
+                        <div className="fp-courseinfo">
+                            <h5 className="form-label">{`${user.firstName} ${user.lastName}`}</h5>
+                          </div>
+                          <div style={{ width: '300px', height: '170px',marginBottom:"30px" }}>
+                            
                           <div className="fp-coursethumb">
                             <a href={user.url}>
                               <img
@@ -66,12 +71,12 @@ function AvailableCompanies() {
                                   height="165"
                                   alt=""
                                   className="comapny-logo"
+                                  
                               />
                             </a>
                           </div>
-                          <div className="fp-courseinfo">
-                            <h5 className="form-label">{`${user.firstName} ${user.lastName}`}</h5>
                           </div>
+                          
                         </div>
                       </div>
                   ))}
