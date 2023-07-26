@@ -1,7 +1,7 @@
 /* footer.css */
 
 .main-footer {
-  color: #333;
+  color: #333; 
   background-color: #f8f8f8;
   padding-top: 1rem;
   align-items: center;
@@ -10,7 +10,7 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding-left: 3px;
+  padding-left: 30px;
   font-style: italic;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
@@ -37,9 +37,9 @@
   font-weight: 700;
   text-align: center;
   background-color: #009fe5;
+  /* background-color: #010608; */
   border-bottom-left-radius: 12%;
   border-bottom-right-radius: 12%;
-  color: white;
   padding: 15px;
 }
 
@@ -65,7 +65,7 @@
 .col-sm {
   font-weight: 500;
   font-size: 20px;
-  color: #555;
+  color: #515151;
   text-align: center;
   margin-top: 10px;
   padding: 20px;
@@ -85,8 +85,8 @@
 /* Additional styles for the "WEB TECH SOLUTIONS" section */
 .col:last-child {
   background-color: #f8f8f8;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); */
+  /* border-radius: 8px; */
 }
 
 .col:last-child h3 {
