@@ -54,7 +54,7 @@ export default function StudentSignup() {
         const isEmailValid = validateEmailDomain(data.email);
 
         if (!isEmailValid) {
-            setEmailError("Email domains are not allowed.");
+            setEmailError("Only University Email are allowed.");
         } else {
             setEmailError(""); // Clear the email error if it was previously shown
             try {
