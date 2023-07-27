@@ -3,10 +3,9 @@ import MainHeader from '../../../mainHeader/mainHeader';
 import Footer from '../../../footer/footer';
 import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
-//import {Bar} from 'recharts';
 import {URL} from "../../../../env";
 import {Link} from "react-router-dom";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import {BarChart ,Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 import {Alert, DialogActions, DialogContentText} from "@mui/material";
 import DialogContent from "@mui/material/DialogContent";
 import Dialog from "@mui/material/Dialog";
@@ -64,14 +63,28 @@ function AdminHome() {
 
     const [userToDelete, setUserToDelete] = useState(null);
 
-    const handleDelete = (userId) => {
-        // Here, you can perform the actual delete logic, e.g., make an API call, etc.
-        // For this example, we will just log the user ID to the console.
-        console.log("Delete user with ID:", userId);
+    const handleDelete = async (userId) => {
+        try {
+            const response = await fetch(`${URL}/api/users/${userId}`, {
+                method: 'DELETE',
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log(data.message); // Log success message from the server
+                toast.success(`User  has been successfully deleted.`);
+            } else {
+                console.log(data.message);
+            }
+        } catch (error) {
+            console.error(`Error deleting user: ${error.message}`);
+        }
 
         // Hide the alert after handling the delete action.
         setShowAlert(false);
     };
+
 
     const handleDeleteButtonClick = (userId) => {
         setUserToDelete(userId);
@@ -84,7 +97,7 @@ function AdminHome() {
     };
 
     const handleConfirmDelete = () => {
-        handleDelete(userToDelete);
+        handleDelete(userToDelete).then(r => {});
     };
 
     // Count the number of users for each role
@@ -123,7 +136,6 @@ function AdminHome() {
 
 
 
-
     return (
         <>
             <MainHeader />
@@ -136,7 +148,7 @@ function AdminHome() {
             <div className="graph-container" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <h2>User Graph</h2>
                 {chartData.labels && chartData.datasets ? (
-                    <BarChart width={600} height={300} data={chartData.datasets} >
+                    <BarChart width={600} height={300} data={chartData.labels}> {/* Use chartData.labels as the data */}
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
                         <YAxis />
@@ -145,7 +157,7 @@ function AdminHome() {
                         {chartData.datasets.map((dataset, index) => (
                             <Bar
                                 key={index}
-                                dataKey="value"
+                                dataKey="value" // Make sure this is "value" as it represents the count
                                 data={dataset.data}
                                 fill={`#${Math.floor(Math.random() * 16777215).toString(16)}`} // Random color for each bar
                             />
@@ -155,6 +167,7 @@ function AdminHome() {
                     <p>No data available for the graph</p>
                 )}
             </div>
+
 
 
 
