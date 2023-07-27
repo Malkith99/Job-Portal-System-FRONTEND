@@ -75,7 +75,7 @@ export default function StudentSignup() {
     const handleValidateEmail = () => {
         const isEmailValid = validateEmailDomain(data.email);
         setIsEmailValidated(isEmailValid);
-        const message = isEmailValid ? "Email domain is valid!" : "Email domain is not allowed.";
+        const message = isEmailValid ? "Email domain is valid!" : "Only University Email are allowed.";
         toast(message, { type: isEmailValid ? "success" : "error" });
     };
 
