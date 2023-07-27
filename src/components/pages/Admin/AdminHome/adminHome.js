@@ -7,12 +7,18 @@ import adminImage from '../../../../images/admin.png';
 import {URL} from "../../../../env";
 import {Link} from "react-router-dom";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import {Alert, DialogActions, DialogContentText} from "@mui/material";
+import DialogContent from "@mui/material/DialogContent";
+import Dialog from "@mui/material/Dialog";
+import {Button} from "react-bootstrap";
+import DialogTitle from "@mui/material/DialogTitle";
+import {toast} from "react-toastify";
 function AdminHome() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [selectedRole, setSelectedRole] = useState('');
     const [chartData, setChartData] = useState({});
-
+    const [showAlert, setShowAlert] = useState(false);
     useEffect(() => {
         fetchUsers().then(() => {
 
@@ -56,9 +62,29 @@ function AdminHome() {
         console.log(`Edit user with ID: ${userId}`);
     };
 
+    const [userToDelete, setUserToDelete] = useState(null);
+
     const handleDelete = (userId) => {
-        // Implement the delete functionality
-        console.log(`Delete user with ID: ${userId}`);
+        // Here, you can perform the actual delete logic, e.g., make an API call, etc.
+        // For this example, we will just log the user ID to the console.
+        console.log("Delete user with ID:", userId);
+
+        // Hide the alert after handling the delete action.
+        setShowAlert(false);
+    };
+
+    const handleDeleteButtonClick = (userId) => {
+        setUserToDelete(userId);
+        setShowAlert(true);
+        toast.info("Alert! If user deleted That action can't be undone");
+    };
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
+
+    const handleConfirmDelete = () => {
+        handleDelete(userToDelete);
     };
 
     // Count the number of users for each role
@@ -204,6 +230,15 @@ function AdminHome() {
                             Lecturer
                         </button>
                     </div>
+                    {/* Alert container */}
+                    {showAlert && (
+                        <div style={{ margin: "10px", padding: "10px", background: "yellow" }}>
+                            <Alert variant="filled" severity="warning">
+                                This is a warning alert — check it out!
+                            </Alert>
+                        </div>
+                    )}
+
                     {selectedRole && (
                         <h2 style={{ display: 'flex', justifyContent: 'center', margin: '10px' }}>
                             Showing {countUsersByRole(selectedRole)} {selectedRole} users
@@ -234,7 +269,7 @@ function AdminHome() {
                                     <td>{user.role}</td>
                                     <td>
                                         <button onClick={() => handleEdit(user._id)}>Edit</button>
-                                        <button onClick={() => handleDelete(user._id)}>Delete</button>
+                                        <button onClick={() => handleDeleteButtonClick(user._id)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
@@ -245,6 +280,25 @@ function AdminHome() {
                     )}
                 </div>
             </div>
+
+            {/* Delete Confirmation Dialog */}
+            <Dialog open={showAlert} onClose={handleCloseAlert}>
+                <DialogTitle>Confirm Delete</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Are you sure you want to delete the user?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseAlert} color="primary">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleConfirmDelete} color="primary" autoFocus>
+                        Delete
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
 
 
             <Footer />
