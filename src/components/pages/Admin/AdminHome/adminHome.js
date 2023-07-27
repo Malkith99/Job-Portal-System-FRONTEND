@@ -6,7 +6,7 @@ import adminImage from '../../../../images/admin.png';
 //import {Bar} from 'recharts';
 import {URL} from "../../../../env";
 import {Link} from "react-router-dom";
-
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 function AdminHome() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
@@ -14,11 +14,11 @@ function AdminHome() {
     const [chartData, setChartData] = useState({});
 
     useEffect(() => {
-        fetchUsers().then(() => {});
+        fetchUsers().then(() => {
+
+        });
         handleRoleFilter('');
-
     }, []);
-
 
     const fetchUsers = async () => {
         try {
@@ -28,6 +28,7 @@ function AdminHome() {
             if (response.ok) {
                 setUsers(data.users);
                 setFilteredUsers(data.users); // Set filteredUsers to all users
+                createChartData(data.users);
             } else {
                 console.log(data.message);
             }
@@ -79,7 +80,7 @@ function AdminHome() {
         const roles = ['admin', 'company', 'student', 'lecturer']; // Define the roles
 
         const data = roles.map((role) => {
-            return usersData.filter((user) => user.role === role).length;
+            return { name: role, value: usersData.filter((user) => user.role === role).length };
         });
 
         setChartData({
@@ -92,25 +93,59 @@ function AdminHome() {
                 },
             ],
         });
-        console.log(data);
     };
+
 
 
 
     return (
         <>
             <MainHeader />
-            <Link to="/studentDetails">Student Page</Link>
-            <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px', fontSize: '45px', color: '#004d99' }}>
+
+            {/*Note*/}
+            {/*don't change anything under this point*/}
+
+
+
+            <div className="graph-container" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <h2>User Graph</h2>
+                {chartData.labels && chartData.datasets ? (
+                    <BarChart width={600} height={300} data={chartData.datasets} >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        {chartData.datasets.map((dataset, index) => (
+                            <Bar
+                                key={index}
+                                dataKey="value"
+                                data={dataset.data}
+                                fill={`#${Math.floor(Math.random() * 16777215).toString(16)}`} // Random color for each bar
+                            />
+                        ))}
+                    </BarChart>
+                ) : (
+                    <p>No data available for the graph</p>
+                )}
+            </div>
+
+
+
+
+
+
+            <Link to="/studentDetails">Student Page</Link> //don't change anything under this point
+            <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', fontSize: '45px', color: '#004d99' }}>
                 <u>User List</u>
             </h1>
             <div className="admin-home-container container" style={{ display: 'flex' }}>
-                {/* Apply a container class */}
+                {/* Apply a container class
 
                 <div style={{ display: 'flex', flex: '25%', justifyContent: 'center', alignItems: 'center' }}>
                     <img src={adminImage} className="image" alt="adminImage" />
                 </div>
-
+*/}
                 <div style={{ flex: '75%', justifyContent: 'center', marginLeft: '10%', marginTop: '6%' }}>
                     <div className="filter-buttons" style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
                         <button
@@ -190,27 +225,7 @@ function AdminHome() {
                     )}
                 </div>
             </div>
-            {/*
 
-            <div>
-                <h2>User Graph</h2>
-                {chartData.labels && chartData.datasets ? (
-                    <Bar
-                        data={chartData}
-                        options={{
-                            responsive: true,
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                },
-                            },
-                        }}
-                    />
-                ) : (
-                    <p>No data available for the graph</p>
-                )}
-            </div>
-*/}
 
             <Footer />
         </>
