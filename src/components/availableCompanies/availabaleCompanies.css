@@ -21,7 +21,9 @@
 }
 
 }
-
+.form-label{
+  color: #898c8d;
+}
 .col-md-3{
     position: relative;
     width: 100%;
@@ -31,7 +33,7 @@
 }
 
   .col-md-3:hover {
-    border: 2px solid rgb(71, 78, 138); /* Border style when hovering */
+    border: 2px solid rgb(255, 255, 255); /* Border style when hovering */
   }
 
   .comapny-logo{
