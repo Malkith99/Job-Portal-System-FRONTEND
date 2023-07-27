@@ -29,11 +29,10 @@ export default function StudentHome({ isLogedIn, onLogout }) {
       <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div className="page">
-        <div className="strip-section">
-     
-          <div className="strip-content">
-            <h2 className="section-title text-style">
-              Find the Job <br /> that is perfect for you
+      <div class="strip-section">
+  <div class="centered-content">
+    <h2 class="section-title text-style">
+              Find the Job  that is perfect for you
             </h2>
           </div>
           <div className="searchBar">
@@ -53,10 +52,13 @@ export default function StudentHome({ isLogedIn, onLogout }) {
                 ),
               }}
             />
-          </div>
-          <img src={stripImage} alt="Strip" className="strip-image" />
-        </div>
-        <div className="feeds-section" style={{height:"auto",padding:"25px"}}>
+          
+  </div>
+  <div class="right-column">
+    <img src={stripImage} alt="Strip" class="strip-image" />
+  </div>
+</div>
+        <div className="feeds-section" style={{height:"auto",padding:"25px",marginTop:"100px"}}>
           
           <Card/>
         </div>
