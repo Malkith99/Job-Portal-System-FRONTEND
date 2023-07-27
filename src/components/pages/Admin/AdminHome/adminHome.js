@@ -103,7 +103,7 @@ function AdminHome() {
             <MainHeader />
 
             {/*Note*/}
-            {/*don't change anything under this point*/}
+            {/*don't change graph*/}
 
 
 
@@ -135,7 +135,27 @@ function AdminHome() {
 
 
 
-            <Link to="/studentDetails">Student Page</Link> //don't change anything under this point
+            <div style={{ textAlign: 'center' }}>
+                <Link
+                    to="/studentDetails"
+                    style={{
+                        background: '#004d99',
+                        borderRadius: 3,
+                        border: 0,
+                        color: 'white',
+                        height: 48,
+                        padding: '0 30px',
+                        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, 0.3)',
+                        transition: 'transform 0.2s ease-in-out',
+                        textDecoration: 'none', // Remove underline from the link
+                        display: 'inline-block', // Adjust display property to match CSS version
+                    }}
+                >
+                    Student Detail Page
+                </Link>
+            </div>
+
+
             <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', fontSize: '45px', color: '#004d99' }}>
                 <u>User List</u>
             </h1>
