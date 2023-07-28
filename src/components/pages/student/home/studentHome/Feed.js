@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "./Feed.css";
-import { useNavigate } from "react-router-dom";
-import { URL } from "../../../../../env";
+import {useNavigate} from "react-router-dom";
+import {URL} from "../../../../../env";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
+
 export default function Feed() {
   const navigate = useNavigate();
   const [jobpool, setJobpool] = useState([]);
   const [companies, setCompanies] = useState([]);
+
 
   useEffect(() => {
     const fetchJobVacancies = async () => {
@@ -22,7 +23,7 @@ export default function Feed() {
 
     const fetchCompanies = async () => {
       try {
-        const response = await axios.get(URL + "/api/vacancies");
+        const response = await axios.get(URL + "/api/users");
         setCompanies(response.data);
       } catch (error) {
         console.error("Failed to fetch companies:", error);
@@ -33,12 +34,22 @@ export default function Feed() {
     fetchCompanies().then(() => {});
   }, []);
 
+  // Later in the component
+  const findCompanyById = (companyId) => {
+    console.log(companies);
+    console.log(companyId);
+
+  };
+
+
+
+
   return (
     <div className="wrapper">
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
         const items = vacancy.items;
-
+const companyId = vacancy.userId;
         return (
           <React.Fragment key={_id}>
             {items.map((item, index) => {
@@ -47,14 +58,13 @@ export default function Feed() {
                 salary,
                 dueDate,
                 flyer,
-                jobDescription,
-                companyId,
-                
-               
+                jobDescription
+
+
               } = item;
 
               // Find the corresponding company
-              const company = companies.find((c) => c._id === companyId);
+              const company = findCompanyById(companyId);
 
               return (
                 <div>
@@ -76,11 +86,8 @@ export default function Feed() {
                     <p className="salary">Salary: {salary}</p>
                     <p className="due-date">Due Date: {dueDate}</p>
                     <p className="due-date">Description: {jobDescription}</p>
-                    {company && (
-                      <p className="company-name">
-                        Company: {company.firstName}
-                      </p>
-                    )}
+                    {company && <p  className="due-date" >Company:{company} </p>}
+
                     <div className="button-section">
                       <button
                         className="button-section"
