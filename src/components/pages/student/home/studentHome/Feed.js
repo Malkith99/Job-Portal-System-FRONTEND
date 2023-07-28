@@ -47,7 +47,7 @@ export default function Feed() {
                 salary,
                 dueDate,
                 flyer,
-                description,
+                jobDescription,
                 companyId,
                 
                
@@ -75,7 +75,7 @@ export default function Feed() {
                     </h3>
                     <p className="salary">Salary: {salary}</p>
                     <p className="due-date">Due Date: {dueDate}</p>
-                    <p className="due-date">Description: {description}</p>
+                    <p className="due-date">Description: {jobDescription}</p>
                     {company && (
                       <p className="company-name">
                         Company: {company.firstName}
@@ -107,7 +107,7 @@ export default function Feed() {
                         <h3
                     className="title-box" 
                       >
-                     Mobitel 
+                     Mobitel
                     </h3>
                     </div>
                     <div className="Branch-box">
@@ -116,7 +116,7 @@ export default function Feed() {
                     <div className="para-items">
 
                     <div className="para-box">
-                        <p>Full-time </p>
+                        <p>{jobPosition} </p>
                     </div>
                     <div className="para-box">
                         <p>Online </p>
@@ -129,7 +129,7 @@ export default function Feed() {
                     </div>
                     <div className="intro">
                         <p>
-                            intro of skills neede dsdfgchjbkn zffchgvjbxgc hjbkn lmfxgchv bnmfxgch jbknlmcvb nm,.
+                          Description: {jobDescription}
                         </p>
                     </div>
                     <div className="para-items2" >
