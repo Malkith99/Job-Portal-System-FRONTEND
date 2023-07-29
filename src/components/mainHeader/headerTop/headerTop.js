@@ -28,9 +28,12 @@ const HeaderTop = (props) => {
                     <div className="main-login">
                         <l-text1 style={{ marginBottom: "10px", fontSize: "16px" }} >
                             Welcome, {user.firstName} {user.lastName}{" "}
+                            <button onClick={handleLogout}>(Logout)</button>
                             <ProfileLogo class="profileHeader" onLogout={props.onLogout} />
                         </l-text1>
+
                         {/*<button onClick={handleLogout}>Logout</button>*/}
+                  {/* <ProfileLogo class="profileHeader" onLogout={props.onLogout} /> */}
 
                     </div>
 
