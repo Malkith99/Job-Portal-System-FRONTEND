@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -9,9 +9,11 @@ import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import CheckCircleOutlineIcon from "@mui/icons-material/CheckCircleOutline";
+import CancelIcon from "@mui/icons-material/Cancel";
 import axios from "axios";
-import {URL} from "../../../../../env";
-
+import { URL } from "../../../../../env";
+import {toast} from "react-toastify";
 
 styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -21,10 +23,7 @@ styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-
 export default function StudentSignup() {
-
-
     const [data, setData] = useState({
         firstName: "",
         lastName: "",
@@ -35,30 +34,54 @@ export default function StudentSignup() {
 
     const [error, setError] = useState("");
     const [msg, setMsg] = useState("");
+    const [emailError, setEmailError] = useState(""); // New state for email domain error
 
     const handleChange = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
     };
 
+    const validateEmailDomain = (email) => {
+        const allowedDomains =
+            ["ruh.ac.lk",
+            "engug.ruh.ac.lk"];
+        const domain = email.split("@")[1];
+        return allowedDomains.includes(domain);
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        try {
-            const url = URL +"/api/users";
-            const response = await axios.post(url, data);
-            setMsg(response.data.message);
-            window.location = "/grp13/student-home";
-        } catch (error) {
-            if (error.response && error.response.status >= 400 && error.response.status <= 500) {
-                setError(error.response.data.message);
+        const isEmailValid = validateEmailDomain(data.email);
+
+        if (!isEmailValid) {
+            setEmailError("Only University Email are allowed.");
+        } else {
+            setEmailError(""); // Clear the email error if it was previously shown
+            try {
+                const url = URL + "/api/users";
+                const response = await axios.post(url, data);
+                setMsg(response.data.message);
+                window.location = "/grp13/student-home";
+            } catch (error) {
+                if (error.response && error.response.status >= 400 && error.response.status <= 500) {
+                    setError(error.response.data.message);
+                }
             }
         }
+    };
+
+    const [isEmailValidated, setIsEmailValidated] = useState(false);
+
+    const handleValidateEmail = () => {
+        const isEmailValid = validateEmailDomain(data.email);
+        setIsEmailValidated(isEmailValid);
+        const message = isEmailValid ? "Email domain is valid!" : "Only University Email are allowed.";
+        toast(message, { type: isEmailValid ? "success" : "error" });
     };
 
     return (
         <>
             <div>
-
                 <Box sx={{ flexGrow: 1 }}>
                     <Grid container spacing={1} align="center">
                         <Grid item xs={12}>
@@ -99,7 +122,14 @@ export default function StudentSignup() {
                                             margin="normal"
                                             disabled
                                         />
-
+                                        <Button variant="contained" color="primary" onClick={handleValidateEmail}>
+                                            Validate Email
+                                        </Button>
+                                        {isEmailValidated ? (
+                                            <CheckCircleOutlineIcon style={{ color: "green", marginLeft: "5px" }} />
+                                        ) : (
+                                            <CancelIcon style={{ color: "red", marginLeft: "5px" }} />
+                                        )}
                                         <TextField
                                             type="email"
                                             label="Email"
@@ -110,7 +140,6 @@ export default function StudentSignup() {
                                             fullWidth
                                             margin="normal"
                                         />
-
                                         <TextField
                                             type="password"
                                             label="Password"
@@ -121,8 +150,7 @@ export default function StudentSignup() {
                                             fullWidth
                                             margin="normal"
                                         />
-
-
+                                        {emailError && <div className="signup_error_msg">{emailError}</div>}
                                         {error && <div className="signup_error_msg">{error}</div>}
                                         {msg && <div className="signup_success_msg">{msg}</div>}
                                         <Button variant="contained" color="primary" type="submit">

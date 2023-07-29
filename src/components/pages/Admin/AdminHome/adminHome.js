@@ -3,21 +3,27 @@ import MainHeader from '../../../mainHeader/mainHeader';
 import Footer from '../../../footer/footer';
 import './adminHome.css'; // Import the CSS file
 import adminImage from '../../../../images/admin.png';
-//import {Bar} from 'recharts';
 import {URL} from "../../../../env";
-
+import {Link} from "react-router-dom";
+import {BarChart ,Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {Alert, DialogActions, DialogContentText} from "@mui/material";
+import DialogContent from "@mui/material/DialogContent";
+import Dialog from "@mui/material/Dialog";
+import {Button} from "react-bootstrap";
+import DialogTitle from "@mui/material/DialogTitle";
+import {toast} from "react-toastify";
 function AdminHome() {
     const [users, setUsers] = useState([]);
     const [filteredUsers, setFilteredUsers] = useState([]);
     const [selectedRole, setSelectedRole] = useState('');
     const [chartData, setChartData] = useState({});
-
+    const [showAlert, setShowAlert] = useState(false);
     useEffect(() => {
-        fetchUsers().then(() => {});
+        fetchUsers().then(() => {
+
+        });
         handleRoleFilter('');
-
     }, []);
-
 
     const fetchUsers = async () => {
         try {
@@ -27,6 +33,7 @@ function AdminHome() {
             if (response.ok) {
                 setUsers(data.users);
                 setFilteredUsers(data.users); // Set filteredUsers to all users
+                createChartData(data.users);
             } else {
                 console.log(data.message);
             }
@@ -54,9 +61,43 @@ function AdminHome() {
         console.log(`Edit user with ID: ${userId}`);
     };
 
-    const handleDelete = (userId) => {
-        // Implement the delete functionality
-        console.log(`Delete user with ID: ${userId}`);
+    const [userToDelete, setUserToDelete] = useState(null);
+
+    const handleDelete = async (userId) => {
+        try {
+            const response = await fetch(`${URL}/api/users/${userId}`, {
+                method: 'DELETE',
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                console.log(data.message); // Log success message from the server
+                toast.success(`User  has been successfully deleted.`);
+            } else {
+                console.log(data.message);
+            }
+        } catch (error) {
+            console.error(`Error deleting user: ${error.message}`);
+        }
+
+        // Hide the alert after handling the delete action.
+        setShowAlert(false);
+    };
+
+
+    const handleDeleteButtonClick = (userId) => {
+        setUserToDelete(userId);
+        setShowAlert(true);
+        toast.info("Alert! If user deleted That action can't be undone");
+    };
+
+    const handleCloseAlert = () => {
+        setShowAlert(false);
+    };
+
+    const handleConfirmDelete = () => {
+        handleDelete(userToDelete).then(r => {});
     };
 
     // Count the number of users for each role
@@ -78,7 +119,7 @@ function AdminHome() {
         const roles = ['admin', 'company', 'student', 'lecturer']; // Define the roles
 
         const data = roles.map((role) => {
-            return usersData.filter((user) => user.role === role).length;
+            return { name: role, value: usersData.filter((user) => user.role === role).length };
         });
 
         setChartData({
@@ -91,7 +132,6 @@ function AdminHome() {
                 },
             ],
         });
-        console.log(data);
     };
 
 
@@ -99,16 +139,72 @@ function AdminHome() {
     return (
         <>
             <MainHeader />
-            <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '50px', fontSize: '45px', color: '#004d99' }}>
+
+            {/*Note*/}
+            {/*don't change graph*/}
+
+
+
+            <div className="graph-container" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <h2>User Graph</h2>
+                {chartData.labels && chartData.datasets ? (
+                    <BarChart width={600} height={300} data={chartData.labels}> {/* Use chartData.labels as the data */}
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="name" />
+                        <YAxis />
+                        <Tooltip />
+                        <Legend />
+                        {chartData.datasets.map((dataset, index) => (
+                            <Bar
+                                key={index}
+                                dataKey="value" // Make sure this is "value" as it represents the count
+                                data={dataset.data}
+                                fill={`#${Math.floor(Math.random() * 16777215).toString(16)}`} // Random color for each bar
+                            />
+                        ))}
+                    </BarChart>
+                ) : (
+                    <p>No data available for the graph</p>
+                )}
+            </div>
+
+
+
+
+
+
+
+            <div style={{ textAlign: 'center' }}>
+                <Link
+                    to="/studentDetails"
+                    style={{
+                        background: '#004d99',
+                        borderRadius: 3,
+                        border: 0,
+                        color: 'white',
+                        height: 48,
+                        padding: '0 30px',
+                        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, 0.3)',
+                        transition: 'transform 0.2s ease-in-out',
+                        textDecoration: 'none', // Remove underline from the link
+                        display: 'inline-block', // Adjust display property to match CSS version
+                    }}
+                >
+                    Student Detail Page
+                </Link>
+            </div>
+
+
+            <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', fontSize: '45px', color: '#004d99' }}>
                 <u>User List</u>
             </h1>
             <div className="admin-home-container container" style={{ display: 'flex' }}>
-                {/* Apply a container class */}
+                {/* Apply a container class
 
                 <div style={{ display: 'flex', flex: '25%', justifyContent: 'center', alignItems: 'center' }}>
                     <img src={adminImage} className="image" alt="adminImage" />
                 </div>
-
+*/}
                 <div style={{ flex: '75%', justifyContent: 'center', marginLeft: '10%', marginTop: '6%' }}>
                     <div className="filter-buttons" style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
                         <button
@@ -147,6 +243,15 @@ function AdminHome() {
                             Lecturer
                         </button>
                     </div>
+                    {/* Alert container */}
+                    {showAlert && (
+                        <div style={{ margin: "10px", padding: "10px", background: "yellow" }}>
+                            <Alert variant="filled" severity="warning">
+                                This is a warning alert — check it out!
+                            </Alert>
+                        </div>
+                    )}
+
                     {selectedRole && (
                         <h2 style={{ display: 'flex', justifyContent: 'center', margin: '10px' }}>
                             Showing {countUsersByRole(selectedRole)} {selectedRole} users
@@ -177,7 +282,7 @@ function AdminHome() {
                                     <td>{user.role}</td>
                                     <td>
                                         <button onClick={() => handleEdit(user._id)}>Edit</button>
-                                        <button onClick={() => handleDelete(user._id)}>Delete</button>
+                                        <button onClick={() => handleDeleteButtonClick(user._id)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
@@ -188,27 +293,26 @@ function AdminHome() {
                     )}
                 </div>
             </div>
-            {/*
 
-            <div>
-                <h2>User Graph</h2>
-                {chartData.labels && chartData.datasets ? (
-                    <Bar
-                        data={chartData}
-                        options={{
-                            responsive: true,
-                            scales: {
-                                y: {
-                                    beginAtZero: true,
-                                },
-                            },
-                        }}
-                    />
-                ) : (
-                    <p>No data available for the graph</p>
-                )}
-            </div>
-*/}
+            {/* Delete Confirmation Dialog */}
+            <Dialog open={showAlert} onClose={handleCloseAlert}>
+                <DialogTitle>Confirm Delete</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        Are you sure you want to delete the user?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleCloseAlert} color="primary">
+                        Cancel
+                    </Button>
+                    <Button onClick={handleConfirmDelete} color="primary" autoFocus>
+                        Delete
+                    </Button>
+                </DialogActions>
+            </Dialog>
+
+
 
             <Footer />
         </>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 // import LecturerRegister from '../lectureRegistration/lectureRegister/LecturerRegister';
 import "./LecturerProfile.css";
 import axios from "axios";
-
+import {URL} from "../../../../env";
 export const LecturerProfile = () => {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
@@ -26,7 +26,7 @@ export const LecturerProfile = () => {
   async function fetchUserData() {
     try {
       const userId = user._id;
-      const url = `http://localhost:4000/api/users/${userId}`;
+      const url = URL+`/api/users/${userId}`;
       const response = await axios.get(url);
       const userData = response.data.user;
       setUser(userData);
@@ -73,7 +73,7 @@ export const LecturerProfile = () => {
         userId: user._id,
       };
 
-      const url = "http://localhost:4000/api/users/";
+      const url = URL + "/api/users/";
       await axios.put(url, updatedUser);
 
       console.log("User StudentProfile successfully updated");

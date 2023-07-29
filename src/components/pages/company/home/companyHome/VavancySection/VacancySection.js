@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from 'axios';
 import "./VacancySection.css";
 import {URL} from "../../../../../../env";
-import { toast } from "react-toastify";
+import {toast} from "react-toastify";
+
 function handleSave() {
 
 }
@@ -63,9 +64,8 @@ const VacancySection = (props) => {
             },
           }
       );
-      toast.success("Jobs posted");
-      window.location.href = '/company-home';
-      // Handle success, e.g., show a success message or redirect to another page
+      window.location.href = 'grp13/company-home';
+      toast.success("job successfully posted");
     } catch (error) {
       console.log("Fail to post job");
       console.error('Failed to post the job:', error);
