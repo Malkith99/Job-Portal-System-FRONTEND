@@ -9,10 +9,8 @@ function Footer() {
           <hr />
           {/*column1*/}
           <div className="col">
-            <p className="tit" style={{color:"white"}}>
-              {/* <u> */}
-                UOR JOB PORTRAL SYSTEM 
-                {/* </u> */}
+            <p className="tit">
+              <u>UOR JOB PORTRAL SYSTEM </u>
             </p>
             <p>
               The Faculty of Engineering of University of Ruhuna was established
@@ -39,10 +37,10 @@ function Footer() {
           </div>
           <div className="col">
             <h3>WEB TECH SOLUTIONS</h3>
-            <p className="footer-p">Asanka Madushan</p>
-            <p className="footer-p">Malkith A.V.A</p>
-            <p className="footer-p">Nimna Sahasri</p>
-            <p className="footer-p">Supun Thilakshana</p>
+            <p className="footer-p">Asanka Madushan - Front End Developer</p>
+            <p className="footer-p">Malkith A.V.A - Project Manager</p>
+            <p className="footer-p">Nimna Sahasri - Front End Developer</p>
+            <p className="footer-p">Supun Thilakshana - Fullstack Developer</p>
           </div>
         </div>
         <hr />
