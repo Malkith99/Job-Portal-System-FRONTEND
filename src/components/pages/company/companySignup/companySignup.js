@@ -77,8 +77,10 @@ export default function CompanySignup() {
                         <Grid item xs={12}>
                             <Card sx={{ maxWidth: "50%", mt: 5, alignContent: "center", justifyItems: "flex-end" }}>
                                 <CardContent>
-                                    <Typography sx={{ fontSize: 18, fontWeight: "bold" }} color="Black" gutterBottom>
-                                        Create Your Account
+                                    <Typography 
+                                        className="text-style"
+                                        sx={{ fontSize: 28, fontWeight: "bold" }}  gutterBottom>
+                                            Create Your Account
                                     </Typography>
                                     <form onSubmit={handleSubmit}>
                                         <TextField
@@ -146,14 +148,14 @@ export default function CompanySignup() {
                             </Card>
                         </Grid>
                     </Grid>
-                    <hr />
+                    
                     <Grid container spacing={2}>
                         <Grid item xs={12} align="right" mr={"25%"} sx={{ alignItems: "flex-end" }}>
-                            <div className="student">
+                            {/* <div className="student">
                                 <div style={{ marginTop: "7px" }}>
                                     <Link to="/company-signIn">Do you have an account? Click here to sign in.</Link>
                                 </div>
-                            </div>
+                            </div> */}
                         </Grid>
                     </Grid>
                 </Box>

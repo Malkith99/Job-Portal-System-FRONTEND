@@ -123,6 +123,7 @@ function CompanySignIn() {
                 </Grid>
                 <Grid item xs={6}>
                   <Typography
+                    className="text-style"
                     variant="h5"
                     component="h2"
                     style={{ fontWeight: "bold", textAlign: "center" }}
@@ -174,7 +175,7 @@ function CompanySignIn() {
                   {msg && <div className="login_success_msg">{msg}</div>}
                   <div
                     className="mb-3 form-check"
-                    style={{ marginLeft: "22px" }}
+                    style={{ marginLeft: "48px" }}
                   >
                     <input
                       type="checkbox"
