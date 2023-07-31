@@ -44,15 +44,39 @@
   
   @media only screen and (max-width: 1010px) {
     .title {
-      font-size: 35px;
+      font-size: 45px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
     }
   }
+  @media only screen and (max-width: 602px) {
+    .title {
+      font-size: 40px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 560px) {
+    .title {
+      font-size: 36px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 526px) {
+    .title {
+      font-size: 30px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
   @media only screen and (max-width: 400px) {
     .title {
-      font-size: 32px;
+      font-size: 28px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;
@@ -60,7 +84,7 @@
   }
   @media only screen and (max-width: 383px) {
     .title {
-      font-size: 30px;
+      font-size: 28px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;

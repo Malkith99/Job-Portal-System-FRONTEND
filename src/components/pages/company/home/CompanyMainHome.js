@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
-import CompanyHome from "./companyHome/CompanyHome";
+import CompanyHomePage from "./companyHome/CompanyHomePage";
 
 function CompanyMainHome({ isLogedIn, onLogout }) {
   const content = (
@@ -16,7 +16,7 @@ function CompanyMainHome({ isLogedIn, onLogout }) {
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div>
-        <CompanyHome />
+        <CompanyHomePage />
         
       </div>
       <Footer />

@@ -68,7 +68,7 @@ const basename='grp13';
 
           <Route path="/company-signup" element={<CompanySignUp/> }> </Route>
           <Route path="/company-signin" element={<CompanySignIn/> }> </Route>
-          { <Route path="/company-home" element={<CompanyHome/> }> </Route> }
+          {/* { <Route path="/company-home" element={<CompanyHome/> }> </Route> } */}
           <Route path="/company-profile" element={<CompanyProfile/> }> </Route>
           <Route path="/company-job-pool/:vacancyId" element={<CompanyJobPool/> }> </Route>
             <Route path="/company-login" element={<CompanyLogin/>}></Route>
@@ -81,6 +81,7 @@ const basename='grp13';
           <Route path="/lecturer-signUp" element={<LecturerSignUp/>}></Route>
           <Route path="/lecturer-signIn" element={<LecturerLogin/>}></Route>
           <Route path="/lecturer-home" element={<LectureMainHome/>}></Route>
+          <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
 
           {/* <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
@@ -89,7 +90,7 @@ const basename='grp13';
           <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
 
           <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
-          <Route path='/company-HomePage' element={<CompanyHomePage/>}></Route>
+          <Route path='/company-home' element={<CompanyHomePage/>}></Route>
           <Route path='/vacancy-page' element={<VacancyPage/>}></Route>
           <Route path='/Response-vac' element={<ResponseVac/>}></Route>
           <Route path='/Company-details(application)' element={<CompanyApplication/>}></Route>

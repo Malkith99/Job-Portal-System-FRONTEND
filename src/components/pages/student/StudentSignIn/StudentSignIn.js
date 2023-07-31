@@ -196,7 +196,7 @@ function StudentSignIn() {
                   </form>
                 </div>
                 <div style={{ marginTop: "7px", textAlign: "center" }}>
-                    <Link to="/company-signup">
+                    <Link to="/student-signup">
                       Don't you have an account? click here to sign up.
                     </Link>
                   </div>
