@@ -36,11 +36,26 @@ export default function Feed() {
 
   // Later in the component
   const findCompanyById = (companyId) => {
-    console.log(companies);
-    console.log(companyId);
-//display company name
-    //const company = companies.find((company) => company._id === companyId);
+    try {
+      const jbusers = JSON.parse(localStorage.getItem("jbusers"));
+      console.log(companyId);
+      // Display company name
+      const company = jbusers.find((company) => company._id === companyId);
+
+      if (company) {
+        // If a company is found with the given companyId, you can access its data
+        console.log("Company Name:", company.firstName, company.lastName);
+        return company; // Return the company data
+      } else {
+        console.log("Company not found");
+        return null; // Return null if the company is not found
+      }
+    } catch (error) {
+      console.error("Error retrieving jbusers from local storage:", error.message);
+      return null; // Return null in case of an error
+    }
   };
+
 
 
 
@@ -87,7 +102,7 @@ const companyId = vacancy.userId;
                     <p className="salary">Salary: {salary}</p>
                     <p className="due-date">Due Date: {dueDate}</p>
                     <p className="due-date">Description: {jobDescription}</p>
-                    {company && <p  className="due-date" >Company:{company} </p>}
+                    {company && <p className="due-date">Company: {company.firstName}</p>}
 
                     <div className="button-section">
                       <button
@@ -115,7 +130,7 @@ const companyId = vacancy.userId;
                         <h3
                     className="title-box" 
                       >
-                     Mobitel
+                          {company.firstName}   {company.lastName}
                     </h3>
                     </div>
                     <div className="Branch-box">
@@ -138,6 +153,7 @@ const companyId = vacancy.userId;
                     <div className="intro">
                         <p>
                           Description: {jobDescription}
+
                         </p>
                     </div>
                     <div className="para-items2" >

@@ -15,6 +15,7 @@ function AvailableCompanies() {
         const data = await response.json();
 
         if (response.ok) {
+          localStorage.setItem("jbusers", JSON.stringify(data.users));
           setUsers(data.users);
           setServerRunning(true);
           const filteredCompanies = data.users.filter((user) => user.role === "company");
