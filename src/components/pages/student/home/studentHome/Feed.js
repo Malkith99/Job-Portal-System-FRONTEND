@@ -38,7 +38,8 @@ export default function Feed() {
   const findCompanyById = (companyId) => {
     console.log(companies);
     console.log(companyId);
-
+//display company name
+    //const company = companies.find((company) => company._id === companyId);
   };
 
 
