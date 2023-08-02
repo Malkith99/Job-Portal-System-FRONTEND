@@ -3,8 +3,9 @@ import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as ScrollLink, Element } from "react-scroll";
 import "./LecturerHome.css";
 import { useNavigate } from "react-router-dom";
-
+import Swal from "sweetalert2";
 function ScrollToTopButton() {
+  
   return (
     <button
       onClick={() => {
@@ -94,6 +95,11 @@ function LecturerHome() {
     };
   }, []);
 
+  const Alert = () =>{
+    Swal.fire('Approved', 'Succesfully', 
+    'success')
+  }
+
   return (
     <div className="add-jobs container">
       <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Job Applications :</h1>
@@ -122,11 +128,13 @@ function LecturerHome() {
                         See the Application
                       </button>
                       <button
+                        onClick={Alert}
                         className="btn btn-primary accept butdet"
                         style={{ background: "rgb(69, 117, 85)", marginRight: "25px" }}
                       >
                         Approve
                       </button>
+                      
                       {/* <button
                         className="btn btn-primary reject butdet"
                         style={{ background: "rgb(128, 57, 57)", marginRight: "5px" }}
