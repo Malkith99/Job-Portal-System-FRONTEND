@@ -27,7 +27,7 @@ function SignInSignUp({ isLogedIn, onLogout }) {
       setMsg("Company password is correct!\nYou can setup or access your account now"); // Set success message
       setError(""); // Clear the error message
       setShowPopup(true); // Show the popup
-      window.location.href = "/company-signup";
+      window.location.href = "/grp13/company-signup";
     } else {
       setError("Company password is incorrect!"); // Set error message
       setMsg(""); // Clear the success message
@@ -45,7 +45,7 @@ function SignInSignUp({ isLogedIn, onLogout }) {
       // Set success message
       setError(""); // Clear the error message
       setShowPopup(true); // Show the popup
-      window.location.href = "/lecturer-signUp";
+      window.location.href = "/grp13/lecturer-signUp";
     } else {
       setError("Lecturer password is incorrect!"); // Set error message
       setMsg(""); // Clear the success message

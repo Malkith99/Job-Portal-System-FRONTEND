@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import "./Feed.css";
-import { useNavigate } from "react-router-dom";
-import { URL } from "../../../../../env";
+import {useNavigate} from "react-router-dom";
+import {URL} from "../../../../../env";
 import Card from "@mui/material/Card";
-import Button from "@mui/material/Button";
+
 export default function Feed() {
   const navigate = useNavigate();
   const [jobpool, setJobpool] = useState([]);
   const [companies, setCompanies] = useState([]);
+
 
   useEffect(() => {
     const fetchJobVacancies = async () => {
@@ -22,7 +23,7 @@ export default function Feed() {
 
     const fetchCompanies = async () => {
       try {
-        const response = await axios.get(URL + "/api/vacancies");
+        const response = await axios.get(URL + "/api/users");
         setCompanies(response.data);
       } catch (error) {
         console.error("Failed to fetch companies:", error);
@@ -33,12 +34,38 @@ export default function Feed() {
     fetchCompanies().then(() => {});
   }, []);
 
+  // Later in the component
+  const findCompanyById = (companyId) => {
+    try {
+      const jbusers = JSON.parse(localStorage.getItem("jbusers"));
+      console.log(companyId);
+      // Display company name
+      const company = jbusers.find((company) => company._id === companyId);
+
+      if (company) {
+        // If a company is found with the given companyId, you can access its data
+        console.log("Company Name:", company.firstName, company.lastName);
+        return company; // Return the company data
+      } else {
+        console.log("Company not found");
+        return null; // Return null if the company is not found
+      }
+    } catch (error) {
+      console.error("Error retrieving jbusers from local storage:", error.message);
+      return null; // Return null in case of an error
+    }
+  };
+
+
+
+
+
   return (
     <div className="wrapper">
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
         const items = vacancy.items;
-
+const companyId = vacancy.userId;
         return (
           <React.Fragment key={_id}>
             {items.map((item, index) => {
@@ -47,14 +74,13 @@ export default function Feed() {
                 salary,
                 dueDate,
                 flyer,
-                description,
-                companyId,
-                
-               
+                jobDescription
+
+
               } = item;
 
               // Find the corresponding company
-              const company = companies.find((c) => c._id === companyId);
+              const company = findCompanyById(companyId);
 
               return (
                 <div>
@@ -75,12 +101,9 @@ export default function Feed() {
                     </h3>
                     <p className="salary">Salary: {salary}</p>
                     <p className="due-date">Due Date: {dueDate}</p>
-                    <p className="due-date">Description: {description}</p>
-                    {company && (
-                      <p className="company-name">
-                        Company: {company.firstName}
-                      </p>
-                    )}
+                    <p className="due-date">Description: {jobDescription}</p>
+                    {company && <p className="due-date">Company: {company.firstName}</p>}
+
                     <div className="button-section">
                       <button
                         className="button-section"
@@ -107,7 +130,7 @@ export default function Feed() {
                         <h3
                     className="title-box" 
                       >
-                     Mobitel 
+                          {company.firstName}   {company.lastName}
                     </h3>
                     </div>
                     <div className="Branch-box">
@@ -116,7 +139,7 @@ export default function Feed() {
                     <div className="para-items">
 
                     <div className="para-box">
-                        <p>Full-time </p>
+                        <p>{jobPosition} </p>
                     </div>
                     <div className="para-box">
                         <p>Online </p>
@@ -129,7 +152,8 @@ export default function Feed() {
                     </div>
                     <div className="intro">
                         <p>
-                            intro of skills neede dsdfgchjbkn zffchgvjbxgc hjbkn lmfxgchv bnmfxgch jbknlmcvb nm,.
+                          Description: {jobDescription}
+
                         </p>
                     </div>
                     <div className="para-items2" >

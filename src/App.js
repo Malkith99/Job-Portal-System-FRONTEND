@@ -43,7 +43,7 @@ import StudentApplicationForStudent from './components/pages/studentApplication/
 import StudentJobApplication from './components/pages/studentApplication/StudentJobApplication';
 import AllSignIn from './components/SignUpSignIn/AllSignIn';
 import SignInSignUp from './components/SignUpSignIn/SignInSignUp';
-
+import StudentDetails from './components/pages/Admin/StudentData/StudentData';
 export default function App() {
 const basename='grp13';
  
@@ -70,7 +70,7 @@ const basename='grp13';
           <Route path="/company-signin" element={<CompanySignIn/> }> </Route>
           {/* { <Route path="/company-home" element={<CompanyHome/> }> </Route> } */}
           <Route path="/company-profile" element={<CompanyProfile/> }> </Route>
-          <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
+          <Route path="/company-job-pool/:vacancyId" element={<CompanyJobPool/> }> </Route>
             <Route path="/company-login" element={<CompanyLogin/>}></Route>
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
 
@@ -83,7 +83,7 @@ const basename='grp13';
           <Route path="/lecturer-home" element={<LectureMainHome/>}></Route>
           <Route path='/lecture-profile' element={<LecturerDetails/>}></Route>
 
-          {/* <Route path="/student-application-for-company/:id" element={<StudentApplicatinCompany/> }> </Route> */}
+          {/* <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/> }> </Route> */}
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
           <Route path='/lecturer-profile' element={<LecturerDetails/>}></Route>
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
@@ -98,6 +98,7 @@ const basename='grp13';
           <Route path='/job-application/:id' element={<StudentJobApplication/>}></Route>
             <Route path="/home" element={<SignInSignUp/>}></Route>
             <Route path="/all-sign-in" element={<AllSignIn/>}></Route>
+            <Route path="/studentDetails" element={<StudentDetails/>}></Route>
           </Routes>
         </div>
     </BrowserRouter>
