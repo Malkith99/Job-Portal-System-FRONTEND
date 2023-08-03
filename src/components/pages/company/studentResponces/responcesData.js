@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
-
+const basename='grp13';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "lightBlue",
@@ -67,7 +67,7 @@ function ResponcesData() {
         );
 
   function handleViewButtonClick(id) {
-    window.location.href = `/student-application-for-company/${id}`;
+    window.location.href = basename +`/student-application-for-company/${id}`;
   }
 
   return (

@@ -16,7 +16,7 @@ import CompanyVacancyViewStudent from './components/pages/student/home/studentHo
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
-import CompanyProfile from './components/pages/company/companyProfile/CompanyRegisterMain';
+import CompanyProfile from './components/pages/company/companyProfile/companyProfile/CompanyProfile';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
 
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
