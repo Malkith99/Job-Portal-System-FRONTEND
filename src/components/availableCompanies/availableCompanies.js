@@ -1,60 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./availabaleCompanies.css";
-import { URL } from "../../env";
+import { useQuery } from "react-query";
 import { toast } from "react-toastify";
+import {fetchUsers} from "../../Api/UserApi";
+
 
 function AvailableCompanies() {
-  const [users, setUsers] = useState([]);
-  const [filteredUsers, setFilteredUsers] = useState([]);
-  const [isServerRunning, setServerRunning] = useState(null);
+  const { data, isLoading, isError } = useQuery("users", fetchUsers);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(URL + "/api/users");
-        const data = await response.json();
-
-        if (response.ok) {
-          localStorage.setItem("jbusers", JSON.stringify(data.users));
-          setUsers(data.users);
-          setServerRunning(true);
-          const filteredCompanies = data.users.filter((user) => user.role === "company");
-          setFilteredUsers(filteredCompanies);
-        } else {
-          console.log(data.message);
-          setServerRunning(false);
-        }
-      } catch (error) {
-        console.error(`Error retrieving users: ${error.message}`);
-        setServerRunning(false);
-        toast.error("Server is not running");
-      }
-
-
-    };
-
-    const initialTimer = setTimeout(() => {
-      fetchData().then(() => {});
-    }, 1000); // Initial delay of 1 second
-
-    return () => {
-      clearTimeout(initialTimer);
-    };
-  }, []);
-
-  if (isServerRunning === null) {
-    return <div style={{fontFamily:"inherit"}} >Loading...</div>; // Show a loading message while checking server status
+  if (isLoading) {
+    return <div style={{ fontFamily: "inherit" }}>Loading...</div>;
   }
 
+  if (isError) {
+    toast.error("Server is not running");
+    return <p>Server error</p>;
+  }
 
+  // Assuming data.users is the array of users returned from the API
+  const filteredUsers = data.users.filter((user) => user.role === "company");
 
+  // Save the users data to local storage when it's available
+  if (data.users && data.users.length > 0) {
+    localStorage.setItem("jbusers", JSON.stringify(data.users));
+  }
 
   return (
       <>
         <div id="frontpage-course-list">
           <h2 className="text-style">Available Companies</h2>
           <div className="courses frontpage-course-list-all">
-            {isServerRunning ? (
+            {!isLoading ? (
                 <div className="row" >
                   {filteredUsers.map((user) => (
                       <div className="col-md-3" key={user.id}>
@@ -63,7 +39,7 @@ function AvailableCompanies() {
                             <h5 className="form-label">{`${user.firstName} ${user.lastName}`}</h5>
                           </div>
                           <div style={{ width: '300px', height: '170px',marginBottom:"30px" }}>
-                            
+
                           <div className="fp-coursethumb">
                             <a href={user.url}>
                               <img
@@ -72,12 +48,12 @@ function AvailableCompanies() {
                                   height="165"
                                   alt=""
                                   className="comapny-logo"
-                                  
+
                               />
                             </a>
                           </div>
                           </div>
-                          
+
                         </div>
                       </div>
                   ))}
