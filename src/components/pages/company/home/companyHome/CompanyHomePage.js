@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
@@ -11,6 +11,7 @@ import cv_image from "../../../../../../src/images/im5.jpg";
 import "./CompanyHomePage.css"
 import { Card } from "@mui/material";
 import Button from "@mui/material/Button";
+import "./ResponsesVac.css"
 function CompanyHomePage({ isLogedIn, onLogout }) {
   const content = (
     <>
@@ -19,13 +20,27 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
     
     </>
   );
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className="page-container">
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
         <div className="container">
           {/* ////////////////////////////////  company home page start ////////////////////////////////////////// */}
           <div  style={{display:"flex",flexDirection:"row",marginLeft:"5%",marginRight:"5%"}}>
-            <div style={{flexBasis:"50%",marginTop:"5%"}}>
+                      <div style={{marginTop:"5%"}}>
               <h1
                 className="section_1-title text-style"
                 style={{fontSize:"40px"}}>
@@ -46,8 +61,10 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                 </Link>
               </div>
             </div>
-            
-            <div style={{display:"flex",justifyContent:"flex-end"}}>
+            {windowWidth >= 850 && (
+            <>
+            <div style={{display:"flex",justifyContent:"flex-end"
+                          }}>
               <img
                     src={stripImageC}
                     className="image"
@@ -58,12 +75,14 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                       // marginRight: "-50px",
                       }}/>
             </div>
+            </>
+            )}
             
           </div>
         <h4 style={{ fontFamily: "Georgia", marginTop: "5%",marginLeft:"5%"}}>
           WHY WE ARE UNIQUE?
         </h4>
-        <Card>
+        <div>
         <div
           style={{
             display: "flex",
@@ -73,7 +92,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
           }}
         >
           <div class="custom-card-container">
-            <Card>
+            <div>
               <div class="custom-card">
                 <h3 class="custom-card-heading">Discover your perfect match</h3>
                 <span class="custom-card-description">
@@ -82,8 +101,8 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                   shortlist.
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div>
               <div class="custom-card">
                 <h3 class="custom-card-heading">
                   Seek for recommended candidate{" "}
@@ -93,8 +112,8 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                   lecturer about the candidate
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div>
               <div class="custom-card">
                 <h3 class="custom-card-heading">
                   Reach Qualified Candidate directly from universities.
@@ -104,8 +123,8 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                   qualifiacations matched for you.
                 </span>
               </div>
-            </Card>
-            <Card>
+            </div>
+            <div>
               <div class="custom-card">
                 <h3 class="custom-card-heading">Reach Fast and Easily</h3>
                 <span class="custom-card-description">
@@ -113,7 +132,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                   and super fast.
                 </span>
               </div>
-            </Card>
+            </div>
           </div>
         </div>
         <div
@@ -123,12 +142,18 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
             alignContent: "center",
           }}
         >
-          <img
+        <div>
+        {windowWidth >= 850 && (
+            <>
+                <img
             src={cv_image}
             className="image2"
             alt="Strip"
             style={{ marginRight: "20px", marginLeft: "50px", padding: "20px" }}
           />
+            </>
+            )}
+        </div>        
           <div className="block">
             <div className="box">
               <div className="word-text">
@@ -144,7 +169,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
             </div>
           </div>
         </div>
-      </Card>
+      </div>
         </div>
       <Footer />
     </div>
