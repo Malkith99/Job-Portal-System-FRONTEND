@@ -10,7 +10,6 @@ function ProfileLogo() {
     // logout handle
     const handleLogout = () => {
         localStorage.removeItem("token");
-        localStorage.removeItem("jbusers");
         console.log("User has been logged out");
         setLoggedIn(false);
         setUser(null);

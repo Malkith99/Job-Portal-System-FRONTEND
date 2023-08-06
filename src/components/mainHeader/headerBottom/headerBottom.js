@@ -7,6 +7,7 @@ function HeaderBottom(props) {
     // Function to delete the token from localStorage
     function deleteToken() {
         localStorage.removeItem("token");
+        localStorage.removeItem("user");
         console.log("Token has been deleted due to inactivity.");
     }
 
