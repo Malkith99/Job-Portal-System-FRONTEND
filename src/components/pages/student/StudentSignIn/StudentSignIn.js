@@ -121,13 +121,16 @@ function StudentSignIn() {
             marginTop: "-200px",
             marginBottom: "-250px",
             "@media screen and (max-width: 1865px)": {
-              height: "90vh", // Adjust the responsive marginBottom value
+              height: "95vh", // Adjust the responsive marginBottom value
             },
             "@media screen and (max-width: 1479px)": {
-              height: "105vh", // Adjust the responsive marginBottom value
+              height: "90vh", // Adjust the responsive marginBottom value
             },
             "@media screen and (max-width: 278px)": {
-              height: "110vh", // Adjust the responsive marginBottom value
+              height: "90vh", // Adjust the responsive marginBottom value
+            },
+            "@media screen and (max-width: 1400px)": {
+              height: "86vh", // Adjust the responsive marginBottom value
             },
           }}
         >
