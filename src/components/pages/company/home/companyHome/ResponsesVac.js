@@ -95,7 +95,7 @@ return(
                           marginLeft: "1px",
                         }}
                       >
-                        View 
+                        Edit
                       </button>
                       
                       <button

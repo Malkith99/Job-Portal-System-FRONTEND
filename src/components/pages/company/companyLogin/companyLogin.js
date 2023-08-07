@@ -48,7 +48,7 @@ function CompanySignIn() {
             console.log(data);
             console.log("User has been Log In");
             console.log(`User ${data._id} has been login`);
-            window.location = "/grp13/company-HomePage";
+            window.location = "/grp13/company-home";
             }
 
         } catch (error) {
