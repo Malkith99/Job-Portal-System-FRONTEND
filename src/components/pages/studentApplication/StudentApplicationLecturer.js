@@ -26,7 +26,7 @@ export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
             <button
               onClick={Alert}
               className="btn btn-primary accept butdet"
-              style={{ background: "rgb(69, 117, 85)", marginRight: "25px" }}
+              style={{ background: "rgb(69, 117, 85)", marginRight: "25px" ,border:"none"}}
             >
               Approve
             </button>
