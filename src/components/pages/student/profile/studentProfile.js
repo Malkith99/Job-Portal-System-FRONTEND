@@ -11,7 +11,7 @@ import Card from "@mui/material/Card";
 import PersonalInfo from "./Person_popup"; //working route don't change the path
 import AcademicDetails from "./Academic_Popup";
 import ExtraC_popup from "./Extracuricular_popup";
-
+import "./StudentProfile.css";
 import {URL} from "../../../../env";
 export default function Profile() {
 
@@ -146,13 +146,32 @@ export default function Profile() {
 
 
   return (
-      <div className="container progress-div"
-           style={{ marginTop: "1px", padding: "50px" }}
-      >
+      <div   className="container progress-div"
+      style={{
+        display: "flex",
+        // flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "1px",
+        marginLeft: "auto",
+        marginRight: "auto",
+        padding: "1px",
+      }}
+    >
         <form action="/student-home">
           <h4 className="sub-headings">Personal info: </h4>
-          <div className="flex-container1">
-            <div className="container1-flex-item1 text-center" style={{ display: "flex", flexDirection: "column" }}>
+         
+       <div >    
+          <div
+              className="container1-flex-item1 text-center"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0px",
+                marginRight: "0px",
+              }}
+            >
+
               <img className="profile-photo" src={file} alt="Profile Photo" />
               <label className="label-title">Profile Photo
                 <Button onClick={() => setOpenProfilePopup(true)}>
@@ -168,24 +187,29 @@ export default function Profile() {
                     </Popup>
                 )}
               </label>
-              <div style={{ padding: 10 }} />
-              <div className="file-input-div">
-                <input
-                    type="file"
-                    className="file-input-field form-control"
-                    onChange={handleChange}
-                    disabled={disabled}
-                />
-              </div>
-            </div>
+              {/* <div style={{ padding: 10 }} /> */}
+              <div className="file-input-container text-center" style={{marginLeft:"35%", width:"30%",textAlign: "center" }}>
+  <input
+    type="file"
+    className="file-input-field form-control"
+    onChange={handleChange}
+    disabled={disabled}
+    style={{ margin: "0 auto" }}
+  />
+</div>
 
-            <div className="container1-flex-item2" style={{padding:10}}>
+
+            </div>
+</div>
+{/* <div className="flex-container1"> */}
+<Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
+            <div className="container1" style={{padding:10}}>
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">Name</label>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="text"
                         className="form-control"
@@ -205,7 +229,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="text"
                         className="form-control"
@@ -222,7 +246,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="text"
                         className="form-control"
@@ -250,7 +274,7 @@ export default function Profile() {
                   </label>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="text"
                         className="form-control"
@@ -275,7 +299,7 @@ export default function Profile() {
                   </label>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="date"
                         className="form-control"
@@ -300,7 +324,7 @@ export default function Profile() {
                   </label>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <select
                         className="form-select"
                         name="gender"
@@ -330,7 +354,7 @@ export default function Profile() {
                   </label>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="tel"
                         className="form-control"
@@ -350,7 +374,7 @@ export default function Profile() {
                   </div>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="tel"
                         className="form-control"
@@ -375,7 +399,7 @@ export default function Profile() {
                   </label>
                 </div>
                 <div className="sub-flex-item2">
-                  <div className="input-filed-s">
+                  <div className="input-filed">
                     <input
                         type="text"
                         className="form-control"
@@ -392,14 +416,15 @@ export default function Profile() {
                 <div className="sub-flex-item2"></div>
                 <div className="sub-flex-item2"></div>
               </div>
-            </div>
+            {/* </div> */}
 
           </div>
+        
           <button
               type="button"
               className="btn btn-primary"
               onClick={()=>setOpenPersonalPopup(true)}
-              style={{ marginBottom: "10px", marginLeft: "5%" }}
+              style={{ marginBottom: "-10px",marginLeft: "auto"}}
           >
             Edit
           </button>
@@ -413,9 +438,10 @@ export default function Profile() {
               </Popup>
 
           )}
-
+  </Card>
           <h4 className="sub-headings">Academic Details: </h4>
-          <div className="">
+        <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>    <div className="">
+           
             <div className="flex-container2">
               <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item1">
@@ -572,18 +598,19 @@ export default function Profile() {
                 </div>
               </div>
             </div>
+            
           </div>
           <button
               type="button"
               className="btn btn-primary"
               onClick={()=>setOpenAcademicPopup(true)}
-              style={{ marginBottom: "10px", marginLeft: "5%" }}
+              style={{ marginBottom: "-10px",marginLeft:"auto" }}
           >
             Edit
           </button>
           {openAcademicPopup && (
               <Popup
-                  title="Edit Personal Info"
+                  title="Edit Academic Details"
                   openPopup={openAcademicPopup}
                   setOpenPopup={setOpenAcademicPopup}
               >
@@ -591,8 +618,9 @@ export default function Profile() {
               </Popup>
 
           )}
-
+</Card>
           <h4 className="sub-headings">Extracurricular Activities: </h4>
+          <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
           <div className="">
             <div className="flex-container2">
               <div className="container2-flex-item">
@@ -639,7 +667,7 @@ export default function Profile() {
               type="button"
               className="btn btn-primary"
               onClick={()=>setOpenExtraPopup(true)}
-              style={{ marginBottom: "10px", marginLeft: "5%" }}
+              style={{ marginBottom: "-10px" ,marginLeft:"auto"}}
           >
             Edit
           </button>
@@ -654,7 +682,7 @@ export default function Profile() {
               </Popup>
 
           )}
-
+</Card>
         </form>
       </div>
 
