@@ -64,7 +64,7 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
             
             <button
               className="btn btn-primary accept butdet mb-3"
-              style={{ background: "rgb(7, 7, 73)", marginRight: "25px" }}
+              style={{ background: "rgb(7, 7, 73)", marginRight: "25px",border:"none" }}
             >
               Request Reference
             </button>
@@ -72,18 +72,18 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
           </div>
         </div>
 
-        <div className='container'>
+        <div className='container mb-3'>
           <div className="button-div">
             
             <button
               className="btn btn-primary accept butdet"
-              style={{ background: "rgb(69, 117, 85)", marginRight: "25px" }}
+              style={{ background: "rgb(69, 117, 85)", marginRight: "25px",border:"none" }}
             >
               Approve
             </button>
             <button
               className="btn btn-primary reject butdet"
-              style={{ background: "rgb(128, 57, 57)", marginRight: "25px" }}
+              style={{ background: "rgb(128, 57, 57)", marginRight: "25px",border:"none" }}
             >
               Reject
             </button>

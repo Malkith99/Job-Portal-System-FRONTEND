@@ -70,7 +70,7 @@ const basename='grp13';
           <Route path="/company-signin" element={<CompanySignIn/> }> </Route>
           {/* { <Route path="/company-home" element={<CompanyHome/> }> </Route> } */}
           <Route path="/company-profile" element={<CompanyProfile/> }> </Route>
-          <Route path="/company-job-pool/:vacancyId" element={<CompanyJobPool/> }> </Route>
+          <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
             <Route path="/company-login" element={<CompanyLogin/>}></Route>
           <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
 
