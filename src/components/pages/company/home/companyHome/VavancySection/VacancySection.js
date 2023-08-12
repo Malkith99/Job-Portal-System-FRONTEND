@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./VacancySection.css";
+import Swal from "sweetalert2";
 const VacancySection = (props) => {
   const [file, setFile] = useState(
     "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
@@ -17,7 +18,10 @@ const VacancySection = (props) => {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
   }
-
+  const Alert = () =>{
+    Swal.fire('Posted', 'Succesfully', 
+    'success')
+  }
   //   console.log(props.data[0].jobPosition)
   return (
     <div>
@@ -300,7 +304,7 @@ const VacancySection = (props) => {
           </div>
           <div className={`${props.disabled && "d-none"}`}>
             <div className="input-filed input-filed-cls">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primary" onClick={Alert}>
                 Post the Job
               </button>
             </div>

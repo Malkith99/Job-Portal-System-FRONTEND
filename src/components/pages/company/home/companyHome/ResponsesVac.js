@@ -14,6 +14,7 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
 import FilePresentOutlinedIcon from '@mui/icons-material/FilePresentOutlined';
+import Swal from "sweetalert2";
 export default function ResponseVac({ isLogedIn, onLogout }) {
   const content = (
     <>
@@ -94,7 +95,10 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
             });
     };
 
-
+    const Alert = () =>{
+      Swal.fire('Deleted', 'Succesfully', 
+      'Delete')
+    }
   return (
     <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
@@ -206,6 +210,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                                     <StreetviewOutlinedIcon/>
                                   </button>
                                   <button
+                                    onClick={Alert}
                                     className="btn btn-primary reject butdet"
                                     style={{
                                       //color: "darkred",
