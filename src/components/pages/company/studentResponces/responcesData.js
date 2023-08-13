@@ -67,7 +67,7 @@ function ResponcesData() {
         );
 
   function handleViewButtonClick(id) {
-    window.location.href = `grp13/student-application-for-company/${id}`;
+    window.location.href = `/grp13/student-application-for-company/${id}`;
   }
 
   return (
