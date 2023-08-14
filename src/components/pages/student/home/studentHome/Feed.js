@@ -127,11 +127,11 @@ const companyId = vacancy.userId;
                       />
                     </div>
                     <div >
-                        <h3
+                        <h4
                     className="title-box" 
                       >
                           {company.firstName}   {company.lastName}
-                    </h3>
+                    </h4>
                     </div>
                     <div className="Branch-box">
                       <h5>Colombo,LK</h5>
