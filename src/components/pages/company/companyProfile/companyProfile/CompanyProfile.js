@@ -119,7 +119,7 @@ export default function CompanyProfile({isLogedIn, onLogout }) {
       style={{ marginTop: "0px", marginBottom: "0px" }}
     >
       <div>
-      <h1 className="cmp-headings sign" style={{ marginBottom: "2rem" }}>
+      <h1 className="text-style" style={{ marginBottom: "2rem" }}>
         Profile Information :
       </h1>
         <form>
