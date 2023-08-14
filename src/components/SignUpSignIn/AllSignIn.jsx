@@ -85,7 +85,7 @@ function CompanyLogin() {
                 content={
                     loggedIn ? (
                         <>
-                            <Link to="/">Welcome, {user.firstName} {user.lastName}!</Link>
+                            <Link to="/">Welcome,{user.firstName} {user.lastName} !  </Link>
                         </>
                     ) : (
                         <Link to="/">Home</Link>
@@ -93,7 +93,7 @@ function CompanyLogin() {
                 }
             ></MainHeader>
             <div className="ascontainer">
-                <div className="asrow justify-content-center">
+                <div className="asrow justify-content-center" style={{marginTop:"-400px"}}>
                     <div className="ascol-md-6">
                         <div className="ascard-header text-center loginN">SignIn</div>
 
