@@ -66,7 +66,7 @@ function CompanySignIn() {
             console.log(data);
             console.log("User has been Log In");
             console.log(`User ${data._id} has been login`);
-            window.location = "/grp13/company-HomePage";
+            window.location = "/grp13/company-home";
             }
 
         } catch (error) {
@@ -117,7 +117,7 @@ function CompanySignIn() {
             marginTop: "-200px",
             marginBottom: "-250px",
             "@media screen and (max-width: 1865px)": {
-              height: "90vh", // Adjust the responsive marginBottom value
+              height: "100vh", // Adjust the responsive marginBottom value
             },
             "@media screen and (max-width: 1478px)": {
               height: "105vh", // Adjust the responsive marginBottom value

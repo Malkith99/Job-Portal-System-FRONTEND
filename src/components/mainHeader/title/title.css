@@ -44,7 +44,7 @@
   @media only screen and (max-width: 3000px) {
     .title {
       margin-top: 12px;
-      font-size: 60px;
+      font-size: 57px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
@@ -54,7 +54,7 @@
   @media only screen and (max-width: 1042px) {
     .title {
       margin-top: 10px;
-      font-size: 57px;
+      font-size: 55px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
@@ -63,24 +63,24 @@
   @media only screen and (max-width: 1010px) {
     .title {
       margin-top: 12px;
-      font-size: 8px;
+      font-size: 53px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
     }
   }
-  @media only screen and (max-width: 1010px) {
+  /* @media only screen and (max-width: 1010px) {
     .title {
       font-size: 55px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 10px;
     }
-  }
+  } */
   @media only screen and (max-width: 977px) {
     .title {
       margin-top: 20px;
-      font-size: 50px;
+      font-size: 48px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;
@@ -89,7 +89,7 @@
   @media only screen and (max-width: 912px) {
     .title {
       margin-top: 20px;
-      font-size: 47px;
+      font-size: 45px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;
@@ -97,8 +97,8 @@
   }
   @media only screen and (max-width: 872px) {
     .title {
-      margin-top: 27px;
-      font-size: 43px;
+      margin-top: 20px;
+      font-size: 40px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;
@@ -106,7 +106,7 @@
   }
   @media only screen and (max-width: 820px) {
     .title {
-    
+      margin-top: 10px;
       font-size: 40px;
       letter-spacing: 5px;
       vertical-align: middle !important;
@@ -133,7 +133,7 @@
   }
   @media only screen and (max-width: 602px) {
     .title {
-      font-size: 40px;
+      font-size: 37px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;

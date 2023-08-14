@@ -27,8 +27,10 @@ const HeaderTop = (props) => {
                 {loggedIn ? (
                     <div className="main-login">
                         <l-text1 style={{ marginBottom: "10px", fontSize: "16px" }} >
-                            Welcome, {user.firstName} {user.lastName}{" "}
-                            <ProfileLogo class="profileHeader" onLogout={props.onLogout} />
+                            Welcome, {user.firstName} {  user.lastName}&nbsp;
+                            <div style={{ flexShrink: 1 }}>
+        <ProfileLogo class="profileHeader" onLogout={props.onLogout} />
+    </div>
                         </l-text1>
                         {/*<button onClick={handleLogout}>Logout</button>*/}
 
