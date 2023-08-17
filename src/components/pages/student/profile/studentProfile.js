@@ -388,29 +388,9 @@ export default function Profile() {
                 </div>
               </div>
               <div className="sub-flex-item2"></div>
-            </div>
-            <div className="sub-flex-container">
-              <div className="sub-flex-item1">
-                <label className="label-title">
-                  References
-                  <span className="asterisk-mark">*</span>
-                </label>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="References"
-                    value={references}
-                    onChange={(e) => {
-                      setReferences(e.target.value);
-                    }}
-                    required
-                    disabled={disabled}
-                  ></input>
-                </div>
-              </div>
+           
+           
+              
               <div className="sub-flex-item2"></div>
               <div className="sub-flex-item2"></div>
             </div>
