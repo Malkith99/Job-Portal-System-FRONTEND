@@ -24,40 +24,11 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
   );
   const [user] = useState(JSON.parse(localStorage.getItem('user') || '{}'));
   const [responses, setResponses] = useState([]);
-  const [jobpool, setJobpool] = useState([]);
+  const [jobpool, setJobpool] = useState(JSON.parse(localStorage.getItem('jbvacancies') || '{}'));
   const [selectedVacancy, setSelectedVacancy] = useState(null);
   const navigate = useNavigate();
   const jobVUrl = URL +`/api/vacancies/${user._id}`;
   const rUrl = URL +`/api/responses/${user._id}`;
-
-  const [jobpoolm] = useState([
-    {
-      id:1,
-      title: "Job Vacancy 1",
-      text: "Job Vacancy 1 ",
-    },
-    {
-      id:2,
-      title: "Job Vacancy 2",
-      text: "Job Vacancy 2 ",
-    },
-    {
-      id:3,
-      title: "Job Vacancy 3",
-      text: "Job Vacancy 3 ",
-    },
-    {
-      id:4,
-      title: "Job Vacancy 4",
-      text: "Job Vacancy 4 ",
-    },
-    {
-      id:5,
-      title: "Job Vacancy 5",
-      text: "Job Vacancy 5 ",
-    },
-  ]);
-
 
     useEffect(() => {
         console.log(user);
@@ -81,7 +52,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
             });
     }, []);
 
-    const deleteVacancyResponce = (vacancyId) => {
+    const deleteVacancy= (vacancyId) => {
         const url = URL +`/api/vacancies/${user._id}/${vacancyId}`;
         axios.delete(url)
             .then(response => {
@@ -120,7 +91,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                     <div>
                       <div class="container card_nw"
                       style={{justifyContent:"flex-start",columnGap:"15px",rowGap:"20px"}}>
-                      {jobpoolm.map((response, i) => (
+                      {jobpool.map((response, i) => (
                         <div key={i}>
                           <div
                             class="card-horizontal"
@@ -145,12 +116,12 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                                   className="container2-flex-item1 job-pool-card-title"
                                   style={{ fontSize: "20px" }}
                                 >
-                                  {response.title}
+                                  {response.jobPosition}
                                 </h4>
                                 <div style={{ display: "flex", alignItems: "center" }}>
                             <CalendarMonthOutlinedIcon style={{ marginRight: "5px" }} />
                             <small className="text-muted">
-                              Date: {response.date}
+                              Date: {response.dueDate}
                             </small>
                           </div>
                           <div className="vacancy-count" style={{ display: "flex", alignItems: "center" }}>
@@ -159,11 +130,11 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                           </div>
                           <div style={{ display: "flex", alignItems: "center" }}>
                             <BusinessOutlinedIcon style={{ marginRight: "5px" }} />
-                            <span>Location: {response.location}</span>
+                            <span>Location: {response.companyLocation}</span>
                           </div>
                           <div style={{ display: "flex", alignItems: "center" }}>
                             <PersonPinOutlinedIcon style={{ marginRight: "5px" }} />
-                            <span>Available Vacancies: {response.availableVacancies}</span>
+                            <span>Background: {response.background}</span>
                           </div>
                               <div
                                   className="button-div"
@@ -197,7 +168,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                                   <button
                                     className="btn btn-primary butdet"
                                     onClick={() => {
-                                      navigate(`/all-student-responces?id=${response.id}`);
+                                      navigate(`/all-student-responses/${response._id}`);
                                     }}
                                     style={{
                                       background: "#2B547E",
@@ -210,7 +181,11 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                                     <StreetviewOutlinedIcon/>
                                   </button>
                                   <button
-                                    onClick={Alert}
+                                      onClick={() => {
+                                          deleteVacancy(response._id);
+                                          Alert();
+                                      }}
+
                                     className="btn btn-primary reject butdet"
                                     style={{
                                       //color: "darkred",
@@ -234,7 +209,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                           </div>
 
                           <div class="card-footer">
-                            <small class="text-muted">Posted on 10/07/2023</small>
+                            <small class="text-muted">Posted on {response.dueDate}</small>
                           </div>
                         </div>
                       ))}

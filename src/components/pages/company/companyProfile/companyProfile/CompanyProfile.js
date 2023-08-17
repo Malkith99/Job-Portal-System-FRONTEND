@@ -1,27 +1,16 @@
-import React, { useState,useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./CompanyProfile.css";
-import axios from 'axios'; 
-import MainHeader from "../../../../mainHeader/mainHeader";
-import Footer from "../../../../footer/footer";
-import { Link } from "react-router-dom";
+import {URL} from "../../../../../env";
 
-export default function CompanyProfile({isLogedIn, onLogout }) {
-  const [file, setFile] = useState(
-    "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  );
+function CompanyRegister() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const [file, setFile] = useState("");
   const [disabled, setDisabled] = useState(true);
   const [contactNumber, setContactNumber] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [location, setLocation] = useState("");
   const [website, setWebsite] = useState("");
-  const content = (
-    <>
-      <Link to="/company-home">Company Home</Link>
-      <Link to="/company-profile">Profile</Link>
-    
-    </>
-  );
 
   useEffect(() => {
     if (user._id) {
@@ -32,7 +21,7 @@ export default function CompanyProfile({isLogedIn, onLogout }) {
   async function fetchUserData() {
     try {
       const userId = user._id;
-      const url = `http://localhost:4000/users/${userId}`;
+      const url = URL+`/api/users/${userId}`;
       const response = await axios.get(url);
       const userData = response.data.user;
       setUser(userData);
@@ -47,10 +36,7 @@ export default function CompanyProfile({isLogedIn, onLogout }) {
       console.error(error);
     }
   }
-  function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
+
   function handleEdit() {
     setDisabled(false);
   }
@@ -67,15 +53,16 @@ export default function CompanyProfile({isLogedIn, onLogout }) {
         userId: user._id,
       };
 
-      const url = "http://localhost:4000/users/";
+      const url = URL +"/api/users/";
       await axios.put(url, updatedUser);
 
-      console.log("User profile successfully updated");
-      alert("User profile successfully updated");
+      console.log("User StudentProfile successfully updated");
+      alert("User StudentProfile successfully updated");
     } catch (error) {
       console.error(error);
     }
   }
+
 
   function handleChange(e) {
     const selectedFile = e.target.files[0];
@@ -112,169 +99,108 @@ export default function CompanyProfile({isLogedIn, onLogout }) {
   }
 
   return (
-    <div>
-      <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout}/>
-      <div
-      className="container"
-      style={{ marginTop: "0px", marginBottom: "0px" }}
-    >
-      <div>
-      <h1 className="text-style" style={{ marginBottom: "2rem" }}>
-        Profile Information :
-      </h1>
-        <form>
-          <div className="flex-container1">
-            <div className="container1-flex-item">
-              <div
-                className="container1-flex-item1 "
-                style={{ display: "flex", flexDirection: "column" }}
-              >
-                <img
-                  className="profile-photo-2"
-                  src={file}
-                  alt="Profile Photo"
-                />
-                <label for="profilePhoto" className="">
-                  <span className="asterisk-mark">*</span> Profile Photo
-                </label>
-                <div className="file-in">
-                  <input type="file" className="form-control" style={{}} onChange={handleChange} disabled={disabled} />
+      <div className="container" style={{ marginTop: "1px", marginBottom: "50px" }}>
+        <div>
+          <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
+            Profile Information:
+          </h1>
+          <form>
+            <div className="flex-container1">
+              <div className="container1-flex-item">
+                <div className="container1-flex-item1" style={{ display: "flex", flexDirection: "column" }}>
+                  <img className="profile-photo-2" src={`data:image/jpeg;base64/${file}`} alt="Profile Photo" />
+
+
+                  <label htmlFor="profilePhoto" className="">
+                    <span className="asterisk-mark">*</span> Profile Photo
+                  </label>
+                  <div className="file-in">
+                    <input type="file" className="form-control" style={{}} onChange={handleChange} disabled={disabled} />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="flex-container1">
-            <div className="container1-flex-item">
-              <label for="companyName" className="">
-                <span className="asterisk-mark">*</span>Company Name
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="companyName"
-                  placeholder="Company Name"
-                  disabled={disabled}
-                  value={companyName}
-                  onChange={handleChangeCompanyName}
-                  required
-                  // required
-                ></input>
+            <div className="flex-container1">
+              <div className="container1-flex-item">
+                <label htmlFor="companyName" className="">
+                  <span className="asterisk-mark">*</span>Company Name
+                </label>
+                <div className="input-filed input-filed-cls">
+                  <input
+                      type="text"
+                      className={`form-control `}
+                      id="companyName"
+                      placeholder="Company Name"
+                      disabled={disabled}
+                      value={companyName}
+                      onChange={handleChangeCompanyName}
+                      required
+                  />
+                </div>
               </div>
-              {/* <label for="positionDestination" className="">
-                <span className="asterisk-mark">*</span>Position/Destination
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="positionDestination"
-                  placeholder="Position/Destination"
-                  disabled={disabled}
-                  // required
-                ></input>
-              </div> */}
-               <label for="salaryRange" className="">
-                <span className="asterisk-mark">*</span>Salary Range
-              </label>
-              <div
-                className="input-filed input-filed-cls"
-                style={{ display: "flex", flex: "row", columnGap: "20px" }}
-              >
-                <input
-                  type="number"
-                  className="form-control"
-                  id="salaryRange salaryRangeMin"
-                  placeholder="Min"
-                  disabled={disabled}
-                  // required
-                  style={{ width: "50%" }}
-                  min="0"
-                ></input>
-                <input
-                  type="number"
-                  className="form-control"
-                  id="salaryRange salaryRangeMax"
-                  placeholder="Max"
-                  disabled={disabled}
-                  // required
-                  style={{ width: "50%" }}
-                  min="0"
-                ></input>
+              <div className="container1-flex-item">
+                <label htmlFor="contactInfo" className="">
+                  <span className="asterisk-mark">*</span>Contact Number
+                </label>
+                <div className="input-filed input-filed-cls">
+                  <input
+                      type="tel"
+                      className="form-control"
+                      id="contactNumber"
+                      placeholder="Contact Number"
+                      value={contactNumber}
+                      onChange={handleChangeContactNumber}
+                      disabled={disabled}
+                  />
+                </div>
+                <label htmlFor="location" className="">
+                  <span className="asterisk-mark">*</span>Location
+                </label>
+                <div className="input-filed input-filed-cls">
+                  <input
+                      type="text"
+                      className="form-control"
+                      id="location"
+                      placeholder="Location"
+                      value={location}
+                      onChange={handleChangeLocation}
+                      disabled={disabled}
+                  />
+                </div>
               </div>
-              
+              <div className="container1-flex-item">
+                <label htmlFor="companyWebsite" className="">
+                  <span className="asterisk-mark">*</span>Company Website
+                </label>
+                <div className="input-filed input-filed-cls">
+                  <input
+                      type="text"
+                      className="form-control"
+                      id="companyWebsite"
+                      placeholder="Company Website"
+                      value={website}
+                      onChange={handleChangeWebsite}
+                      disabled={disabled}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="container1-flex-item">
-              <label for="contactInfo" className="">
-                <span className="asterisk-mark">*</span>Contact Number
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="tel"
-                  className="form-control"
-                    id="contactNumber"
-                    placeholder="Contact Number"
-                    value={contactNumber}
-                    onChange={handleChangeContactNumber}
-                  disabled={disabled}
-                  // required
-                ></input>
-              </div>
-              <label for="location" className="">
-                <span className="asterisk-mark">*</span>Location
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="location"
-                  placeholder="Location"
-                    value={location}
-                    onChange={handleChangeLocation}
-                  disabled={disabled}
-                  // required
-                ></input>
-              </div>
-              
-            </div>
-            <div className="container1-flex-item">
-              <label for="companyWebsite" className="">
-                <span className="asterisk-mark">*</span>Company Website
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="companyWebsite"
-                  placeholder="Company Website"
-                  disabled={disabled}
-                  value={website}
-                    onChange={handleChangeWebsite}
-                  
-                  // required
-                ></input>
-              </div>
-              </div>
-          </div>
-          <div className="">
             <div className="input-filed input-filed-cls">
-            {disabled ? (
-              <button type="button btn-primary" className="btn btn-primary" onClick={handleEdit}>
-                Edit
-              </button>
-            ) : (
-              <button type="button" className="btn btn-primary" onClick={handleSave}>
-                Save
-              </button>
-            )}
+              {disabled ? (
+                  <button type="button" className="btn btn-primary" onClick={handleEdit}>
+                    Edit
+                  </button>
+              ) : (
+                  <button type="button" className="btn btn-primary" onClick={handleSave}>
+                    Save
+                  </button>
+              )}
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+        <p></p>
       </div>
-      <p></p>
-    </div>
-    <Footer/>
-    </div>
   );
 }
 
+export default CompanyRegister;

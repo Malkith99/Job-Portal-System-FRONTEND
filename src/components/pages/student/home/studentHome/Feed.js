@@ -79,37 +79,8 @@ export default function Feed() {
 
               return (
                 <div>
-                  <div key={`${_id}-${index}`} className="card">
-                    <div className="imagestyle">
-                      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
-                      <img
-                        alt="Card Image"
-                        src={`data:image/jpeg;base64/${flyer}`}
-                      />
-                    </div>
-                    <h3
-                      className={`card_title ${
-                        jobPosition.length > 25 ? "card_title--small" : ""
-                      }`}
-                    >
-                      {jobPosition}
-                    </h3>
-                    <p className="salary">Salary: {salary}</p>
-                    <p className="due-date">Due Date: {dueDate}</p>
-                    <p className="due-date">Description: {jobDescription}</p>
-                    {company && <p className="due-date">Company: {company.firstName}</p>}
 
-                    <div className="button-section">
-                      <button
-                        className="button-section"
-                        onClick={() => {
-                          navigate(`/company-vacancy-view-student/${item._id}`);
-                        }}
-                      >
-                        View
-                      </button>
-                    </div>
-                  </div>
+
 
 
 

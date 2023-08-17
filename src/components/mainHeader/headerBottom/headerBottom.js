@@ -1,8 +1,12 @@
 import React from "react";
 import "./headerBottom.css";
+import {CookieJar} from "tough-cookie"; // Import CookieJar from tough-cookie
+import {URL} from "../../../env";
 
 function HeaderBottom(props) {
 
+// Create a new CookieJar instance
+    const cookieJar = new CookieJar("");
 
     // Function to delete the token from localStorage
     function deleteToken() {
@@ -31,6 +35,27 @@ function HeaderBottom(props) {
 
 // Start the initial timer
     resetInactivityTimer();
+
+
+
+
+        //cookies
+        // Retrieve the value from local storage
+         // Set a cookie using tough-cookie
+        const cookieValue = JSON.parse(localStorage.getItem("jbusers")) ;
+        const cookieName = "jbusers-cookie";
+        const cookieOptions = {
+            httpOnly: true,
+            secure: true,
+        };
+        const cookie = cookieJar.setCookieSync(`${cookieName}=${cookieValue}`, URL, cookieOptions);
+        console.log("Set Cookie:", cookie);
+
+
+
+
+
+
 
 
     return (
