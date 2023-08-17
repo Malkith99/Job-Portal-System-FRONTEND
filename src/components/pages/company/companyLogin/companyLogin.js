@@ -16,7 +16,8 @@ import '../companyProfile/CompanyProfileMain.css'
 function CompanySignIn() {
     const [loggedIn] = useState(!!localStorage.getItem("token"));
     const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
-    const [showImageSection, setShowImageSection] = useState(true); // Add this state variable
+    const [showImageSection, setShowImageSection] = useState(true); 
+    // Add this state variable
 
     // Use useEffect to handle window resize and update the state
     useEffect(() => {
