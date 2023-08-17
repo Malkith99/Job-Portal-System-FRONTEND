@@ -69,6 +69,7 @@ export default function Feed() {
                 salary,
                 dueDate,
                 flyer,
+              companyEmail,
                 jobDescription
 
 
@@ -79,10 +80,6 @@ export default function Feed() {
 
               return (
                 <div>
-
-
-
-
 
                   <div style={{ marginTop: "30px" }}></div>
                   <Card key={`${_id}-${index}`} className="custom-card1">
@@ -100,20 +97,20 @@ export default function Feed() {
                     </h3>
                     </div>
                     <div className="Branch-box">
-                      <h5>Colombo,LK</h5>
+                      <h5>{company.location}</h5>
                     </div>
                     <div className="para-items">
 
                     <div className="para-box">
-                        <p>{jobPosition} </p>
+                        <p>{dueDate} </p>
                     </div>
                     <div className="para-box">
-                        <p>Online </p>
+                        <p>{companyEmail}</p>
                     </div>
                     </div>
                     <div className="job-pos-box">
                     <h2>
-                        Full-Stack Developer
+                      {jobPosition}
                     </h2>
                     </div>
                     <div className="intro">
