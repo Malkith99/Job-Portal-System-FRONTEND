@@ -187,21 +187,8 @@ export default function PersonalInfo(props) {
           <div className="sub-flex-item2"></div>
         </div>
         <div className="sub-flex-container">
-          <div className="sub-flex-item1">
-            <label className="label-title">
-              References<span className="asterisk-mark">*</span>
-            </label>
-          </div>
-          <div className="sub-flex-item2">
-            <div className="input-filed-s">
-              <input
-                  type="text"
-                  className="form-control"
-                  placeholder="References"
-                  required
-              ></input>
-            </div>
-          </div>
+          
+      
           <div className="sub-flex-item2"></div>
           <div className="sub-flex-item2"></div>
         </div>
