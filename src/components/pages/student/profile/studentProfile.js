@@ -619,7 +619,7 @@ export default function Profile() {
 
           )}
 </Card>
-          <h4 className="sub-headings">References </h4>
+          <h4 className="sub-headings">Extracurricular Activities: </h4>
           <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
           <div className="">
             <div className="flex-container2">
@@ -674,7 +674,7 @@ export default function Profile() {
 
           {openExtraPopup && (
               <Popup
-                  title="Edit References"
+                  title="Edit Personal Info"
                   openPopup={openExtraPopup}
                   setOpenPopup={setOpenExtraPopup}
               >

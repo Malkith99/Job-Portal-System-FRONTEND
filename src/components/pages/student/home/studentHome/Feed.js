@@ -127,7 +127,6 @@ export default function Feed() {
                         <h3>
                           {companyName}
                     </h3>
-
                     </div>
                     <div className="Branch-box">
                       <h5>{company.location}</h5>
