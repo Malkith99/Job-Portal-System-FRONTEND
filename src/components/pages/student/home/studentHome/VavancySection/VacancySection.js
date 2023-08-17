@@ -35,11 +35,6 @@ const VacancySection = () => {
     setAlertMessage(message);
     alert(message);
   };
-
-
-
-
-
   const handleApply = async () => {
     try {
       const newResponse = {
