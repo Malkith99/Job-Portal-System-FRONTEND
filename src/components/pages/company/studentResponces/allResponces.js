@@ -24,7 +24,7 @@ function AllResponces({ isLogedIn, onLogout }) {
   const content = (
     <>
       <Link to="/company-HomePage">Home</Link>
-      <Link to="all-student-responces">Responces</Link>
+      <Link to="/all-student-responces">Responces</Link>
       
     </>
 

@@ -17,7 +17,7 @@ export default function CompanyProfile({isLogedIn, onLogout }) {
   const [website, setWebsite] = useState("");
   const content = (
     <>
-      <Link to="/company-HomePage">Company Home</Link>
+      <Link to="/company-home">Company Home</Link>
       <Link to="/company-profile">Profile</Link>
     
     </>
