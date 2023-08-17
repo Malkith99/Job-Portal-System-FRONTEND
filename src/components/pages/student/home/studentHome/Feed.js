@@ -55,17 +55,12 @@ export default function Feed() {
       return null; // Return null in case of an error
     }
   };
-
-
-
-
-
   return (
     <div className="wrapper">
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
         const items = vacancy.items;
-const companyId = vacancy.userId;
+          const companyId = vacancy.userId;
         return (
           <React.Fragment key={_id}>
             {items.map((item, index) => {
