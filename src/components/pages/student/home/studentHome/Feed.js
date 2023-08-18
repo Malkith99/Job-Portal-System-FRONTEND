@@ -84,7 +84,7 @@ export default function Feed() {
                       {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                       <img
                         alt="Card Image"
-                        src={`data:image/jpeg;base64/${company.profilePhoto}`}
+                        src={`data:image/jpeg;base64/${flyer}`}
                       />
                     </div>
                     

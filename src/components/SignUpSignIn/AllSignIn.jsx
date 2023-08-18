@@ -79,101 +79,130 @@ function CompanyLogin() {
         }
     );
 
-    return (
-        <div className="page-container">
-            <MainHeader
-                content={
-                    loggedIn ? (
-                        <>
-                            <Link to="/">Welcome,{user.firstName} {user.lastName} !  </Link>
-                        </>
-                    ) : (
-                        <Link to="/">Home</Link>
-                    )
-                }
-            ></MainHeader>
-            <div className="ascontainer">
-                <div className="asrow justify-content-center" style={{marginTop:"-400px"}}>
-                    <div className="ascol-md-6">
-                        <div className="ascard-header text-center loginN">SignIn</div>
+return (
+    <div className="page-container">
+      <MainHeader
+        content={
+          loggedIn ? (
+            <>
+              <Link to="/">Welcome, {user.firstName} {user.lastName}!</Link>
+            </>
+          ) : (
+            <Link to="/">Home</Link>
+          )
+        }
+      ></MainHeader>
+      <div className="ascontainer">
+        <div className="asrow justify-content-center">
+          <div className="ascol-md-6">
+            <div className="ascard-header text-center loginN">Sign In</div>
 
+            <div className="ascard-body">
+              <form className="asloginbox-content" onSubmit={handleSubmit}>
+                <div className="asd-flex mb-3">
+                  <div style={{ display: "flex", alignItems: "center" }}>
+                    <img
+                      src={allSignInPageImage}
+                      alt="Your Image"
+                      style={{
+                        width: "400px",
+                        height: "400px",
+                        marginRight: "20px",
+                      }}
+                    />
+                  </div>
 
-                        <div className="ascard-body">
-                            <form className="asloginbox-content" onSubmit={handleSubmit}>
-                                <div className="asd-flex mb-3">
-                                    <div style={{ display: "flex", alignItems: "center" }}>
-                                        <img
-                                            src={allSignInPageImage}
-                                            alt="Your Image"
-                                            style={{ width: "400px", height: "400px", marginRight: "20px" }}
-                                        />
-                                    </div>
-
-                                    <div className="asflex-grow-1">
-                                        <div className="asform-group">
-                                            <label htmlFor="username" className="form-label">
-                                                <b style={{ fontSize: "20px" }}>Email:</b>
-                                            </label>
-                                            <input
-                                                className="form-control"
-                                                type="email"
-                                                placeholder="Email"
-                                                name="email"
-                                                onChange={handleChange}
-                                                value={data.email}
-                                                required
-                                            />
-                                        </div>
-                                        <div className="form-group">
-                                            <label htmlFor="password" className="form-label" style={{ fontSize: "20px" }}>
-                                                <b>Password:</b>
-                                            </label>
-                                            <input
-                                                className="form-control"
-                                                type="password"
-                                                placeholder="Password"
-                                                name="password"
-                                                onChange={handleChange}
-                                                value={data.password}
-                                                required
-                                            />
-                                        </div>
-                                        {error && <div className="login_error_msg">{error}</div>}
-                                        {msg && <div className="login_success_msg">{msg}</div>}
-                                    </div>
-                                </div>
-                                <div className="asmb-3 form-check" style={{ marginLeft: "22px" }}>
-                                    <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                                    <label className="asform-check-label" htmlFor="exampleCheck1">
-                                        Remember username
-                                    </label>
-                                </div>
-                                <button type="submit" className="asbtn-btn-primary" style={{ backgroundColor: '#007bff', color: '#fff', padding: '10px 20px', border: 'none', borderRadius: '4px' }}>
-                                    Login
-                                </button>
-
-                                <div style={{ marginTop: "7px" }}>
-                                    <Link to="/home">Don't have an account? Click here to sign up.</Link>
-                                </div>
-                            </form>
-                        </div>
+                  <div className="asflex-grow-1">
+                    <div className="asform-group">
+                      <label htmlFor="username" className="form-label">
+                        <b style={{ fontSize: "20px" }}>Email:</b>
+                      </label>
+                      <input
+                        className="form-control"
+                        type="email"
+                        placeholder="Email"
+                        name="email"
+                        onChange={handleChange}
+                        value={data.email}
+                        required
+                      />
                     </div>
+                    <div className="form-group">
+                      <label
+                        htmlFor="password"
+                        className="form-label"
+                        style={{ fontSize: "20px" }}
+                      >
+                        <b>Password:</b>
+                      </label>
+                      <input
+                        className="form-control"
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                        onChange={handleChange}
+                        value={data.password}
+                        required
+                      />
+                    </div>
+                    {error && <div className="login_error_msg">{error}</div>}
+                    {msg && <div className="login_success_msg">{msg}</div>}
+                  </div>
                 </div>
+                <div className="asmb-3 form-check" style={{ marginLeft: "22px" }}>
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="exampleCheck1"
+                  />
+                  <label className="asform-check-label" htmlFor="exampleCheck1">
+                    Remember username
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  className="asbtn-btn-primary"
+                  style={{
+                    backgroundColor: "#007bff",
+                    color: "#fff",
+                    padding: "10px 20px",
+                    border: "none",
+                    borderRadius: "4px",
+                  }}
+                >
+                  Login
+                </button>
+
+                <div style={{ marginTop: "7px" }}>
+                  <Link to="/home">
+                    Don't have an account? Click here to sign up.
+                  </Link>
+                </div>
+                <div style={{ marginTop: "15px" }}>
+                  <p style={{ textAlign: "center", color: "#888" }}>
+                    Please enable cookies in your browser for a better
+                    experience.
+                  </p>
+                </div>
+              </form>
             </div>
-            {showPopup && (
-                <div className="popup">
-                    <div className="popup-content">
-                        <span className="close" onClick={() => setShowPopup(false)}>
-                            &times;
-                        </span>
-                        {error && <div className="login_error_msg">{error}</div>}
-                        {msg && <div className="login_success_msg">{msg}</div>}
-                    </div>
-                </div>
-            )}
-            <Footer />
+          </div>
         </div>
-    );
+      </div>
+      {showPopup && (
+        <div className="popup">
+          <div className="popup-content">
+            <span className="close" onClick={() => setShowPopup(false)}>
+              &times;
+            </span>
+            {error && <div className="login_error_msg">{error}</div>}
+            {msg && <div className="login_success_msg">{msg}</div>}
+          </div>
+        </div>
+      )}
+      <Footer />
+    </div>
+  );
 }
 
 export default CompanyLogin;

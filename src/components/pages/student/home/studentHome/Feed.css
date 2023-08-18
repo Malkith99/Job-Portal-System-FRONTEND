@@ -120,6 +120,7 @@
 
 
 .custom-card1 {
+
   /* position: relative; */
 
   /* margin-left: 20px; */
@@ -130,6 +131,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+
   /* padding-right: 40px; */
   margin: 0.4%;
   border: 2rem;
@@ -142,6 +145,8 @@
 .custom-card1:hover {
   background-color: rgb(225, 247, 245);
 }
+
+
 
 .image-box {
   position: absolute;
@@ -206,7 +211,6 @@
   align-items: center;
   margin: 2%;
 
-
 }
 
 .para-items {
@@ -230,7 +234,6 @@
   /* margin-top: 15px; */
   width: 310px;
   text-align: center;
-
   display: flex;
   justify-content: space-evenly;
   align-items: center;
