@@ -16,7 +16,7 @@ function Home({ isLogedIn, onLogout }) {
                 user.role === "company" ? (
                     <div>
                         <Link to="/company-profile">Profile</Link>
-                        <Link to="/company-HomePage">Company Home</Link>
+                        <Link to="/company-home">Company Home</Link>
                     </div>
                 ) : user.role === "student" ? (
                     <div>
