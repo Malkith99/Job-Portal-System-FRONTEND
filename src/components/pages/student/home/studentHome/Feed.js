@@ -78,7 +78,9 @@ export default function Feed() {
               const company = findCompanyById(companyId);
 
               return (
+
                 <div className="com-card" style={{ display: "flex", flexwrap:"wrap",justifyContent:"center",padding:"1%"}}>                 
+
                   <Card key={`${_id}-${index}`} className=" custom-card1">
                     <div className="imagestyle">
                       {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
@@ -87,6 +89,7 @@ export default function Feed() {
                         src={`data:image/jpeg;base64/${flyer}`}
                       />
                     </div>
+
                     
                         <h3
                     className="title-box" 
@@ -104,6 +107,7 @@ export default function Feed() {
                     <div className="">
                         <p>Online </p>
                     </div>
+
                     
                     <div className="job-pos-box" style={{marginBottom:"-5px"}}>
                     <h2>

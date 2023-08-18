@@ -28,36 +28,46 @@ export default function StudentHome({ isLogedIn, onLogout }) {
   return (
       <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-      <div className='container'>
-        <div style={{ display: "flex", flexwrap:"row",justifyContent:"center" }}>
-          <div>
-            <h2 class="section-title text-style">
+      <div className="page">
+      <div class="strip-section">
+  <div class="centered-content">
+    <h2 class="section-title text-style">
               Find the Job  that is perfect for you
             </h2>
-            <div className="searchBar">
-              <TextField
-                id="search"
-                label="Search Company Name"
-                variant="outlined"
-                size="small"
-                value={searchQuery}
-                onChange={(event) => setSearchQuery(event.target.value)}
-                InputProps={{
-                  endAdornment: (
-                    <IconButton color="inherit">
-                      <SearchIcon />
-                    </IconButton>
-                  ),
-                }}/>
-            </div>
           </div>
-        
-        <div>
-          <img src={stripImage} alt="Strip"class="strip-image" style={{alignItems:"center"}}/>
-        </div>
-        </div>
+          <div className="searchBar">
+            <TextField
+              id="search"
+              label="Search Company Name"
+              variant="outlined"
+              size="small"
+              style={{marginLeft:150,marginTop:50}}
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              InputProps={{
+                endAdornment: (
+                  <IconButton color="inherit">
+                    <SearchIcon />
+                  </IconButton>
+                ),
+              }}
+            />
+          
+  </div>
+  <div class="right-column">
+    <img src={stripImage} alt="Strip" class="strip-image" />
+  </div>
+</div>
+        <div className="feeds-section" style={{height:"auto",padding:"25px",marginTop:"100px"}}>
+          
           <Card/>
-      </div>
+        </div>
+        <div className="paragraphs-section">
+          {/* <p>Paragraph 1</p>
+          <p>Paragraph 2</p>
+          <p>Paragraph 3</p> */}
+        </div>
+       </div>
        <Footer />
      </div> 
   );

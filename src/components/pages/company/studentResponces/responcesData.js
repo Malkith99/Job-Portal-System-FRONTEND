@@ -8,9 +8,9 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { Link } from "react-router-dom";
-const basename='grp13';
+import { useParams } from "react-router-dom";
+import { Element} from "react-scroll";
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: "lightBlue",
@@ -34,93 +34,119 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
-
-function createData(id, name, position, date) {
-  return { id, name, position, date };
-}
-
-const rows = [JSON.parse(localStorage.getItem('jbresponses') || '{}')];
-
 function ResponcesData() {
-  const [selectedId, setSelectedId] = React.useState(null);
-  const [searchQuery, setSearchQuery] = React.useState("");
 
-  function handleViewButtonClick(id) {
-    setSelectedId(id);
-  }
-  const filteredRows =
-    searchQuery === ""
-      ? rows
-      : rows.filter((row) =>
-          row.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
+  const { vacancyId } = useParams();
+  const jbResponses = JSON.parse(localStorage.getItem("jbresponses") || "{}");
 
+  // Filter responses based on the given vacancyId
+  const filteredResponses = jbResponses.filter((response) =>
+      response.vacancy.some((vacancy) => vacancy.vacancyId === vacancyId)
+  );
+
+console.log(filteredResponses);
   function handleViewButtonClick(id) {
     window.location.href = `/grp13/student-application-for-company/${id}`;
   }
 
   return (
     <>
-      {/* {selectedId !== null && (
-        <div>
-          <h2>Profile of {rows[selectedId - 1].name}</h2>
-          <p>Position: {rows[selectedId - 1].position}</p>
-          <p>Date: {rows[selectedId - 1].date}</p>
-          <Button variant="contained" onClick={() => setSelectedId(null)}>
-            Close
-          </Button>
-        </div>
-      )} */}
+
       <TableContainer component={Paper}>
         <div style={{ margin: 20 }} />
         <div style={{ marginLeft: 100, marginRight: 100 }}>
-          {/* <TextField
-            id="search"
-            label="Search Company Name"
-            variant="outlined"
-            margin="normal"
-            size="small"
-            style={{ width: 400 }}
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-          /> */}
+
           <div style={{ margin: 20 }} />
           <Table>
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center" width={250}>
-                  Employee Name
+                  studentId
                 </StyledTableCell>
-                <StyledTableCell align="center">Position</StyledTableCell>
-                <StyledTableCell align="center">Date</StyledTableCell>
+                <StyledTableCell align="center"> responseDate</StyledTableCell>
+                <StyledTableCell align="center">comment</StyledTableCell>
                 <StyledTableCell align="center">View</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {filteredRows.map((row) => (
-                <StyledTableRow
-                  
-                >
-                  <StyledTableCell align="center">{row.name}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.position}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{row.date}</StyledTableCell>
-                  <StyledTableCell align="center">
-                  <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => handleViewButtonClick(row.id)}
-                    >
-                      View
-                    </Button>
-                  </StyledTableCell>
-                </StyledTableRow>
+              {filteredResponses.map((response) => (
+                  response.vacancy.map((vacancy) => {
+                    if (vacancy.vacancyId === vacancyId) { // Check if the vacancyId matches
+                      return vacancy.responses.map((responseItem) => (
+                          <StyledTableRow key={responseItem._id}>
+                            <StyledTableCell align="center">{vacancy.vacancyId}</StyledTableCell>
+                            <StyledTableCell align="center">{responseItem.responseDate}</StyledTableCell>
+                            <StyledTableCell align="center">{responseItem.comment}</StyledTableCell>
+                            <StyledTableCell align="center">
+                              <Button
+                                  variant="contained"
+                                  color="primary"
+                                  onClick={() => handleViewButtonClick(responseItem.studentId)}
+                              >
+                                View
+                              </Button>
+                            </StyledTableCell>
+                          </StyledTableRow>
+                      ));
+                    }
+                    return null; // Return null for non-matching vacancyIds
+                  })
               ))}
             </TableBody>
+
+
+
           </Table>
         </div>
       </TableContainer>
+
+      {/*
+
+      <Element name="responsesSection">
+        <h1
+            className="cmp-headings loginN"
+            style={{ marginBottom: "2rem" }}
+        >
+          Responses Section:
+        </h1>
+        <div className="responses">
+          {responses.map((response, i) => (
+              <div key={i} className="response responses-sec-response">
+                <h3 className="container2-flex-item1" style={{ fontSize: "20px" }}>
+                  {response._id}
+                </h3>
+                {response.vacancy.map((vacancy) => (
+                    <div key={vacancy._id}>
+                      <p>Vacancy ID: {vacancy.vacancyId}</p>
+                      {vacancy.jbResponses.map((responseItem) => (
+                          <div key={responseItem._id}>
+                            <p>Student ID: {responseItem.studentId}</p>
+                            <p>Response Date: {new Date(responseItem.responseDate).toLocaleString()}</p>
+                            <p>Comment: {responseItem.comment}</p>
+                            <div className="container" style={{ alignItems: "center" }}>
+                              <button
+                                  className="btn btn-primary butdet"
+
+                                  style={{ background: "#2B547E", marginLeft: "-12px" }}
+                              >
+                                See the Details
+                              </button>
+                            </div>
+                          </div>
+                      ))}
+                    </div>
+                ))}
+              </div>
+          ))}
+
+        </div>
+
+      </Element>
+
+
+*/}
+
+
     </>
   );
 }
