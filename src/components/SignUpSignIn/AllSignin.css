@@ -1,11 +1,14 @@
-/* AllSignin.css */
-
 .ascontainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 120vh;
 }
+
+
+
+
+
 
 .popup {
     position: fixed;
@@ -51,3 +54,5 @@
     background-color: #ddffdd;
     color: #4caf50;
 }
+
+

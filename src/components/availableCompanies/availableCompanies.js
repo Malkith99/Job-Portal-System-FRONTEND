@@ -1,63 +1,83 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./availabaleCompanies.css";
-import { useQuery } from "react-query";
+import { URL } from "../../env";
 import { toast } from "react-toastify";
-import { fetchUsers, fetchVacancies,fetchResponses } from "../../Api/UserApi";
 
 function AvailableCompanies() {
-  const { data, isLoading, isError } = useQuery("users", fetchUsers);
-  const { data: vacanciesData, isLoading: isLoadingV, isError: isErrorV } = useQuery(
-      "vacancies",
-      fetchVacancies
-  );
-  const { data: responsesData, isLoading: isLoadingR, isError: isErrorR } = useQuery(
-      "responses",
-      fetchResponses
-  );
+  const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [isServerRunning, setServerRunning] = useState(null);
 
-  if (isLoading) {
-    return <div style={{ fontFamily: "inherit" }}>Loading...</div>;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(URL + "/api/users");
+        const data = await response.json();
+
+        if (response.ok) {
+          localStorage.setItem("jbusers", JSON.stringify(data.users));
+          setUsers(data.users);
+          setServerRunning(true);
+          const filteredCompanies = data.users.filter((user) => user.role === "company");
+          setFilteredUsers(filteredCompanies);
+        } else {
+          console.log(data.message);
+          setServerRunning(false);
+        }
+      } catch (error) {
+        console.error(`Error retrieving users: ${error.message}`);
+        setServerRunning(false);
+        toast.error("Server is not running");
+      }
+
+
+    };
+
+    const initialTimer = setTimeout(() => {
+      fetchData().then(() => {});
+    }, 1000); // Initial delay of 1 second
+
+    return () => {
+      clearTimeout(initialTimer);
+    };
+  }, []);
+
+  if (isServerRunning === null) {
+    return <div style={{fontFamily:"inherit"}} >Loading...</div>; // Show a loading message while checking server status
   }
 
-  if (isError) {
-    toast.error("Server is not running");
-    return <p>Server error</p>;
-  }
 
-  if (vacanciesData && vacanciesData.length > 0) {
-    localStorage.setItem("jbvacancies", JSON.stringify(vacanciesData));
-  }
-  if (responsesData && responsesData.length > 0) {
-    localStorage.setItem("jbresponses", JSON.stringify(responsesData));
-  }
 
-  // Assuming data.users is the array of users returned from the API
-  const filteredUsers = data.users.filter((user) => user.role === "company");
-
-  if (data.users && data.users.length > 0) {
-    localStorage.setItem("jbusers", JSON.stringify(data.users));
-  }
 
   return (
       <>
         <div id="frontpage-course-list">
           <h2 className="text-style">Available Companies</h2>
           <div className="courses frontpage-course-list-all">
-            {!isLoading ? (
-                <div className="row">
+            {isServerRunning ? (
+                <div className="row" >
                   {filteredUsers.map((user) => (
                       <div className="col-md-3" key={user.id}>
                         <div className="fp-coursebox">
-                          <div className="fp-courseinfo">
+                        <div className="fp-courseinfo">
                             <h5 className="form-label">{`${user.firstName} ${user.lastName}`}</h5>
                           </div>
-                          <div style={{ width: "300px", height: "170px", marginBottom: "30px" }}>
-                            <div className="fp-coursethumb">
-                              <a href={user.url}>
-                                <img src={user.profilePhoto} width="243" height="165" alt="" className="comapny-logo" />
-                              </a>
-                            </div>
+                          <div style={{ width: '300px', height: '170px',marginBottom:"30px" }}>
+                            
+                          <div className="fp-coursethumb">
+                            <a href={user.url}>
+                              <img
+                                  src={user.profilePhoto}
+                                  width="243"
+                                  height="165"
+                                  alt=""
+                                  className="comapny-logo"
+                                  
+                              />
+                            </a>
                           </div>
+                          </div>
+                          
                         </div>
                       </div>
                   ))}
