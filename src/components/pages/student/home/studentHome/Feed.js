@@ -123,10 +123,14 @@ export default function Feed() {
                         src={`data:image/jpeg;base64/${company.profilePhoto}`}
                       />
                     </div>
-                    <div  className="title-box" >
-                        <h3>
-                          {companyName}
-                    </h3>
+
+                    <div >
+                        <h4
+                    className="title-box" 
+                      >
+                          {company.firstName}   {company.lastName}
+                    </h4>
+
                     </div>
                     <div className="Branch-box">
                       <h5>{company.location}</h5>

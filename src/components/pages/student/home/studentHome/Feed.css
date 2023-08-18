@@ -159,10 +159,12 @@
   top: 5px;
   right: 5px;
   left: 115px;
-  padding-top: 10px;
-  /* width: calc(100% - 110px); */
-  /* padding-left: 10px; */
-  /* height: 3rem; */
+  padding-top: 25px;
+  margin-bottom: 25px;
+  width: calc(100% - 110px);
+  padding-left: 10px;
+  height: 3rem;
+
   font-family: Georgia, serif;
   font-weight: bold; 
   text-align: center;
