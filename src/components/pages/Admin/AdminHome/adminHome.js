@@ -281,7 +281,8 @@ function AdminHome() {
                                     <td>{user.email}</td>
                                     <td>{user.role}</td>
                                     <td>
-                                        <button onClick={() => handleEdit(user._id)}>Edit</button>
+                                        {/*
+                                        <button onClick={() => handleEdit(user._id)}>Edit</button>*/}
                                         <button onClick={() => handleDeleteButtonClick(user._id)}>Delete</button>
                                     </td>
                                 </tr>
