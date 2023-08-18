@@ -176,7 +176,7 @@
   top: 5px;
   right: 5px;
   left: 115px;
-  padding-top: 10px;
+  /* padding-top: 10px; */
   /* width: calc(100% - 110px); */
   /* padding-left: 10px; */
   /* height: 3rem; */
@@ -187,9 +187,9 @@
 
 .Branch-box {
 
-  top: 3rem;
-  left: 115px;
-  padding: 10px;
+  /* top: 3rem; */
+  /* left: 115px; */
+  /* padding: 10px; */
   /* width: calc(100% - 110px); */
   font-family: Georgia, serif;
   font-size: 10px;
@@ -199,17 +199,17 @@
 .para-box {
   color: #ffffff;
   background-color: #d6ebf1;
-  width: 156px;
+  ;
   /* height: auto; */
   border-radius: 8%;
   margin-top: 2px;
   /* padding: 5px; */
   font-weight: lighter;
   /* margin-right: 30px; */
-  margin-top: 0px;
+  /* margin-top: 0px; */
   text-align: center;
   align-items: center;
-  margin: 2%;
+  /* margin: 2%; */
 
 }
 
@@ -224,13 +224,13 @@
 }
 
 .job-pos-box {
-  padding: 10px;
+  /* padding: 10px; */
   text-align: center;
 
 }
 
 .intro {
-  padding: 10px;
+  padding: 1%;
   /* margin-top: 15px; */
   width: 310px;
   text-align: center;
@@ -264,7 +264,7 @@
   display: flex;
   /* margin-left: 200px; */
   align-items: center;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
   height: 70px;
   /* margin-top: 10px; */
 }

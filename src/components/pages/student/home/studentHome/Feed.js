@@ -56,7 +56,7 @@ export default function Feed() {
     }
   };
   return (
-    <div className="">
+    <div style={{ display: "flex", flexwrap:"wrap",justifyContent:"center",padding:"10px"}}>
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
         const items = vacancy.items;
@@ -78,7 +78,8 @@ export default function Feed() {
               const company = findCompanyById(companyId);
 
               return (
-                <div className="com-card" style={{ display: "flex", flexwrap:"wrap",justifyContent:"center",padding:"10px"}}>                 
+
+                <div className="com-card" style={{ display: "flex", flexwrap:"wrap",justifyContent:"center",padding:"1%"}}>                 
 
                   <Card key={`${_id}-${index}`} className=" custom-card1">
                     <div className="imagestyle">
@@ -88,6 +89,7 @@ export default function Feed() {
                         src={`data:image/jpeg;base64/${flyer}`}
                       />
                     </div>
+
                     
                         <h3
                     className="title-box" 
@@ -98,21 +100,21 @@ export default function Feed() {
                     <div className="Branch-box">
                       <h5>{company.location}</h5>
                     </div>
-                    <div className="para-items">
-
-                    <div className="para-box">
+                
+                    <div className="" style={{marginBottom:"-20px"}}>
                         <p>{jobPosition} </p>
                     </div>
-                    <div className="para-box">
+                    <div className="">
                         <p>Online </p>
                     </div>
-                    </div>
-                    <div className="job-pos-box">
+
+                    
+                    <div className="job-pos-box" style={{marginBottom:"-5px"}}>
                     <h2>
                         {jobPosition}
                     </h2>
                     </div>
-                    <div className="intro">
+                    <div className="intro" style={{marginBottom:"-20px"}}>
                         <p>
                           Description: {jobDescription}
 
@@ -137,9 +139,7 @@ export default function Feed() {
                           Due Date: {dueDate}
                         </p>
                     </div>
-                  </Card>
-                  
-                  
+                  </Card>               
                 </div>
               );
             })}
