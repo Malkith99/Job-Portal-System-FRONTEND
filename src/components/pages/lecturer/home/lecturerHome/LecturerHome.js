@@ -4,6 +4,7 @@ import { Link as ScrollLink, Element } from "react-scroll";
 import "./LecturerHome.css";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import photo1 from "../../../../../images/ph.png";
 function ScrollToTopButton() {
   
   return (
@@ -37,38 +38,24 @@ function LecturerHome() {
   const [jobapplications] = useState([
     {
       id: 1,
-      title: "Job Application 1:",
-      text: "Job Application 1 ",
+      photo:(photo1),
+      name: "Type the Name here",
+      vacancy: "Job Vacancy ",
+      company:"company name"
     },
     {
       id: 2,
-      title: "Job Application 2:",
-      text: "Job Application 2 ",
+      photo:(photo1),
+      name: "Type the Name here",
+      vacancy: "Job Vacancy ",
+      company:"company name"
     },
     {
       id: 3,
-      title: "Job Application 3:",
-      text: "Job Application 3 ",
-    },
-    {
-      id: 4,
-      title: "Job Application 4:",
-      text: "Job Application 4 ",
-    },
-    {
-      id: 5,
-      title: "Job Application 5:",
-      text: "Job Application 5 ",
-    },
-    {
-      id: 6,
-      title: "Job Application 6:",
-      text: "Job Application 6 ",
-    },
-    {
-      id: 7,
-      title: "Job Application 7:",
-      text: "Job Application 7 ",
+      photo:(photo1),
+      name: "Type the Name here",
+      vacancy: "Job Vacancy ",
+      company:"company name"
     },
     
   ]);
@@ -110,14 +97,26 @@ function LecturerHome() {
               <div className="jobapplications responses">
                 {jobapplications.map((jobapplication, i) => (
                   <div key={i} className="jobapplication">
+                    <div className="frame">
+                      
+                      <img
+                        className="image-stu"
+                        alt="Card Image"
+                        src={jobapplication.photo}
+                      />
+                    </div>
+                    <div style={{display:"flex",justifyContent:"center",flexDirection:"column"}}>
                     <h3
                       className="container2-flex-item1 job-pool-card-title"
                       style={{ fontSize: "20px" }}
                     >
-                      {jobapplication.title}
+                      Name : {jobapplication.name}
                     </h3>
-                    <p className="job-pool-card-para">{jobapplication.text}</p>
-                    <div className="button-div">
+                    <h4 className=""
+                      style={{ fontSize: "20px" }}>Company Name : {jobapplication.company}</h4>
+                    <p className="job-pool-card-para"> Job Vacancy : {jobapplication.vacancy}</p>
+                    </div>
+                    <div className="button-div-l">
                       <button
                         className="btn btn-primary butdet"
                         onClick={()=>{

@@ -1,6 +1,6 @@
 .jobapplication{
     flex: 30%;
-    min-width: max-content;
+    min-width: min-content;
     width: 100%;
     background-color: rgb(194, 194, 204);
     border-radius: 10px;
@@ -24,4 +24,14 @@
   .jobapplications-sec-jobapplication{
     flex: 30%;
     min-width: 300px;
+  }
+  .image-stu{
+    object-fit: scale-down;
+    width: 30%;
+    height: 10%;
+  }
+  .frame{
+    min-width: 50%;
+    display: flex;
+    justify-content:center;
   }
