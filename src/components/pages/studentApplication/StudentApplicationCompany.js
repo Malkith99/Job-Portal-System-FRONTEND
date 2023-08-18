@@ -12,7 +12,7 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
   const content = (
     <>
       <Link to="/company-HomePage">Home</Link>
-      <Link to="">Application</Link>
+      <Link to="/all-student-responces">Application</Link>
     </>
   );
   const Alert = () =>{
