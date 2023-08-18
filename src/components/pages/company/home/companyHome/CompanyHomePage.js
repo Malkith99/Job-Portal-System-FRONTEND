@@ -108,7 +108,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                   Seek for recommended candidate{" "}
                 </h3>
                 <span class="custom-card-description">
-                  You have oppotunity to apply for recomendation from University
+                  You have opportunity to apply for recommendation from University
                   lecturer about the candidate
                 </span>
               </div>
@@ -120,7 +120,7 @@ function CompanyHomePage({ isLogedIn, onLogout }) {
                 </h3>
                 <span class="custom-card-description">
                   We provide you the fresh graduates who has optimum
-                  qualifiacations matched for you.
+                  qualifications matched for you.
                 </span>
               </div>
             </div>

@@ -56,7 +56,6 @@ export default function Feed() {
     }
   };
   return (
-
     <div className="wrapper">
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
@@ -66,12 +65,13 @@ export default function Feed() {
           <React.Fragment key={_id}>
             {items.map((item, index) => {
               const {
-                companyName,
                 jobPosition,
                 salary,
                 dueDate,
-                 flyer,
+                flyer,
+              companyEmail,
                 jobDescription
+
 
               } = item;
 
@@ -80,40 +80,6 @@ export default function Feed() {
 
               return (
                 <div>
-                  {/* <div key={`${_id}-${index}`} className="card"> */}
-                    {/* <div className="imagestyle">
-                     
-                      <img
-                        alt="Card Image"
-                        src={`data:image/jpeg;base64/${flyer}`}
-                      />
-                    </div>
-                    <h3
-                      className={`card_title ${
-                        jobPosition.length > 25 ? "card_title--small" : ""
-                      }`}
-                    >
-                      {jobPosition}
-                    </h3>
-                    <p className="salary">Salary: {salary}</p>
-                    <p className="due-date">Due Date: {dueDate}</p>
-                    <p className="due-date">Description: {jobDescription}</p>
-                    <p className="due-date">Name: {company.firstName}</p>
-
-
-                    <div className="button-section">
-                      <button
-                        className="button-section"
-                        onClick={() => {
-                          navigate(`/company-vacancy-view-student/${item._id}`);
-                        }}
-                      >
-                        View
-                      </button>
-                    </div>
-                  </div> */}
-
-
 
                   <div style={{ marginTop: "30px" }}></div>
                   <Card key={`${_id}-${index}`} className="custom-card1">
@@ -123,14 +89,12 @@ export default function Feed() {
                         src={`data:image/jpeg;base64/${company.profilePhoto}`}
                       />
                     </div>
-
                     <div >
-                        <h4
+                        <h3
                     className="title-box" 
                       >
                           {company.firstName}   {company.lastName}
-                    </h4>
-
+                    </h3>
                     </div>
                     <div className="Branch-box">
                       <h5>{company.location}</h5>
@@ -138,16 +102,15 @@ export default function Feed() {
                     <div className="para-items">
 
                     <div className="para-box">
-                        <p>{jobPosition} </p>
+                        <p>{dueDate} </p>
                     </div>
                     <div className="para-box">
-                        <p>Online </p>          
-                       
+                        <p>{companyEmail}</p>
                     </div>
                     </div>
                     <div className="job-pos-box">
                     <h2>
-                    {jobPosition}
+                      {jobPosition}
                     </h2>
                     </div>
                     <div className="intro">
@@ -173,13 +136,11 @@ export default function Feed() {
                     </div>
                   </Card>
                 </div>
-               
               );
             })}
           </React.Fragment>
         );
       })}
     </div>
-
   );
 }
