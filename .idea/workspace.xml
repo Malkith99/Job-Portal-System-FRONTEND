@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Api update">
-      <change beforePath="$PROJECT_DIR$/src/components/carousel/carousel.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/carousel/carousel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/StudentSignIn/StudentSignIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/StudentSignIn/StudentSignIn.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/Feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/Feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/Person_popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/profile/Person_popup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/env.jsx" afterDir="false" />
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Student responcesData.js updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -230,15 +222,7 @@
       <workItem from="1692332683951" duration="677000" />
       <workItem from="1692333376342" duration="971000" />
       <workItem from="1692341773605" duration="4328000" />
-      <workItem from="1692355180512" duration="9342000" />
-    </task>
-    <task id="LOCAL-00021" summary="remove logout button and replace profile dropdown to their, also get premium look for footer.css">
-      <option name="closed" value="true" />
-      <created>1690139718953</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1690139718953</updated>
+      <workItem from="1692355180512" duration="10446000" />
     </task>
     <task id="LOCAL-00022" summary="remove logout button and replace profile dropdown to their">
       <option name="closed" value="true" />
@@ -624,7 +608,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692356422278</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Student responcesData.js updated">
+      <option name="closed" value="true" />
+      <created>1692365019986</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1692365019988</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -642,7 +634,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="display company name in feed" />
     <MESSAGE value="update route" />
     <MESSAGE value="update feed by displaying company name" />
     <MESSAGE value="remove token" />
@@ -667,6 +658,7 @@
     <MESSAGE value="new update 18&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
     <MESSAGE value="new update 18" />
     <MESSAGE value="Api update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Api update" />
+    <MESSAGE value="Student responcesData.js updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Student responcesData.js updated" />
   </component>
 </project>
