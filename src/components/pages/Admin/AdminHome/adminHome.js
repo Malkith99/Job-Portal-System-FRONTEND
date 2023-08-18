@@ -146,7 +146,7 @@ function AdminHome() {
 
 
             <div className="graph-container" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <h2>User Graph</h2>
+                <h2 className='title-box' style={{color:"#434343"}}>User Graph</h2>
                 {chartData.labels && chartData.datasets ? (
                     <BarChart width={600} height={300} data={chartData.labels}> {/* Use chartData.labels as the data */}
                         <CartesianGrid strokeDasharray="3 3" />
@@ -166,79 +166,62 @@ function AdminHome() {
                 ) : (
                     <p>No data available for the graph</p>
                 )}
-            </div>
-
-
-
-
-
-
-
-            <div style={{ textAlign: 'center' }}>
+                 <div className="btn btn-primary" style={{ display:"",marginTop:"2%" }}>
                 <Link
                     to="/studentDetails"
                     style={{
-                        background: '#004d99',
-                        borderRadius: 3,
-                        border: 0,
-                        color: 'white',
-                        height: 48,
-                        padding: '0 30px',
-                        boxShadow: '0 3px 5px 2px rgba(255, 105, 135, 0.3)',
-                        transition: 'transform 0.2s ease-in-out',
-                        textDecoration: 'none', // Remove underline from the link
-                        display: 'inline-block', // Adjust display property to match CSS version
+                        // Adjust display property to match CSS version
                     }}
                 >
-                    Student Detail Page
+                    <button style={{background:"none",border:"none",color:"white",alignItems:"center"}}>Student Detail Page</button>
                 </Link>
             </div>
+            </div>
 
-
-            <h1 className="sign" style={{ display: 'flex', justifyContent: 'center', marginBottom: '10px', fontSize: '45px', color: '#004d99' }}>
-                <u>User List</u>
-            </h1>
-            <div className="admin-home-container container" style={{ display: 'flex' }}>
+            <h2 className="title-box" style={{ display: 'flex', justifyContent: 'center', color:"#434343",marginTop:"2%" }}>
+                User List
+            </h2>
+            <div className="admin-home-container container" style={{ justifyContent:"center" }}>
                 {/* Apply a container class
 
                 <div style={{ display: 'flex', flex: '25%', justifyContent: 'center', alignItems: 'center' }}>
                     <img src={adminImage} className="image" alt="adminImage" />
                 </div>
 */}
-                <div style={{ flex: '75%', justifyContent: 'center', marginLeft: '10%', marginTop: '6%' }}>
-                    <div className="filter-buttons" style={{ display: 'flex', justifyContent: 'center', padding: '5px' }}>
+                <div style={{ display:"flex", justifyContent: 'center',flexDirection:"column"}}>
+                    <div className="filter-buttons" style={{ display: 'flex', justifyContent: 'center',flexDirection:"row", marginBottom:"1%" ,justifyItems:""}}>
                         <button
                             onClick={() => handleRoleFilter('')}
                             className={selectedRole === '' ? 'active' : ''}
-                            style={{ marginRight: '5px', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
+                            style={{ marginRight: '1%', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
                         >
                             All
                         </button>
                         <button
                             onClick={() => handleRoleFilter('admin')}
                             className={selectedRole === 'admin' ? 'active' : ''}
-                            style={{ marginRight: '5px', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
+                            style={{ marginRight: '1%', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
                         >
                             Admin
                         </button>
                         <button
                             onClick={() => handleRoleFilter('company')}
                             className={selectedRole === 'company' ? 'active' : ''}
-                            style={{ marginRight: '5px', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
+                            style={{ marginRight: '1%', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
                         >
                             Company
                         </button>
                         <button
                             onClick={() => handleRoleFilter('student')}
                             className={selectedRole === 'student' ? 'active' : ''}
-                            style={{ marginRight: '5px', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
+                            style={{ marginRight: '1%', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
                         >
                             Student
                         </button>
                         <button
                             onClick={() => handleRoleFilter('lecturer')}
                             className={selectedRole === 'lecturer' ? 'active' : ''}
-                            style={{ marginRight: '5px', width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
+                            style={{  width: '20%', height: '40px', background: '#000066', borderColor: '#000066', fontSize: '20px', color: '#f2f2f2' }}
                         >
                             Lecturer
                         </button>
@@ -283,7 +266,7 @@ function AdminHome() {
                                     <td>
                                         {/*
                                         <button onClick={() => handleEdit(user._id)}>Edit</button>*/}
-                                        <button onClick={() => handleDeleteButtonClick(user._id)}>Delete</button>
+                                        <button  style={{background:"none",color:"red",border:"none"}} onClick={() => handleDeleteButtonClick(user._id)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
