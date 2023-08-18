@@ -56,11 +56,11 @@ export default function Feed() {
     }
   };
   return (
-    <div className="wrapper">
+    <div className="">
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
         const items = vacancy.items;
-          const companyId = vacancy.userId;
+        const companyId = vacancy.userId;
         return (
           <React.Fragment key={_id}>
             {items.map((item, index) => {
@@ -69,7 +69,6 @@ export default function Feed() {
                 salary,
                 dueDate,
                 flyer,
-              companyEmail,
                 jobDescription
 
 
@@ -79,38 +78,37 @@ export default function Feed() {
               const company = findCompanyById(companyId);
 
               return (
-                <div>
-
-                  <div style={{ marginTop: "30px" }}></div>
-                  <Card key={`${_id}-${index}`} className="custom-card1">
-                    <div className="image-box">
+                <div className="com-card" style={{ display: "flex", flexwrap:"wrap",justifyContent:"center",padding:"10px"}}>                 
+                  <Card key={`${_id}-${index}`} className=" custom-card1">
+                    <div className="imagestyle">
+                      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
                       <img
                         alt="Card Image"
                         src={`data:image/jpeg;base64/${flyer}`}
                       />
                     </div>
-                    <div >
+                    
                         <h3
                     className="title-box" 
                       >
                           {company.firstName}   {company.lastName}
                     </h3>
-                    </div>
+                    
                     <div className="Branch-box">
                       <h5>{company.location}</h5>
                     </div>
                     <div className="para-items">
 
                     <div className="para-box">
-                        <p>{dueDate} </p>
+                        <p>{jobPosition} </p>
                     </div>
                     <div className="para-box">
-                        <p>{companyEmail}</p>
+                        <p>Online </p>
                     </div>
                     </div>
                     <div className="job-pos-box">
                     <h2>
-                      {jobPosition}
+                        {jobPosition}
                     </h2>
                     </div>
                     <div className="intro">
@@ -119,13 +117,12 @@ export default function Feed() {
 
                         </p>
                     </div>
-                    <div className="para-items2" >
-                    <div>
+                    <div className="para-items2"  >
+                    <div style={{margin:"2%"}}>
                     <p className="salary">$ {salary}/Month</p>
-
                     </div>
                     <div >
-                        <button className="button-style"
+                        <button className="button-style " style={{margin:"2%"}}
                         onClick={() => {
                           navigate(`/company-vacancy-view-student/${item._id}`);
                         }}
@@ -134,7 +131,72 @@ export default function Feed() {
                         </button>
                     </div>
                     </div>
+                    <div className="intro">
+                        <p>
+                          Due Date: {dueDate}
+                        </p>
+                    </div>
                   </Card>
+                  <Card key={`${_id}-${index}`} className=" custom-card1">
+                    <div className="imagestyle">
+                      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                      <img
+                        alt="Card Image"
+                        src={`data:image/jpeg;base64/${flyer}`}
+                      />
+                    </div>
+                    
+                        <h3
+                    className="title-box" 
+                      >
+                          {company.firstName}   {company.lastName}
+                    </h3>
+                    
+                    <div className="Branch-box">
+                      <h5>{company.location}</h5>
+                    </div>
+                    <div className="para-items">
+
+                    <div className="para-box">
+                        <p>{jobPosition} </p>
+                    </div>
+                    <div className="para-box">
+                        <p>Online </p>
+                    </div>
+                    </div>
+                    <div className="job-pos-box">
+                    <h2>
+                        {jobPosition}
+                    </h2>
+                    </div>
+                    <div className="intro">
+                        <p>
+                          Description: {jobDescription}
+
+                        </p>
+                    </div>
+                    <div className="para-items2"  >
+                    <div style={{margin:"2%"}}>
+                    <p className="salary">$ {salary}/Month</p>
+                    </div>
+                    <div >
+                        <button className="button-style " style={{margin:"2%"}}
+                        onClick={() => {
+                          navigate(`/company-vacancy-view-student/${item._id}`);
+                        }}
+                      >
+                        Apply Now
+                        </button>
+                    </div>
+                    </div>
+                    <div className="intro">
+                        <p>
+                          Due Date: {dueDate}
+                        </p>
+                    </div>
+                  </Card>
+                  
+                  
                 </div>
               );
             })}
