@@ -13,17 +13,16 @@
 
 .section-title {
   text-align: left;
-/* margin-left: 20%; */
+margin-left: 20%;
 margin-top: 5%;
 }
 
 .searchBar {
-  /* text-align: center;
+  text-align: center;
   align-items: flex-start;
   margin-top: 8%;
-  margin-left: -20%; */
-  /* flex-shrink: 0; */
-  align-items: flex-end;
+  margin-left: -20%;
+  flex-shrink: 0;
 }
 .text-style {
   font-family:'Times New Roman', Times, serif;
@@ -44,9 +43,9 @@ margin-top: 5%;
 
 /* Media Query for Smaller Screens */
 @media (max-width: 1050px) {
-  /* .searchBar{
+  .searchBar{
     margin-top: -5%;
-  } */
+  }
   .strip-section {
     flex-direction: column;
   }
@@ -54,4 +53,3 @@ margin-top: 5%;
     margin-right: 0; /* Remove the spacing between title and search bar on smaller screens */
   }
 }
-
