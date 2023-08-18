@@ -4,7 +4,13 @@ import "./VacancySection.css";
 import {URL} from "../../../../../../env";
 import {toast} from "react-toastify";
 import Swal from "sweetalert2";
-
+import Button from "@mui/material/Button";
+import Card from "@mui/material/Card";
+import Popup from "../../../../../popup/popup";
+import JobDetails from "./JobDetailPopup";
+import FlyerPopup from "./flyerPopup";
+import JobInfo from "./JobInfoPopup";
+import EditIcon from "@mui/icons-material/Edit";
 function handleSave() {
 
 }
@@ -137,8 +143,19 @@ const VacancySection = (props) => {
     setJobDescription(e.target.value);
   }
 
+  const [openFlyerPopup, setOpenFlyerPopup] = useState(false);
+  const handleFlyerPopup = (data1) => {
+    setFile(data1);
+  };
 
-
+ const [openJobPopup, setOpenJobPopup] = useState(false);
+  const handleJobDetailsInfo = (data2) => {
+    setFile(data2);
+  };
+  const [openJobinfoPopup, setOpenJobInfoPopup] = useState(false);
+  const handleJobInfo = (data3) => {
+    setFile(data3);
+  };
 
 
   const Alert = () =>{
@@ -151,276 +168,401 @@ const VacancySection = (props) => {
 
 
   //   console.log(props.data[0].jobPosition)
-  return (
+ 
+    return (
       <div>
-
-        <div className="container">
+        <div className="container mt-3">
           <form>
             <div className="flex-container1">
               <div
-                  className="container1-flex-item"
-                  style={{ display: "flex", flexDirection: "column" }}
+                className="container1-flex-item"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  marginBottom: "25px",
+                }}
               >
-                <img className="profile-photo-3" src={file} alt="Profile Photo" />
-
-                <label form="flyer" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Flyer
+                <img className="profile-photo-3"  src={file} alt="Flyer Image" />
+                <label for="flyer" className="label-title">
+                  <span className="asterisk-mark">
+                    <span className={`${props.disabled && "d-none"}`}>* </span>
+                  </span>
+                  Job Vacancy Flyer
+                  <Button onClick={() => setOpenFlyerPopup(true)}>
+                    {" "}
+                    <EditIcon style={{ color: "#808080", marginRight: "8px" }} />
+                  </Button>
+                  {openFlyerPopup && (
+                    <Popup
+                      title="Insert the new Flyer "
+                      openPopup={openFlyerPopup}
+                      setOpenPopup={setOpenFlyerPopup}
+                    >
+                      <FlyerPopup sendData={handleFlyerPopup} />
+                    </Popup>
+                  )}
                 </label>
+  
                 <div className="file-in">
                   <input
-                      type="file"
-                      className=" form-control"
-                      onChange={handleChange}
-                      disabled={props.disabled && disabled}
+                    type="file"
+                    className=" form-control"
+                    onChange={handleChange}
+                    disabled={props.disabled && disabled}
                   />
                 </div>
               </div>
             </div>
-            <div className="flex-container1">
-              <div className="container1-flex-item">
-                <label form="jobPosition" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Job Position
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
+            <h4 className="sub-headings">Job Details: </h4>
+            <Card
+              style={{ marginBottom: "25px", marginTop: "25px", padding: "25px" }}
+            >
+              <div className="flex-container1">
+                <div className="container1-flex-item">
+                  <label for="jobtitle" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Job Title
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <input
                       type="text"
                       className="form-control"
-                      id="jobPosition"
-                      placeholder="Job Position"
-                      value={jobPosition}
-                      onChange={handleChangeJobPosition}
+                      id="jobtitle"
+                      placeholder="Job Title"
+                      // required
+                      //   value={"HandJob"}
                       disabled={props.disabled && disabled}
-                  />
-                </div>
-
-                <label form="contactNumber" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Contact Number
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
+                    ></input>
+                  </div>
+  
+                  <label for="Workplace-Type" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Workplace Type
+                  </label>
+                  <div
+                    className="input-filed input-filed-cls"
+                    style={{ flexDirection: "row" }}
+                  >
+                    <select
+                      className="form-select"
+                      name="WorkplaceType"
+                      id="background"
+                      disabled={props.disabled && disabled}
+                    >
+                      <option selected disabled>
+                        Select the Workplace Type
+                      </option>
+                      <option value="1">On-site</option>
+                      <option value="2">Hybrid</option>
+                      <option value="3">Online</option>
+                    </select>
+                  </div>
+                  <label for="Location" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Job Location
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <input
                       type="tel"
                       className="form-control"
-                      id="contactNumber"
-                      placeholder="Contact Number"
-                      value={contactNumber}
-                      onChange={handleChangeContactNumber}
+                      id="Location"
+                      placeholder="Job Location"
+                      // required
                       disabled={props.disabled && disabled}
-                  />
-                </div>
-
+                    ></input>
+                  </div>
+  
+                  {/* </div>
                 <label for="background" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
+                  <span className="asterisk-mark">
+                    <span className={`${props.disabled && "d-none"}`}>* </span>
+                  </span>
                   Background
                 </label>
                 <div
-                    className="input-filed input-filed-cls"
-                    style={{ flexDirection: "row" }}
+                  className="input-filed input-filed-cls"
+                  style={{ flexDirection: "row" }}
                 >
                   <select
-                      className="form-select"
-                      name="background"
-                      id="background"
-                      value={background}
-                      onChange={handleChangeBackground}
-                      disabled={props.disabled && disabled}
+                    className="form-select"
+                    name="background"
+                    id="background"
+                    disabled={props.disabled && disabled}
                   >
-                    <option value="" selected disabled>
+                    <option selected disabled>
                       Select the requiring Background
                     </option>
-                    <option value="Electrical Engineer">Electrical Engineer</option>
-                    <option value="Civil Engineer">Civil Engineer</option>
-                    <option value="Software Engineer">Software Engineer</option>
-                    <option value="Accounting">Accounting</option>
-                    <option value="Doctor">Doctor</option>
+                    <option value="Background1">Electrical Engineer</option>
+                    <option value="Background2">Civil Engineer</option>
+                    <option value="Background3">Software Engineer</option>
+                    <option value="Background4">Accounting</option>
+                    <option value="Background4">Doctor</option>
                   </select>
+                </div> */}
+                  {/* <label for="flyer" className="">
+                      <span className="asterisk-mark">*</span>Flyer
+                    </label>
+                    <div className="input-filed input-filed-cls">
+                      <input
+                        type="file"
+                        className=" form-control"
+                        onChange={handleChange}
+                        disabled={props.disabled && disabled}
+                      />
+                    </div> */}
                 </div>
-
-              </div>
-              <div className="container1-flex-item">
-                <label for="companyName" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Company Name
-                </label>
-                <div className="input-filed input-filed-cls">
-
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="companyName"
-                      placeholder="Company Name"
-                      value={companyName}
-                      onChange={handleChangeCompanyName}
+                <div className="container1-flex-item">
+                  <label for="Job-Type" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Job Type
+                  </label>
+                  <div
+                    className="input-filed input-filed-cls"
+                    style={{ flexDirection: "row" }}
+                  >
+                    <select
+                      className="form-select"
+                      name="JobType"
+                      id="background"
                       disabled={props.disabled && disabled}
-                  />
-                </div>
-                <label for="salaryRange" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Salary Range
-                </label>
-                <div
+                    >
+                      <option selected disabled>
+                        Job Type
+                      </option>
+                      <option value="1">Full-time</option>
+                      <option value="2">Part-Time</option>
+                      <option value="3">Internship</option>
+                      <option value="4">Temporary</option>
+                      <option value="5">Volunteer</option>
+                      <option value="6">Other</option>
+                    </select>
+                  </div>
+                  <label for="salaryRange" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Salary Range
+                  </label>
+                  <div
                     className="input-filed input-filed-cls"
                     style={{ display: "flex", flex: "row", columnGap: "20px" }}
-                >
-                  <input
+                  >
+                    <input
                       type="number"
                       className="form-control"
-                      id="salary"
-                      placeholder="Salary"
+                      id="salaryRange salaryRangeMin"
+                      placeholder="Min"
+                      // required
                       style={{ width: "50%" }}
                       min="0"
-                      value={salary}
-                      onChange={handleChangeSalary}
                       disabled={props.disabled && disabled}
-                  />
-                </div>
-
-                <label for="levelOfEducation" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
+                    ></input>
+                    <input
+                      type="number"
+                      className="form-control"
+                      id="salaryRange salaryRangeMax"
+                      placeholder="Max"
+                      // required
+                      style={{ width: "50%" }}
+                      min="0"
+                      disabled={props.disabled && disabled}
+                    ></input>
+                  </div>
+                  <label for="Near-Town" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Nearest Town
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="Near-Town"
+                      placeholder="Nearest Town"
+                      // required
+                      disabled={props.disabled && disabled}
+                    ></input>
+                  </div>
+                  {/* <label for="levelOfEducation" className="">
+                  <span className="asterisk-mark">
+                    <span className={`${props.disabled && "d-none"}`}>* </span>
+                  </span>
                   Level of Education
                 </label>
                 <div className="input-filed input-filed-cls">
                   <select
-                      className="form-select"
-                      name="levelOfEducation"
-                      id="levelOfEducation"
-                      value={levelOfEducation}
-                      onChange={handleChangeLevelOfEducation}
-                      disabled={props.disabled && disabled}
+                    className="form-select"
+                    name="levelOfEducation"
+                    id="levelOfEducation"
+                    disabled={props.disabled && disabled}
                   >
-                    <option value=""  selected disabled>
+                    <option selected disabled>
                       Requiring Level of Education
                     </option>
-                    <option value="Associate Degree">Associate Degree</option>
-                    <option value="Bachelor">Bachelor</option>
-                    <option value="High School">High School</option>
-                    <option value="Masters">Masters</option>
-                    <option value="Other Tertiary Education">Other Tertiary Education</option>
+                    <option value="Background1">Associate Degree</option>
+                    <option value="Background2">Bachelor</option>
+                    <option value="Background3">High School</option>
+                    <option value="Background4">Masters</option>
+                    <option value="Background4">Other Tertiary Education</option>
                   </select>
+                </div> */}
                 </div>
-              </div>
-
-              <div className="container1-flex-item">
-                <label for="companyEmail" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Company Email
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
+  
+                <div className="container1-flex-item">
+                  <label for="companyEmail" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Company Email
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <input
                       type="text"
                       className="form-control"
                       id="companyEmail"
                       placeholder="Company Email"
-                      value={companyEmail}
-                      onChange={handleChangeCompanyEmail}
                       disabled={props.disabled && disabled}
-                  />
-                </div>
-                <label for="companyLocation" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Company Location
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="text"
+                      // required
+                    ></input>
+                  </div>
+                  <label for="ContactNumber" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Contact Number{" "}
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <input
+                      type="tel"
                       className="form-control"
-                      id="companyLocation"
-                      placeholder="Company Location"
-                      value={companyLocation}
-                      onChange={handleChangeCompanyLocation}
+                      id="ContactNumber"
+                      placeholder=" Contact Number"
                       disabled={props.disabled && disabled}
-                  />
-                </div>
-                <label for="dueDate" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Due Date
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
+                      // required
+                    ></input>
+                  </div>
+                  <label for="dueDate" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Due Date
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <input
                       type="date"
                       className="form-control"
                       placeholder="Due Date"
-                      value={dueDate}
-                      onChange={handleChangeDueDate}
                       disabled={props.disabled && disabled}
-                  />
+                      // required
+                    ></input>
+                  </div>
                 </div>
               </div>
-            </div>
-
-            <div className="flex-container2">
-              <div className="container2-flex-item1">
-
-
-                <label form="jobDescription" className="">
-                <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
-                </span>
-                  Job Description
-                </label>
-                <div className="input-filed input-filed-cls">
-                <textarea
-                    type="text"
-                    className="form-control"
-                    style={{ height: "100px" }}
-                    id="jobDescription"
-                    placeholder="Job Description"
-                    onChange={handleChangeJobDescription}
-                    disabled={props.disabled && disabled}
-                    // required
-                ></textarea>
-                </div>
-              </div>
-            </div>
-            <div className={`${!props.disabled && "d-none"}`}>
-              {disabled ? (
-                  <button type="button btn-primary" className="btn btn-primary" onClick={handleEdit}>
-                    Edit
-                  </button>
-              ) : (
-                  <button type="button" className="btn btn-primary" onClick={handleSave}>
-                    Save
-                  </button>
+              <button
+                type="button"
+                className="btn btn-primary"
+                onClick={() => setOpenJobPopup(true)}
+                style={{ marginBottom: "-10px", marginLeft: "auto" }}
+              >
+                Edit
+              </button>
+              {openJobPopup && (
+                <Popup
+                  title="Edit Job Details Info"
+                  openPopup={openJobPopup}
+                  setOpenPopup={setOpenJobPopup}
+                >
+                  <JobDetails sendData={handleJobDetailsInfo} />
+                </Popup>
               )}
-            </div>
+              {/* </div>
+            </div> */}
+            </Card>
+            <h4 className="sub-headings">About the job </h4>
+            <Card
+              style={{ marginBottom: "25px", marginTop: "25px", padding: "25px" }}
+            >
+              <div className="flex-container1">
+                {/* <div className="flex-container2"> */}
+                <div className="container1-flex-item ">
+                  <label for="jobDescription" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Job Description
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      style={{ height: "100px" }}
+                      id="jobDescription"
+                      placeholder="Job Description"
+                      disabled={props.disabled && disabled}
+                      // required
+                    ></textarea>
+                    {/* </div> */}
+                  </div>
+  
+                  <label for="skills" className="">
+                    <span className="asterisk-mark">
+                      <span className={`${props.disabled && "d-none"}`}>* </span>
+                    </span>
+                    Skills and Experiences Required
+                  </label>
+                  <div className="input-filed input-filed-cls">
+                    <textarea
+                      type="text"
+                      className="form-control"
+                      style={{ height: "80px" }}
+                      id="skills"
+                      placeholder="Skills"
+                      disabled={props.disabled && disabled}
+                      // required
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+              <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() => setOpenJobInfoPopup(true)}
+              style={{ marginBottom: "-10px", marginLeft: "auto" }}
+            >
+              Edit
+            </button>
+            {openJobinfoPopup && (
+              <Popup
+                title="Edit Job Info"
+                openPopup={openJobinfoPopup}
+                setOpenPopup={setOpenJobInfoPopup}
+              >
+                <JobInfo sendData={handleJobInfo} />
+              </Popup>
+            )}
+            </Card>
+  
             <div className={`${props.disabled && "d-none"}`}>
               <div className="input-filed input-filed-cls">
-                <button type="submit" className="btn btn-primary" onClick={(e) => {
-                  e.preventDefault(); // Prevent the default form submission behavior
-                  handleSubmit().then(() => {});
-                }}>
+                <button type="submit" className="btn btn-primary" onClick={Alert}>
                   Post the Job
                 </button>
               </div>
-
             </div>
           </form>
         </div>
         <p></p>
       </div>
-  );
-};
-
-export default VacancySection;
+    );
+  };
+  
+  export default VacancySection;
