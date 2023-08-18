@@ -9,7 +9,7 @@ export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
 
   const content = (
     <>
-      <Link to="/lecture/home">Lecturer Home</Link>
+      <Link to="/lecturer-home">Home</Link>
     </>
   );
   const Alert = () =>{

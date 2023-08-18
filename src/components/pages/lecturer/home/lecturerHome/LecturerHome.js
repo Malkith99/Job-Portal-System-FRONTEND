@@ -1,106 +1,102 @@
 import React, { useState, useEffect } from "react";
+import MainHeader from "../../../../mainHeader/mainHeader";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import { Link as ScrollLink, Element } from "react-scroll";
 import "./LecturerHome.css";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-function ScrollToTopButton() {
-  
-  return (
-    <button
-      onClick={() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }}
-      style={{
-        position: "fixed",
-        zIndex: "1",
-        bottom: "20px",
-        right: "20px",
-        padding: "10px",
-        fontSize: "12px",
-        borderRadius: "100%",
-        backgroundColor: "#009FE5",
-        color: "white",
-        border: "none",
-        cursor: "pointer",
-      }}
-    >
-      <ArrowUpwardIcon />
-    </button>
-  );
-}
+import axios from "axios";
 
 function LecturerHome() {
-
-  const navigate = useNavigate()
+  const navigate=useNavigate();
+  const referneces=JSON.parse(localStorage.getItem("jbresponses") || "{}");
+  let findStudentByID=(studentId)=>{
+    try {
+      const jbusers = JSON.parse(localStorage.getItem("jbusers"));
+      console.log(studentId);
+      // Display student name
+      const student = jbusers.find((student) => student._id === studentId);
   
-  const [jobapplications] = useState([
-    {
-      id: 1,
-      title: "Job Application 1:",
-      text: "Job Application 1 ",
-    },
-    {
-      id: 2,
-      title: "Job Application 2:",
-      text: "Job Application 2 ",
-    },
-    {
-      id: 3,
-      title: "Job Application 3:",
-      text: "Job Application 3 ",
-    },
-    {
-      id: 4,
-      title: "Job Application 4:",
-      text: "Job Application 4 ",
-    },
-    {
-      id: 5,
-      title: "Job Application 5:",
-      text: "Job Application 5 ",
-    },
-    {
-      id: 6,
-      title: "Job Application 6:",
-      text: "Job Application 6 ",
-    },
-    {
-      id: 7,
-      title: "Job Application 7:",
-      text: "Job Application 7 ",
-    },
-    
-  ]);
-
-
-  // const [file, setFile] = useState(
-  //   "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  // );
-
-  // function handleChange(e) {
-  //   console.log(e.target.files);
-  //   setFile(URL.createObjectURL(e.target.files[0]));
-  // }
-
-  const [showScrollButton, setShowScrollButton] = useState(false);
-
-  useEffect(() => {
-    function handleScroll() {
-      setShowScrollButton(window.pageYOffset > 500);
+      if (student) {
+        // If a student is found with the given studentId, you can access its data
+        console.log("Student Name:", student.firstName, student.lastName);
+        return student; // Return the student data
+      } else {
+        console.log("Student not found");
+        return null; // Return null if the Student is not found
+      }
+    } catch (error) {
+      console.error("Error retrieving jbusers from local storage:", error.message);
+      return null; // Return null in case of an error
     }
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  };
+  
+//   useEffect(() => {
+//     console.log(user);
+//     // Fetch job vacancies
+//     axios.get(rUrl)
+//         .then(response => {
+//             setJobReferences(response.data);
+//         })
+//         .catch(error => {
+//             console.log("Failed to fetch required Reference");
+//             console.error('Failed to fetch required Reference :', error);
+//         });
 
+//     // Fetch responses
+//     // axios.get(rUrl)
+//     //     .then(response => {
+//     //         setResponses(response.data);
+//     //     })
+//     //     .catch(error => {
+//     //         console.error('Failed to fetch responses:', error);
+//     //     });
+// }, []);
+  // const [jobapplications] = useState([
+  //   {
+  //     id: 1,
+  //     title: "Job Application 1:",
+  //     text: "Job Application 1 ",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Job Application 2:",
+  //     text: "Job Application 2 ",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Job Application 3:",
+  //     text: "Job Application 3 ",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Job Application 4:",
+  //     text: "Job Application 4 ",
+  //   },
+  //   {
+  //     id: 5,
+  //     title: "Job Application 5:",
+  //     text: "Job Application 5 ",
+  //   },
+  //   {
+  //     id: 6,
+  //     title: "Job Application 6:",
+  //     text: "Job Application 6 ",
+  //   },
+  //   {
+  //     id: 7,
+  //     title: "Job Application 7:",
+  //     text: "Job Application 7 ",
+  //   },
+    
+  // ]);
   const Alert = () =>{
     Swal.fire('Approved', 'Succesfully', 
     'success')
   }
 
   return (
+       
     <div className="add-jobs container">
       <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Job Applications :</h1>
       <div>
@@ -108,20 +104,21 @@ function LecturerHome() {
           <section className="res-sec">
             <div className="container">
               <div className="jobapplications responses">
-                {jobapplications.map((jobapplication, i) => (
-                  <div key={i} className="jobapplication">
-                    <h3
-                      className="container2-flex-item1 job-pool-card-title"
-                      style={{ fontSize: "20px" }}
-                    >
-                      {jobapplication.title}
-                    </h3>
-                    <p className="job-pool-card-para">{jobapplication.text}</p>
+                {referneces.map((response) => (
+                   response.vacancy.map((vacancy)=>(
+                     vacancy.responses.map((responseItem,i)=>{
+                      const student=findStudentByID(responseItem.studentId);
+                  return(
+                    <div key={i} className="jobapplication">
+                    <p className="job-pool-card-para">
+                      {student.firstName} {student.lastName}</p>
+                      <p className="job-pool-card-para">
+                      {student._id}</p>
                     <div className="button-div">
                       <button
                         className="btn btn-primary butdet"
                         onClick={()=>{
-                          navigate(`/student-application-for-lecturer?id=${jobapplication.id}`);
+                          navigate(`/student-application-for-lecturer/${student._id}`);
                         }}
                         style={{ background: "#2B547E", border: "none", marginRight: "25px", marginLeft:"-1px" }}
                       >
@@ -134,15 +131,12 @@ function LecturerHome() {
                       >
                         Approve
                       </button>
-                      
-                      {/* <button
-                        className="btn btn-primary reject butdet"
-                        style={{ background: "rgb(128, 57, 57)", marginRight: "5px" }}
-                      >
-                        Reject
-                      </button> */}
                     </div>
                   </div>
+                  );
+
+                    })
+                   ))
                 ))}
               </div>
             </div>
@@ -150,7 +144,6 @@ function LecturerHome() {
         </div>
         <p></p>
       </div>
-      {showScrollButton && <ScrollToTopButton />}
     </div>
   )
 }

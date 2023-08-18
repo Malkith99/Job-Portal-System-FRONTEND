@@ -1,5 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import {URL} from "../../../env";
+
+
+const StudentApplication = () => {
+  const {studentId}=useParams();
+  console.log(studentId);
+  const [student,setStudent]=useState("");
+  const [file,setFile]=useState("https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"||"{}");
+  //const user=JSON.parse(localStorage.getItem("jbuser")||"{}");
+  // const [file, setFile] = useState(
+  //   "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+  // );
+
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(URL +`/api/users/${studentId}`);
+         setStudent(response.data.user);
+        // setCompanyId(response.data.userId); // Set the companyId from the response
+         setFile(response.data.vacancy.profilePhoto);
+        console.log(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData().then(r => {});
+  },[studentId]);
+
 
 const StudentApplication = (props) => {
 
@@ -25,6 +57,7 @@ const StudentApplication = (props) => {
 
 
 
+
   return (
     <div className="container">
       <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
@@ -40,7 +73,7 @@ const StudentApplication = (props) => {
               <img className="profile-photo-2" src={`data:image/jpeg;base64/${student.profilePhoto}`} alt="Profile Photo" />
               <label form="profilePhoto" className="">
                 <span className="asterisk-mark">
-                  <span className={`${props.disabled && "d-none"}`}>* </span>
+                 
                 </span>{" "}
                 Profile Photo
               </label>
@@ -49,7 +82,9 @@ const StudentApplication = (props) => {
                   type="file"
                   className=" form-control"
                   style={{}}
+
                   disabled={props.disabled}
+
                 />
               </div>
             </div>
@@ -60,7 +95,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+                
               </span>
               Full Name
             </label>
@@ -69,8 +104,10 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Full Name"
+
                 disabled={props.disabled}
                 value={student.firstName}
+
                 // required
               ></input>
             </div>
@@ -79,7 +116,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               Name with Initials
             </label>
@@ -88,7 +125,7 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Name with Initials"
-                disabled={props.disabled}
+               // disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -99,7 +136,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               Date of Birth
             </label>
@@ -108,7 +145,7 @@ const StudentApplication = (props) => {
                 type="date"
                 className="form-control"
                 placeholder="Date of Birth"
-                disabled={props.disabled}
+                //disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -117,7 +154,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+                
               </span>
               Age
             </label>
@@ -126,7 +163,7 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Age"
-                disabled={props.disabled}
+                //disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -135,7 +172,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               Contact Number
             </label>
@@ -144,7 +181,7 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Contact Number"
-                disabled={props.disabled}
+               // disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -155,7 +192,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               Background
             </label>
@@ -164,7 +201,7 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Background"
-                disabled={props.disabled}
+                //disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -173,7 +210,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               Skills
             </label>
@@ -182,7 +219,7 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Skills"
-                disabled={props.disabled}
+                //disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -191,7 +228,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               CV
             </label>
@@ -201,7 +238,9 @@ const StudentApplication = (props) => {
                 className="form-control"
                 id="cv"
                 placeholder="Upload your file"
+
                 disabled={props.disabled}
+
                 // required
               ></input>
             </div>
@@ -212,7 +251,7 @@ const StudentApplication = (props) => {
           <div className="container1-flex-item">
             <label for="jobPosition" className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+               
               </span>
               Linkedin Profile
             </label>
@@ -221,7 +260,7 @@ const StudentApplication = (props) => {
                 type="text"
                 className="form-control"
                 placeholder="Linkedin Profile Link"
-                disabled={props.disabled}
+                //disabled={props.disabled}
                 // required
               ></input>
             </div>
@@ -237,7 +276,7 @@ const StudentApplication = (props) => {
           >
             <label className="">
               <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
+              
               </span>
               Reference
             </label>
@@ -246,7 +285,7 @@ const StudentApplication = (props) => {
               className="form-select"
               name="Reference By"
               id="lecturerReference"
-              disabled={props.disabled}
+             // disabled={props.disabled}
             >
               <option selected disabled>
                 Select the Lecturer
@@ -265,41 +304,10 @@ const StudentApplication = (props) => {
               <option value="Lecture12">Name of the Lecture 12</option>
             </select>
           </div>
-          {/* <div className="container1-flex-item">
-            <label className="">
-              <span className="asterisk-mark">
-                <span className={`${props.disabled && "d-none"}`}>* </span>
-              </span>
-              Reference
-            </label>
-
-            <select
-              className="form-select"
-              name="Reference By"
-              id="lecturerReference"
-              disabled={props.disabled}
-            >
-              <option selected disabled>
-                Select the Lecturer
-              </option>
-              <option value="Lecture1">Name of the Lecture 1</option>
-              <option value="Lecture2">Name of the Lecture 2</option>
-              <option value="Lecture3">Name of the Lecture 3</option>
-              <option value="Lecture4">Name of the Lecture 4</option>
-              <option value="Lecture5">Name of the Lecture 5</option>
-              <option value="Lecture6">Name of the Lecture 6</option>
-              <option value="Lecture7">Name of the Lecture 7</option>
-              <option value="Lecture8">Name of the Lecture 8</option>
-              <option value="Lecture9">Name of the Lecture 9</option>
-              <option value="Lecture10">Name of the Lecture 10</option>
-              <option value="Lecture11">Name of the Lecture 11</option>
-              <option value="Lecture12">Name of the Lecture 12</option>
-            </select>
-          </div> */}
           <div className="container1-flex-item"></div>
         </div>
         <Link to="/student/home">
-          <div className={`${props.disabled && "d-none"}`}>
+          <div>
             <div className="input-filed input-filed-cls">
               <button type="submit" className="btn btn-primary">
                 Submit
