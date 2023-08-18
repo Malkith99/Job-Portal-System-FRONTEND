@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Student responcesData.js updated">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="dev-6" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1690129366" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="dev-6" />
+                    <option name="lastUsedInstant" value="1690129242" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="dev-5" />
+                    <option name="lastUsedInstant" value="1690117930" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="1b5c5d89-2e11-40a0-b7a1-9e318967e54a" />
+        <option name="url" value="https://github.com/Malkith99/Job-Portal-System-FRONTEND.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/package.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true">
+    <xdebug_debug_ports port="9000" />
+    <xdebug_debug_ports port="9003" />
+    <xdebug_debug_ports port="6878" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2SgU3VP2lUw6TC9jZETwNjpKOd4" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="start" />
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="change moving title in Home page" />
+      <changelist id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="" />
+      <created>1689567567827</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689567567827</updated>
+      <workItem from="1689567570054" duration="279000" />
+      <workItem from="1689592170467" duration="377000" />
+      <workItem from="1689600216181" duration="1248000" />
+      <workItem from="1689602855166" duration="228000" />
+      <workItem from="1689605825586" duration="477000" />
+      <workItem from="1689607228025" duration="694000" />
+      <workItem from="1689616851202" duration="1094000" />
+      <workItem from="1689651738729" duration="307000" />
+      <workItem from="1689655012392" duration="2605000" />
+      <workItem from="1689663982908" duration="752000" />
+      <workItem from="1689672144674" duration="1543000" />
+      <workItem from="1689676970450" duration="963000" />
+      <workItem from="1689760432276" duration="207000" />
+      <workItem from="1689776212871" duration="3830000" />
+      <workItem from="1689862677074" duration="1365000" />
+      <workItem from="1689865121551" duration="103000" />
+      <workItem from="1689866080824" duration="1127000" />
+      <workItem from="1689870781947" duration="832000" />
+      <workItem from="1689920196933" duration="557000" />
+      <workItem from="1690116688220" duration="1294000" />
+      <workItem from="1690128549429" duration="1079000" />
+      <workItem from="1690134887881" duration="679000" />
+      <workItem from="1690135731329" duration="1480000" />
+      <workItem from="1690137565977" duration="265000" />
+      <workItem from="1690138108054" duration="2208000" />
+      <workItem from="1690169760123" duration="912000" />
+      <workItem from="1690171944548" duration="1408000" />
+      <workItem from="1690173559468" duration="1643000" />
+      <workItem from="1690177842174" duration="1477000" />
+      <workItem from="1690179423609" duration="1209000" />
+      <workItem from="1690183741050" duration="897000" />
+      <workItem from="1690184928307" duration="1684000" />
+      <workItem from="1690186713606" duration="511000" />
+      <workItem from="1690197467524" duration="2106000" />
+      <workItem from="1690199708205" duration="565000" />
+      <workItem from="1690200421056" duration="493000" />
+      <workItem from="1690207017738" duration="553000" />
+      <workItem from="1690217897002" duration="412000" />
+      <workItem from="1690223398759" duration="1747000" />
+      <workItem from="1690270416913" duration="1298000" />
+      <workItem from="1690271800837" duration="102000" />
+      <workItem from="1690465673397" duration="4178000" />
+      <workItem from="1690473468560" duration="1565000" />
+      <workItem from="1690481555877" duration="2584000" />
+      <workItem from="1690488273792" duration="408000" />
+      <workItem from="1690516619750" duration="1057000" />
+      <workItem from="1690521068292" duration="355000" />
+      <workItem from="1690523773151" duration="638000" />
+      <workItem from="1690528647322" duration="5586000" />
+      <workItem from="1690649068543" duration="1138000" />
+      <workItem from="1690650373273" duration="351000" />
+      <workItem from="1690650925679" duration="652000" />
+      <workItem from="1690730342856" duration="924000" />
+      <workItem from="1690735071782" duration="497000" />
+      <workItem from="1690785794221" duration="736000" />
+      <workItem from="1690786697718" duration="474000" />
+      <workItem from="1690787315107" duration="3890000" />
+      <workItem from="1690793728769" duration="2212000" />
+      <workItem from="1690796273288" duration="421000" />
+      <workItem from="1690804626118" duration="750000" />
+      <workItem from="1690823141189" duration="1196000" />
+      <workItem from="1690824695149" duration="710000" />
+      <workItem from="1690875827536" duration="114000" />
+      <workItem from="1690910710418" duration="594000" />
+      <workItem from="1690915415743" duration="72000" />
+      <workItem from="1690947662694" duration="80000" />
+      <workItem from="1690975628505" duration="654000" />
+      <workItem from="1691048320316" duration="256000" />
+      <workItem from="1691076666569" duration="745000" />
+      <workItem from="1691082742166" duration="1320000" />
+      <workItem from="1691086258100" duration="809000" />
+      <workItem from="1691177083810" duration="989000" />
+      <workItem from="1691178258622" duration="1503000" />
+      <workItem from="1691247124562" duration="1476000" />
+      <workItem from="1691249768976" duration="324000" />
+      <workItem from="1691251035620" duration="203000" />
+      <workItem from="1691251283364" duration="5000" />
+      <workItem from="1691254096643" duration="297000" />
+      <workItem from="1691256147727" duration="1470000" />
+      <workItem from="1691302636221" duration="1714000" />
+      <workItem from="1691329052775" duration="150000" />
+      <workItem from="1691340452798" duration="9000" />
+      <workItem from="1691389640213" duration="333000" />
+      <workItem from="1691398217692" duration="2000" />
+      <workItem from="1691405433623" duration="52000" />
+      <workItem from="1691559998671" duration="1074000" />
+      <workItem from="1691901511851" duration="786000" />
+      <workItem from="1691926761159" duration="3251000" />
+      <workItem from="1692043146410" duration="256000" />
+      <workItem from="1692262478851" duration="1639000" />
+      <workItem from="1692290854324" duration="5005000" />
+      <workItem from="1692298864744" duration="483000" />
+      <workItem from="1692301818202" duration="2381000" />
+      <workItem from="1692332683951" duration="677000" />
+      <workItem from="1692333376342" duration="971000" />
+      <workItem from="1692341773605" duration="4328000" />
+      <workItem from="1692355180512" duration="10446000" />
+    </task>
+    <task id="LOCAL-00022" summary="remove logout button and replace profile dropdown to their">
+      <option name="closed" value="true" />
+      <created>1690170425790</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1690170425790</updated>
+    </task>
+    <task id="LOCAL-00023" summary="reduce font size footer and change route of job post">
+      <option name="closed" value="true" />
+      <created>1690175121293</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690175121295</updated>
+    </task>
+    <task id="LOCAL-00024" summary="add url to profile">
+      <option name="closed" value="true" />
+      <created>1690179012221</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1690179012221</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add url to profile">
+      <option name="closed" value="true" />
+      <created>1690179235479</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1690179235479</updated>
+    </task>
+    <task id="LOCAL-00026" summary="job post url update">
+      <option name="closed" value="true" />
+      <created>1690187179448</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1690187179449</updated>
+    </task>
+    <task id="LOCAL-00027" summary="student side email validation">
+      <option name="closed" value="true" />
+      <created>1690199572869</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1690199572869</updated>
+    </task>
+    <task id="LOCAL-00028" summary="merge footer">
+      <option name="closed" value="true" />
+      <created>1690200522243</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1690200522243</updated>
+    </task>
+    <task id="LOCAL-00029" summary="merge footer">
+      <option name="closed" value="true" />
+      <created>1690200768148</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1690200768148</updated>
+    </task>
+    <task id="LOCAL-00030" summary="merge footer">
+      <option name="closed" value="true" />
+      <created>1690207092414</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1690207092414</updated>
+    </task>
+    <task id="LOCAL-00031" summary="add university email domains">
+      <option name="closed" value="true" />
+      <created>1690207540278</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1690207540278</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add dummy data catchup palace in the admin pannel by scanning">
+      <option name="closed" value="true" />
+      <created>1690225104356</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1690225104356</updated>
+    </task>
+    <task id="LOCAL-00033" summary="update url in company side job view">
+      <option name="closed" value="true" />
+      <created>1690271689285</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1690271689285</updated>
+    </task>
+    <task id="LOCAL-00034" summary="admin panel graph update">
+      <option name="closed" value="true" />
+      <created>1690467612774</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1690467612774</updated>
+    </task>
+    <task id="LOCAL-00035" summary="chane comment">
+      <option name="closed" value="true" />
+      <created>1690469872581</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1690469872581</updated>
+    </task>
+    <task id="LOCAL-00036" summary="add popup message for user delete in adminHome.js">
+      <option name="closed" value="true" />
+      <created>1690475019822</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1690475019822</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add delete function for user in adminHome.js">
+      <option name="closed" value="true" />
+      <created>1690484126972</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1690484126972</updated>
+    </task>
+    <task id="LOCAL-00038" summary="change popup message on StudentSignUp.js">
+      <option name="closed" value="true" />
+      <created>1690488411912</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1690488411912</updated>
+    </task>
+    <task id="LOCAL-00039" summary="change popup message on StudentSignUp.js">
+      <option name="closed" value="true" />
+      <created>1690488650842</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1690488650842</updated>
+    </task>
+    <task id="LOCAL-00040" summary="code update">
+      <option name="closed" value="true" />
+      <created>1690517542894</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1690517542894</updated>
+    </task>
+    <task id="LOCAL-00041" summary="code update">
+      <option name="closed" value="true" />
+      <created>1690528702462</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1690528702462</updated>
+    </task>
+    <task id="LOCAL-00042" summary="get console log">
+      <option name="closed" value="true" />
+      <created>1690533952809</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1690533952809</updated>
+    </task>
+    <task id="LOCAL-00043" summary="new update">
+      <option name="closed" value="true" />
+      <created>1690651171434</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1690651171434</updated>
+    </task>
+    <task id="LOCAL-00044" summary="display company name in feed">
+      <option name="closed" value="true" />
+      <created>1690791210849</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1690791210849</updated>
+    </task>
+    <task id="LOCAL-00045" summary="update route">
+      <option name="closed" value="true" />
+      <created>1690823358555</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1690823358555</updated>
+    </task>
+    <task id="LOCAL-00046" summary="update feed by displaying company name">
+      <option name="closed" value="true" />
+      <created>1690825375560</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1690825375560</updated>
+    </task>
+    <task id="LOCAL-00047" summary="remove token">
+      <option name="closed" value="true" />
+      <created>1690875909302</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1690875909302</updated>
+    </task>
+    <task id="LOCAL-00048" summary="add dependencies">
+      <option name="closed" value="true" />
+      <created>1690975925048</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1690975925048</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Add react query folder">
+      <option name="closed" value="true" />
+      <created>1691083732568</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1691083732568</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Add react query folder and Use React Query for fetch New In react data fetch">
+      <option name="closed" value="true" />
+      <created>1691179716023</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1691179716024</updated>
+    </task>
+    <task id="LOCAL-00051" summary="change token names">
+      <option name="closed" value="true" />
+      <created>1691254246452</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1691254246452</updated>
+    </task>
+    <task id="LOCAL-00052" summary="add cookies enable">
+      <option name="closed" value="true" />
+      <created>1691257595576</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1691257595576</updated>
+    </task>
+    <task id="LOCAL-00053" summary="set token timeout">
+      <option name="closed" value="true" />
+      <created>1691302987379</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1691302987379</updated>
+    </task>
+    <task id="LOCAL-00054" summary="remove user timeout">
+      <option name="closed" value="true" />
+      <created>1691303081279</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1691303081280</updated>
+    </task>
+    <task id="LOCAL-00055" summary="update dependencies">
+      <option name="closed" value="true" />
+      <created>1691560766517</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1691560766518</updated>
+    </task>
+    <task id="LOCAL-00056" summary="update dependencies">
+      <option name="closed" value="true" />
+      <created>1691929283675</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1691929283677</updated>
+    </task>
+    <task id="LOCAL-00057" summary="for admin show react query table re design">
+      <option name="closed" value="true" />
+      <created>1692264047295</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1692264047295</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Enable cookies">
+      <option name="closed" value="true" />
+      <created>1692291893333</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1692291893334</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Enable cookies">
+      <option name="closed" value="true" />
+      <created>1692292515414</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1692292515414</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Enable cookies">
+      <option name="closed" value="true" />
+      <created>1692295020327</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1692295020327</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Enable cookies">
+      <option name="closed" value="true" />
+      <created>1692299305145</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1692299305145</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Enable cookies&#10;&gt;">
+      <option name="closed" value="true" />
+      <created>1692301934111</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1692301934111</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Enable cookies&#10;&gt;">
+      <option name="closed" value="true" />
+      <created>1692303049560</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1692303049561</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Enable cookies">
+      <option name="closed" value="true" />
+      <created>1692303410543</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1692303410543</updated>
+    </task>
+    <task id="LOCAL-00065" summary="code update">
+      <option name="closed" value="true" />
+      <created>1692304144919</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1692304144919</updated>
+    </task>
+    <task id="LOCAL-00066" summary="index,js update">
+      <option name="closed" value="true" />
+      <created>1692343694805</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1692343694807</updated>
+    </task>
+    <task id="LOCAL-00067" summary="new update 18">
+      <option name="closed" value="true" />
+      <created>1692355455844</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1692355455844</updated>
+    </task>
+    <task id="LOCAL-00068" summary="new update 18">
+      <option name="closed" value="true" />
+      <created>1692355482627</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1692355482627</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Api update">
+      <option name="closed" value="true" />
+      <created>1692356422278</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1692356422278</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Student responcesData.js updated">
+      <option name="closed" value="true" />
+      <created>1692365019986</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1692365019988</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update route" />
+    <MESSAGE value="update feed by displaying company name" />
+    <MESSAGE value="remove token" />
+    <MESSAGE value="add dependencies" />
+    <MESSAGE value="Add react query folder" />
+    <MESSAGE value="Add react query folder and Use React Query for fetch New In react data fetch" />
+    <MESSAGE value="change token names" />
+    <MESSAGE value="add cookies enable" />
+    <MESSAGE value="set token timeout" />
+    <MESSAGE value="remove user timeout" />
+    <MESSAGE value="update dependencies" />
+    <MESSAGE value="for admin show react query table re design" />
+    <MESSAGE value="Enable cookies&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
+    <MESSAGE value="Enable cookies&#10;&gt;" />
+    <MESSAGE value="Enable cookies&#10;&gt;&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
+    <MESSAGE value="Enable cookies" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/components/pages/student/home/studentHome/Feed.js" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;package-lock.json&#10;#&#9;package.json&#10;#&#9;src/components/mainHeader/headerBottom/headerBottom.js" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/components/pages/company/home/companyHome/VavancySection/VacancySection.js&#10;#&#9;src/components/pages/student/home/studentHome/Feed.js" />
+    <MESSAGE value="code update" />
+    <MESSAGE value="index,js update" />
+    <MESSAGE value="new update 18&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
+    <MESSAGE value="new update 18" />
+    <MESSAGE value="Api update" />
+    <MESSAGE value="Student responcesData.js updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Student responcesData.js updated" />
+  </component>
+</project>

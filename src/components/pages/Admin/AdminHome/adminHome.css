@@ -22,16 +22,19 @@
 .user-table td {
     padding: 8px;
     border: 1px solid #ccc;
+    text-align: center;
 }
 
 .user-table th {
     background-color: #f0f0f0;
-    text-align: left;
+    text-align: center;
 }
 
 .user-table .user-photo {
-    width: 80px;
-    height: auto;
+    width: 30%;
+    height: 80px;
+    object-fit: scale-down;
+    min-width: 80px;
 }
 
 .user-table tbody tr:nth-child(even) {
@@ -44,4 +47,9 @@
 
 .user-actions button {
     margin-right: 5px;
+}
+.graph-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
