@@ -34,6 +34,35 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     border: 0,
   },
 }));
+
+
+const findCompanyById = (companyId) => {
+  try {
+    const jbusers = JSON.parse(localStorage.getItem("jbusers"));
+    console.log(companyId);
+    // Display company name
+    const company = jbusers.find((company) => company._id === companyId);
+
+    if (company) {
+      // If a company is found with the given companyId, you can access its data
+      console.log("Company Name:", company.firstName, company.lastName);
+      return company; // Return the company data
+    } else {
+      console.log("Company not found");
+      return null; // Return null if the company is not found
+    }
+  } catch (error) {
+    console.error("Error retrieving jbusers from local storage:", error.message);
+    return null; // Return null in case of an error
+  }
+};
+
+
+
+
+
+
+
 function ResponcesData() {
 
   const { vacancyId } = useParams();
@@ -61,8 +90,9 @@ console.log(filteredResponses);
             <TableHead>
               <TableRow>
                 <StyledTableCell align="center" width={250}>
-                  studentId
+                  Student Name
                 </StyledTableCell>
+                <StyledTableCell align="center"> Profile</StyledTableCell>
                 <StyledTableCell align="center"> responseDate</StyledTableCell>
                 <StyledTableCell align="center">comment</StyledTableCell>
                 <StyledTableCell align="center">View</StyledTableCell>
@@ -72,27 +102,40 @@ console.log(filteredResponses);
               {filteredResponses.map((response) => (
                   response.vacancy.map((vacancy) => {
                     if (vacancy.vacancyId === vacancyId) { // Check if the vacancyId matches
-                      return vacancy.responses.map((responseItem) => (
-                          <StyledTableRow key={responseItem._id}>
-                            <StyledTableCell align="center">{vacancy.vacancyId}</StyledTableCell>
-                            <StyledTableCell align="center">{responseItem.responseDate}</StyledTableCell>
-                            <StyledTableCell align="center">{responseItem.comment}</StyledTableCell>
-                            <StyledTableCell align="center">
-                              <Button
-                                  variant="contained"
-                                  color="primary"
-                                  onClick={() => handleViewButtonClick(responseItem.studentId)}
-                              >
-                                View
-                              </Button>
-                            </StyledTableCell>
-                          </StyledTableRow>
-                      ));
+                      return vacancy.responses.map((responseItem) => {
+                        const company = findCompanyById(responseItem.studentId); // Make sure findCompanyById is properly defined
+                        return (
+                            <StyledTableRow key={responseItem._id}>
+                              <StyledTableCell align="center">{company.firstName}</StyledTableCell>
+                              <StyledTableCell align="center">
+                                <img
+                                    src={`data:image/jpeg;base64/${company.profilePhoto}`} // Interpolate profilePhoto correctly
+                                    alt={`${company.firstName}'s Profile`}
+                                    width="50" // Adjust the width as needed
+                                    height="50" // Adjust the height as needed
+                                />
+                              </StyledTableCell>
+                              <StyledTableCell align="center">{responseItem.responseDate}</StyledTableCell>
+                              <StyledTableCell align="center">{responseItem.comment}</StyledTableCell>
+                              <StyledTableCell align="center">
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={() => handleViewButtonClick(responseItem.studentId)} // Make sure handleViewButtonClick is properly defined
+                                >
+                                  View
+                                </Button>
+                              </StyledTableCell>
+                            </StyledTableRow>
+                        );
+                      });
                     }
                     return null; // Return null for non-matching vacancyIds
                   })
               ))}
             </TableBody>
+
+
 
 
 
