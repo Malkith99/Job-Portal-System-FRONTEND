@@ -12,11 +12,10 @@ import PersonalInfo from "./Person_popup"; //working route don't change the path
 import AcademicDetails from "./Academic_Popup";
 import ExtraC_popup from "./Extracuricular_popup";
 import "./StudentProfile.css";
-import { URL } from "../../../../env";
+import {URL} from "../../../../env";
 export default function Profile() {
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("user") || "{}")
-  );
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
 
   const [file, setFile] = useState("");
 
@@ -44,6 +43,8 @@ export default function Profile() {
 
   const [openExtraPopup, setOpenExtraPopup] = useState(false);
 
+
+
   function handleChange(e) {
     console.log(e.target.files);
     setFile(URL.createObjectURL(e.target.files[0]));
@@ -56,7 +57,8 @@ export default function Profile() {
   useEffect(() => {
     // This function will be called whenever any of the input fields change
     handleSave().then(() => {});
-  }, [file, firstName, middleName, lastName, indexNumber, DOB, gender]);
+  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender]);
+
 
   async function handleSave() {
     try {
@@ -77,7 +79,7 @@ export default function Profile() {
 
       // Update the user token in localStorage
       const updatedUserLocal = { ...user, token: user.token }; // Include the updated token
-      localStorage.setItem("user", JSON.stringify(updatedUserLocal));
+      localStorage.setItem('user', JSON.stringify(updatedUserLocal));
 
       console.log("User StudentProfile successfully updated");
       //alert("User StudentProfile successfully updated");
@@ -85,6 +87,10 @@ export default function Profile() {
       console.error(error);
     }
   }
+
+
+
+
 
   useEffect(() => {
     if (user._id) {
@@ -95,7 +101,7 @@ export default function Profile() {
   const fetchUserData = async () => {
     try {
       const userId = user._id;
-      const url = URL + `/api/users/${userId}`;
+      const url = URL +`/api/users/${userId}`;
       const response = await axios.get(url);
       const userData = response.data.user;
       setUser(userData);
@@ -122,6 +128,7 @@ export default function Profile() {
     }
   };
 
+
   const handleData = (data1) => {
     setFile(data1);
   };
@@ -137,9 +144,9 @@ export default function Profile() {
     setGender(parsedData.gender);
   };
 
+
   return (
-    <div
-      className="container progress-div"
+      <div   className="container progress-div"
       style={{
         display: "flex",
         // flexDirection: "column",
@@ -151,277 +158,290 @@ export default function Profile() {
         padding: "1px",
       }}
     >
-      <form action="/student-home">
-        <h4 className="sub-headings">Personal info: </h4>
-
-        <div>
+        <form action="/student-home">
+          <h4 className="sub-headings">Personal info: </h4>
+         
+       <div >    
           <div
-            className="container1-flex-item1 text-center"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginLeft: "0px",
-              marginRight: "0px",
-            }}
-          >
-            <img className="profile-photo" src={file} alt="Profile Photo" />
-            <label className="label-title">
-              Profile Photo
-              <Button onClick={() => setOpenProfilePopup(true)}>
-                {" "}
-                <EditIcon style={{ color: "#808080", marginRight: "8px" }} />
-              </Button>
-              {openProfilePopup && (
-                <Popup
-                  title="Edit Profile Photo"
-                  openPopup={openProfilePopup}
-                  setOpenPopup={setOpenProfilePopup}
-                >
-                  <ProfileImage sendData={handleData} />
-                </Popup>
-              )}
-            </label>
-            {/* <div style={{ padding: 10 }} /> */}
-            <div
-              className="file-input-container text-center"
-              style={{ marginLeft: "35%", width: "30%", textAlign: "center" }}
+              className="container1-flex-item1 text-center"
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                marginLeft: "0px",
+                marginRight: "0px",
+              }}
             >
-              <input
-                type="file"
-                className="file-input-field form-control"
-                onChange={handleChange}
-                disabled={disabled}
-                style={{ margin: "0 auto" }}
-              />
-            </div>
-          </div>
-        </div>
-        {/* <div className="flex-container1"> */}
-        <Card
-          className="carda "
-          style={{ marginBottom: "25px", marginTop: "25px", padding: "25px" }}
-        >
-          <div className="container1" style={{ padding: 10 }}>
-            <div className="sub-flex-container">
-              <div className="sub-flex-item1">
-                <label className="label-title">Name</label>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="First Name"
-                    value={firstName}
-                    onChange={(e) => {
-                      setFName(e.target.value);
-                    }}
-                    disabled={disabled}
-                    required
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    First Name<span className="asterisk-mark">*</span>
-                  </label>
-                </div>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Middle Name"
-                    value={middleName}
-                    onChange={(e) => {
-                      setMName(e.target.value);
-                    }}
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">Middle Name</label>
-                </div>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Last Name"
-                    value={lastName}
-                    onChange={(e) => {
-                      setLName(e.target.value);
-                    }}
-                    required
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    Last Name<span className="asterisk-mark">*</span>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div className="sub-flex-container">
-              <div className="sub-flex-item1">
-                <label className="label-title">
-                  Index Number
-                  <span className="asterisk-mark">*</span>
-                </label>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Index Number"
-                    value={indexNumber}
-                    onChange={(e) => {
-                      setIndex(e.target.value);
-                    }}
-                    required
-                    disabled={disabled}
-                  ></input>
-                </div>
-              </div>
-              <div className="sub-flex-item2"></div>
-              <div className="sub-flex-item2"></div>
-            </div>
-            <div className="sub-flex-container">
-              <div className="sub-flex-item1">
-                <label className="label-title">
-                  Date of Birth
-                  <span className="asterisk-mark">*</span>
-                </label>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="date"
-                    className="form-control"
-                    placeholder="DOB"
-                    value={DOB}
-                    onChange={(e) => {
-                      setDOB(e.target.value);
-                    }}
-                    required
-                    disabled={disabled}
-                  ></input>
-                </div>
-              </div>
-              <div className="sub-flex-item2"></div>
-              <div className="sub-flex-item2"></div>
-            </div>
-            <div className="sub-flex-container">
-              <div className="sub-flex-item1">
-                <label className="label-title">
-                  Gender
-                  <span className="asterisk-mark">*</span>
-                </label>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <select
-                    className="form-select"
-                    name="gender"
-                    id="gender"
-                    disabled={disabled}
-                    value={gender}
-                    onChange={(e) => {
-                      setGender(e.target.value);
-                    }}
-                  >
-                    <option selected disabled>
-                      Select your Gender
-                    </option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                  </select>
-                </div>
-              </div>
-              <div className="sub-flex-item2"></div>
-              <div className="sub-flex-item2"></div>
-            </div>
-            <div className="sub-flex-container">
-              <div className="sub-flex-item1">
-                <label className="label-title">
-                  Phone Number
-                  <span className="asterisk-mark">*</span>
-                </label>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Phone Number 1"
-                    value={phoneNumber1}
-                    onChange={(e) => {
-                      setPNumber1(e.target.value);
-                    }}
-                    required
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    Phone Number 1<span className="asterisk-mark">*</span>
-                  </label>
-                </div>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Phone Number 2"
-                    required
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    Phone Number 2<span className="asterisk-mark">*</span>
-                  </label>
-                </div>
-              </div>
-              <div className="sub-flex-item2"></div>
-           
-           
-              
-              <div className="sub-flex-item2"></div>
-              <div className="sub-flex-item2"></div>
-            </div>
-            {/* </div> */}
-          </div>
 
+              <img className="profile-photo" src={file} alt="Profile Photo" />
+              <label className="label-title">Profile Photo
+                <Button onClick={() => setOpenProfilePopup(true)}>
+                  {" "}
+                  <EditIcon style={{ color: "#808080", marginRight: "8px" }} />
+                </Button>
+                {openProfilePopup && (
+                    <Popup
+                        title="Edit Profile Photo"
+                        openPopup={openProfilePopup}
+                        setOpenPopup={setOpenProfilePopup}>
+                      <ProfileImage sendData={handleData} />
+                    </Popup>
+                )}
+              </label>
+              {/* <div style={{ padding: 10 }} /> */}
+              <div className="file-input-container text-center" style={{marginLeft:"35%", width:"30%",textAlign: "center" }}>
+  <input
+    type="file"
+    className="file-input-field form-control"
+    onChange={handleChange}
+    disabled={disabled}
+    style={{ margin: "0 auto" }}
+  />
+</div>
+
+
+            </div>
+</div>
+{/* <div className="flex-container1"> */}
+<Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
+            <div className="container1" style={{padding:10}}>
+              <div className="sub-flex-container">
+                <div className="sub-flex-item1">
+                  <label className="label-title">Name</label>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="First Name"
+                        value={firstName}
+                        onChange={(e) => {
+                          setFName(e.target.value);
+                        }}
+                        disabled={disabled}
+                        required
+                    ></input>
+                  </div>
+                  <div className="text-center">
+                    <label className="hint-title">
+                      First Name<span className="asterisk-mark">*</span>
+                    </label>
+                  </div>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Middle Name"
+                        value={middleName}
+                        onChange={(e) => {
+                          setMName(e.target.value);
+                        }}
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                  <div className="text-center">
+                    <label className="hint-title" >Middle Name</label>
+                  </div>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Last Name"
+                        value={lastName}
+                        onChange={(e) => {
+                          setLName(e.target.value);
+                        }}
+                        required
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                  <div className="text-center">
+                    <label className="hint-title">
+                      Last Name<span className="asterisk-mark">*</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div className="sub-flex-container">
+                <div className="sub-flex-item1">
+                  <label className="label-title" >
+                    Index Number
+                    <span className="asterisk-mark">*</span>
+                  </label>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Index Number"
+                        value={indexNumber}
+                        onChange={(e) => {
+                          setIndex(e.target.value);
+                        }}
+                        required
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                </div>
+                <div className="sub-flex-item2"></div>
+                <div className="sub-flex-item2"></div>
+              </div>
+              <div className="sub-flex-container">
+                <div className="sub-flex-item1">
+                  <label className="label-title">
+                    Date of Birth
+                    <span className="asterisk-mark">*</span>
+                  </label>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="date"
+                        className="form-control"
+                        placeholder="DOB"
+                        value={DOB}
+                        onChange={(e) => {
+                          setDOB(e.target.value);
+                        }}
+                        required
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                </div>
+                <div className="sub-flex-item2"></div>
+                <div className="sub-flex-item2"></div>
+              </div>
+              <div className="sub-flex-container">
+                <div className="sub-flex-item1">
+                  <label className="label-title">
+                    Gender
+                    <span className="asterisk-mark">*</span>
+                  </label>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <select
+                        className="form-select"
+                        name="gender"
+                        id="gender"
+                        disabled={disabled}
+                        value={gender}
+                        onChange={(e) => {
+                          setGender(e.target.value);
+                        }}
+                    >
+                      <option selected disabled>
+                        Select your Gender
+                      </option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="sub-flex-item2"></div>
+                <div className="sub-flex-item2"></div>
+              </div>
+              <div className="sub-flex-container">
+                <div className="sub-flex-item1">
+                  <label className="label-title">
+                    Phone Number
+                    <span className="asterisk-mark">*</span>
+                  </label>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="tel"
+                        className="form-control"
+                        placeholder="Phone Number 1"
+                        value={phoneNumber1}
+                        onChange={(e) => {
+                          setPNumber1(e.target.value);
+                        }}
+                        required
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                  <div className="text-center">
+                    <label className="hint-title">
+                      Phone Number 1<span className="asterisk-mark">*</span>
+                    </label>
+                  </div>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="tel"
+                        className="form-control"
+                        placeholder="Phone Number 2"
+                        required
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                  <div className="text-center">
+                    <label className="hint-title">
+                      Phone Number 2<span className="asterisk-mark">*</span>
+                    </label>
+                  </div>
+                </div>
+                <div className="sub-flex-item2"></div>
+              </div>
+              <div className="sub-flex-container">
+                <div className="sub-flex-item1">
+                  <label className="label-title">
+                    References
+                    <span className="asterisk-mark">*</span>
+                  </label>
+                </div>
+                <div className="sub-flex-item2">
+                  <div className="input-filed">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="References"
+                        value={references}
+                        onChange={(e) => {
+                          setReferences(e.target.value);
+                        }}
+                        required
+                        disabled={disabled}
+                    ></input>
+                  </div>
+                </div>
+                <div className="sub-flex-item2"></div>
+                <div className="sub-flex-item2"></div>
+              </div>
+            {/* </div> */}
+
+          </div>
+        
           <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setOpenPersonalPopup(true)}
-            style={{ marginBottom: "-10px", marginLeft: "auto" }}
+              type="button"
+              className="btn btn-primary"
+              onClick={()=>setOpenPersonalPopup(true)}
+              style={{ marginBottom: "-10px",marginLeft: "auto"}}
           >
             Edit
           </button>
           {openPersonalPopup && (
-            <Popup
-              title="Edit Personal Info"
-              openPopup={openPersonalPopup}
-              setOpenPopup={setOpenPersonalPopup}
-            >
-              <PersonalInfo sendData={handlePersonalInfo} />
-            </Popup>
+              <Popup
+                  title="Edit Personal Info"
+                  openPopup={openPersonalPopup}
+                  setOpenPopup={setOpenPersonalPopup}
+              >
+                <PersonalInfo sendData={handlePersonalInfo}/>
+              </Popup>
+
           )}
-        </Card>
-        <h4 className="sub-headings">Academic Details: </h4>
-        <Card
-          className="carda "
-          style={{ marginBottom: "25px", marginTop: "25px", padding: "25px" }}
-        >
-          {" "}
-          <div className="">
+  </Card>
+          <h4 className="sub-headings">Academic Details: </h4>
+        <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>    <div className="">
+           
             <div className="flex-container2">
               <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item1">
@@ -433,14 +453,14 @@ export default function Profile() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <select
-                      className="form-select"
-                      name="faculty"
-                      id="faculty"
-                      disabled={disabled}
-                      value={faculty}
-                      onChange={(e) => {
-                        setFaculty(e.target.value);
-                      }}
+                        className="form-select"
+                        name="faculty"
+                        id="faculty"
+                        disabled={disabled}
+                        value={faculty}
+                        onChange={(e) => {
+                          setFaculty(e.target.value);
+                        }}
                     >
                       <option selected disabled>
                         Select your Faculty
@@ -477,15 +497,15 @@ export default function Profile() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <input
-                      type="date"
-                      className="form-control"
-                      placeholder="Graduating Year"
-                      value={DOG}
-                      onChange={(e) => {
-                        setDOG(e.target.value);
-                      }}
-                      required
-                      disabled={disabled}
+                        type="date"
+                        className="form-control"
+                        placeholder="Graduating Year"
+                        value={DOG}
+                        onChange={(e) => {
+                          setDOG(e.target.value);
+                        }}
+                        required
+                        disabled={disabled}
                     ></input>
                   </div>
                 </div>
@@ -502,14 +522,14 @@ export default function Profile() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <select
-                      className="form-select"
-                      name="field"
-                      id="field"
-                      disabled={disabled}
-                      value={field}
-                      onChange={(e) => {
-                        setField(e.target.value);
-                      }}
+                        className="form-select"
+                        name="field"
+                        id="field"
+                        disabled={disabled}
+                        value={field}
+                        onChange={(e) => {
+                          setField(e.target.value);
+                        }}
                     >
                       <option selected disabled>
                         Select Your Field
@@ -536,14 +556,14 @@ export default function Profile() {
                 <div className="container2-flex-item-sub-item2">
                   <div className="input-filed input-filed-cls">
                     <select
-                      className="form-select"
-                      name="subSpeciality"
-                      id="subSpeciality"
-                      disabled={disabled}
-                      value={subSpeciality}
-                      onChange={(e) => {
-                        setSpeciality(e.target.value);
-                      }}
+                        className="form-select"
+                        name="subSpeciality"
+                        id="subSpeciality"
+                        disabled={disabled}
+                        value={subSpeciality}
+                        onChange={(e) => {
+                          setSpeciality(e.target.value);
+                        }}
                     >
                       <option selected disabled>
                         Select your Sub Speciality
@@ -565,7 +585,7 @@ export default function Profile() {
                 </div>
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
-                    <textarea
+                  <textarea
                       class="form-control"
                       rows="3"
                       disabled={disabled}
@@ -573,38 +593,37 @@ export default function Profile() {
                       onChange={(e) => {
                         setProjects(e.target.value);
                       }}
-                    ></textarea>
+                  ></textarea>
                   </div>
                 </div>
               </div>
             </div>
+            
           </div>
           <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setOpenAcademicPopup(true)}
-            style={{ marginBottom: "-10px", marginLeft: "auto" }}
+              type="button"
+              className="btn btn-primary"
+              onClick={()=>setOpenAcademicPopup(true)}
+              style={{ marginBottom: "-10px",marginLeft:"auto" }}
           >
             Edit
           </button>
           {openAcademicPopup && (
-            <Popup
-              title="Edit Academic Details"
-              openPopup={openAcademicPopup}
-              setOpenPopup={setOpenAcademicPopup}
-            >
-              <AcademicDetails />
-            </Popup>
+              <Popup
+                  title="Edit Academic Details"
+                  openPopup={openAcademicPopup}
+                  setOpenPopup={setOpenAcademicPopup}
+              >
+                <AcademicDetails />
+              </Popup>
+
           )}
-        </Card>
-        <h4 className="sub-headings">References </h4>
-        <Card
-          className="carda "
-          style={{ marginBottom: "25px", marginTop: "25px", padding: "25px" }}
-        >
+</Card>
+          <h4 className="sub-headings">Extracurricular Activities: </h4>
+          <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
           <div className="">
             <div className="flex-container2">
-              {/* <div className="container2-flex-item">
+              <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item3">
                   <label className="label-title">References</label>
                 </div>
@@ -620,72 +639,8 @@ export default function Profile() {
                       }}
                   ></textarea>
                   </div>
-                </div> */}
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Name"
-                    disabled={disabled}
-                  ></input>
                 </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    Name 
-                  </label>
-                </div>
-                
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Email"
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    Email
-                  </label>
-                </div>
-              </div>
-              <div className="sub-flex-item2">
-                <div className="input-filed">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Phone Number"
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                    Phone Number
-                  </label>
-                </div>
-              </div>
-              
-             
-            </div>
-            <div className="sub-flex-item">
-                <div className="input-filed">
-                  <input
-                    type="tel"
-                    className="form-control"
-                    placeholder="Faculty and Department "
-                    disabled={disabled}
-                  ></input>
-                </div>
-                <div className="text-center" style={{ marginTop: "-20px" }}>
-                  <label className="hint-title">
-                  Faculty and Department
-                  </label>
-                </div>
-              </div>
-               {/* <div>
+                {/* <div>
             {disabled ? (
                     <button
                       type="button"
@@ -704,27 +659,32 @@ export default function Profile() {
               </button>
             )}
                 </div> */}
+              </div>
+            </div>
+
           </div>
           <button
-            type="button"
-            className="btn btn-primary"
-            onClick={() => setOpenExtraPopup(true)}
-            style={{ marginBottom: "-10px", marginLeft: "auto" }}
+              type="button"
+              className="btn btn-primary"
+              onClick={()=>setOpenExtraPopup(true)}
+              style={{ marginBottom: "-10px" ,marginLeft:"auto"}}
           >
             Edit
           </button>
 
           {openExtraPopup && (
-            <Popup
-              title="Edit References"
-              openPopup={openExtraPopup}
-              setOpenPopup={setOpenExtraPopup}
-            >
-              <ExtraC_popup />
-            </Popup>
+              <Popup
+                  title="Edit Personal Info"
+                  openPopup={openExtraPopup}
+                  setOpenPopup={setOpenExtraPopup}
+              >
+                <ExtraC_popup/>
+              </Popup>
+
           )}
-        </Card>
-      </form>
-    </div>
+</Card>
+        </form>
+      </div>
+
   );
-}
+};

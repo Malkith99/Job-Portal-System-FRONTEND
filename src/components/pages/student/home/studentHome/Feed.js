@@ -86,7 +86,7 @@ export default function Feed() {
                     <div className="image-box">
                       <img
                         alt="Card Image"
-                        src={`data:image/jpeg;base64/${company.profilePhoto}`}
+                        src={`data:image/jpeg;base64/${flyer}`}
                       />
                     </div>
                     <div >
