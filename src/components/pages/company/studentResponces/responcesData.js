@@ -39,7 +39,18 @@ function createData(id, name, position, date) {
   return { id, name, position, date };
 }
 
-const rows = [JSON.parse(localStorage.getItem('jbresponses') || '{}')];
+const rows = [
+  createData(1, "Madushan N.N.A.", "Developer", "2022-01-01"),
+  createData(2, "Malkith A.V.A.", "Designer", "2022-01-02"),
+  createData(3,"Manimendra M.A.N.S.N.","Manager","2022-01-03"),
+  createData(4, "Tiranga Rukshan", "Developer", "2022-01-04"),
+  createData(5, "Sajini Bagya", "Manager", "2022-01-05"),
+  createData(6, "Adeepa Tharuka", "Developer", "2022-01-01"),
+  createData(7, "Diki Chamika", "Designer", "2022-01-02"),
+  createData(8,"Suranga Lakmal","Manager","2022-01-03"),
+  createData(9, "Dinesh Chandimal", "Developer", "2022-01-04"),
+  createData(10, "Mahinda Rajapaksha", "Manager", "2022-01-05"),
+];
 
 function ResponcesData() {
   const [selectedId, setSelectedId] = React.useState(null);

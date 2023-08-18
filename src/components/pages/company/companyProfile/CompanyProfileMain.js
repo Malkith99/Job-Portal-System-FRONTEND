@@ -2,20 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
-import CompanyProfile from "./companyProfile/CompanyProfile";
+import CompanyRegister from "./companyProfile/CompanyProfile";
 import "./CompanyProfileMain.css";
 
 function CompanyRegisterMain({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/company-home">Company Home</Link>
+      <Link to="/company-HomePage">Company Home</Link>
      {/*  <Link to="/company">Profile</Link> */}
     </>
   );
   return (
     <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-      <CompanyProfile/>
+      <CompanyRegister />
       <Footer />
     </div>
   );
