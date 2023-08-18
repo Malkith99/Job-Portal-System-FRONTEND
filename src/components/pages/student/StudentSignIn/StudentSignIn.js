@@ -95,7 +95,7 @@ function StudentSignIn() {
 
   return (
     <>
-    <div className="page-container">
+    <div className="page-container" >
       <MainHeader
         content={
           loggedIn ? (
@@ -111,13 +111,13 @@ function StudentSignIn() {
         }
       ></MainHeader>
 
-      <div className="container" >
+      <div className="container"  style={{padding:"10px"}}>
         <Box
           sx={{
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            height: "90vh",
+            height: "100vh",
             marginTop: "-200px",
             marginBottom: "-250px",
             "@media screen and (max-width: 1865px)": {
@@ -150,6 +150,7 @@ function StudentSignIn() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
+                      marginTop:"100px"
                     }}
                   />
                 {/* </div> */}

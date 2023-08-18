@@ -111,18 +111,18 @@
 
 
 .custom-card1 {
-  position: relative;
-  width: 140%;
-  margin-right: 15px;
-  margin-left: 20px;
-  height: 450px;
-  position: relative;
+  /* position: relative; */
+ 
+  /* margin-left: 20px; */
+  width: 350px;
+  min-width: max-content;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding-right: 40px;
-  margin-top: 80px;
+  /* padding-right: 40px; */
+ margin: 0.4%;
   border: 2rem;
   border-radius: 10%;
   margin-bottom: 10px;
@@ -155,56 +155,67 @@
   }
   
   .title-box {
-    position: absolute;
+    /* position: absolute; */
   top: 5px;
   right: 5px;
   left: 115px;
   padding-top: 25px;
+  margin-bottom: 25px;
   width: calc(100% - 110px);
   padding-left: 10px;
   height: 3rem;
+
   font-family: Georgia, serif;
   font-weight: bold; 
+  text-align: center;
   }
   .Branch-box{
-    position: absolute;
+
     top: 3rem; 
     left: 115px;
     padding: 10px;
-    width: calc(100% - 110px);
+    /* width: calc(100% - 110px); */
     font-family: Georgia, serif;
     font-size: 10px;
+    text-align: center
   }
   .para-box{
     color: #ffffff;
     background-color: #d6ebf1;
-    width:100px;
-    height: 40px;
+    width:156px;
+    /* height: auto; */
     border-radius: 8%;
     margin-top: 2px;
-    padding: 5px;
+    /* padding: 5px; */
     font-weight: lighter;
-    margin-right: 30px;
+    /* margin-right: 30px; */
    margin-top: 0px;
+   text-align: center;
+   align-items: center;
+   margin: 2%;
+   
    
   }
   .para-items{
-    margin-top: 160px;
-    margin-left: 10px;
-    
-    align-self: start;
-    padding: 10px;
+    /* margin-top: 160px; */
+    /* margin-left: 10px; */
+    /* display: flex; */
+    text-align: center;
+    /* padding: 10px; */
     display: flex;
+    
   }
   .job-pos-box{
     padding: 10px;
+    text-align: center;
 
   }
   .intro{
   padding: 10px;
-  margin-top: 15px;
-  width: 300px;
-  height: 100px;
+  /* margin-top: 15px; */
+  width: 310px;
+  text-align: center;
+  
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -220,7 +231,8 @@
     margin-top: 18px;
     padding: 5px;
     font-weight: bolder;
-    margin-left: -170px;
+    text-align: center;
+    /* margin-left: -170px; */
    
   }
   .para-items2{
@@ -230,11 +242,11 @@
     align-self: start;
     padding: 10px; */
     display: flex;
-    margin-left: 200px;
+    /* margin-left: 200px; */
     align-items: center;
     margin-bottom: 30px;
     height: 70px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
   .button-style{
     color:  rgb(38, 133, 227);
@@ -250,4 +262,7 @@
 .button-style:focus {
   background-color: rgb(38, 133, 227);
   color: white;
+}
+.com-card{
+  flex-wrap: wrap;
 }
