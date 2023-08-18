@@ -4,15 +4,15 @@
     <root id="1">
       <ServerVersion>6.0.9</ServerVersion>
     </root>
-    <schema id="2" parent="1" name="admin"/>
-    <schema id="3" parent="1" name="jobBank_db">
+    <schema id="2" parent="1" name="jobBank_db">
       <Current>1</Current>
       <LocalIntrospectionTimestamp>2023-08-18.11:40:21</LocalIntrospectionTimestamp>
     </schema>
+    <schema id="3" parent="1" name="admin"/>
     <schema id="4" parent="1" name="local"/>
-    <table id="5" parent="3" name="responses"/>
-    <table id="6" parent="3" name="users"/>
-    <table id="7" parent="3" name="vacancies"/>
+    <table id="5" parent="2" name="responses"/>
+    <table id="6" parent="2" name="users"/>
+    <table id="7" parent="2" name="vacancies"/>
     <column id="8" parent="5" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>

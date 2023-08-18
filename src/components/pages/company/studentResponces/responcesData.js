@@ -36,7 +36,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 
-const findCompanyById = (companyId) => {
+const findUserById = (companyId) => {
   try {
     const jbusers = JSON.parse(localStorage.getItem("jbusers"));
     console.log(companyId);
@@ -74,9 +74,15 @@ function ResponcesData() {
   );
 
 console.log(filteredResponses);
-  function handleViewButtonClick(id) {
-    window.location.href = `/grp13/student-application-for-company/${id}`;
+  function handleViewButtonClick(id, student, responseItem) {
+    // Construct the URL with query parameters
+    const queryParams = `?student=${encodeURIComponent(JSON.stringify(student))}&responseItem=${encodeURIComponent(JSON.stringify(responseItem))}`;
+    const urlWithParams = `/grp13/student-application-for-company/${id}${queryParams}`;
+
+    // Navigate to the specified URL
+    window.location.href = urlWithParams;
   }
+
 
   return (
     <>
@@ -100,38 +106,38 @@ console.log(filteredResponses);
             </TableHead>
             <TableBody>
               {filteredResponses.map((response) => (
-                  response.vacancy.map((vacancy) => {
-                    if (vacancy.vacancyId === vacancyId) { // Check if the vacancyId matches
-                      return vacancy.responses.map((responseItem) => {
-                        const company = findCompanyById(responseItem.studentId); // Make sure findCompanyById is properly defined
-                        return (
-                            <StyledTableRow key={responseItem._id}>
-                              <StyledTableCell align="center">{company.firstName}</StyledTableCell>
-                              <StyledTableCell align="center">
-                                <img
-                                    src={`data:image/jpeg;base64/${company.profilePhoto}`} // Interpolate profilePhoto correctly
-                                    alt={`${company.firstName}'s Profile`}
-                                    width="50" // Adjust the width as needed
-                                    height="50" // Adjust the height as needed
-                                />
-                              </StyledTableCell>
-                              <StyledTableCell align="center">{responseItem.responseDate}</StyledTableCell>
-                              <StyledTableCell align="center">{responseItem.comment}</StyledTableCell>
-                              <StyledTableCell align="center">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={() => handleViewButtonClick(responseItem.studentId)} // Make sure handleViewButtonClick is properly defined
-                                >
-                                  View
-                                </Button>
-                              </StyledTableCell>
-                            </StyledTableRow>
-                        );
-                      });
-                    }
-                    return null; // Return null for non-matching vacancyIds
-                  })
+                response.vacancy.map((vacancy) => {
+                  if (vacancy.vacancyId === vacancyId) { // Check if the vacancyId matches
+                    return vacancy.responses.map((responseItem) => {
+                      const student = findUserById(responseItem.studentId); // Make sure findCompanyById is properly defined
+                      return (
+                          <StyledTableRow key={responseItem._id}>
+                            <StyledTableCell align="center">{student.firstName}</StyledTableCell>
+                            <StyledTableCell align="center">
+                              <img
+                                  src={`data:image/jpeg;base64/${student.profilePhoto}`} // Interpolate profilePhoto correctly
+                                  alt={`${student.firstName}'s Profile`}
+                                  width="50" // Adjust the width as needed
+                                  height="50" // Adjust the height as needed
+                              />
+                            </StyledTableCell>
+                            <StyledTableCell align="center">{responseItem.responseDate}</StyledTableCell>
+                            <StyledTableCell align="center">{responseItem.comment}</StyledTableCell>
+                            <StyledTableCell align="center">
+                              <Button
+                                  variant="contained"
+                                  color="primary"
+                                  onClick={() => handleViewButtonClick(responseItem.studentId,student,responseItem)} // Make sure handleViewButtonClick is properly defined
+                              >
+                                View
+                              </Button>
+                            </StyledTableCell>
+                          </StyledTableRow>
+                      );
+                    });
+                  }
+                  return null; // Return null for non-matching vacancyIds
+                })
               ))}
             </TableBody>
 

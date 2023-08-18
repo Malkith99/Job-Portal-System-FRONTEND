@@ -32,9 +32,32 @@ const StudentApplication = () => {
     fetchData().then(r => {});
   },[studentId]);
 
-  function handleChange(e) {
 
-  }
+const StudentApplication = (props) => {
+
+
+
+  // Assuming you're on the 'student-application-for-company' page
+  const urlParams = new URLSearchParams(window.location.search);
+  const studentParam = urlParams.get('student');
+  const responseItemParam = urlParams.get('responseItem');
+
+// Parse the JSON-encoded strings back into objects
+  const student = JSON.parse(decodeURIComponent(studentParam));
+  const responseItem = JSON.parse(decodeURIComponent(responseItemParam));
+
+// Now you have access to the 'student' and 'responseItem' objects
+  console.log(student);
+  console.log(responseItem);
+
+  const [file, setFile] = useState(
+      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg",student.profilePhoto
+  );
+  const [disabled, setDisabled] = useState(true);
+
+
+
+
   return (
     <div className="container">
       <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
@@ -47,8 +70,8 @@ const StudentApplication = () => {
               className="container1-flex-item1 "
               style={{ display: "flex", flexDirection: "column" }}
             >
-              <img className="profile-photo-2" src={file} alt="Profile Photo" />
-              <label for="profilePhoto" className="">
+              <img className="profile-photo-2" src={`data:image/jpeg;base64/${student.profilePhoto}`} alt="Profile Photo" />
+              <label form="profilePhoto" className="">
                 <span className="asterisk-mark">
                  
                 </span>{" "}
@@ -59,8 +82,9 @@ const StudentApplication = () => {
                   type="file"
                   className=" form-control"
                   style={{}}
-                  onChange={handleChange}
-                 // disabled={props.disabled}
+
+                  disabled={props.disabled}
+
                 />
               </div>
             </div>
@@ -80,8 +104,10 @@ const StudentApplication = () => {
                 type="text"
                 className="form-control"
                 placeholder="Full Name"
+
+                disabled={props.disabled}
                 value={student.firstName}
-                //disabled={props.disabled}
+
                 // required
               ></input>
             </div>
@@ -212,8 +238,9 @@ const StudentApplication = () => {
                 className="form-control"
                 id="cv"
                 placeholder="Upload your file"
-                onChange={handleChange}
-                //disabled={props.disabled}
+
+                disabled={props.disabled}
+
                 // required
               ></input>
             </div>
