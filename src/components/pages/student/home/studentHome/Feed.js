@@ -56,6 +56,7 @@ export default function Feed() {
     }
   };
   return (
+
     <div className="wrapper">
       {jobpool.map((vacancy) => {
         const { _id } = vacancy;
@@ -65,12 +66,12 @@ export default function Feed() {
           <React.Fragment key={_id}>
             {items.map((item, index) => {
               const {
+                companyName,
                 jobPosition,
                 salary,
                 dueDate,
-                flyer,
+                 flyer,
                 jobDescription
-
 
               } = item;
 
@@ -79,9 +80,9 @@ export default function Feed() {
 
               return (
                 <div>
-                  <div key={`${_id}-${index}`} className="card">
-                    <div className="imagestyle">
-                      {/* eslint-disable-next-line jsx-a11y/img-redundant-alt */}
+                  {/* <div key={`${_id}-${index}`} className="card"> */}
+                    {/* <div className="imagestyle">
+                     
                       <img
                         alt="Card Image"
                         src={`data:image/jpeg;base64/${flyer}`}
@@ -97,7 +98,8 @@ export default function Feed() {
                     <p className="salary">Salary: {salary}</p>
                     <p className="due-date">Due Date: {dueDate}</p>
                     <p className="due-date">Description: {jobDescription}</p>
-                    {company && <p className="due-date">Company: {company.firstName}</p>}
+                    <p className="due-date">Name: {company.firstName}</p>
+
 
                     <div className="button-section">
                       <button
@@ -109,7 +111,7 @@ export default function Feed() {
                         View
                       </button>
                     </div>
-                  </div>
+                  </div> */}
 
 
 
@@ -118,18 +120,20 @@ export default function Feed() {
                     <div className="image-box">
                       <img
                         alt="Card Image"
-                        src={`data:image/jpeg;base64/${flyer}`}
+                        src={`data:image/jpeg;base64/${company.profilePhoto}`}
                       />
                     </div>
+
                     <div >
                         <h4
                     className="title-box" 
                       >
                           {company.firstName}   {company.lastName}
                     </h4>
+
                     </div>
                     <div className="Branch-box">
-                      <h5>Colombo,LK</h5>
+                      <h5>{company.location}</h5>
                     </div>
                     <div className="para-items">
 
@@ -137,12 +141,13 @@ export default function Feed() {
                         <p>{jobPosition} </p>
                     </div>
                     <div className="para-box">
-                        <p>Online </p>
+                        <p>Online </p>          
+                       
                     </div>
                     </div>
                     <div className="job-pos-box">
                     <h2>
-                        Full-Stack Developer
+                    {jobPosition}
                     </h2>
                     </div>
                     <div className="intro">
@@ -168,11 +173,13 @@ export default function Feed() {
                     </div>
                   </Card>
                 </div>
+               
               );
             })}
           </React.Fragment>
         );
       })}
     </div>
+
   );
 }
