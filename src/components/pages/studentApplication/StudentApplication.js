@@ -2,14 +2,29 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const StudentApplication = (props) => {
+
+
+
+  // Assuming you're on the 'student-application-for-company' page
+  const urlParams = new URLSearchParams(window.location.search);
+  const studentParam = urlParams.get('student');
+  const responseItemParam = urlParams.get('responseItem');
+
+// Parse the JSON-encoded strings back into objects
+  const student = JSON.parse(decodeURIComponent(studentParam));
+  const responseItem = JSON.parse(decodeURIComponent(responseItemParam));
+
+// Now you have access to the 'student' and 'responseItem' objects
+  console.log(student);
+  console.log(responseItem);
+
   const [file, setFile] = useState(
-    "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
+      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg",student.profilePhoto
   );
   const [disabled, setDisabled] = useState(true);
-  function handleChange(e) {
-    console.log(e.target.files);
-    setFile(URL.createObjectURL(e.target.files[0]));
-  }
+
+
+
   return (
     <div className="container">
       <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
@@ -22,8 +37,8 @@ const StudentApplication = (props) => {
               className="container1-flex-item1 "
               style={{ display: "flex", flexDirection: "column" }}
             >
-              <img className="profile-photo-2" src={file} alt="Profile Photo" />
-              <label for="profilePhoto" className="">
+              <img className="profile-photo-2" src={`data:image/jpeg;base64/${student.profilePhoto}`} alt="Profile Photo" />
+              <label form="profilePhoto" className="">
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>{" "}
@@ -34,7 +49,6 @@ const StudentApplication = (props) => {
                   type="file"
                   className=" form-control"
                   style={{}}
-                  onChange={handleChange}
                   disabled={props.disabled}
                 />
               </div>
@@ -56,6 +70,7 @@ const StudentApplication = (props) => {
                 className="form-control"
                 placeholder="Full Name"
                 disabled={props.disabled}
+                value={student.firstName}
                 // required
               ></input>
             </div>
@@ -186,7 +201,6 @@ const StudentApplication = (props) => {
                 className="form-control"
                 id="cv"
                 placeholder="Upload your file"
-                onChange={handleChange}
                 disabled={props.disabled}
                 // required
               ></input>
