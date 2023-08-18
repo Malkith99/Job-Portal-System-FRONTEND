@@ -16,7 +16,7 @@ import CompanyVacancyViewStudent from './components/pages/student/home/studentHo
 import CompanySignUp from './components/pages/company/companySignup/companySignup';
 import CompanySignIn from './components/pages/company/companyLogin/companyLogin';
 import CompanyHome from './components/pages/company/home/CompanyMainHome';
-import CompanyProfile from './components/pages/company/companyProfile/companyProfile/CompanyProfile';
+import CompanyProfile from './components/pages/company/companyProfile/CompanyProfileMain';
 import CompanyJobPool from './components/pages/company/home/companyHome/CompanyJobPool/CompanyJobPool';
 
 import CompanyLogin from './components/pages/company/companyLogin/companyLogin';
@@ -72,7 +72,7 @@ const basename='grp13';
           <Route path="/company-profile" element={<CompanyProfile/> }> </Route>
           <Route path="/company-job-pool" element={<CompanyJobPool/> }> </Route>
             <Route path="/company-login" element={<CompanyLogin/>}></Route>
-          <Route path="/all-student-responces" element={<AllResponses/> }> </Route>
+          <Route path="/all-student-responses/:vacancyId" element={<AllResponses/> }> </Route>
 
           <Route path="/company-login" element={<CompanyLogin/>}></Route>
           <Route path="/adminHome" element={<AdminHome/>}></Route>

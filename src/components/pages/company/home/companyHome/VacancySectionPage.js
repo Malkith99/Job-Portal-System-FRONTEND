@@ -17,7 +17,7 @@ function VacancyPage({ isLogedIn, onLogout }) {
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
       <div className="container mt-5">
         <div>
-        <h2 style={{fontFamily:"gorgia" ,fontSmooth:"10",fontWeight:"10px",fontWeight:"10"}}> Vacancy Details :</h2>
+        <h2 style={{fontFamily:"gorgia" ,fontSmooth:"10",fontWeight:"10"}}> Vacancy Details :</h2>
       <VacancySection/>
       </div>
       
