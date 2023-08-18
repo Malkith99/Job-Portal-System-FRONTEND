@@ -17,6 +17,7 @@ function Main() {
   const imageObject = [
     Img1,
     Img2,
+    {/*
     Img3,
     Img4,
     Img5,
@@ -24,7 +25,7 @@ function Main() {
     Img7,
     Img8,
     Img9,
-    Img10,
+    Img10,*/}
   ];
   return (
     <Carousel
