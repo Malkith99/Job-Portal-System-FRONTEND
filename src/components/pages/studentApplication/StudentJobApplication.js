@@ -22,7 +22,6 @@ export default function StudentJobApplication({ isLogedIn, onLogout }) {
         />
         <div className="content-wrap"></div>
         <div>
-          <StudentApplication disabled={true} data={null}/>
         </div>
         <Footer />
       </div>

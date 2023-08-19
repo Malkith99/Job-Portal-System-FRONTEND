@@ -1,42 +1,53 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-
-
+import { useParams } from 'react-router-dom';
 const StudentApplication = (props) => {
-  const {studentId}=useParams();
-  console.log(studentId);
+
+
+  const { id } = useParams();
+
+  const idParts = id.split("&");
+  const extractedId = idParts[0];
+  const extractedStudentId = idParts[1] || ""; // In case studentid is not present
+
+  console.log("id:", extractedId);
+  console.log("studentid:", extractedStudentId);
 
 
 
 
-
-
-
-
-
-
-  // Assuming you're on the 'student-application-for-company' page
-  const urlParams = new URLSearchParams(window.location.search);
-  const studentParam = urlParams.get('student');
-  const responseItemParam = urlParams.get('responseItem');
-
-// Parse the JSON-encoded strings back into objects
-  const student = JSON.parse(decodeURIComponent(studentParam));
-  const responseItem = JSON.parse(decodeURIComponent(responseItemParam));
 
 // Now you have access to the 'student' and 'responseItem' objects
-  console.log(student);
-  console.log(responseItem);
+  const storedData = JSON.parse(localStorage.getItem("jbusers"));
+  const student = storedData.find(user => user._id === extractedStudentId);
+console.log(student);
+  const [refree, setRefree] = useState(student ? student.refree : "");
+  const [rfName, setRFName] = useState("");
+  const [rlName, setRLName] = useState("");
+
+
+  useEffect(() => {
+    // This effect will run whenever the 'refree' state changes
+    const selectedRefree = storedData.find(user => user._id === refree);
+    if (selectedRefree) {
+      setRFName(selectedRefree.firstName);
+      setRLName(selectedRefree.lastName);
+    } else {
+      setRFName(""); // Reset if user not found
+      setRLName("");
+    }
+  }, [refree, storedData]);
 
 
 
   return (
     <div className="container">
+
       <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
         Student Application :
       </h1>
       <form>
+
         <div className="flex-container1">
           <div className="container1-flex-item">
             <div
@@ -254,28 +265,13 @@ const StudentApplication = (props) => {
               Reference
             </label>
 
-            <select
-              className="form-select"
-              name="Reference By"
-              id="lecturerReference"
-             // disabled={props.disabled}
-            >
-              <option selected disabled>
-                Select the Lecturer
-              </option>
-              <option value="Lecture1">Name of the Lecture 1</option>
-              <option value="Lecture2">Name of the Lecture 2</option>
-              <option value="Lecture3">Name of the Lecture 3</option>
-              <option value="Lecture4">Name of the Lecture 4</option>
-              <option value="Lecture5">Name of the Lecture 5</option>
-              <option value="Lecture6">Name of the Lecture 6</option>
-              <option value="Lecture7">Name of the Lecture 7</option>
-              <option value="Lecture8">Name of the Lecture 8</option>
-              <option value="Lecture9">Name of the Lecture 9</option>
-              <option value="Lecture10">Name of the Lecture 10</option>
-              <option value="Lecture11">Name of the Lecture 11</option>
-              <option value="Lecture12">Name of the Lecture 12</option>
-            </select>
+            <input
+                type="text"
+                className="form-control"
+                placeholder="Name"
+                value={rfName +" "+ rlName}
+                disabled={props.disabled}
+            ></input>
           </div>
           <div className="container1-flex-item"></div>
         </div>
@@ -289,7 +285,9 @@ const StudentApplication = (props) => {
             
           </div>
         </Link>
+
       </form>
+
     </div>
   );
 };

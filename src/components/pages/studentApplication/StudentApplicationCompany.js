@@ -1,14 +1,85 @@
-import React,{useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import MainHeader from '../../mainHeader/mainHeader'
 import Footer from '../../../components/footer/footer'
-import { Link } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import StudentApplication from './StudentApplication';
 import Swal from "sweetalert2";
-
+import axios from "axios";
+import {URL} from "../../../env";
+import {toast} from "react-toastify";
 
 export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
 
+  const urlParams = new URLSearchParams(window.location.search);
+
+// Extract the 'id' and 'studentid' values from the query parameters
+  const id = urlParams.get("id");
+  const studentId = urlParams.get("studentid");
+
+  console.log("id:", id);
+  console.log("studentid:", studentId);
+
+
+  const [approve, setApprove] = useState("");
+  const [alertMessage, setAlertMessage] = useState('');
+
+  const showAlert = (message) => {
+    setAlertMessage(message);
+    alert(message);
+  };
+  const handleApply = async () => {
+    try {
+      const newResponse = {
+        approved: approve
+      };
+      const url = URL+'/api/recommendation/';
+      const response = await axios.patch(url, newResponse);
+      console.log('Response saved:', response.data);
+
+      // Display a success toast message
+      toast.success('Application submitted successfully!', {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 3000,
+      });
+
+      showAlert('Application approved successfully!');
+
+      // Add any additional logic or feedback to the user
+    } catch (error) {
+      console.error(error);
+
+      if (
+          error.response &&
+          error.response.data.error === 'Student has already applied for this vacancy'
+      ) {
+        showAlert('You have already applied for this vacancy.');
+        // Display a toast with the error message
+        toast.error('You have already applied for this vacancy.', {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
+      } else {
+        showAlert('Failed to submit application. Please try again later.');
+        // Display a generic error message
+        toast.error('Failed to submit application. Please try again later.', {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
+      }
+    }
+  };
+  const handleApprove = () => {
+    setApprove(true);
+    Alert();
+    handleApply().then(r => {});
+  };
+
+  const handleReject = () => {
+    setApprove(false);
+    DAlert();
+    handleApply().then(r => {});
+  };
   const content = (
     <>
       <Link to="/company-HomePage">Home</Link>
@@ -16,7 +87,7 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
     </>
   );
   const Alert = () =>{
-    Swal.fire('Approved', 'Succesfully', 
+    Swal.fire('Approved', 'Succesfully',
     'success')
   }
   const DAlert = () =>{
@@ -31,10 +102,10 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Rejected!', '', 'success')
+        Swal.fire('Rejected!', '', 'success').then(r => {})
       }
     })
-    
+
   }
   const RAlert = () =>{
     Swal.fire({
@@ -56,56 +127,31 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
         Swal.fire('Not Requested', '', 'info')
       }
     })
-    
+
   }
+
   return (
     <div>
+
+      {alertMessage && (
+          <div className="alert">
+            {alertMessage}
+            <button onClick={() => setAlertMessage('')}>&times;</button>
+          </div>
+      )}
         <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
-        <StudentApplication disabled={true} data={null}/>
+
+      <StudentApplication disabled={true} data={null}/>
+
         <div className='container'>
           <div className='flex-container1'>
 
-            {/* <div 
-              className='container1-flex-item'
-            >
-              <label for="jobPosition" className="">
-                Accepted By
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="jobPosition"
-                  placeholder="Name of the Lecturer 1"
-                  disabled={true} data={null}
-                  // required
-                ></input>
-              </div>
-            </div> */}
-
-            {/* <div 
-              className='container1-flex-item'
-            >
-              <label for="jobPosition" className="">
-                Accepted By
-              </label>
-              <div className="input-filed input-filed-cls">
-                <input
-                  type="text"
-                  className="form-control"
-                  id="jobPosition"
-                  placeholder="Name of the Lecturer 2"
-                  disabled={true} data={null}
-                  // required
-                ></input>
-              </div>
-            </div> */}
 
             </div>
           </div>
           <div className='container'>
           <div className="button-div">
-            
+
             <button
               onClick={RAlert}
               className="btn btn-primary accept butdet mb-3"
@@ -113,22 +159,22 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
             >
               Request Reference
             </button>
-            
+
           </div>
         </div>
 
         <div className='container mb-3'>
           <div className="button-div">
-            
+
             <button
-              onClick={Alert}
+              onClick={handleApprove}
               className="btn btn-primary accept butdet"
               style={{ background: "rgb(69, 117, 85)", marginRight: "25px",border:"none" }}
             >
               Approve
             </button>
             <button
-              onClick={DAlert}
+              onClick={handleReject}
               className="btn btn-primary reject butdet"
               style={{ background: "rgb(128, 57, 57)", marginRight: "25px",border:"none" }}
             >
@@ -136,6 +182,7 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
             </button>
           </div>
         </div>
+
         <Footer/>
     </div>
   )

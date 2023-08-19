@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from "@mui/material/Button";
 import SearchIcon from '@mui/icons-material/Search';
+import {toast} from "react-toastify";
 
 const RefereeSearch = ({ RefereeData, handleSave }) => {
   const [department, setDepartment] = useState('');
@@ -103,49 +104,53 @@ const RefereeSearch = ({ RefereeData, handleSave }) => {
   );
 };
 
-const App = () => {
+const App = (props) => {
     const storedData = JSON.parse(localStorage.getItem("jbusers"));
+    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+    const [refree, setRefree] = useState("" || user.refree);
 
     // Filter referees with role "lecturer"
     const lecturerReferees = storedData.filter(user => user.role === "lecturer");
 
-    const [selectedLecturers, setSelectedLecturers] = React.useState([]);
+    const [selectedLecturer, setSelectedLecturer] = React.useState(null);
 
-    const toggleLecturerSelection = (lecturerId) => {
-        if (selectedLecturers.includes(lecturerId)) {
-            setSelectedLecturers(selectedLecturers.filter(id => id !== lecturerId));
-        } else {
-            setSelectedLecturers([...selectedLecturers, lecturerId]);
-        }
+    const handleSelectChange = (event) => {
+        const selectedLecturerId = event.target.value;
+        setSelectedLecturer(selectedLecturerId);
     };
 
     const handleSave = () => {
-        // Implement your save logic here using selectedLecturers
-        console.log("Saved:", selectedLecturers);
+        if (selectedLecturer) {
+            // Get selected lecturer user based on selectedLecturer
+
+            const data3 = {
+                refree: selectedLecturer
+            };
+            // Implement your save logic here using selectedLecturerUser
+            console.log("Saved:", user._id);
+            console.log(data3);
+            props.sendData(JSON.stringify(data3));
+            alert("Save successful. Please close the window manually.");
+            toast.success("selected");
+        }
     };
 
     return (
         <div>
-            <table>
-                <tbody>
-                {lecturerReferees.map((user) => (
-                    <tr key={user._id}>
-                        <td>
-                            <input
-                                type="checkbox"
-                                checked={selectedLecturers.includes(user._id)}
-                                onChange={() => toggleLecturerSelection(user._id)}
-                            />
-                        </td>
-                        <td>{user.firstName + " " + user.lastName}</td>
-                    </tr>
+            <select value={selectedLecturer || refree} onChange={handleSelectChange}>
+                <option value={refree}>Select a lecturer</option>
+                {lecturerReferees.map(user => (
+                    <option key={user._id} value={user._id}>
+                        {user.firstName + " " + user.lastName}
+                    </option>
                 ))}
-                </tbody>
-            </table>
-            <button onClick={handleSave}>Save Selected Lecturers</button>
+            </select>
+            <button onClick={handleSave}>Save</button>
         </div>
     );
 };
+
+
 
 
 
