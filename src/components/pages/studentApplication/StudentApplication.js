@@ -1,39 +1,18 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import {URL} from "../../../env";
-
-
-const StudentApplication = () => {
-  const {studentId}=useParams();
-  console.log(studentId);
-  const [student,setStudent]=useState("");
-  const [file,setFile]=useState("https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"||"{}");
-  //const user=JSON.parse(localStorage.getItem("jbuser")||"{}");
-  // const [file, setFile] = useState(
-  //   "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  // );
-
-
-  useEffect(()=>{
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(URL +`/api/users/${studentId}`);
-         setStudent(response.data.user);
-        // setCompanyId(response.data.userId); // Set the companyId from the response
-         setFile(response.data.vacancy.profilePhoto);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData().then(r => {});
-  },[studentId]);
 
 
 const StudentApplication = (props) => {
+  const {studentId}=useParams();
+  console.log(studentId);
+
+
+
+
+
+
+
 
 
 
@@ -49,12 +28,6 @@ const StudentApplication = (props) => {
 // Now you have access to the 'student' and 'responseItem' objects
   console.log(student);
   console.log(responseItem);
-
-  const [file, setFile] = useState(
-      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg",student.profilePhoto
-  );
-  const [disabled, setDisabled] = useState(true);
-
 
 
 
@@ -321,4 +294,4 @@ const StudentApplication = (props) => {
   );
 };
 
-export default StudentApplication;
+  export default StudentApplication;

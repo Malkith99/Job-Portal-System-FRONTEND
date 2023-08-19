@@ -65,21 +65,10 @@ const RefereeSearch = ({ RefereeData, handleSave }) => {
       </div>
       <div style={{marginTop:"25px"}}> 
 
-      {/* <ul>
-        {filteredFaculty.map((faculty, index) => (
-          <li key={index}>{faculty.name}, {faculty.department}, {faculty.facultyType}</li>
-        ))}
-      </ul> */}
+
       </div>
      
-      {/* <button
-          type="button"
-          className="btn btn-primary"
-          style={{ height: "25px", marginBottom: "-10px", marginLeft: "10px", marginTop: "50px" }}
-          onClick={handleSearch}
-        >
-          Search <SearchIcon />
-        </button> */}
+
       </div>
 
       <div style={{ marginTop: "25px" }}>
@@ -115,21 +104,50 @@ const RefereeSearch = ({ RefereeData, handleSave }) => {
 };
 
 const App = () => {
-  const RefereeData = [
-    { name: 'Dr. Prins', department: 'Electrical Department', facultyType: 'Faculty of Engineering' },
-    { name: 'Dr. Kumudu', department: 'IS Department', facultyType: 'Faculty of Engineering' },
-  ];
+    const storedData = JSON.parse(localStorage.getItem("jbusers"));
 
-  const handleSave = (selectedFaculty) => {
-    // Implement your save logic here
-    console.log("Saved:", selectedFaculty);
-  };
+    // Filter referees with role "lecturer"
+    const lecturerReferees = storedData.filter(user => user.role === "lecturer");
 
-  return (
-    <div>
-      <RefereeSearch RefereeData={RefereeData} handleSave={handleSave} />
-    </div>
-  );
+    const [selectedLecturers, setSelectedLecturers] = React.useState([]);
+
+    const toggleLecturerSelection = (lecturerId) => {
+        if (selectedLecturers.includes(lecturerId)) {
+            setSelectedLecturers(selectedLecturers.filter(id => id !== lecturerId));
+        } else {
+            setSelectedLecturers([...selectedLecturers, lecturerId]);
+        }
+    };
+
+    const handleSave = () => {
+        // Implement your save logic here using selectedLecturers
+        console.log("Saved:", selectedLecturers);
+    };
+
+    return (
+        <div>
+            <table>
+                <tbody>
+                {lecturerReferees.map((user) => (
+                    <tr key={user._id}>
+                        <td>
+                            <input
+                                type="checkbox"
+                                checked={selectedLecturers.includes(user._id)}
+                                onChange={() => toggleLecturerSelection(user._id)}
+                            />
+                        </td>
+                        <td>{user.firstName + " " + user.lastName}</td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
+            <button onClick={handleSave}>Save Selected Lecturers</button>
+        </div>
+    );
 };
+
+
+
 
 export default App;
