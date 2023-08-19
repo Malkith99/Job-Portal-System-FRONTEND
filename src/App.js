@@ -87,7 +87,7 @@ const basename='grp13';
           <Route path ="/" element={<AllStudents/>}></Route>      {/*normally the home page featers at the end*/}
           <Route path='/lecturer-profile' element={<LecturerDetails/>}></Route>
           <Route path="/student-application-for-company/:id" element={<StudentApplicationCompany/>}></Route>
-          <Route path="/student-application-for-lecturer" element={<StudentApplicationLecturer/>}></Route>
+          <Route path="/student-application-for-lecturer/:id" element={<StudentApplicationLecturer/>}></Route>
 
           <Route path="users/:id/verify/:token" element={<EmailVerify/>} />
           <Route path='/company-home' element={<CompanyHomePage/>}></Route>
