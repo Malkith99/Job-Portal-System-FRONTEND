@@ -16,6 +16,7 @@ import {URL} from "../../../../env";
 export default function Profile() {
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const storedData = JSON.parse(localStorage.getItem("jbusers"));
 
   const [file, setFile] = useState("");
 
@@ -43,7 +44,24 @@ export default function Profile() {
 
   const [openExtraPopup, setOpenExtraPopup] = useState(false);
 
+  //refree
+  const [refree, setRefree] = useState(""||user.refree);
+  const [rfName, setRFName] = useState("");
+  const [rlName, setRLName] = useState("");
 
+  useEffect(() => {
+    // This effect will run whenever the 'refree' state changes
+    const selectedRefree = storedData.find(user => user._id === refree);
+    if (selectedRefree) {
+      setRFName(selectedRefree.firstName);
+      setRLName(selectedRefree.lastName);
+    } else {
+      setRFName(""); // Reset if user not found
+      setRLName("");
+    }
+  }, [refree, storedData]);
+
+// Rest of your component code...
 
   function handleChange(e) {
     console.log(e.target.files);
@@ -57,7 +75,7 @@ export default function Profile() {
   useEffect(() => {
     // This function will be called whenever any of the input fields change
     handleSave().then(() => {});
-  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender]);
+  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender,refree]);
 
 
   async function handleSave() {
@@ -70,6 +88,7 @@ export default function Profile() {
         indexNumber,
         DOB,
         gender,
+        refree,
         userId: user._id,
         token: user.token, // Include the user token in the updatedUser object
       };
@@ -143,7 +162,10 @@ export default function Profile() {
     setDOB(parsedData.DOB);
     setGender(parsedData.gender);
   };
-
+  const handleRefre = (data3) => {
+    const parsedData3 = JSON.parse(data3);
+    setRefree(parsedData3.refree);
+  };
 
   return (
       <div   className="container progress-div"
@@ -629,16 +651,26 @@ export default function Profile() {
                 </div>
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
-                  <textarea
-                      class="form-control"
-                      rows="3"
-                      disabled={disabled}
-                      value={eActivities}
-                      onChange={(e) => {
-                        setEActivities(e.target.value);
-                      }}
-                  ></textarea>
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="ID"
+                        value={refree}
+                        onChange={(e) => {
+                          setRefree(e.target.value);
+                        }}
+                        disabled={disabled}
+                        required
+                    ></input>
+
                   </div>
+                  <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Name"
+                      value={rfName +" "+ rlName}
+                      disabled={disabled}
+                  ></input>
                 </div>
                 {/* <div>
             {disabled ? (
@@ -678,7 +710,7 @@ export default function Profile() {
                   openPopup={openExtraPopup}
                   setOpenPopup={setOpenExtraPopup}
               >
-                <ExtraC_popup/>
+                <ExtraC_popup sendData={handleRefre}/>
               </Popup>
 
           )}

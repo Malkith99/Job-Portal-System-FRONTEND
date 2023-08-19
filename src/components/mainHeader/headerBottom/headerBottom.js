@@ -49,7 +49,7 @@ function HeaderBottom(props) {
             secure: true,
         };
         const cookie = cookieJar.setCookieSync(`${cookieName}=${cookieValue}`, URL, cookieOptions);
-        console.log("Set Cookie:", cookie);
+        //console.log("Set Cookie:", cookie);
 
 
 
