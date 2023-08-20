@@ -2,7 +2,7 @@ import React from "react";
 import "./availabaleCompanies.css";
 import { useQuery } from "react-query";
 import { toast } from "react-toastify";
-import { fetchUsers, fetchVacancies,fetchResponses } from "../../Api/UserApi";
+import { fetchUsers, fetchVacancies,fetchResponses ,fetchRecomondation} from "../../Api/UserApi";
 
 function AvailableCompanies() {
   const { data, isLoading, isError } = useQuery("users", fetchUsers);
@@ -14,7 +14,7 @@ function AvailableCompanies() {
       "responses",
       fetchResponses
   );
-
+  const { data:recomondations } = useQuery("recommendations", fetchRecomondation);
   if (isLoading) {
     return <div style={{ fontFamily: "inherit" }}>Loading...</div>;
   }
@@ -30,7 +30,9 @@ function AvailableCompanies() {
   if (responsesData && responsesData.length > 0) {
     localStorage.setItem("jbresponses", JSON.stringify(responsesData));
   }
-
+  if (recomondations && recomondations.length > 0) {
+    localStorage.setItem("jbrecomondations", JSON.stringify(recomondations));
+  }
   // Assuming data.users is the array of users returned from the API
   const filteredUsers = data.users.filter((user) => user.role === "company");
 

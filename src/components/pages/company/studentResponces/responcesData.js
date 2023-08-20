@@ -73,9 +73,9 @@ function ResponcesData() {
   );
 
 console.log(filteredResponses);
-  function handleViewButtonClick(id, studentid) {
+  function handleViewButtonClick(id, studentid, companyId) {
     // Navigate to the specified URL with query parameters
-    window.location.href = `/grp13/student-application-for-company/${id}&${studentid}`;
+    window.location.href = `/grp13/student-application-for-company/${id}&${studentid}&${companyId}`;
   }
 
 
@@ -123,7 +123,7 @@ console.log(filteredResponses);
                               <Button
                                   variant="contained"
                                   color="primary"
-                                  onClick={() => handleViewButtonClick(responseItem._id,student._id)} // Make sure handleViewButtonClick is properly defined
+                                  onClick={() => handleViewButtonClick(responseItem._id,student._id,response.companyId)} // Make sure handleViewButtonClick is properly defined
                               >
                                 View
                               </Button>

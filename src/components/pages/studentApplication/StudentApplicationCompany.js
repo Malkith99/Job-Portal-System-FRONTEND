@@ -11,15 +11,23 @@ import {toast} from "react-toastify";
 export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
 
-  const urlParams = new URLSearchParams(window.location.search);
+  const { id } = useParams();
 
-// Extract the 'id' and 'studentid' values from the query parameters
-  const id = urlParams.get("id");
-  const studentId = urlParams.get("studentid");
+  const paramsParts = id.split("&");
+  const extractedId = paramsParts[0];
+  const extractedStudentId = paramsParts[1] || ""; // In case studentid is not present
+  const extractedCompanyId = paramsParts[2] || ""; // Extracting companyId from the id
 
-  console.log("id:", id);
-  console.log("studentid:", studentId);
+  console.log("id:", extractedId);
+  console.log("studentid:", extractedStudentId);
+  console.log("companyId:", extractedCompanyId);
 
+
+
+  const storedData = JSON.parse(localStorage.getItem("jbusers"));
+  const student = storedData.find(user => user._id === extractedStudentId);
+  console.log(student);
+  const [refree, setRefree] = useState(student ? student.refree : "");
 
   const [approve, setApprove] = useState("");
   const [alertMessage, setAlertMessage] = useState('');
@@ -31,10 +39,13 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
   const handleApply = async () => {
     try {
       const newResponse = {
-        approved: approve
+        companyId: extractedCompanyId,
+        lecturerId: refree,
+        studentId: extractedStudentId,
+        vacancyId: extractedId,
       };
-      const url = URL+'/api/recommendation/';
-      const response = await axios.patch(url, newResponse);
+      const url = URL + '/api/recommendations';
+      const response = await axios.post(url, newResponse);
       console.log('Response saved:', response.data);
 
       // Display a success toast message
@@ -43,19 +54,14 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
         autoClose: 3000,
       });
 
-      showAlert('Application approved successfully!');
-
       // Add any additional logic or feedback to the user
     } catch (error) {
       console.error(error);
 
-      if (
-          error.response &&
-          error.response.data.error === 'Student has already applied for this vacancy'
-      ) {
-        showAlert('You have already applied for this vacancy.');
+      if (error.response && error.response.data.error === 'You have already submitted refree Request.') {
+        showAlert('You have already requested for this vacancy.');
         // Display a toast with the error message
-        toast.error('You have already applied for this vacancy.', {
+        toast.info('You have already requested for this vacancy.', {
           position: toast.POSITION.TOP_RIGHT,
           autoClose: 3000,
         });
@@ -69,16 +75,84 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       }
     }
   };
+
+  const [recommendations, setRecommendations] = useState([]);
+  useEffect(() => {
+    // Fetch recommendations from the server
+    axios.get(URL+'/api/recommendations')
+        .then(response => {
+          // Filter recommendations based on studentId and vacancyId
+          const filteredRecommendations = response.data.filter(recommendation => recommendation.studentId === extractedStudentId && recommendation.vacancyId === extractedId);
+          setRecommendations(filteredRecommendations);
+
+          // Log the recommendations to the console
+          console.log('Filtered Recommendations:', filteredRecommendations);
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);
+        });
+  }, []);
+
+
+
+
+
+  const handleApproved = async (approved) => {
+    try {
+      const newResponse = {
+        companyId: extractedCompanyId,
+        lecturerId: refree,
+        studentId: extractedStudentId,
+        vacancyId: extractedId,
+        approved: approved, // Pass the boolean value directly
+      };
+
+      const url = URL + '/api/recommendations';
+      const response = await axios.post(url, newResponse);
+
+      if (response.data.message === 'Recommendation already updated') {
+        showAlert('You have already recommended for this vacancy.');
+        // Display a toast with the message
+        toast.info('You have already recommended for this vacancy.', {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
+      } else {
+        console.log('Response saved:', response.data);
+
+        // Display a success toast message
+        toast.success('Application submitted successfully!', {
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 3000,
+        });
+      }
+
+      // Add any additional logic or feedback to the user
+    } catch (error) {
+      console.error(error);
+
+      // Handle error
+    }
+  };
+
+
+
+
+
+
+
+
+
+
   const handleApprove = () => {
     setApprove(true);
     Alert();
-    handleApply().then(r => {});
+    handleApproved(true).then(r => {});
   };
 
   const handleReject = () => {
     setApprove(false);
     DAlert();
-    handleApply().then(r => {});
   };
   const content = (
     <>
@@ -103,6 +177,7 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Rejected!', '', 'success').then(r => {})
+        handleApproved(false).then(r => {});
       }
     })
 
@@ -123,6 +198,7 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Requested!', '', 'success')
+        handleApply().then(r => {});
       } else if (result.isDenied) {
         Swal.fire('Not Requested', '', 'info')
       }
@@ -145,8 +221,13 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
         <div className='container'>
           <div className='flex-container1'>
-
-
+            <input
+                type="text"
+                className="form-control"
+                placeholder="Recommendations"
+                value={recommendations.map(recommendation => recommendation.comment).join(', ')}
+                disabled
+            />
             </div>
           </div>
           <div className='container'>

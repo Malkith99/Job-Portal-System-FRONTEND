@@ -5,13 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="refree updated">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/96bf0411-14a1-45fe-8d20-b6e79f9388a1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/96bf0411-14a1-45fe-8d20-b6e79f9388a1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Api/UserApi.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/UserApi.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/availableCompanies/availableCompanies.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/availableCompanies/availableCompanies.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentJobApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentJobApplication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -232,15 +233,9 @@
       <workItem from="1692421473532" duration="194000" />
       <workItem from="1692422693585" duration="11737000" />
       <workItem from="1692454933007" duration="2267000" />
-      <workItem from="1692495913728" duration="8444000" />
-    </task>
-    <task id="LOCAL-00029" summary="merge footer">
-      <option name="closed" value="true" />
-      <created>1690200768148</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1690200768148</updated>
+      <workItem from="1692495913728" duration="13675000" />
+      <workItem from="1692512594640" duration="6155000" />
+      <workItem from="1692519197816" duration="4210000" />
     </task>
     <task id="LOCAL-00030" summary="merge footer">
       <option name="closed" value="true" />
@@ -626,7 +621,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692435030261</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="refree updated">
+      <option name="closed" value="true" />
+      <created>1692504786397</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1692504786398</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -644,7 +647,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change token names" />
     <MESSAGE value="add cookies enable" />
     <MESSAGE value="set token timeout" />
     <MESSAGE value="remove user timeout" />
@@ -667,6 +669,7 @@
     <MESSAGE value="update profile&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
     <MESSAGE value="update profile" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="chnage route" />
     <MESSAGE value="refree updated&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
     <MESSAGE value="refree updated" />
     <option name="LAST_COMMIT_MESSAGE" value="refree updated" />

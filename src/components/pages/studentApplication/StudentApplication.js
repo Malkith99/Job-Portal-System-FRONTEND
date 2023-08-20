@@ -6,12 +6,12 @@ const StudentApplication = (props) => {
 
   const { id } = useParams();
 
-  const idParts = id.split("&");
-  const extractedId = idParts[0];
-  const extractedStudentId = idParts[1] || ""; // In case studentid is not present
+  const paramsParts = id.split("&");
+  const extractedId = paramsParts[0];
+  const extractedStudentId = paramsParts[1] || ""; // In case studentid is not present
+  const extractedCompanyId = paramsParts[2] || ""; // Extracting companyId from the id
 
-  console.log("id:", extractedId);
-  console.log("studentid:", extractedStudentId);
+
 
 
 
