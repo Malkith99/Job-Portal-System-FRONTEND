@@ -1,15 +1,14 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
+import {styled} from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableCell, {tableCellClasses} from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Button from "@mui/material/Button";
-import { useParams } from "react-router-dom";
-import { Element} from "react-scroll";
+import {useParams} from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -77,10 +76,8 @@ console.log(filteredResponses);
   function handleViewButtonClick(id, student, responseItem) {
     // Construct the URL with query parameters
     const queryParams = `?student=${encodeURIComponent(JSON.stringify(student))}&responseItem=${encodeURIComponent(JSON.stringify(responseItem))}`;
-    const urlWithParams = `/grp13/student-application-for-company/${id}${queryParams}`;
-
     // Navigate to the specified URL
-    window.location.href = urlWithParams;
+    window.location.href = `/grp13/student-application-for-company/${id}${queryParams}`;
   }
 
 
@@ -127,7 +124,7 @@ console.log(filteredResponses);
                               <Button
                                   variant="contained"
                                   color="primary"
-                                  onClick={() => handleViewButtonClick(responseItem.studentId,student,responseItem)} // Make sure handleViewButtonClick is properly defined
+                                  onClick={() => handleViewButtonClick(responseItem._id,student,responseItem.vacancyId)} // Make sure handleViewButtonClick is properly defined
                               >
                                 View
                               </Button>

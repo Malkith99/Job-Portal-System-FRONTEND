@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Button from "@mui/material/Button";
 import SearchIcon from '@mui/icons-material/Search';
+import {toast} from "react-toastify";
 
 const RefereeSearch = ({ RefereeData, handleSave }) => {
   const [department, setDepartment] = useState('');
@@ -65,21 +66,10 @@ const RefereeSearch = ({ RefereeData, handleSave }) => {
       </div>
       <div style={{marginTop:"25px"}}> 
 
-      {/* <ul>
-        {filteredFaculty.map((faculty, index) => (
-          <li key={index}>{faculty.name}, {faculty.department}, {faculty.facultyType}</li>
-        ))}
-      </ul> */}
+
       </div>
      
-      {/* <button
-          type="button"
-          className="btn btn-primary"
-          style={{ height: "25px", marginBottom: "-10px", marginLeft: "10px", marginTop: "50px" }}
-          onClick={handleSearch}
-        >
-          Search <SearchIcon />
-        </button> */}
+
       </div>
 
       <div style={{ marginTop: "25px" }}>
@@ -114,22 +104,55 @@ const RefereeSearch = ({ RefereeData, handleSave }) => {
   );
 };
 
-const App = () => {
-  const RefereeData = [
-    { name: 'Dr. Prins', department: 'Electrical Department', facultyType: 'Faculty of Engineering' },
-    { name: 'Dr. Kumudu', department: 'IS Department', facultyType: 'Faculty of Engineering' },
-  ];
+const App = (props) => {
+    const storedData = JSON.parse(localStorage.getItem("jbusers"));
+    const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+    const [refree, setRefree] = useState("" || user.refree);
 
-  const handleSave = (selectedFaculty) => {
-    // Implement your save logic here
-    console.log("Saved:", selectedFaculty);
-  };
+    // Filter referees with role "lecturer"
+    const lecturerReferees = storedData.filter(user => user.role === "lecturer");
 
-  return (
-    <div>
-      <RefereeSearch RefereeData={RefereeData} handleSave={handleSave} />
-    </div>
-  );
+    const [selectedLecturer, setSelectedLecturer] = React.useState(null);
+
+    const handleSelectChange = (event) => {
+        const selectedLecturerId = event.target.value;
+        setSelectedLecturer(selectedLecturerId);
+    };
+
+    const handleSave = () => {
+        if (selectedLecturer) {
+            // Get selected lecturer user based on selectedLecturer
+
+            const data3 = {
+                refree: selectedLecturer
+            };
+            // Implement your save logic here using selectedLecturerUser
+            console.log("Saved:", user._id);
+            console.log(data3);
+            props.sendData(JSON.stringify(data3));
+            alert("Save successful. Please close the window manually.");
+            toast.success("selected");
+        }
+    };
+
+    return (
+        <div>
+            <select value={selectedLecturer || refree} onChange={handleSelectChange}>
+                <option value={refree}>Select a lecturer</option>
+                {lecturerReferees.map(user => (
+                    <option key={user._id} value={user._id}>
+                        {user.firstName + " " + user.lastName}
+                    </option>
+                ))}
+            </select>
+            <button onClick={handleSave}>Save</button>
+        </div>
+    );
 };
+
+
+
+
+
 
 export default App;

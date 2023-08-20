@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="dp update">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/96bf0411-14a1-45fe-8d20-b6e79f9388a1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/96bf0411-14a1-45fe-8d20-b6e79f9388a1.xml" afterDir="false" />
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="refree updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyDetails/CompanyDetails.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyDetails/CompanyProfile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyDetails/CompanyProfile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companyVacancyView/CompanyVacancy.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mainHeader/headerBottom/headerBottom.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mainHeader/headerBottom/headerBottom.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -101,21 +99,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2021.1.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -230,40 +227,9 @@
       <workItem from="1692332683951" duration="677000" />
       <workItem from="1692333376342" duration="971000" />
       <workItem from="1692341773605" duration="4328000" />
-      <workItem from="1692355180512" duration="13608000" />
-      <workItem from="1692372528728" duration="3619000" />
-    </task>
-    <task id="LOCAL-00024" summary="add url to profile">
-      <option name="closed" value="true" />
-      <created>1690179012221</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1690179012221</updated>
-    </task>
-    <task id="LOCAL-00025" summary="add url to profile">
-      <option name="closed" value="true" />
-      <created>1690179235479</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1690179235479</updated>
-    </task>
-    <task id="LOCAL-00026" summary="job post url update">
-      <option name="closed" value="true" />
-      <created>1690187179448</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1690187179449</updated>
-    </task>
-    <task id="LOCAL-00027" summary="student side email validation">
-      <option name="closed" value="true" />
-      <created>1690199572869</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1690199572869</updated>
+      <workItem from="1692355180512" duration="12325000" />
+      <workItem from="1692421473532" duration="194000" />
+      <workItem from="1692422693585" duration="11483000" />
     </task>
     <task id="LOCAL-00028" summary="merge footer">
       <option name="closed" value="true" />
@@ -617,15 +583,47 @@
       <option name="project" value="LOCAL" />
       <updated>1692366467286</updated>
     </task>
-    <task id="LOCAL-00072" summary="dp update">
+    <task id="LOCAL-00072" summary="update profile">
       <option name="closed" value="true" />
-      <created>1692368340455</created>
+      <created>1692410635115</created>
       <option name="number" value="00072" />
       <option name="presentableId" value="LOCAL-00072" />
       <option name="project" value="LOCAL" />
-      <updated>1692368340456</updated>
+      <updated>1692410635116</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <option name="closed" value="true" />
+      <created>1692411449228</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1692411449228</updated>
+    </task>
+    <task id="LOCAL-00074" summary="update profile">
+      <option name="closed" value="true" />
+      <created>1692421571866</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1692421571867</updated>
+    </task>
+    <task id="LOCAL-00075" summary="update profile">
+      <option name="closed" value="true" />
+      <created>1692424181542</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1692424181543</updated>
+    </task>
+    <task id="LOCAL-00076" summary="refree updated">
+      <option name="closed" value="true" />
+      <created>1692428422530</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1692428422530</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,9 +641,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="remove token" />
-    <MESSAGE value="add dependencies" />
-    <MESSAGE value="Add react query folder" />
     <MESSAGE value="Add react query folder and Use React Query for fetch New In react data fetch" />
     <MESSAGE value="change token names" />
     <MESSAGE value="add cookies enable" />
@@ -667,7 +662,10 @@
     <MESSAGE value="Api update" />
     <MESSAGE value="Student responcesData.js updated" />
     <MESSAGE value="lecturer profile updated" />
-    <MESSAGE value="dp update" />
-    <option name="LAST_COMMIT_MESSAGE" value="dp update" />
+    <MESSAGE value="update profile&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
+    <MESSAGE value="update profile" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <MESSAGE value="refree updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="refree updated" />
   </component>
 </project>

@@ -1,41 +1,9 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import {URL} from "../../../env";
-
-
-const StudentApplication = () => {
-  const {studentId}=useParams();
-  console.log(studentId);
-  const [student,setStudent]=useState("");
-  const [file,setFile]=useState("https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"||"{}");
-  //const user=JSON.parse(localStorage.getItem("jbuser")||"{}");
-  // const [file, setFile] = useState(
-  //   "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  // );
-
-
-  useEffect(()=>{
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(URL +`/api/users/${studentId}`);
-         setStudent(response.data.user);
-        // setCompanyId(response.data.userId); // Set the companyId from the response
-         setFile(response.data.vacancy.profilePhoto);
-        console.log(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData().then(r => {});
-  },[studentId]);
 
 
 const StudentApplication = (props) => {
-
-
 
   // Assuming you're on the 'student-application-for-company' page
   const urlParams = new URLSearchParams(window.location.search);
@@ -47,15 +15,22 @@ const StudentApplication = (props) => {
   const responseItem = JSON.parse(decodeURIComponent(responseItemParam));
 
 // Now you have access to the 'student' and 'responseItem' objects
-  console.log(student);
-  console.log(responseItem);
+  const storedData = JSON.parse(localStorage.getItem("jbusers"));
+  const [refree, setRefree] = useState(""||student.refree);
+  const [rfName, setRFName] = useState("");
+  const [rlName, setRLName] = useState("");
 
-  const [file, setFile] = useState(
-      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg",student.profilePhoto
-  );
-  const [disabled, setDisabled] = useState(true);
-
-
+  useEffect(() => {
+    // This effect will run whenever the 'refree' state changes
+    const selectedRefree = storedData.find(user => user._id === refree);
+    if (selectedRefree) {
+      setRFName(selectedRefree.firstName);
+      setRLName(selectedRefree.lastName);
+    } else {
+      setRFName(""); // Reset if user not found
+      setRLName("");
+    }
+  }, [refree, storedData]);
 
 
   return (
@@ -281,28 +256,13 @@ const StudentApplication = (props) => {
               Reference
             </label>
 
-            <select
-              className="form-select"
-              name="Reference By"
-              id="lecturerReference"
-             // disabled={props.disabled}
-            >
-              <option selected disabled>
-                Select the Lecturer
-              </option>
-              <option value="Lecture1">Name of the Lecture 1</option>
-              <option value="Lecture2">Name of the Lecture 2</option>
-              <option value="Lecture3">Name of the Lecture 3</option>
-              <option value="Lecture4">Name of the Lecture 4</option>
-              <option value="Lecture5">Name of the Lecture 5</option>
-              <option value="Lecture6">Name of the Lecture 6</option>
-              <option value="Lecture7">Name of the Lecture 7</option>
-              <option value="Lecture8">Name of the Lecture 8</option>
-              <option value="Lecture9">Name of the Lecture 9</option>
-              <option value="Lecture10">Name of the Lecture 10</option>
-              <option value="Lecture11">Name of the Lecture 11</option>
-              <option value="Lecture12">Name of the Lecture 12</option>
-            </select>
+            <input
+                type="text"
+                className="form-control"
+                placeholder="Name"
+                value={rfName +" "+ rlName}
+                disabled={props.disabled}
+            ></input>
           </div>
           <div className="container1-flex-item"></div>
         </div>
@@ -321,4 +281,4 @@ const StudentApplication = (props) => {
   );
 };
 
-export default StudentApplication;
+  export default StudentApplication;
