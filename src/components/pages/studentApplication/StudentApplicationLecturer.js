@@ -10,15 +10,21 @@ import {toast} from "react-toastify";
 
 export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
 
-    const { id } = useParams();
-    const paramsParts = id.split("&");
-    const extractedId = paramsParts[0];
-    const extractedStudentId = paramsParts[1] || ""; // In case studentid is not present
-    const extractedCompanyId = paramsParts[2] || ""; // Extracting companyId from the id
+// Retrieve the stored token from localStorage
+    const token = localStorage.getItem("ID");
 
-    console.log("id:", extractedId);
-    console.log("studentid:", extractedStudentId);
-    console.log("companyId:", extractedCompanyId);
+
+    const data = JSON.parse(token);
+
+    // Extract the values from the data object
+    const extractedId = data.vacancyId;
+    const extractedStudentId = data.studentId ; // Replace with a default value if studentId is not present
+    const extractedCompanyId = data.companyId;
+
+    // Now you can use the extracted values
+    console.log("Vacancy ID:", extractedId);
+    console.log("Student ID:", extractedStudentId);
+    console.log("Company ID:", extractedCompanyId);
 
     const storedData = JSON.parse(localStorage.getItem("jbusers"));
     const student = storedData.find(user => user._id === extractedStudentId);
@@ -119,20 +125,22 @@ export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="Name"
+                        placeholder="Reccomondation"
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                     />
+
                     <button
                         onClick={handleApproveClick}
                         className="btn btn-primary accept butdet"
                         style={{ background: "rgb(69, 117, 85)", marginRight: "25px", border: "none" }}
-                        disabled={comment.trim() === ""}
                     >
                         Approve
                     </button>
+
                 </div>
             </div>
+
             <Footer />
         </div>
     );

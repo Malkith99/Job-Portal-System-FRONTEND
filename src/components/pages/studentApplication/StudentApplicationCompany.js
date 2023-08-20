@@ -5,9 +5,9 @@ import {Link, useParams} from "react-router-dom";
 import StudentApplication from './StudentApplication';
 import Swal from "sweetalert2";
 import axios from "axios";
-import {URL} from "../../../env";
 import {toast} from "react-toastify";
-
+import {emailjsServiceId,emailjsTemplateId,emailjsUserId, URL} from "../../../env";
+import emailjs from "@emailjs/browser";
 export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
 
@@ -26,8 +26,18 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
   const storedData = JSON.parse(localStorage.getItem("jbusers"));
   const student = storedData.find(user => user._id === extractedStudentId);
-  console.log(student);
   const [refree, setRefree] = useState(student ? student.refree : "");
+  const[lecturer,setLecturer]=useState("");
+
+  useEffect(() => {
+    // This effect will run whenever the 'refree' state changes
+    const selectedRefree = storedData.find(user => user._id === refree);
+    if (selectedRefree) {
+      setLecturer(selectedRefree);
+    } else {
+      setLecturer(""); // Reset if user not found
+    }
+  }, [refree, storedData]);
 
   const [approve, setApprove] = useState("");
   const [alertMessage, setAlertMessage] = useState('');
@@ -48,11 +58,31 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       const response = await axios.post(url, newResponse);
       console.log('Response saved:', response.data);
 
+      // Send email using EmailJS
+
+      console.log(student.email);
+      console.log(lecturer);
+
+// Construct the email parameters object
+      const templateParams1 = {
+        to_email: student.email,
+        to_name: student.firstName,
+        // Add other template variables as needed
+      };
+      const templateParams2 = {
+        to_email: lecturer.email,
+        to_name: lecturer.firstName,
+        // Add other template variables as needed
+      };
+// Send email using EmailJS
+      await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams1, emailjsUserId);//for student
+      await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams2, emailjsUserId);//for lecturer
+
+
+
+
       // Display a success toast message
-      toast.success('Application submitted successfully!', {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-      });
+      toast.success('Application submitted successfully!');
 
       // Add any additional logic or feedback to the user
     } catch (error) {
@@ -61,17 +91,11 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       if (error.response && error.response.data.error === 'You have already submitted refree Request.') {
         showAlert('You have already requested for this vacancy.');
         // Display a toast with the error message
-        toast.info('You have already requested for this vacancy.', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.info('You have already requested for this vacancy.');
       } else {
         showAlert('Failed to submit application. Please try again later.');
         // Display a generic error message
-        toast.error('Failed to submit application. Please try again later.', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.error('Failed to submit application. Please try again later.');
       }
     }
   };
@@ -113,24 +137,18 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       if (response.data.message === 'Recommendation already updated') {
         showAlert('You have already recommended for this vacancy.');
         // Display a toast with the message
-        toast.info('You have already recommended for this vacancy.', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.info('You have already recommended for this vacancy.');
       } else {
         console.log('Response saved:', response.data);
 
         // Display a success toast message
-        toast.success('Application submitted successfully!', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.success('Application submitted successfully!');
       }
 
       // Add any additional logic or feedback to the user
     } catch (error) {
       console.error(error);
-
+      toast.error('Application Not submitted !');
       // Handle error
     }
   };
@@ -155,21 +173,21 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
     DAlert();
   };
   const content = (
-    <>
-      <Link to="/company-HomePage">Home</Link>
-      <Link to="/all-student-responces">Application</Link>
-    </>
+      <>
+        <Link to="/company-HomePage">Home</Link>
+        <Link to="/all-student-responces">Application</Link>
+      </>
   );
   const Alert = () =>{
     Swal.fire('Approved', 'Succesfully',
-    'success')
+        'success')
   }
   const DAlert = () =>{
     Swal.fire({
       title: 'Do you want to reject the application?',
       confirmButtonText: 'Yes',
       showCancelButton: true,
-        customClass: {
+      customClass: {
         actions: 'my-actions',
         cancelButton: 'order-1 right-gap',
         confirmButton: 'order-2',
@@ -207,17 +225,12 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
   }
 
   return (
-    <div>
+      <div>
 
-      {alertMessage && (
-          <div className="alert">
-            {alertMessage}
-            <button onClick={() => setAlertMessage('')}>&times;</button>
-          </div>
-      )}
+
         <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
 
-      <StudentApplication disabled={true} data={null}/>
+        <StudentApplication disabled={true} data={null}/>
 
         <div className='container'>
           <div className='flex-container1'>
@@ -228,15 +241,15 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
                 value={recommendations.map(recommendation => recommendation.comment).join(', ')}
                 disabled
             />
-            </div>
           </div>
-          <div className='container'>
+        </div>
+        <div className='container'>
           <div className="button-div">
 
             <button
-              onClick={RAlert}
-              className="btn btn-primary accept butdet mb-3"
-              style={{ background: "rgb(7, 7, 73)", marginRight: "25px",border:"none" }}
+                onClick={RAlert}
+                className="btn btn-primary accept butdet mb-3"
+                style={{ background: "rgb(7, 7, 73)", marginRight: "25px",border:"none" }}
             >
               Request Reference
             </button>
@@ -248,24 +261,29 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
           <div className="button-div">
 
             <button
-              onClick={handleApprove}
-              className="btn btn-primary accept butdet"
-              style={{ background: "rgb(69, 117, 85)", marginRight: "25px",border:"none" }}
+                onClick={handleApprove}
+                className="btn btn-primary accept butdet"
+                style={{ background: "rgb(69, 117, 85)", marginRight: "25px",border:"none" }}
             >
               Approve
             </button>
             <button
-              onClick={handleReject}
-              className="btn btn-primary reject butdet"
-              style={{ background: "rgb(128, 57, 57)", marginRight: "25px",border:"none" }}
+                onClick={handleReject}
+                className="btn btn-primary reject butdet"
+                style={{ background: "rgb(128, 57, 57)", marginRight: "25px",border:"none" }}
             >
               Reject
             </button>
           </div>
         </div>
-
+        {alertMessage && (
+            <div className="alert">
+              {alertMessage}
+              <button onClick={() => setAlertMessage('')}>&times;</button>
+            </div>
+        )}
         <Footer/>
-    </div>
+      </div>
   )
 }
 export default StudentApplicationCompany;

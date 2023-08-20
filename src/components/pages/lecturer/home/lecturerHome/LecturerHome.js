@@ -1,7 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import axios from 'axios'; // Import Axios for making HTTP requests
 import {URL} from "../../../../../env";
-
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Paper,
+    Button,
+    Typography,
+} from '@mui/material';
 function RecommendationComponent() {
   const [user, setUser] = useState({});
   const [recommendations, setRecommendations] = useState([]);
@@ -29,45 +39,63 @@ function RecommendationComponent() {
         });
   }, []);
 
-  const handleViewButtonClick = (vacancyId, studentId, companyId) => {
-    window.location.href = `student-application-for-lecturer/${vacancyId}&${studentId}&${companyId}`;
-  };
+    const handleViewButtonClick = (vacancyId, studentId, companyId) => {
+        const data = {
+            vacancyId: vacancyId,
+            studentId: studentId,
+            companyId: companyId
+        };
 
-  return (
-      <div>
-        <h1>Recommendations for Lecturer</h1>
-        <p>Lecturer ID to match: {lecturerIdToMatch}</p>
-        <table>
-          <thead>
-          <tr>
-            <th>Recommendation ID</th>
-            <th>Recommendation student</th>
-            <th>company Id</th>
-            <th>View</th>
-          </tr>
-          </thead>
-          <tbody>
-          {recommendations.map(recommendation => (
-              <tr key={recommendation._id}>
-                <td>{recommendation.studentId}</td>
-                <td>{recommendation.companyId}</td>
-                <td>{recommendation.vacancyId}</td>
-                <td>{recommendation.comment}</td>
-                <td>
-                  <button
-                      onClick={() =>
-                          handleViewButtonClick(recommendation.vacancyId, recommendation.studentId, recommendation.companyId)
-                      }
-                  >
-                    View
-                  </button>
-                </td>
-              </tr>
-          ))}
-          </tbody>
-        </table>
-      </div>
-  );
+        const token = JSON.stringify(data);
+        localStorage.setItem("ID", token);
+
+        window.location.href = `student-application-for-lecturer/${vacancyId}&${studentId}&${companyId}`;
+    };
+
+
+    return (
+        <div>
+            <Typography variant="h4">Recommendations for Lecturer</Typography>
+            <Typography>Lecturer ID to match: {lecturerIdToMatch}</Typography>
+            <TableContainer component={Paper}>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Student ID</TableCell>
+                            <TableCell>Company Id</TableCell>
+                            <TableCell>Vacancy Id</TableCell>
+                            <TableCell>Comment</TableCell>
+                            <TableCell>View</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {recommendations.map(recommendation => (
+                            <TableRow key={recommendation._id}>
+                                <TableCell>{recommendation.studentId}</TableCell>
+                                <TableCell>{recommendation.companyId}</TableCell>
+                                <TableCell>{recommendation.vacancyId}</TableCell>
+                                <TableCell>{recommendation.comment}</TableCell>
+                                <TableCell>
+                                    <Button
+                                        variant="outlined"
+                                        onClick={() =>
+                                            handleViewButtonClick(
+                                                recommendation.vacancyId,
+                                                recommendation.studentId,
+                                                recommendation.companyId
+                                            )
+                                        }
+                                    >
+                                        View
+                                    </Button>
+                                </TableCell>
+                            </TableRow>
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
+    );
 }
 
 export default RecommendationComponent;
