@@ -58,12 +58,11 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       const response = await axios.post(url, newResponse);
       console.log('Response saved:', response.data);
 
-      // Send email using EmailJS
-
+      // Send email using EmailJS Dont delete or uncomment this
       console.log(student.email);
       console.log(lecturer);
-
-// Construct the email parameters object
+      {/*
+      // Construct the email parameters object
       const templateParams1 = {
         to_email: student.email,
         to_name: student.firstName,
@@ -74,11 +73,11 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
         to_name: lecturer.firstName,
         // Add other template variables as needed
       };
-// Send email using EmailJS
+      // Send email using EmailJS
       await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams1, emailjsUserId);//for student
       await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams2, emailjsUserId);//for lecturer
 
-
+*/}
 
 
       // Display a success toast message

@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="recomondation part and appoved part done">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/env.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/env.jsx" afterDir="false" />
-    </list>
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Email Send and recommendation route completed and database updated" />
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -235,15 +227,7 @@
       <workItem from="1692495913728" duration="13675000" />
       <workItem from="1692512594640" duration="6155000" />
       <workItem from="1692519197816" duration="4463000" />
-      <workItem from="1692561976068" duration="3343000" />
-    </task>
-    <task id="LOCAL-00031" summary="add university email domains">
-      <option name="closed" value="true" />
-      <created>1690207540278</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1690207540278</updated>
+      <workItem from="1692561976068" duration="3579000" />
     </task>
     <task id="LOCAL-00032" summary="add dummy data catchup palace in the admin pannel by scanning">
       <option name="closed" value="true" />
@@ -629,7 +613,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692524045942</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="Email Send and recommendation route completed and database updated">
+      <option name="closed" value="true" />
+      <created>1692565614333</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1692565614334</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -647,7 +639,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="remove user timeout" />
     <MESSAGE value="update dependencies" />
     <MESSAGE value="for admin show react query table re design" />
     <MESSAGE value="Enable cookies&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
@@ -672,6 +663,7 @@
     <MESSAGE value="refree updated" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/components/pages/company/studentResponces/responcesData.js&#10;#&#9;src/components/pages/studentApplication/StudentApplication.js&#10;#&#9;src/components/pages/studentApplication/StudentApplicationCompany.js" />
     <MESSAGE value="recomondation part and appoved part done" />
-    <option name="LAST_COMMIT_MESSAGE" value="recomondation part and appoved part done" />
+    <MESSAGE value="Email Send and recommendation route completed and database updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Email Send and recommendation route completed and database updated" />
   </component>
 </project>
