@@ -1,25 +1,47 @@
 import React, {useEffect, useState} from 'react'
 import MainHeader from '../../mainHeader/mainHeader'
 import Footer from '../../../components/footer/footer'
-import { Link } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import StudentApplication from './StudentApplication';
 import Swal from "sweetalert2";
 import axios from "axios";
-import {URL} from "../../../env";
 import {toast} from "react-toastify";
-
-
+import {emailjsServiceId,emailjsTemplateId,emailjsUserId, URL} from "../../../env";
+import emailjs from "@emailjs/browser";
 export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const studentParam = urlParams.get('student');
-  const responseItemParam = urlParams.get('responseItem');
-// Parse the JSON-encoded strings back into objects
-  const student = JSON.parse(decodeURIComponent(studentParam));
-  const responseItem = JSON.parse(decodeURIComponent(responseItemParam));
-console.log(responseItem);
+
+  const { id } = useParams();
+
+  const paramsParts = id.split("&");
+  const extractedId = paramsParts[0];
+  const extractedStudentId = paramsParts[1] || ""; // In case studentid is not present
+  const extractedCompanyId = paramsParts[2] || ""; // Extracting companyId from the id
+
+  console.log("id:", extractedId);
+  console.log("studentid:", extractedStudentId);
+  console.log("companyId:", extractedCompanyId);
+
+
+
+  const storedData = JSON.parse(localStorage.getItem("jbusers"));
+  const student = storedData.find(user => user._id === extractedStudentId);
+  const [refree, setRefree] = useState(student ? student.refree : "");
+  const[lecturer,setLecturer]=useState("");
+
+  useEffect(() => {
+    // This effect will run whenever the 'refree' state changes
+    const selectedRefree = storedData.find(user => user._id === refree);
+    if (selectedRefree) {
+      setLecturer(selectedRefree);
+    } else {
+      setLecturer(""); // Reset if user not found
+    }
+  }, [refree, storedData]);
+
   const [approve, setApprove] = useState("");
   const [alertMessage, setAlertMessage] = useState('');
+
   const showAlert = (message) => {
     setAlertMessage(message);
     alert(message);
@@ -27,81 +49,155 @@ console.log(responseItem);
   const handleApply = async () => {
     try {
       const newResponse = {
-        approved: approve
+        companyId: extractedCompanyId,
+        lecturerId: refree,
+        studentId: extractedStudentId,
+        vacancyId: extractedId,
       };
-      const url = URL+'/api/responses/' + responseItem;
-      const response = await axios.patch(url, newResponse);
+      const url = URL + '/api/recommendations';
+      const response = await axios.post(url, newResponse);
       console.log('Response saved:', response.data);
 
-      // Display a success toast message
-      toast.success('Application submitted successfully!', {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 3000,
-      });
+      // Send email using EmailJS Dont delete or uncomment this
+      console.log(student.email);
+      console.log(lecturer);
+      {/*
+      // Construct the email parameters object
+      const templateParams1 = {
+        to_email: student.email,
+        to_name: student.firstName,
+        // Add other template variables as needed
+      };
+      const templateParams2 = {
+        to_email: lecturer.email,
+        to_name: lecturer.firstName,
+        // Add other template variables as needed
+      };
+      // Send email using EmailJS
+      await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams1, emailjsUserId);//for student
+      await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams2, emailjsUserId);//for lecturer
 
-      showAlert('Application approved successfully!');
+*/}
+
+
+      // Display a success toast message
+      toast.success('Application submitted successfully!');
 
       // Add any additional logic or feedback to the user
     } catch (error) {
       console.error(error);
 
-      if (
-          error.response &&
-          error.response.data.error === 'Student has already applied for this vacancy'
-      ) {
-        showAlert('You have already applied for this vacancy.');
+      if (error.response && error.response.data.error === 'You have already submitted refree Request.') {
+        showAlert('You have already requested for this vacancy.');
         // Display a toast with the error message
-        toast.error('You have already applied for this vacancy.', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.info('You have already requested for this vacancy.');
       } else {
         showAlert('Failed to submit application. Please try again later.');
         // Display a generic error message
-        toast.error('Failed to submit application. Please try again later.', {
-          position: toast.POSITION.TOP_RIGHT,
-          autoClose: 3000,
-        });
+        toast.error('Failed to submit application. Please try again later.');
       }
     }
   };
+
+  const [recommendations, setRecommendations] = useState([]);
+  useEffect(() => {
+    // Fetch recommendations from the server
+    axios.get(URL+'/api/recommendations')
+        .then(response => {
+          // Filter recommendations based on studentId and vacancyId
+          const filteredRecommendations = response.data.filter(recommendation => recommendation.studentId === extractedStudentId && recommendation.vacancyId === extractedId);
+          setRecommendations(filteredRecommendations);
+
+          // Log the recommendations to the console
+          console.log('Filtered Recommendations:', filteredRecommendations);
+        })
+        .catch(error => {
+          console.error('Error fetching recommendations:', error);
+        });
+  }, []);
+
+
+
+
+
+  const handleApproved = async (approved) => {
+    try {
+      const newResponse = {
+        companyId: extractedCompanyId,
+        lecturerId: refree,
+        studentId: extractedStudentId,
+        vacancyId: extractedId,
+        approved: approved, // Pass the boolean value directly
+      };
+
+      const url = URL + '/api/recommendations';
+      const response = await axios.post(url, newResponse);
+
+      if (response.data.message === 'Recommendation already updated') {
+        showAlert('You have already recommended for this vacancy.');
+        // Display a toast with the message
+        toast.info('You have already recommended for this vacancy.');
+      } else {
+        console.log('Response saved:', response.data);
+
+        // Display a success toast message
+        toast.success('Application submitted successfully!');
+      }
+
+      // Add any additional logic or feedback to the user
+    } catch (error) {
+      console.error(error);
+      toast.error('Application Not submitted !');
+      // Handle error
+    }
+  };
+
+
+
+
+
+
+
+
+
+
   const handleApprove = () => {
     setApprove(true);
     Alert();
-    handleApply().then(r => {});
+    handleApproved(true).then(r => {});
   };
 
   const handleReject = () => {
     setApprove(false);
     DAlert();
-    handleApply().then(r => {});
   };
   const content = (
-    <>
-      <Link to="/company-HomePage">Home</Link>
-      <Link to="/all-student-responces">Application</Link>
-    </>
+      <>
+        <Link to="/company-HomePage">Home</Link>
+        <Link to="/all-student-responces">Application</Link>
+      </>
   );
   const Alert = () =>{
-    Swal.fire('Approved', 'Succesfully', 
-    'success')
+    Swal.fire('Approved', 'Succesfully',
+        'success')
   }
   const DAlert = () =>{
     Swal.fire({
       title: 'Do you want to reject the application?',
       confirmButtonText: 'Yes',
       showCancelButton: true,
-        customClass: {
+      customClass: {
         actions: 'my-actions',
         cancelButton: 'order-1 right-gap',
         confirmButton: 'order-2',
       }
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire('Rejected!', '', 'success')
+        Swal.fire('Rejected!', '', 'success').then(r => {})
+        handleApproved(false).then(r => {});
       }
     })
-    
+
   }
   const RAlert = () =>{
     Swal.fire({
@@ -119,63 +215,74 @@ console.log(responseItem);
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire('Requested!', '', 'success')
+        handleApply().then(r => {});
       } else if (result.isDenied) {
         Swal.fire('Not Requested', '', 'info')
       }
     })
-    
+
   }
+
   return (
-    <div>
-      {alertMessage && (
-          <div className="alert">
-            {alertMessage}
-            <button onClick={() => setAlertMessage('')}>&times;</button>
-          </div>
-      )}
+      <div>
+
+
         <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+
         <StudentApplication disabled={true} data={null}/>
+
         <div className='container'>
           <div className='flex-container1'>
-
-
-            </div>
+            <input
+                type="text"
+                className="form-control"
+                placeholder="Recommendations"
+                value={recommendations.map(recommendation => recommendation.comment).join(', ')}
+                disabled
+            />
           </div>
-          <div className='container'>
+        </div>
+        <div className='container'>
           <div className="button-div">
-            
+
             <button
-              onClick={RAlert}
-              className="btn btn-primary accept butdet mb-3"
-              style={{ background: "rgb(7, 7, 73)", marginRight: "25px",border:"none" }}
+                onClick={RAlert}
+                className="btn btn-primary accept butdet mb-3"
+                style={{ background: "rgb(7, 7, 73)", marginRight: "25px",border:"none" }}
             >
               Request Reference
             </button>
-            
+
           </div>
         </div>
 
         <div className='container mb-3'>
           <div className="button-div">
-            
+
             <button
-              onClick={handleApprove}
-              className="btn btn-primary accept butdet"
-              style={{ background: "rgb(69, 117, 85)", marginRight: "25px",border:"none" }}
+                onClick={handleApprove}
+                className="btn btn-primary accept butdet"
+                style={{ background: "rgb(69, 117, 85)", marginRight: "25px",border:"none" }}
             >
               Approve
             </button>
             <button
-              onClick={handleReject}
-              className="btn btn-primary reject butdet"
-              style={{ background: "rgb(128, 57, 57)", marginRight: "25px",border:"none" }}
+                onClick={handleReject}
+                className="btn btn-primary reject butdet"
+                style={{ background: "rgb(128, 57, 57)", marginRight: "25px",border:"none" }}
             >
               Reject
             </button>
           </div>
         </div>
+        {alertMessage && (
+            <div className="alert">
+              {alertMessage}
+              <button onClick={() => setAlertMessage('')}>&times;</button>
+            </div>
+        )}
         <Footer/>
-    </div>
+      </div>
   )
 }
 export default StudentApplicationCompany;

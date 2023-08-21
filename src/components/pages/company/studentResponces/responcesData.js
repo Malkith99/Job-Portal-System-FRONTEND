@@ -73,12 +73,11 @@ function ResponcesData() {
   );
 
 console.log(filteredResponses);
-  function handleViewButtonClick(id, student, responseItem) {
-    // Construct the URL with query parameters
-    const queryParams = `?student=${encodeURIComponent(JSON.stringify(student))}&responseItem=${encodeURIComponent(JSON.stringify(responseItem))}`;
-    // Navigate to the specified URL
-    window.location.href = `/grp13/student-application-for-company/${id}${queryParams}`;
+  function handleViewButtonClick(id, studentid, companyId) {
+    // Navigate to the specified URL with query parameters
+    window.location.href = `/grp13/student-application-for-company/${id}&${studentid}&${companyId}`;
   }
+
 
 
   return (
@@ -124,7 +123,7 @@ console.log(filteredResponses);
                               <Button
                                   variant="contained"
                                   color="primary"
-                                  onClick={() => handleViewButtonClick(responseItem._id,student,responseItem.vacancyId)} // Make sure handleViewButtonClick is properly defined
+                                  onClick={() => handleViewButtonClick(responseItem._id,student._id,response.companyId)} // Make sure handleViewButtonClick is properly defined
                               >
                                 View
                               </Button>

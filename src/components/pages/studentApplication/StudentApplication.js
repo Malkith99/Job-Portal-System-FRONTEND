@@ -1,24 +1,30 @@
 import React, {useEffect, useState} from "react";
 import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-
-
+import { useParams } from 'react-router-dom';
 const StudentApplication = (props) => {
 
-  // Assuming you're on the 'student-application-for-company' page
-  const urlParams = new URLSearchParams(window.location.search);
-  const studentParam = urlParams.get('student');
-  const responseItemParam = urlParams.get('responseItem');
 
-// Parse the JSON-encoded strings back into objects
-  const student = JSON.parse(decodeURIComponent(studentParam));
-  const responseItem = JSON.parse(decodeURIComponent(responseItemParam));
+  const { id } = useParams();
+
+  const paramsParts = id.split("&");
+  const extractedId = paramsParts[0];
+  const extractedStudentId = paramsParts[1] || ""; // In case studentid is not present
+  const extractedCompanyId = paramsParts[2] || ""; // Extracting companyId from the id
+
+
+
+
+
+
 
 // Now you have access to the 'student' and 'responseItem' objects
   const storedData = JSON.parse(localStorage.getItem("jbusers"));
-  const [refree, setRefree] = useState(""||student.refree);
+  const student = storedData.find(user => user._id === extractedStudentId);
+console.log(student);
+  const [refree, setRefree] = useState(student ? student.refree : "");
   const [rfName, setRFName] = useState("");
   const [rlName, setRLName] = useState("");
+
 
   useEffect(() => {
     // This effect will run whenever the 'refree' state changes
@@ -33,12 +39,15 @@ const StudentApplication = (props) => {
   }, [refree, storedData]);
 
 
+
   return (
     <div className="container">
+
       <h1 className="cmp-headings loginN" style={{ marginBottom: "2rem" }}>
         Student Application :
       </h1>
       <form>
+
         <div className="flex-container1">
           <div className="container1-flex-item">
             <div
@@ -276,7 +285,9 @@ const StudentApplication = (props) => {
             
           </div>
         </Link>
+
       </form>
+
     </div>
   );
 };
