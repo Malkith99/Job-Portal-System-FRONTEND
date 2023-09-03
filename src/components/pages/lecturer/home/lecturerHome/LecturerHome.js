@@ -54,18 +54,18 @@ function RecommendationComponent() {
 
 
     return (
-        <div>
+        <div className='container'>
             <Typography variant="h4">Recommendations for Lecturer</Typography>
             <Typography>Lecturer ID to match: {lecturerIdToMatch}</Typography>
-            <TableContainer component={Paper}>
+            <TableContainer component={Paper} style={{margin:"2%",colorScheme:"black"}}>
                 <Table>
-                    <TableHead>
+                    <TableHead style={{background:"#0073a5"}}>
                         <TableRow>
-                            <TableCell>Student ID</TableCell>
-                            <TableCell>Company Id</TableCell>
-                            <TableCell>Vacancy Id</TableCell>
-                            <TableCell>Comment</TableCell>
-                            <TableCell>View</TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Student ID</TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Company Id</TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Vacancy Id</TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Comment</TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>View</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>

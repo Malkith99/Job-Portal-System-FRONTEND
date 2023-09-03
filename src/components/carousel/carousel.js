@@ -16,16 +16,15 @@ import Img10 from "../../images/10.jpg"
 function Main() {
   const imageObject = [
     Img1,
-    {/*
-    Img2,
-    Img3,
-    Img4,
-    Img5,
-    Img6,
-    Img7,
-    Img8,
-    Img9,
-    Img10,*/}
+    //Img2,
+    //Img3,
+    //Img4,
+    //Img5,
+    //Img6,
+    //Img7,
+    //Img8,
+   // Img9,
+    //Img10,
   ];
   return (
     <Carousel
