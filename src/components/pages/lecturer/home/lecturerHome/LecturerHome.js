@@ -88,7 +88,7 @@ function RecommendationComponent() {
                 <Table>
                     <TableHead style={{background:"#0073a5"}}>
                         <TableRow>
-                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Student ID</TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Student Name</TableCell>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Company Id</TableCell>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Vacancy Id</TableCell>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Comment</TableCell>
@@ -121,15 +121,6 @@ function RecommendationComponent() {
                     </TableBody>
                 </Table>
             </TableContainer>
-                  {/* Render recommendations and student data */}
-      {recommendations.map(recommendation => (
-        <div key={recommendation._id}>
-          <h2>Recommendation</h2>
-          <p>Student Name: {recommendation.studentData.firstName}</p>
-          <p>Student Email: {recommendation.email}</p>
-          {/* Other recommendation details */}
-        </div>
-      ))}
 
         </div>
     );
