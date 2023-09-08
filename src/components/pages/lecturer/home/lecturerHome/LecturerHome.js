@@ -15,6 +15,7 @@ import {
 function RecommendationComponent() {
   const [user, setUser] = useState({});
   const [recommendations, setRecommendations] = useState([]);
+  const [students, setStudents] = useState([]);
   const [lecturerIdToMatch, setLecturerIdToMatch] = useState('');
 
   useEffect(() => {
@@ -32,7 +33,33 @@ function RecommendationComponent() {
         .then(response => {
           // Filter recommendations based on lecturerIdToMatch
           const filteredRecommendations = response.data.filter(recommendation => recommendation.lecturerId === idToMatch);
-          setRecommendations(filteredRecommendations);
+          //setRecommendations(filteredRecommendations);
+
+          // Extract student IDs from filtered recommendations
+        const studentIds = filteredRecommendations.map(recommendation => recommendation.studentId);
+
+        // Fetch student data for each student ID
+        const studentPromises = studentIds.map(studentId =>
+          axios.get(`${URL}/api/users/${studentId}`)
+        );
+       
+        // Wait for all student data requests to complete
+        Promise.all(studentPromises)
+          .then(studentResponses => {
+            // Extract student data from responses
+            const studentsData = studentResponses.map(response => response.data.user);
+
+            // Combine student data with filtered recommendations
+            const updatedRecommendations = filteredRecommendations.map((recommendation, index) => ({
+              ...recommendation,
+              studentData: studentsData[index], // Attach student data to recommendations
+            }));
+
+            setRecommendations(updatedRecommendations);
+          })
+          .catch(error => {
+            console.error('Error fetching student information:', error);
+          });
         })
         .catch(error => {
           console.error('Error fetching recommendations:', error);
@@ -51,8 +78,8 @@ function RecommendationComponent() {
 
         window.location.href = `student-application-for-lecturer/${vacancyId}&${studentId}&${companyId}`;
     };
-
-
+    console.log(students);
+  
     return (
         <div className='container'>
             <Typography variant="h4">Recommendations for Lecturer</Typography>
@@ -71,7 +98,7 @@ function RecommendationComponent() {
                     <TableBody>
                         {recommendations.map(recommendation => (
                             <TableRow key={recommendation._id}>
-                                <TableCell>{recommendation.studentId}</TableCell>
+                                <TableCell>{recommendation.studentData.firstName} {recommendation.studentData.lastName}</TableCell>
                                 <TableCell>{recommendation.companyId}</TableCell>
                                 <TableCell>{recommendation.vacancyId}</TableCell>
                                 <TableCell>{recommendation.comment}</TableCell>
@@ -94,6 +121,16 @@ function RecommendationComponent() {
                     </TableBody>
                 </Table>
             </TableContainer>
+                  {/* Render recommendations and student data */}
+      {recommendations.map(recommendation => (
+        <div key={recommendation._id}>
+          <h2>Recommendation</h2>
+          <p>Student Name: {recommendation.studentData.firstName}</p>
+          <p>Student Email: {recommendation.email}</p>
+          {/* Other recommendation details */}
+        </div>
+      ))}
+
         </div>
     );
 }
