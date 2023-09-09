@@ -92,27 +92,27 @@ return (
           )
         }
       ></MainHeader>
-      <div className="ascontainer">
-        <div className="asrow justify-content-center">
+      <div className="container ascontainer">
+  
           <div className="ascol-md-6">
-            <div className="ascard-header text-center loginN">Sign In</div>
+            <div className="ascard-header text-center aloginN">Sign In</div>
 
             <div className="ascard-body">
               <form className="asloginbox-content" onSubmit={handleSubmit}>
-                <div className="asd-flex mb-3">
-                  <div style={{ display: "flex", alignItems: "center" }}>
+                <div className="asflex-container">
+                  <div className="asflex-item asimage">
                     <img
                       src={allSignInPageImage}
                       alt="Your Image"
                       style={{
-                        width: "400px",
-                        height: "400px",
-                        marginRight: "20px",
+                        width: "100%",
+                        height: "auto",
+                        //marginRight: "20px",
                       }}
                     />
                   </div>
 
-                  <div className="asflex-grow-1">
+                  <div className="asflex-item asform-container">
                     <div className="asform-group">
                       <label htmlFor="username" className="form-label">
                         <b style={{ fontSize: "20px" }}>Email:</b>
@@ -147,38 +147,41 @@ return (
                     </div>
                     {error && <div className="login_error_msg">{error}</div>}
                     {msg && <div className="login_success_msg">{msg}</div>}
+                    <div className="asmb-3 form-check" style={{ marginLeft: "22px",marginTop:"7px"}}>
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        id="exampleCheck1"
+                      />
+                      <label className="asform-check-label" htmlFor="exampleCheck1">
+                        Remember username
+                      </label>
+                    </div>
+                    <div style={{marginTop:"7px"}}>
+                      <button
+                        type="submit"
+                        className="asbtn-btn-primary"
+                        style={{
+                          backgroundColor: "#007bff",
+                          color: "#fff",
+                          padding: "10px 20px",
+                          border: "none",
+                          borderRadius: "4px",
+                        }}
+                      >
+                        Login
+                      </button>
+                    </div>
+
+                    <div style={{ marginTop: "7px"}}>
+                      <Link to="/home">
+                        Don't have an account? Click here to sign up.
+                      </Link>
+                    </div>
                   </div>
                 </div>
-                <div className="asmb-3 form-check" style={{ marginLeft: "22px" }}>
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                  />
-                  <label className="asform-check-label" htmlFor="exampleCheck1">
-                    Remember username
-                  </label>
-                </div>
-                <button
-                  type="submit"
-                  className="asbtn-btn-primary"
-                  style={{
-                    backgroundColor: "#007bff",
-                    color: "#fff",
-                    padding: "10px 20px",
-                    border: "none",
-                    borderRadius: "4px",
-                  }}
-                >
-                  Login
-                </button>
-
-                <div style={{ marginTop: "7px" }}>
-                  <Link to="/home">
-                    Don't have an account? Click here to sign up.
-                  </Link>
-                </div>
-                <div style={{ marginTop: "15px" }}>
+                
+                <div>
                   <p style={{ textAlign: "center", color: "#888" }}>
                     Please enable cookies in your browser for a better
                     experience.
@@ -187,7 +190,7 @@ return (
               </form>
             </div>
           </div>
-        </div>
+        
       </div>
       {showPopup && (
         <div className="popup">
