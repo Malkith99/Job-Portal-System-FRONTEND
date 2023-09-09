@@ -1,10 +1,52 @@
 /* AllSignin.css */
 
-.ascontainer {
+.asflex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .asflex-item.asimage {
+    flex: 1;
+    max-width: 100%;
+  }
+  
+  .asflex-item.asform-container {
+    flex: 2; 
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .form-label {
+    font-size: 20px;
+  }
+  
+  @media (max-width: 768px) {
+    .asflex-container {
+      flex-direction: column; 
+    }
+  
+    .asflex-item.asimage,
+    .asflex-item.asform-container {
+      flex: none;
+      max-width: 80%;
+    }
+  } 
+
+/* .ascontainer {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 120vh;
+} */
+
+.aloginN{
+    padding-top: 2%;
+    color: navy;
+    font-weight: 900;
+    text-align: left;
+    font-size: xx-large;
 }
 
 .popup {
