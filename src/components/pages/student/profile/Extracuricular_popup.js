@@ -136,8 +136,8 @@ const App = (props) => {
     };
 
     return (
-        <div>
-            <select value={selectedLecturer || refree} onChange={handleSelectChange}>
+        <div style={{display:"flex",justifyContent:"space-between"}}>
+            <select className='form-select' style={{marginRight:"1%"}} value={selectedLecturer || refree} onChange={handleSelectChange}>
                 <option value={refree}>Select a lecturer</option>
                 {lecturerReferees.map(user => (
                     <option key={user._id} value={user._id}>
@@ -145,7 +145,7 @@ const App = (props) => {
                     </option>
                 ))}
             </select>
-            <button onClick={handleSave}>Save</button>
+            <button className='btn btn-primary' onClick={handleSave}>Save</button>
         </div>
     );
 };
