@@ -9,6 +9,7 @@ function AvailableCompanies() {
   const { data: vacanciesData, isLoading: isLoadingV, isError: isErrorV } = useQuery(
       "vacancies",
       fetchVacancies
+
   );
   const { data: responsesData, isLoading: isLoadingR, isError: isErrorR } = useQuery(
       "responses",
@@ -33,7 +34,7 @@ function AvailableCompanies() {
   if (recomondations && recomondations.length > 0) {
     localStorage.setItem("jbrecomondations", JSON.stringify(recomondations));
   }
-  // Assuming data.users is the array of users returned from the API
+  // Assuming data.users is the array of users returned from the API ..
   const filteredUsers = data.users.filter((user) => user.role === "company");
 
   if (data.users && data.users.length > 0) {
