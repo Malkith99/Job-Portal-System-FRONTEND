@@ -145,7 +145,7 @@ const VacancySection = (props) => {
     setJobType(e.target.value);
   }
   function handleChangejobWorkType(e) {
-    setJobType(e.target.value);
+    setJobWorkType(e.target.value);
   }
 
 
@@ -274,7 +274,7 @@ const VacancySection = (props) => {
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
-                  Salary Range Monthly
+                  Salary Range Monthly ($)
                 </label>
                 <div
                     className="input-filed input-filed-cls"
