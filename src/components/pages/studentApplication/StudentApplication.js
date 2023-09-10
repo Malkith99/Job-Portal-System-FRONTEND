@@ -277,12 +277,13 @@ console.log(student);
         </div>
         <Link to="/student/home">
           <div>
+            {/*
             <div className="input-filed input-filed-cls">
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
             </div>
-            
+            */}
           </div>
         </Link>
 

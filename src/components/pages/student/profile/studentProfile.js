@@ -48,11 +48,13 @@ export default function Profile() {
   const [refree, setRefree] = useState(""||user.refree);
   const [rfName, setRFName] = useState("");
   const [rlName, setRLName] = useState("");
+  const [rdp, setRdp] = useState("");
 
   useEffect(() => {
     // This effect will run whenever the 'refree' state changes
     const selectedRefree = storedData.find(user => user._id === refree);
     if (selectedRefree) {
+      setRdp(selectedRefree.profilePhoto);
       setRFName(selectedRefree.firstName);
       setRLName(selectedRefree.lastName);
     } else {
@@ -395,24 +397,10 @@ export default function Profile() {
                     </label>
                   </div>
                 </div>
-                <div className="sub-flex-item2">
-                  <div className="input-filed">
-                    <input
-                        type="tel"
-                        className="form-control"
-                        placeholder="Phone Number 2"
-                        required
-                        disabled={disabled}
-                    ></input>
-                  </div>
-                  <div className="text-center">
-                    <label className="hint-title">
-                      Phone Number 2<span className="asterisk-mark">*</span>
-                    </label>
-                  </div>
-                </div>
-                <div className="sub-flex-item2"></div>
+
+
               </div>
+              {/*
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">
@@ -438,7 +426,7 @@ export default function Profile() {
                 <div className="sub-flex-item2"></div>
                 <div className="sub-flex-item2"></div>
               </div>
-            {/* </div> */}
+             </div> */}
 
           </div>
         
@@ -641,7 +629,7 @@ export default function Profile() {
 
           )}
 </Card>
-          <h4 className="sub-headings">Extracurricular Activities: </h4>
+          <h4 className="sub-headings">Reference: </h4>
           <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
           <div className="">
             <div className="flex-container2">
@@ -649,19 +637,19 @@ export default function Profile() {
                 <div className="container2-flex-item-sub-item3">
                   <label className="label-title">References</label>
                 </div>
+                <div
+                    className="container1-flex-item1 "
+                    style={{ display: "flex", flexDirection: "column" }}
+                >
+                  <img className="profile-photo-2" src={`data:image/jpeg;base64/${rdp}`} alt="Profile Photo" />
+                  <label form="profilePhoto" className="">
+                    <span className="asterisk-mark">*</span> Profile Photo
+                  </label>
+
+                </div>
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
-                    <input
-                        type="text"
-                        className="form-control"
-                        placeholder="ID"
-                        value={refree}
-                        onChange={(e) => {
-                          setRefree(e.target.value);
-                        }}
-                        disabled={disabled}
-                        required
-                    ></input>
+
 
                   </div>
                   <input
