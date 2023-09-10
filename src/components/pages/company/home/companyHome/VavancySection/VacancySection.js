@@ -55,7 +55,7 @@ const VacancySection = (props) => {
       formData.append('jobDescription', jobDescription);
       formData.append('userId', user._id);
       formData.append('JobType', jobType);
-      formData.append('JobType', jobWorkType);
+      formData.append('jobWorkType', jobWorkType);
 
 
 
@@ -145,7 +145,7 @@ const VacancySection = (props) => {
     setJobType(e.target.value);
   }
   function handleChangejobWorkType(e) {
-    setJobType(e.target.value);
+    setJobWorkType(e.target.value);
   }
 
 
@@ -324,8 +324,8 @@ const VacancySection = (props) => {
                 <div className="input-filed input-filed-cls">
                   <select
                       className="form-select"
-                      name="levelOfEducation"
-                      id="levelOfEducation"
+                      name="jobWorkType"
+                      id="jobWorkType"
                       value={jobWorkType}
                       onChange={handleChangejobWorkType}
                       disabled={props.disabled && disabled}
@@ -346,8 +346,8 @@ const VacancySection = (props) => {
                 <div className="input-filed input-filed-cls">
                   <select
                       className="form-select"
-                      name="levelOfEducation"
-                      id="levelOfEducation"
+                      name="jobType"
+                      id="jobType"
                       value={jobType}
                       onChange={handleChangeLevejobType}
                       disabled={props.disabled && disabled}

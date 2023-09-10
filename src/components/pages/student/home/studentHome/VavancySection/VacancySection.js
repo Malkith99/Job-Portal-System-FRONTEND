@@ -8,16 +8,20 @@ import {URL} from "../../../../../../env";
 const VacancySection = () => {
   const [file, setFile] = useState("");
   const [vacancy, setVacancy] = useState(null);
+  const [company, setCompany] = useState(null);
 
   const { vacancyId } = useParams();
   const [user] = useState(JSON.parse(localStorage.getItem("user") || "{}"));
+  const [jbuser] = useState(JSON.parse(localStorage.getItem("jbusers") || "{}"));
+console.log(jbuser);
 
   const [companyId, setCompanyId] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    // Fetch the vacancy data
+    const fetchVacancy = async () => {
       try {
-        const response = await axios.get(URL +`/api/studentVacancies/${vacancyId}`);
+        const response = await axios.get(URL + `/api/studentVacancies/${vacancyId}`);
         setVacancy(response.data.vacancy);
         setCompanyId(response.data.userId); // Set the companyId from the response
         setFile(response.data.vacancy.flyer);
@@ -27,8 +31,24 @@ const VacancySection = () => {
       }
     };
 
-    fetchData().then(r => {});
+    fetchVacancy().then(r => {});
   }, [vacancyId]);
+
+
+
+// Find the user with userId equal to companyId
+  const userWithMatchingId = jbuser.find(user => user._id === companyId);
+
+// Log the user if found
+  if (userWithMatchingId) {
+    console.log("User with matching userId:", userWithMatchingId);
+  } else {
+    console.log("User not found with companyId:", companyId);
+  }
+
+
+
+
 
   const [alertMessage, setAlertMessage] = useState('');
   const showAlert = (message) => {
@@ -153,7 +173,7 @@ const VacancySection = () => {
                       className="form-control"
                       id="contactNumber"
                       placeholder="Contact Number"
-                      value={vacancy.contactNumber}
+                      value={userWithMatchingId.contactNumber||""}
                       disabled={disabled}
                   />
                 </div>
@@ -186,6 +206,7 @@ const VacancySection = () => {
                       className="form-control"
                       id="companyName"
                       placeholder="Company Name"
+                      value={userWithMatchingId.firstName +"  " +userWithMatchingId.lastName ||""}
                       disabled={disabled}
                   />
                 </div>
@@ -242,6 +263,7 @@ const VacancySection = () => {
                       className="form-control"
                       id="companyEmail"
                       placeholder="Company Email"
+                      value={userWithMatchingId.email||""}
                       disabled={disabled}
                   />
                 </div>
@@ -258,6 +280,7 @@ const VacancySection = () => {
                       className="form-control"
                       id="companyLocation"
                       placeholder="Company Location"
+                      value={userWithMatchingId.location||""}
                       disabled={disabled}
                   />
                 </div>
@@ -270,12 +293,12 @@ const VacancySection = () => {
                 </label>
                 <div className="input-filed input-filed-cls">
                   <input
-                      type="date"
+                      type="text"
                       className="form-control"
                       id="dueDate"
                       placeholder="Due Date"
-                      disabled={disabled}
                       value={vacancy.dueDate||""}
+                      disabled={disabled}
                   />
                 </div>
 
@@ -285,15 +308,15 @@ const VacancySection = () => {
                   <span className="asterisk-mark">
                     <span className={`${disabled && "d-none"}`}>* </span>
                   </span>
-                      Skills
+                      Work Type
                     </label>
                     <div className="input-filed input-filed-cls">
                   <textarea
                       className="form-control"
                       style={{ height: "80px" }}
-                      id="skills"
-                      placeholder="Skills"
-                      value={vacancy.skills||""}
+                      id="Work Type"
+                      placeholder="Work Type"
+                      value={vacancy.jobWorkType||""}
                       disabled={disabled}
                   ></textarea>
                     </div>
