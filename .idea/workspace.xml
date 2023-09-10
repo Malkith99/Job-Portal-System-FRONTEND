@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="commented email send">
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="update 9/10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/Feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/Feed.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/VavancySection/VacancySection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/VavancySection/VacancySection.js" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -241,15 +238,7 @@
       <workItem from="1694236205450" duration="705000" />
       <workItem from="1694335270748" duration="11000" />
       <workItem from="1694335306065" duration="12000" />
-      <workItem from="1694335406298" duration="4646000" />
-    </task>
-    <task id="LOCAL-00033" summary="update url in company side job view">
-      <option name="closed" value="true" />
-      <created>1690271689285</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1690271689285</updated>
+      <workItem from="1694335406298" duration="10163000" />
     </task>
     <task id="LOCAL-00034" summary="admin panel graph update">
       <option name="closed" value="true" />
@@ -635,7 +624,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692595751791</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="update 9/10">
+      <option name="closed" value="true" />
+      <created>1694340163286</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1694340163287</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,7 +650,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="for admin show react query table re design" />
     <MESSAGE value="Enable cookies&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
     <MESSAGE value="Enable cookies&#10;&gt;" />
     <MESSAGE value="Enable cookies&#10;&gt;&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
@@ -678,6 +674,7 @@
     <MESSAGE value="recomondation part and appoved part done" />
     <MESSAGE value="Email Send and recommendation route completed and database updated" />
     <MESSAGE value="commented email send" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented email send" />
+    <MESSAGE value="update 9/10" />
+    <option name="LAST_COMMIT_MESSAGE" value="update 9/10" />
   </component>
 </project>
