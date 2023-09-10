@@ -101,9 +101,7 @@ export default function Feed() {
                       <h5>{company.location}</h5>
                     </div>
                 
-                    <div className="" style={{marginBottom:"-20px"}}>
-                        <p>{jobPosition} </p>
-                    </div>
+
                     <div className="">
                         <p>Online </p>
                     </div>
