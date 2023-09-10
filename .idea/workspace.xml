@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Email Send and recommendation route completed and database updated" />
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="commented email send">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/Feed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/Feed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
+    </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,20 +99,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -228,14 +235,13 @@
       <workItem from="1692512594640" duration="6155000" />
       <workItem from="1692519197816" duration="4463000" />
       <workItem from="1692561976068" duration="3579000" />
-    </task>
-    <task id="LOCAL-00032" summary="add dummy data catchup palace in the admin pannel by scanning">
-      <option name="closed" value="true" />
-      <created>1690225104356</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1690225104356</updated>
+      <workItem from="1692595663414" duration="294000" />
+      <workItem from="1693112465889" duration="177000" />
+      <workItem from="1694234688306" duration="573000" />
+      <workItem from="1694236205450" duration="705000" />
+      <workItem from="1694335270748" duration="11000" />
+      <workItem from="1694335306065" duration="12000" />
+      <workItem from="1694335406298" duration="4646000" />
     </task>
     <task id="LOCAL-00033" summary="update url in company side job view">
       <option name="closed" value="true" />
@@ -621,7 +627,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692565614334</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="commented email send">
+      <option name="closed" value="true" />
+      <created>1692595751790</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1692595751791</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +653,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update dependencies" />
     <MESSAGE value="for admin show react query table re design" />
     <MESSAGE value="Enable cookies&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
     <MESSAGE value="Enable cookies&#10;&gt;" />
@@ -664,6 +677,7 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml&#10;#&#9;src/components/pages/company/studentResponces/responcesData.js&#10;#&#9;src/components/pages/studentApplication/StudentApplication.js&#10;#&#9;src/components/pages/studentApplication/StudentApplicationCompany.js" />
     <MESSAGE value="recomondation part and appoved part done" />
     <MESSAGE value="Email Send and recommendation route completed and database updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Email Send and recommendation route completed and database updated" />
+    <MESSAGE value="commented email send" />
+    <option name="LAST_COMMIT_MESSAGE" value="commented email send" />
   </component>
 </project>
