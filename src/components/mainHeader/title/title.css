@@ -147,7 +147,7 @@
       text-underline-offset: 8px;
     }
   }
-  @media only screen and (max-width: 526px) {
+  @media only screen and (max-width: 543px) {
     .title {
       font-size: 35px;
       letter-spacing: 5px;
@@ -155,9 +155,25 @@
       text-underline-offset: 8px;
     }
   }
-  @media only screen and (max-width: 517px) {
+  @media only screen and (max-width: 534px) {
     .title {
       font-size: 34px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 526px) {
+    .title {
+      font-size: 33px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 517px) {
+    .title {
+      font-size: 32px;
       letter-spacing: 5px;
       vertical-align: middle !important;
       text-underline-offset: 8px;
@@ -172,9 +188,18 @@
       text-underline-offset: 8px;
     }
   }
-  @media only screen and (max-width: 474px) {
+  @media only screen and (max-width: 492px) {
     .title {
       margin-top: 15px;
+      font-size: 28px;
+      letter-spacing: 5px;
+      vertical-align: middle !important;
+      text-underline-offset: 8px;
+    }
+  }
+  @media only screen and (max-width: 474px) {
+    .title {
+      margin-top: 0px;
       font-size: 28px;
       letter-spacing: 5px;
       vertical-align: middle !important;
