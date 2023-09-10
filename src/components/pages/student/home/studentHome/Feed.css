@@ -1,3 +1,4 @@
+feeds.css
 .wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(12rem, 16rem));
@@ -21,7 +22,9 @@
   padding-bottom: 5rem;
 
 }
-
+.paragraph{
+  text-align: justify;
+}
 .imagestyle img {
   height: 10rem;
   width: 100%;
@@ -136,7 +139,7 @@
   /* padding-right: 40px; */
   margin: 0.4%;
   border: 2rem;
-  border-radius: 10%;
+  /* border-radius: 10%; */
   margin-bottom: 10px;
 
 }
@@ -220,6 +223,8 @@
   text-align: center;
   /* padding: 10px; */
   display: flex;
+  align-self: flex-end; 
+  margin-top: auto; 
 
 }
 
@@ -239,6 +244,9 @@
   align-items: center;
   box-sizing: border-box;
   color: #cdcfd2;
+ margin-left: "1%";
+  margin-top: auto; 
+  align-self: flex-end;
 }
 
 .salary {
@@ -252,6 +260,7 @@
   font-weight: bolder;
   text-align: center;
   /* margin-left: -170px; */
+
 
 }
 
@@ -288,4 +297,24 @@
 
 .com-card {
   flex-wrap: wrap;
+}
+
+@media (max-width: 991px) {
+  .card {
+    flex: 0 0 calc(33.33% - 2rem); /* Display 3 cards per row */
+  }
+}
+
+@media (max-width: 767px) {
+  .card {
+    flex: 0 0 calc(50% - 2rem); /* Display 2 cards per row */
+  }
+}
+
+@media (max-width: 575px) {
+  .card {
+    flex: 0 0 calc(100% - 2rem); /* Display 1 card per row */
+    margin-left: 2rem; /* Adjust the margin for smaller screens */
+    margin-right: 2rem; /* Adjust the margin for smaller screens */
+  }
 }
