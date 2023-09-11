@@ -48,11 +48,13 @@ export default function Profile() {
   const [refree, setRefree] = useState(""||user.refree);
   const [rfName, setRFName] = useState("");
   const [rlName, setRLName] = useState("");
+  const [rdp, setRdp] = useState("");
 
   useEffect(() => {
     // This effect will run whenever the 'refree' state changes
     const selectedRefree = storedData.find(user => user._id === refree);
     if (selectedRefree) {
+      setRdp(selectedRefree.profilePhoto);
       setRFName(selectedRefree.firstName);
       setRLName(selectedRefree.lastName);
     } else {
@@ -168,7 +170,7 @@ export default function Profile() {
   };
 
   return (
-      <div   className="container progress-div"
+      <div className="container progress-div"
       style={{
         display: "flex",
         // flexDirection: "column",
@@ -181,7 +183,8 @@ export default function Profile() {
       }}
     >
         <form action="/student-home">
-          <h4 className="sub-headings">Personal info: </h4>
+          <h4 className="sub-headings"
+          style={{marginTop:"2%",fontWeight:"bolder"}}>Personal info: </h4>
          
        <div >    
           <div
@@ -221,14 +224,15 @@ export default function Profile() {
 </div>
 
 
-            </div>
+  </div>
 </div>
 {/* <div className="flex-container1"> */}
-<Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
-            <div className="container1" style={{padding:10}}>
+<Card className="carda " style={{padding:"25px",boxShadow:"none"}}>
+            <div className="container1">
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
-                  <label className="label-title">Name</label>
+                  <label className="label-title">Full Name</label>
+                  <span className="asterisk-mark">*</span>
                 </div>
                 <div className="sub-flex-item2">
                   <div className="input-filed">
@@ -244,7 +248,7 @@ export default function Profile() {
                         required
                     ></input>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center" style={{marginTop:"-20px"}}>
                     <label className="hint-title">
                       First Name<span className="asterisk-mark">*</span>
                     </label>
@@ -263,7 +267,7 @@ export default function Profile() {
                         disabled={disabled}
                     ></input>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center" style={{marginTop:"-20px"}}>
                     <label className="hint-title" >Middle Name</label>
                   </div>
                 </div>
@@ -281,7 +285,7 @@ export default function Profile() {
                         disabled={disabled}
                     ></input>
                   </div>
-                  <div className="text-center">
+                  <div className="text-center" style={{marginTop:"-20px"}}>
                     <label className="hint-title">
                       Last Name<span className="asterisk-mark">*</span>
                     </label>
@@ -310,10 +314,6 @@ export default function Profile() {
                     ></input>
                   </div>
                 </div>
-                <div className="sub-flex-item2"></div>
-                <div className="sub-flex-item2"></div>
-              </div>
-              <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">
                     Date of Birth
@@ -335,9 +335,14 @@ export default function Profile() {
                     ></input>
                   </div>
                 </div>
-                <div className="sub-flex-item2"></div>
-                <div className="sub-flex-item2"></div>
+                {/* <div className="sub-flex-item2"></div>
+                <div className="sub-flex-item2"></div> */}
               </div>
+              {/* <div className="sub-flex-container">
+                
+                <div className="sub-flex-item2"></div>
+                <div className="sub-flex-item2"></div>
+              </div> */}
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">
@@ -365,10 +370,6 @@ export default function Profile() {
                     </select>
                   </div>
                 </div>
-                <div className="sub-flex-item2"></div>
-                <div className="sub-flex-item2"></div>
-              </div>
-              <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">
                     Phone Number
@@ -389,30 +390,19 @@ export default function Profile() {
                         disabled={disabled}
                     ></input>
                   </div>
-                  <div className="text-center">
+                  {/* <div className="text-center">
                     <label className="hint-title">
                       Phone Number 1<span className="asterisk-mark">*</span>
                     </label>
-                  </div>
+                  </div> */}
                 </div>
-                <div className="sub-flex-item2">
-                  <div className="input-filed">
-                    <input
-                        type="tel"
-                        className="form-control"
-                        placeholder="Phone Number 2"
-                        required
-                        disabled={disabled}
-                    ></input>
-                  </div>
-                  <div className="text-center">
-                    <label className="hint-title">
-                      Phone Number 2<span className="asterisk-mark">*</span>
-                    </label>
-                  </div>
-                </div>
-                <div className="sub-flex-item2"></div>
               </div>
+              {/* <div className="sub-flex-container">
+                
+
+
+              </div> */}
+              {/*
               <div className="sub-flex-container">
                 <div className="sub-flex-item1">
                   <label className="label-title">
@@ -438,7 +428,7 @@ export default function Profile() {
                 <div className="sub-flex-item2"></div>
                 <div className="sub-flex-item2"></div>
               </div>
-            {/* </div> */}
+             </div> */}
 
           </div>
         
@@ -461,8 +451,10 @@ export default function Profile() {
 
           )}
   </Card>
-          <h4 className="sub-headings">Academic Details: </h4>
-        <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>    <div className="">
+          <h4 className="sub-headings" style={{marginTop:"2%",fontWeight:"bolder"}}
+          >Academic Details: </h4>
+        <Card className="carda " style={{padding:"25px",boxShadow:"none"}}>    
+      
            
             <div className="flex-container2">
               <div className="container2-flex-item">
@@ -565,9 +557,6 @@ export default function Profile() {
                   </div>
                 </div>
               </div>
-              <div className="container2-flex-item"></div>
-            </div>
-            <div className="flex-container2">
               <div className="container2-flex-item">
                 <div className="container2-flex-item-sub-item1">
                   <label className="label-title">
@@ -598,6 +587,10 @@ export default function Profile() {
                   </div>
                 </div>
               </div>
+              {/* <div className="container2-flex-item"></div> */}
+            </div>
+            <div className="flex-container2">
+
               <div className="container2-flex-item"></div>
             </div>
             <div className="flex-container2">
@@ -605,6 +598,7 @@ export default function Profile() {
                 <div className="container2-flex-item-sub-item3">
                   <label className="label-title">Projects</label>
                 </div>
+                
                 <div className="container2-flex-item-sub-item4">
                   <div className="input-filed input-filed-cls">
                   <textarea
@@ -621,7 +615,7 @@ export default function Profile() {
               </div>
             </div>
             
-          </div>
+          
           <button
               type="button"
               className="btn btn-primary"
@@ -640,37 +634,43 @@ export default function Profile() {
               </Popup>
 
           )}
-</Card>
-          <h4 className="sub-headings">Extracurricular Activities: </h4>
-          <Card className="carda " style={{marginBottom:"25px",marginTop:"25px",padding:"25px"}}>
-          <div className="">
+          </Card>
+          <h4 className="sub-headings"
+          style={{marginTop:"2%",fontWeight:"bolder"}}>Reference: </h4>
+          <Card className="carda " style={{padding:"25px",boxShadow:"none"}}>
+          
             <div className="flex-container2">
               <div className="container2-flex-item">
-                <div className="container2-flex-item-sub-item3">
+                {/* <div className="container2-flex-item-sub-item3">
                   <label className="label-title">References</label>
+                </div> */}
+                <div
+                    className="container1-flex-item1 "
+                    style={{ display: "flex", flexDirection: "column" }}
+                >
+                  <img className="profile-photo-2" src={`data:image/jpeg;base64/${rdp}`} alt="Profile Photo" />
+                  
+
                 </div>
+
                 <div className="container2-flex-item-sub-item4">
-                  <div className="input-filed input-filed-cls">
+                  
+                  <div className="container2-flex-item-sub-item1">
+                    <label form="profilePhoto" className="">
+                      Refree Name<span className="asterisk-mark">*</span> 
+                    </label>
+                    <div className="input-filed input-filed-cls">
                     <input
                         type="text"
                         className="form-control"
-                        placeholder="ID"
-                        value={refree}
-                        onChange={(e) => {
-                          setRefree(e.target.value);
-                        }}
+                        placeholder="Name"
+                        value={rfName +" "+ rlName}
                         disabled={disabled}
-                        required
                     ></input>
 
                   </div>
-                  <input
-                      type="text"
-                      className="form-control"
-                      placeholder="Name"
-                      value={rfName +" "+ rlName}
-                      disabled={disabled}
-                  ></input>
+                  </div>
+                  
                 </div>
                 {/* <div>
             {disabled ? (
@@ -694,7 +694,7 @@ export default function Profile() {
               </div>
             </div>
 
-          </div>
+          
           <button
               type="button"
               className="btn btn-primary"

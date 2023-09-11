@@ -33,7 +33,7 @@ const VacancySection = (props) => {
   async function handleSubmit() {
     //setDisabled(true);
     // Perform validation checks
-    if (!jobPosition || !contactNumber || !background || !companyName || !salary  || !levelOfEducation || !companyEmail || !companyLocation || !dueDate  || !jobDescription) {
+    if (!jobPosition || !contactNumber ||!jobWorkType|| !jobType || !background || !companyName || !salary  || !levelOfEducation || !companyEmail || !companyLocation || !dueDate  || !jobDescription) {
       console.log('Please fill in all the required fields.');
       alert('Please fill in all the required fields.');
       return;
@@ -54,6 +54,10 @@ const VacancySection = (props) => {
       formData.append('dueDate', dueDate);
       formData.append('jobDescription', jobDescription);
       formData.append('userId', user._id);
+      formData.append('JobType', jobType);
+      formData.append('jobWorkType', jobWorkType);
+
+
 
       console.log(formData.get('userId'));
       const url = URL +"/api/vacancies";
@@ -90,7 +94,8 @@ const VacancySection = (props) => {
   const [companyLocation, setCompanyLocation] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [jobDescription, setJobDescription] = useState('');
-
+  const [  jobType, setJobType] = useState('');
+  const [  jobWorkType, setJobWorkType] = useState('');
 
 
   function handleChangeJobPosition(e) {
@@ -136,9 +141,12 @@ const VacancySection = (props) => {
     setJobDescription(e.target.value);
   }
 
-
-
-
+  function handleChangeLevejobType(e) {
+    setJobType(e.target.value);
+  }
+  function handleChangejobWorkType(e) {
+    setJobWorkType(e.target.value);
+  }
 
 
 
@@ -266,7 +274,7 @@ const VacancySection = (props) => {
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
-                  Salary Range
+                  Salary Range Monthly
                 </label>
                 <div
                     className="input-filed input-filed-cls"
@@ -310,6 +318,54 @@ const VacancySection = (props) => {
                     <option value="Other Tertiary Education">Other Tertiary Education</option>
                   </select>
                 </div>
+
+
+
+                <div className="input-filed input-filed-cls">
+                  <select
+                      className="form-select"
+                      name="jobWorkType"
+                      id="jobWorkType"
+                      value={jobWorkType}
+                      onChange={handleChangejobWorkType}
+                      disabled={props.disabled && disabled}
+                  >
+                    <option value=""  selected disabled>
+                      Work Place Type
+                    </option>
+                    <option value="Online">Online</option>
+                    <option value="Onsite">Onsite</option>
+                    <option value="High School">Hybrid</option>
+                  </select>
+                </div>
+
+
+
+
+
+                <div className="input-filed input-filed-cls">
+                  <select
+                      className="form-select"
+                      name="jobType"
+                      id="jobType"
+                      value={jobType}
+                      onChange={handleChangeLevejobType}
+                      disabled={props.disabled && disabled}
+                  >
+                    <option value=""  selected disabled>
+                      Job Type
+                    </option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-Time">Part-Time</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Temporary">Temporary</option>
+                    <option value="Volunteer">Volunteer</option>
+                  </select>
+                </div>
+
+
+
+
               </div>
 
               <div className="container1-flex-item">

@@ -36,7 +36,9 @@ function ProfilePic(props) {
     return (
         <div className="container1-flex-item1 text-center">
             <img className="profile-photo" src={file} alt="Profile Photo" />
-            <label className="label-title">Profile Photo</label>
+            <div className="container2-flex-item-sub-item1" style={{marginBottom:"2%"}}><label className="label-title sub-headings"
+            style={{}}
+            >Profile Photo</label></div>
             <div className="file-input-div">
                 <input
                     type="file"
