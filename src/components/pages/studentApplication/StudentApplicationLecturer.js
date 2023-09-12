@@ -9,18 +9,23 @@ import axios from "axios";
 import {toast} from "react-toastify";
 
 export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
-
+    {/*    */}
 // Retrieve the stored token from localStorage
     const token = localStorage.getItem("ID");
 
-
+    const { id } = useParams();
     const data = JSON.parse(token);
 
+    const paramsParts = id.split("&");
+    const extractedId = paramsParts[0];
+    const extractedStudentId = paramsParts[1] || ""; // In case studentid is not present
+    const extractedCompanyId = paramsParts[2] || ""; // Extracting companyId from the id
+    {/*
     // Extract the values from the data object
     const extractedId = data.vacancyId;
     const extractedStudentId = data.studentId ; // Replace with a default value if studentId is not present
     const extractedCompanyId = data.companyId;
-
+*/}
     // Now you can use the extracted values
     console.log("Vacancy ID:", extractedId);
     console.log("Student ID:", extractedStudentId);
@@ -34,6 +39,7 @@ export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
     const [comment, setComment] = useState(recommendations.length > 0 ? recommendations[0].comment : "");
     console.log(recommendations);
     const [isCommentError, setIsCommentError] = useState(false);
+
 
     const handleApply = async () => {
         try {
@@ -115,9 +121,12 @@ export const StudentApplicationLecturer = ({ isLogedIn, onLogout }) => {
             handleApply().then(() => {});
         });
     };
+
+
     return (
         <div>
             <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
+
             <StudentApplication disabled={true} data={null} />
 
             <div className='container'>
