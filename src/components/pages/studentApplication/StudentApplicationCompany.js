@@ -61,23 +61,26 @@ export const StudentApplicationCompany = ({ isLogedIn, onLogout }) => {
       // Send email using EmailJS Dont delete or uncomment this
       console.log(student.email);
       console.log(lecturer);
-      {/*
+
+
       // Construct the email parameters object
       const templateParams1 = {
         to_email: student.email,
         to_name: student.firstName,
+        message: " A company Requested for your reference. Please login to your account Check your application status.",
         // Add other template variables as needed
       };
       const templateParams2 = {
         to_email: lecturer.email,
         to_name: lecturer.firstName,
+        message: " A company Requested for your reference. Please login to your account and approve or reject the request.",
         // Add other template variables as needed
       };
       // Send email using EmailJS
       await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams1, emailjsUserId);//for student
       await emailjs.send(emailjsServiceId, emailjsTemplateId, templateParams2, emailjsUserId);//for lecturer
 
-*/}
+
 
 
       // Display a success toast message

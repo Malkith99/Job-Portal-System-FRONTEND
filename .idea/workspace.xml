@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="update 10-1">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/96bf0411-14a1-45fe-8d20-b6e79f9388a1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/96bf0411-14a1-45fe-8d20-b6e79f9388a1.xml" afterDir="false" />
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="lecture home update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/ResponsesVac.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/ResponsesVac.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/studentResponces/responcesData.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lecturer/home/lecturerHome/LecturerHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/StudentHome.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationLecturer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,21 +96,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2021.1.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2021.1.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -245,12 +239,7 @@
       <workItem from="1694236205450" duration="705000" />
       <workItem from="1694335270748" duration="11000" />
       <workItem from="1694335306065" duration="12000" />
-      <workItem from="1694335406298" duration="11255000" />
-      <workItem from="1694419448915" duration="648000" />
-      <workItem from="1694423919097" duration="987000" />
-      <workItem from="1694433621352" duration="1659000" />
-      <workItem from="1694503534209" duration="2408000" />
-      <workItem from="1694506256347" duration="1900000" />
+      <workItem from="1694335406298" duration="10163000" />
     </task>
     <task id="LOCAL-00035" summary="chane comment">
       <option name="closed" value="true" />
@@ -636,13 +625,13 @@
       <option name="project" value="LOCAL" />
       <updated>1694340163287</updated>
     </task>
-    <task id="LOCAL-00083" summary="update 10-1">
+    <task id="LOCAL-00083" summary="lecture home update">
       <option name="closed" value="true" />
-      <created>1694345832301</created>
+      <created>1694510043880</created>
       <option name="number" value="00083" />
       <option name="presentableId" value="LOCAL-00083" />
       <option name="project" value="LOCAL" />
-      <updated>1694345832301</updated>
+      <updated>1694510043880</updated>
     </task>
     <option name="localTasksCounter" value="84" />
     <servers />
@@ -686,7 +675,7 @@
     <MESSAGE value="Email Send and recommendation route completed and database updated" />
     <MESSAGE value="commented email send" />
     <MESSAGE value="update 9/10" />
-    <MESSAGE value="update 10-1" />
-    <option name="LAST_COMMIT_MESSAGE" value="update 10-1" />
+    <MESSAGE value="lecture home update" />
+    <option name="LAST_COMMIT_MESSAGE" value="lecture home update" />
   </component>
 </project>
