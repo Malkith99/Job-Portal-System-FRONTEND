@@ -91,10 +91,8 @@ axios.get(URL + '/api/recommendations')
           studentData: responses[0].data.user,
           companyData: responses[1].data.user,
           vacancyData: responses[2].data,
+          recommend:recommendation.recommended,
         }));
-        console.log("recommendation.vacancyData", recommendation.vacancyData);
-        console.log("recommendation.vacancyData.items", recommendation.vacancyData.items);
-
     });
 
     // Wait for all promises to complete
@@ -150,7 +148,7 @@ axios.get(URL + '/api/recommendations')
                                 <TableCell>{recommendation.vacancyData.items[0].jobPosition}</TableCell> */}
                                 <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
                                 <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
-                                <TableCell>{recommendation.studentId}</TableCell>
+                                <TableCell>{recommendation.recommend}</TableCell>
                                 <TableCell>
                                     <Button
                                         variant="outlined"

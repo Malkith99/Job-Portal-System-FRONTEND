@@ -35,25 +35,7 @@ export default function StudentHome({ isLogedIn, onLogout }) {
               Find the Job  that is perfect for you
             </h2>
           </div>
-          <div className="searchBar">
-            <TextField
-              id="search"
-              label="Search Company Name"
-              variant="outlined"
-              size="small"
-              style={{marginLeft:150,marginTop:50}}
-              value={searchQuery}
-              onChange={(event) => setSearchQuery(event.target.value)}
-              InputProps={{
-                endAdornment: (
-                  <IconButton color="inherit">
-                    <SearchIcon />
-                  </IconButton>
-                ),
-              }}
-            />
-          
-  </div>
+
   <div class="right-column">
     <img src={stripImage} alt="Strip" class="strip-image" />
   </div>
@@ -63,30 +45,10 @@ export default function StudentHome({ isLogedIn, onLogout }) {
           <Card/>
         </div>
         <div className="paragraphs-section">
-          {/* <p>Paragraph 1</p>
-          <p>Paragraph 2</p>
-          <p>Paragraph 3</p> */}
+
         </div>
        </div>
        <Footer />
      </div> 
   );
 }
-
-  
-        
-/* /*         <div>            
-            <h1>Student Home</h1>
-            <div className="student">
-              <Link to="/student-profile">
-                <Button variant="contained">
-                  profile
-                </Button>
-              </Link>
-              <Link to="/student-application">
-                <Button variant="contained">
-                  My Applications
-                </Button>
-              </Link>
-            </div>
-        </div> */
