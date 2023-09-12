@@ -112,6 +112,8 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                               Number of Applications
                             </div> */} 
                             <div style={{ flex: "1" }}>
+                                <img className="profile-photo-2" src={`data:image/jpeg;base64/${response.flyer}`} alt="flyer" />
+
                             <h4
                                   className="container2-flex-item1 job-pool-card-title"
                                   style={{ fontSize: "20px" }}
