@@ -250,6 +250,30 @@ const VacancySection = (props) => {
                   </select>
                 </div>
 
+                <label for="background" className="">
+                <span className="asterisk-mark">
+                  <span className={`${props.disabled && "d-none"}`}>* </span>
+                </span>
+                  Work Place Type
+                </label>
+                <div className="input-filed input-filed-cls">
+                  <select
+                      className="form-select"
+                      name="jobWorkType"
+                      id="jobWorkType"
+                      value={jobWorkType}
+                      onChange={handleChangejobWorkType}
+                      disabled={props.disabled && disabled}
+                  >
+                    <option value=""  selected disabled>
+                      Work Place Type
+                    </option>
+                    <option value="Online">Online</option>
+                    <option value="Onsite">Onsite</option>
+                    <option value="High School">Hybrid</option>
+                  </select>
+                </div>
+
               </div>
               <div className="container1-flex-item">
                 <label for="companyName" className="">
@@ -274,7 +298,7 @@ const VacancySection = (props) => {
                 <span className="asterisk-mark">
                   <span className={`${props.disabled && "d-none"}`}>* </span>
                 </span>
-                  Salary Range Monthly
+                  Monthly Salary
                 </label>
                 <div
                     className="input-filed input-filed-cls"
@@ -285,7 +309,7 @@ const VacancySection = (props) => {
                       className="form-control"
                       id="salary"
                       placeholder="Salary"
-                      style={{ width: "50%" }}
+                      // style={{ width: "50%" }}
                       min="0"
                       value={salary}
                       onChange={handleChangeSalary}
@@ -319,30 +343,12 @@ const VacancySection = (props) => {
                   </select>
                 </div>
 
-
-
-                <div className="input-filed input-filed-cls">
-                  <select
-                      className="form-select"
-                      name="jobWorkType"
-                      id="jobWorkType"
-                      value={jobWorkType}
-                      onChange={handleChangejobWorkType}
-                      disabled={props.disabled && disabled}
-                  >
-                    <option value=""  selected disabled>
-                      Work Place Type
-                    </option>
-                    <option value="Online">Online</option>
-                    <option value="Onsite">Onsite</option>
-                    <option value="High School">Hybrid</option>
-                  </select>
-                </div>
-
-
-
-
-
+                <label for="background" className="">
+                <span className="asterisk-mark">
+                  <span className={`${props.disabled && "d-none"}`}>* </span>
+                </span>
+                  Job Type
+                </label>                 
                 <div className="input-filed input-filed-cls">
                   <select
                       className="form-select"
@@ -422,8 +428,8 @@ const VacancySection = (props) => {
               </div>
             </div>
 
-            <div className="flex-container2">
-              <div className="container2-flex-item1">
+            <div className="flex-container1">
+              <div className="container1-flex-item">
 
                 <label form="jobDescription" className="">
                 <span className="asterisk-mark">

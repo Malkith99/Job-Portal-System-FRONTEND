@@ -137,6 +137,20 @@ function CompanyRegister() {
                       required
                   />
                 </div>
+                <label htmlFor="location" className="">
+                  <span className="asterisk-mark">*</span>Location
+                </label>
+                <div className="input-filed input-filed-cls">
+                  <input
+                      type="text"
+                      className="form-control"
+                      id="location"
+                      placeholder="Location"
+                      value={location}
+                      onChange={handleChangeLocation}
+                      disabled={disabled}
+                  />
+                </div>
               </div>
               <div className="container1-flex-item">
                 <label htmlFor="contactInfo" className="">
@@ -153,20 +167,7 @@ function CompanyRegister() {
                       disabled={disabled}
                   />
                 </div>
-                <label htmlFor="location" className="">
-                  <span className="asterisk-mark">*</span>Location
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="location"
-                      placeholder="Location"
-                      value={location}
-                      onChange={handleChangeLocation}
-                      disabled={disabled}
-                  />
-                </div>
+
               </div>
               <div className="container1-flex-item">
                 <label htmlFor="companyWebsite" className="">

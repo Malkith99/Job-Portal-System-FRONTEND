@@ -135,8 +135,26 @@ console.log(jbuser);
 
                   </div>
                 </div>
-                <div className="flex-container1">
-                  <div className="container1-flex-item">
+                <div className="flex-container2">
+                <div className="container2-flex-item-sub-item1">
+                    <label htmlFor="companyName">
+                  <span className="asterisk-mark">
+                    <span className={`${disabled && "d-none"}`}>* </span>
+                  </span>
+                      Company Name
+                    </label>
+                    <div className="input-filed input-filed-cls">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id="companyName"
+                          placeholder="Company Name"
+                          value={userWithMatchingId.firstName +"  " +userWithMatchingId.lastName ||""}
+                          disabled={disabled}
+                      />
+                    </div>
+                </div>
+                  <div className="container2-flex-item-sub-item1">
                     <label htmlFor="jobPosition">
                   <span className="asterisk-mark">
                     <span className={`${disabled && "d-none"}`}>* </span>
@@ -154,156 +172,154 @@ console.log(jbuser);
                       />
                     </div>
                   </div>
+                  <div className="container2-flex-item-sub-item1">
+                    <label htmlFor="contactNumber">
+                      <span className="asterisk-mark">
+                      <span className={`${disabled && "d-none"}`}>* </span>
+                      </span>
+                      Contact Number
+                    </label>
+                    <div className="input-filed input-filed-cls">
+                      <input
+                          type="tel"
+                          className="form-control"
+                          id="contactNumber"
+                          placeholder="Contact Number"
+                          value={userWithMatchingId.contactNumber||""}
+                          disabled={disabled}
+                      />
+                    </div>
+                  </div>
                 </div>
-                <div className="flex-container2">
-                  <div className="container1-flex-item">
+                {/* <div className="flex-container2"> */}
+                  {/* <div className="container1-flex-item"> */}
                     {/* Other form fields */}
+                  {/* </div> */}
+                {/* </div> */}
+                <div className="flex-container2">
+                <div className="container2-flex-item-sub-item1">
+                    <label htmlFor="background">
+                  <span className="asterisk-mark">
+                    <span className={`${disabled && "d-none"}`}>* </span>
+                  </span>
+                      Background
+                    </label>
+                    <div className="input-filed input-filed-cls" style={{ flexDirection: "row" }}>
+                      <input
+                          className="form-select"
+                          name="background"
+                          id="background"
+                          disabled={disabled}
+                          value={vacancy.background}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="container2-flex-item-sub-item1">
+                      <label htmlFor="salaryRange">
+                  <span className="asterisk-mark">
+                    <span className={`${disabled && "d-none"}`}>* </span>
+                  </span>
+                      Salary
+                    </label>
+                    <div
+                        className="input-filed input-filed-cls"
+                        style={{ display: "flex", flex: "row", columnGap: "20px" }}
+                    >
+                      <input
+                          type="number"
+                          className="form-control"
+                          id="salary"
+                          placeholder="Salary"
+                          // style={{ width: "50%" }}
+                          value={vacancy.salary||""}
+                          disabled={disabled}
+                      />
+
+                    </div>
+                    </div>
+                    <div className="container2-flex-item-sub-item1"></div>
+                </div>
+
+                <div className="flex-container2">
+                <div className="container2-flex-item-sub-item1">
+                    <label htmlFor="companyEmail">
+                  <span className="asterisk-mark">
+                    <span className={`${disabled && "d-none"}`}>* </span>
+                  </span>
+                      Company Email
+                    </label>
+                    <div className="input-filed input-filed-cls">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id="companyEmail"
+                          placeholder="Company Email"
+                          value={userWithMatchingId.email||""}
+                          disabled={disabled}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="container2-flex-item-sub-item1">
+                      <label htmlFor="companyLocation">
+                  <span className="asterisk-mark">
+                    <span className={`${disabled && "d-none"}`}>* </span>
+                  </span>
+                      Company Location
+                    </label>
+                    <div className="input-filed input-filed-cls">
+                      <input
+                          type="text"
+                          className="form-control"
+                          id="companyLocation"
+                          placeholder="Company Location"
+                          value={userWithMatchingId.location||""}
+                          disabled={disabled}
+                      />
+                    </div>
+                  </div>
+                    <div className="container2-flex-item-sub-item1">
+                          <label htmlFor="dueDate">
+                    <span className="asterisk-mark">
+                      <span className={`${disabled && "d-none"}`}>* </span>
+                    </span>
+                        Due Date
+                      </label>
+                      <div className="input-filed input-filed-cls">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="dueDate"
+                            placeholder="Due Date"
+                            value={vacancy.dueDate||""}
+                            disabled={disabled}
+                        />
+                      </div>
+                    </div>
+                    <div className="container2-flex-item-sub-item1">
+                    <label htmlFor="levelOfEducation">
+                    <span className="asterisk-mark">
+                      <span className={`${disabled && "d-none"}`}>* </span>
+                    </span>
+                        Level of Education
+                      </label>
+                      <div className="input-filed input-filed-cls">
+                        <input
+                            className="form-select"
+                            name="levelOfEducation"
+                            id="levelOfEducation"
+                            disabled={disabled}
+                            value={vacancy.levelOfEducation||""}
+                        >
+
+                        </input>
+                      </div>
                   </div>
                 </div>
 
-                <label htmlFor="contactNumber">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Contact Number
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="tel"
-                      className="form-control"
-                      id="contactNumber"
-                      placeholder="Contact Number"
-                      value={userWithMatchingId.contactNumber||""}
-                      disabled={disabled}
-                  />
-                </div>
-
-                <label htmlFor="background">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Background
-                </label>
-                <div className="input-filed input-filed-cls" style={{ flexDirection: "row" }}>
-                  <input
-                      className="form-select"
-                      name="background"
-                      id="background"
-                      disabled={disabled}
-                      value={vacancy.background}
-                  />
-                </div>
-
-                <label htmlFor="companyName">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Company Name
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="companyName"
-                      placeholder="Company Name"
-                      value={userWithMatchingId.firstName +"  " +userWithMatchingId.lastName ||""}
-                      disabled={disabled}
-                  />
-                </div>
-
-                <label htmlFor="salaryRange">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Salary Range
-                </label>
-                <div
-                    className="input-filed input-filed-cls"
-                    style={{ display: "flex", flex: "row", columnGap: "20px" }}
-                >
-                  <input
-                      type="number"
-                      className="form-control"
-                      id="salary"
-                      placeholder="Salary"
-                      style={{ width: "50%" }}
-                      value={vacancy.salary||""}
-                      disabled={disabled}
-                  />
-
-                </div>
-
-                <label htmlFor="levelOfEducation">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Level of Education
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      className="form-select"
-                      name="levelOfEducation"
-                      id="levelOfEducation"
-                      disabled={disabled}
-                      value={vacancy.levelOfEducation||""}
-                  >
-
-                  </input>
-                </div>
-
-                <label htmlFor="companyEmail">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Company Email
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="companyEmail"
-                      placeholder="Company Email"
-                      value={userWithMatchingId.email||""}
-                      disabled={disabled}
-                  />
-                </div>
-
-                <label htmlFor="companyLocation">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Company Location
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="companyLocation"
-                      placeholder="Company Location"
-                      value={userWithMatchingId.location||""}
-                      disabled={disabled}
-                  />
-                </div>
-
-                <label htmlFor="dueDate">
-              <span className="asterisk-mark">
-                <span className={`${disabled && "d-none"}`}>* </span>
-              </span>
-                  Due Date
-                </label>
-                <div className="input-filed input-filed-cls">
-                  <input
-                      type="text"
-                      className="form-control"
-                      id="dueDate"
-                      placeholder="Due Date"
-                      value={vacancy.dueDate||""}
-                      disabled={disabled}
-                  />
-                </div>
-
                 <div className="flex-container2">
-                  <div className="container1-flex-item">
+                  <div className="container2-flex-item-sub-item1">
                     <label htmlFor="skills">
                   <span className="asterisk-mark">
                     <span className={`${disabled && "d-none"}`}>* </span>
@@ -313,7 +329,7 @@ console.log(jbuser);
                     <div className="input-filed input-filed-cls">
                   <textarea
                       className="form-control"
-                      style={{ height: "80px" }}
+                      // style={{ height: "80px" }}
                       id="Work Type"
                       placeholder="Work Type"
                       value={vacancy.jobWorkType||""}
@@ -321,10 +337,13 @@ console.log(jbuser);
                   ></textarea>
                     </div>
                   </div>
+                  <div className="container2-flex-item-sub-item1">
+                    
+                  </div>
                 </div>
 
                 <div className="flex-container2">
-                  <div className="container1-flex-item">
+                  <div className="container2-flex-item-sub-item1">
                     <label htmlFor="jobDescription">
                   <span className="asterisk-mark">
                     <span className={`${disabled && "d-none"}`}>* </span>
@@ -334,7 +353,7 @@ console.log(jbuser);
                     <div className="input-filed input-filed-cls">
                   <textarea
                       className="form-control"
-                      style={{ height: "100px" }}
+                      style={{ height: "100px",width:"75%" }}
                       id="jobDescription"
                       placeholder="Job Description"
                       disabled={disabled}
