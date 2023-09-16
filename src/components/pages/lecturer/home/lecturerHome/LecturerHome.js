@@ -52,6 +52,7 @@ axios.get(URL + '/api/recommendations')
           studentData: responses[0].data.user,
           companyData: responses[1].data.user,
           vacancyData: responses[2].data,
+            comment:recommendation.comment,
           recommend:recommendation.recommended,
           vacancyId:recommendation.vacancyId,
           companyId:recommendation.companyId,
@@ -101,7 +102,7 @@ axios.get(URL + '/api/recommendations')
                                 <TableCell>{recommendation.studentData.firstName} {recommendation.studentData.lastName}</TableCell>
                                 <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
                                 <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
-                                <TableCell>{recommendation.recommend}</TableCell>
+                                <TableCell>{recommendation.comment}</TableCell>
                                 <TableCell>
                                 <Button
                                         variant="outlined"
