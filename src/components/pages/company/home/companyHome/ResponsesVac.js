@@ -27,11 +27,12 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
   const [jobpool, setJobpool] = useState(JSON.parse(localStorage.getItem('jbvacancies') || '{}'));
   const [selectedVacancy, setSelectedVacancy] = useState(null);
   const navigate = useNavigate();
-  const jobVUrl = URL +`/api/vacancies/${user._id}`;
+  const jobVUrl = URL +`/api/vacancies/${user._id}`; //company Id
   const rUrl = URL +`/api/responses/${user._id}`;
 
     useEffect(() => {
         console.log(user);
+        console.log(jobpool);
         // Fetch job vacancies
         axios.get(jobVUrl)
             .then(response => {
@@ -153,7 +154,8 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                                   <button
                                     className="btn btn-primary butdet"
                                     onClick={() => {
-                                      navigate("/company-job-pool");
+                                      // navigate("/company-job-pool");
+                                      navigate(`/company-job-pool/${response._id}`);
                                     }}
                                     style={{
                                       background: "#2B547E",
@@ -166,11 +168,11 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                                     Edit
                                    < BorderColorOutlinedIcon/>
                                   </button>
-
                                   <button
                                     className="btn btn-primary butdet"
                                     onClick={() => {
-                                      navigate(`/all-student-responses/${response._id}`);
+                                     
+                                      navigate(`/all-student-responses/${response._id}`); //vacancy ID
                                     }}
                                     style={{
                                       background: "#2B547E",
