@@ -1,19 +1,52 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import "./VacancySection.css";
 import {URL} from "../../../../../../env";
 import {toast} from "react-toastify";
+
 
 function handleSave() {
 
 }
 
 const VacancySection = (props) => {
+  const [vacancy, setvacancy] = useState({});
+  const { vacancyId } = useParams();
+  const user = JSON.parse(localStorage.getItem('user')); //company
+  const jobVUrl = URL +`/api/vacancies/${user._id}/${vacancyId}`; //company Id +VacancyId
 
-  const user = JSON.parse(localStorage.getItem('user'));
-  const [file, setFile] = useState(
-      "https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg"
-  );
+  useEffect(() => {
+    // Fetch job vacancies
+    axios.get(jobVUrl)
+        .then(response => {
+            setvacancy(response.data);
+            if (!response.data.flyer) {
+              setFile("https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg");
+            } else {
+              setFile(response.data.flyer);
+            }
+            setJobPosition(response.data.jobPosition || '');
+            setContactNumber(response.data.contactNumber || '');
+            setBackground(response.data.background || '');
+            setSalary(response.data.salary || '');
+            setLevelOfEducation(response.data.levelOfEducation|| '');
+            setCompanyEmail(response.data.companyEmail||'');
+            setCompanyLocation(response.data.companyLocation|| '');
+            setDueDate(response.data.dueDate || '');
+            setJobDescription(response.data.jobDescription|| '');
+            setJobType(response.data.jobType || '');
+            setJobWorkType(response.data.jobWorkType || '');
+
+        })
+        .catch(error => {
+            console.log("Failed to fetch job vacancy");
+            console.error('Failed to fetch job vacancy:', error);
+        });
+        
+}, [jobVUrl]);
+
+  const [file, setFile] = useState("");
   const [disabled, setDisabled] = useState(true);
   function handleEdit() {
     setDisabled(false);
@@ -76,26 +109,18 @@ const VacancySection = (props) => {
     }
   }
 
-
-
-
-
-
-
   const [jobPosition, setJobPosition] = useState('');
-
-  const [contactNumber, setContactNumber] = useState('');
+  const [contactNumber, setContactNumber] = useState(user.contactNumber||'');
   const [background, setBackground] = useState('');
   const [companyName, setCompanyName] = useState(`${user.firstName || ' '}${user.middleName || ' '}${user.lastName || ' '}`);
-
   const [salary, setSalary] = useState('');
   const [levelOfEducation, setLevelOfEducation] = useState('');
-  const [companyEmail, setCompanyEmail] = useState(user.email||'');
-  const [companyLocation, setCompanyLocation] = useState('');
-  const [dueDate, setDueDate] = useState('');
+  const [companyEmail, setCompanyEmail] = useState('');
+  const [companyLocation, setCompanyLocation] = useState(vacancy.companyLocation||'');
+  const [dueDate, setDueDate] = useState(vacancy.dueDate||'');
   const [jobDescription, setJobDescription] = useState('');
-  const [  jobType, setJobType] = useState('');
-  const [  jobWorkType, setJobWorkType] = useState('');
+  const [jobType, setJobType] = useState(vacancy.jobType||'');
+  const [jobWorkType, setJobWorkType] = useState(vacancy.jobWorkType||'');
 
 
   function handleChangeJobPosition(e) {
@@ -134,8 +159,6 @@ const VacancySection = (props) => {
   function handleChangeDueDate(e) {
     setDueDate(e.target.value);
   }
-
-
 
   function handleChangeJobDescription(e) {
     setJobDescription(e.target.value);
@@ -444,6 +467,7 @@ const VacancySection = (props) => {
                     style={{ height: "100px" }}
                     id="jobDescription"
                     placeholder="Job Description"
+                    value={jobDescription}
                     onChange={handleChangeJobDescription}
                     disabled={props.disabled && disabled}
                     // required
