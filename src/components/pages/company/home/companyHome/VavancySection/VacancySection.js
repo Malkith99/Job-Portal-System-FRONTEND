@@ -440,7 +440,7 @@ const VacancySection = (props) => {
                 </label>
                 <div className="input-filed input-filed-cls">
                   <input
-                      type="date"
+                      type="text"
                       className="form-control"
                       placeholder="Due Date"
                       value={dueDate}
