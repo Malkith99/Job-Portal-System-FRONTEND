@@ -1,146 +1,75 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'; // Import Axios for making HTTP requests
+import { URL } from "../../../../env";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Button,
+  Typography,
+} from '@mui/material';
+function StudentApplication() {
 
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: "lightBlue",
-    color: theme.palette.common.black,
-    fontSize: 16,
-    position: "sticky",
-    top: 0,
-    zIndex: 1,
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 14,
-  },
-}));
+  const user = JSON.parse(localStorage.getItem('user')); //Student
+  const response = JSON.parse(localStorage.getItem('jbresponses')); //Student
+  console.log(user);
+  console.log(response);
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  "&:last-child td, &:last-child th": {
-    border: 0,
-  },
-}));
+  useEffect(() => {
 
-function createData(id, name, position, date) {
-  return { id, name, position, date };
-}
 
-const rows = [
-  createData(1, "Access Engineering PLC", "Developer", "2022-01-01"),
-  createData(2, "Sysco Labs", "Designer", "2022-01-02"),
-  createData(
-    3,
-    "Nawaloka Engineering Company (Pvt) Ltd.",
-    "Manager",
-    "2022-01-03"
-  ),
-  createData(4, "99X Technology", "Developer", "2022-01-04"),
-  createData(5, "MTD Walkers PLC", "Manager", "2022-01-05"),
-  createData(6, "Aess Engineering PLC", "Developer", "2022-01-01"),
-  createData(7, "Sysco Labs", "Designer", "2022-01-02"),
-  createData(
-    8,
-    "Nawaloka Engineering Company (Pvt) Ltd.",
-    "Manager",
-    "2022-01-03"
-  ),
-  createData(9, "99X Technology", "Developer", "2022-01-04"),
-  createData(10, "MTD Walkers PLC", "Manager", "2022-01-05"),
-];
+  }, []);
 
-export default function CustomizedTables() {
-  const [selectedId, setSelectedId] = React.useState(null);
-  const [searchQuery, setSearchQuery] = React.useState("");
 
-  function handleViewButtonClick(id) {
-    setSelectedId(id);
-  }
-  const filteredRows =
-    searchQuery === ""
-      ? rows
-      : rows.filter((row) =>
-        row.name.toLowerCase().includes(searchQuery.toLowerCase())
-      );
 
-  function handleViewButtonClick(id) {
-    window.location.href = `/grp13/job-application/${id}`;
-  }
+
 
   return (
-    <>
-      {/* {selectedId !== null && (
-        <div>
-          <h2>Profile of {rows[selectedId - 1].name}</h2>
-          <p>Position: {rows[selectedId - 1].position}</p>
-          <p>Date: {rows[selectedId - 1].date}</p>
-          <Button variant="contained" onClick={() => setSelectedId(null)}>
-            Close
-          </Button>
-        </div>
-      )} */}
-      <TableContainer component={Paper}>
-        <div style={{ margin: 20 }} />
-        <div style={{ marginLeft: 30, marginRight: 30 }}>
-          <TextField
-            id="search"
-            label="Search Company Name"
-            variant="outlined"
-            margin="normal"
-            size="small"
-            style={{ width: 400 }}
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-          />
-          <div style={{ margin: 20 }} />
-          <Table>
-            <TableHead>
-              <TableRow>
-                <StyledTableCell align="center" width={250}>
-                  Company Name
-                </StyledTableCell>
-                <StyledTableCell align="center">Position</StyledTableCell>
-                <StyledTableCell align="center">Date</StyledTableCell>
-                <StyledTableCell align="center">View</StyledTableCell>
+    <div className='container'>
+      <Typography variant="h4">Applied Vacancies</Typography>
+      <Typography>Student ID to match: {user._id}</Typography>
+      <TableContainer component={Paper} style={{ margin: "2%", colorScheme: "black" }}>
+        <Table>
+          <TableHead style={{ background: "#0073a5" }}>
+            <TableRow>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Company Name</TableCell>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Position</TableCell>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Date </TableCell>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>View</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {/* {user.map(recommendation => (
+              <TableRow key={recommendation._id}>
+                <TableCell>{recommendation.studentData.firstName} {recommendation.studentData.lastName}</TableCell>
+                <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
+                <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
+                <TableCell>{recommendation.comment}</TableCell>
+                <TableCell>
+                  <Button
+                    variant="outlined"
+                    onClick={() =>
+                      handleViewButtonClick(
+                        recommendation.vacancyId,
+                        recommendation.studentId,
+                        recommendation.companyId
+                      )
+                    }
+                  >
+                    View
+                  </Button>
+                </TableCell>
               </TableRow>
-            </TableHead>
-            <TableBody>
-              {filteredRows.map((row) => (
-                <StyledTableRow
-
-                >
-                  <StyledTableCell align="center">{row.name}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    {row.position}
-                  </StyledTableCell>
-                  <StyledTableCell align="center">{row.date}</StyledTableCell>
-                  <StyledTableCell align="center">
-                    <Button
-                      variant="contained"
-                      color="primary"
-                      onClick={() => handleViewButtonClick(row.id)}
-                    >
-                      View
-                    </Button>
-                  </StyledTableCell>
-                </StyledTableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
+            ))} */}
+          </TableBody>
+        </Table>
       </TableContainer>
-    </>
+    </div>
   );
 }
+
+export default StudentApplication;
