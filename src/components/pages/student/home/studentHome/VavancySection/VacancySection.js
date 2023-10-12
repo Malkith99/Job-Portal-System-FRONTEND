@@ -55,7 +55,10 @@ console.log(jbuser);
     setAlertMessage(message);
     alert(message);
   };
-  const handleApply = async () => {
+  const handleApply = async (e) => {
+
+    e.preventDefault();
+
     try {
       const newResponse = {
         companyId: companyId,
@@ -66,8 +69,14 @@ console.log(jbuser);
       };
 
       const url = URL+'/api/responses';
+      const aUrl=URL+'/api/applications';
       const response = await axios.post(url, newResponse);
+      const application =await axios.post(aUrl,newResponse);
+   
+      // call the application model by passing the data
       console.log('Response saved:', response.data);
+      console.log("application"   +  application);
+
 
       // Display a success toast message
       toast.success('Application submitted successfully!', {
