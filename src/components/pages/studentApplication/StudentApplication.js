@@ -164,67 +164,9 @@ console.log(student);
                 type="text"
                 className="form-control"
                 placeholder="Contact Number"
-               // disabled={props.disabled}
-                // required
-              ></input>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex-container1">
-          <div className="container1-flex-item">
-            <label for="jobPosition" className="">
-              <span className="asterisk-mark">
-               
-              </span>
-              Background
-            </label>
-            <div className="input-filed input-filed-cls">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Background"
-                //disabled={props.disabled}
-                // required
-              ></input>
-            </div>
-          </div>
-
-          <div className="container1-flex-item">
-            <label for="jobPosition" className="">
-              <span className="asterisk-mark">
-               
-              </span>
-              Skills
-            </label>
-            <div className="input-filed input-filed-cls">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Skills"
-                //disabled={props.disabled}
-                // required
-              ></input>
-            </div>
-          </div>
-
-          <div className="container1-flex-item">
-            <label for="jobPosition" className="">
-              <span className="asterisk-mark">
-               
-              </span>
-              CV
-            </label>
-            <div className="input-filed input-filed-cls">
-              <input
-                type="file"
-                className="form-control"
-                id="cv"
-                placeholder="Upload your file"
-
+                value={student.contactNumber}
                 disabled={props.disabled}
-
-                // required
+                required
               ></input>
             </div>
           </div>
@@ -236,21 +178,26 @@ console.log(student);
               <span className="asterisk-mark">
                
               </span>
-              Linkedin Profile
+              Email
             </label>
             <div className="input-filed input-filed-cls">
               <input
                 type="text"
                 className="form-control"
-                placeholder="Linkedin Profile Link"
-                //disabled={props.disabled}
-                // required
+                placeholder="Email"
+                value={student.email}
+                disabled={props.disabled}
+                required
               ></input>
             </div>
           </div>
 
-          <div className="container1-flex-item"></div>
+
+
+
         </div>
+
+
 
         <div className="flex-container1">
           <div
