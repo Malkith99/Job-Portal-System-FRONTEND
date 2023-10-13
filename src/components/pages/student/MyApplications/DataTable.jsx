@@ -33,9 +33,10 @@ function StudentApplication() {
       });
   }, [appUrl]);
 
-  //   const handleViewButtonClick = (vacancyId, studentId, companyId) => {
-  //     window.location.href = `student-application-for-lecturer/${vacancyId}&${studentId}&${companyId}`;
-  // };
+  const handleViewButtonClick = (vacancyId) => {
+    //window.location.href = `student-application-for-lecturer/${vacancyId}`;
+    window.location.href = `company-vacancy-view-student/${vacancyId}`;
+  };
 
 
 
@@ -62,12 +63,12 @@ function StudentApplication() {
                 <TableCell>
                   <Button
                     variant="outlined"
-                  // onClick={() =>
-                  //   handleViewButtonClick(
-                  //     appplication.vacancyId,
-                  //     appplication.companyId
-                  //   )
-                  // }
+                    onClick={() =>
+                      handleViewButtonClick(
+                        appplication.vacancyId,
+                        // appplication.companyId
+                      )
+                    }
                   >
                     View
                   </Button>
