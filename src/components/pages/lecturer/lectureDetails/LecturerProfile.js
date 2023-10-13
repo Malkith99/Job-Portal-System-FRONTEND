@@ -253,7 +253,7 @@ export const LecturerProfile = () => {
                   ></input>
                 </div>
                 <label for="other" className="">
-                  <span className="asterisk-mark">*</span>Other
+                  Other
                 </label>
                 <div className="input-filed input-filed-cls">
                   <input
@@ -264,7 +264,7 @@ export const LecturerProfile = () => {
                       disabled={disabled}
                       value={other}
                       onChange={handleChangeOther}
-                      required
+                      //required
                   ></input>
                 </div>
               </div>
