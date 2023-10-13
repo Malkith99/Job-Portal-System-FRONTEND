@@ -13,18 +13,29 @@ import {
   Typography,
 } from '@mui/material';
 function StudentApplication() {
-
+  const [application, setApplication] = useState([]);
   const user = JSON.parse(localStorage.getItem('user')); //Student
-  const response = JSON.parse(localStorage.getItem('jbresponses')); //Student
-  console.log(user);
-  console.log(response);
+  const appUrl = URL + `/api/applications/${user._id}`; //Student ID
+
+
 
   useEffect(() => {
+    //Fetch Applications
+    axios.get(appUrl)
+      .then(response => {
+        setApplication(response.data);
+        console.log(application);
 
+      })
+      .catch(error => {
+        console.log("Failed to fetch Applications");
+        console.error('Failed to fetch Applications:', error);
+      });
+  }, [appUrl]);
 
-  }, []);
-
-
+  //   const handleViewButtonClick = (vacancyId, studentId, companyId) => {
+  //     window.location.href = `student-application-for-lecturer/${vacancyId}&${studentId}&${companyId}`;
+  // };
 
 
 
@@ -43,28 +54,26 @@ function StudentApplication() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {/* {user.map(recommendation => (
-              <TableRow key={recommendation._id}>
-                <TableCell>{recommendation.studentData.firstName} {recommendation.studentData.lastName}</TableCell>
-                <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
-                <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
-                <TableCell>{recommendation.comment}</TableCell>
+            {application.map((appplication) => (
+              <TableRow key={appplication._id}>
+                <TableCell>{appplication.companyName || "company Name"} </TableCell>
+                <TableCell>{appplication.jobPosition || "job Postion"} </TableCell>
+                <TableCell>{appplication.responseDate}</TableCell>
                 <TableCell>
                   <Button
                     variant="outlined"
-                    onClick={() =>
-                      handleViewButtonClick(
-                        recommendation.vacancyId,
-                        recommendation.studentId,
-                        recommendation.companyId
-                      )
-                    }
+                  // onClick={() =>
+                  //   handleViewButtonClick(
+                  //     appplication.vacancyId,
+                  //     appplication.companyId
+                  //   )
+                  // }
                   >
                     View
                   </Button>
                 </TableCell>
               </TableRow>
-            ))} */}
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
