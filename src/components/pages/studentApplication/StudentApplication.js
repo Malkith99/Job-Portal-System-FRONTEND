@@ -96,15 +96,16 @@ console.log(student);
               <span className="asterisk-mark">
                
               </span>
-              Name with Initials
+              Last Name
             </label>
             <div className="input-filed input-filed-cls">
               <input
                 type="text"
                 className="form-control"
                 placeholder="Name with Initials"
-               // disabled={props.disabled}
-                // required
+                value={student.lastName}
+               disabled={props.disabled}
+                required
               ></input>
             </div>
           </div>
@@ -123,8 +124,9 @@ console.log(student);
                 type="date"
                 className="form-control"
                 placeholder="Date of Birth"
-                //disabled={props.disabled}
-                // required
+                value={student.DOB}
+                disabled={props.disabled}
+                required
               ></input>
             </div>
           </div>
@@ -134,16 +136,19 @@ console.log(student);
               <span className="asterisk-mark">
                 
               </span>
-              Age
+              Gender
             </label>
             <div className="input-filed input-filed-cls">
               <input
-                type="text"
-                className="form-control"
-                placeholder="Age"
-                //disabled={props.disabled}
-                // required
+                  type="text"
+                  className="form-control"
+                  placeholder="Age"
+                  value={student.gender}
+                  disabled={props.disabled}
+                  required
               ></input>
+
+
             </div>
           </div>
 

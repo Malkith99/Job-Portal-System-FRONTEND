@@ -100,7 +100,7 @@ const VacancySection = (props) => {
             },
           }
       );
-      window.location.href = 'grp13/company-home';
+      window.location.href = 'grp13/Response-vac';
       toast.success("job successfully posted");
     } catch (error) {
       console.log("Fail to post job");

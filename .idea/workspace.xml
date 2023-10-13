@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="data updated">
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="table location added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SignUpSignIn/SignInSignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SignUpSignIn/SignInSignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/company/companySignup/companySignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/companySignup/companySignup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/VavancySection/VacancySection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/lecturer/lecturerSignup/lecturerSignup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/lecturer/lecturerSignup/lecturerSignup.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTableMyApplication.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTableMyApplication.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/StudentSignUp/SignUp/StudentSignUp.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/StudentSignUp/SignUp/StudentSignUp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/VavancySection/VacancySection.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/home/studentHome/VavancySection/VacancySection.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/Person_popup.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/profile/Person_popup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/profile/studentProfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -95,22 +105,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/WCT/Desktop/Academic/5/EE5203 Softwear Project/Project Github/client/src/components/pages/student/MyApplications",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2021.1.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/WCT/Desktop/Academic/5/EE5203 Softwear Project/Project Github/client/src/components/pages/student/MyApplications&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2021.1.4\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\WCT\Desktop\Academic\5\EE5203 Softwear Project\Project Github\client\src\components\pages\student\MyApplications" />
@@ -252,15 +262,7 @@
       <workItem from="1697184751589" duration="820000" />
       <workItem from="1697185923390" duration="968000" />
       <workItem from="1697193316776" duration="3113000" />
-      <workItem from="1697214275001" duration="7462000" />
-    </task>
-    <task id="LOCAL-00040" summary="code update">
-      <option name="closed" value="true" />
-      <created>1690517542894</created>
-      <option name="number" value="00040" />
-      <option name="presentableId" value="LOCAL-00040" />
-      <option name="project" value="LOCAL" />
-      <updated>1690517542894</updated>
+      <workItem from="1697214275001" duration="13264000" />
     </task>
     <task id="LOCAL-00041" summary="code update">
       <option name="closed" value="true" />
@@ -646,7 +648,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697227981306</updated>
     </task>
-    <option name="localTasksCounter" value="89" />
+    <task id="LOCAL-00089" summary="table location added">
+      <option name="closed" value="true" />
+      <created>1697228706356</created>
+      <option name="number" value="00089" />
+      <option name="presentableId" value="LOCAL-00089" />
+      <option name="project" value="LOCAL" />
+      <updated>1697228706360</updated>
+    </task>
+    <option name="localTasksCounter" value="90" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +674,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/components/pages/company/home/companyHome/VavancySection/VacancySection.js&#10;#&#9;src/components/pages/student/home/studentHome/Feed.js" />
     <MESSAGE value="code update" />
     <MESSAGE value="index,js update" />
     <MESSAGE value="new update 18&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
@@ -689,6 +698,7 @@
     <MESSAGE value="approved table display" />
     <MESSAGE value="new page added" />
     <MESSAGE value="data updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="data updated" />
+    <MESSAGE value="table location added" />
+    <option name="LAST_COMMIT_MESSAGE" value="table location added" />
   </component>
 </project>

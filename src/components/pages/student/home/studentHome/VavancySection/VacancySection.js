@@ -89,7 +89,7 @@ console.log(jbuser);
       // call the application model by passing the data
       console.log('Response saved:', response.data);
       console.log("application"   +  application);
-
+      window.location = "/grp13/student-home";
 
       // Display a success toast message
       toast.success('Application submitted successfully!', {
@@ -108,6 +108,7 @@ console.log(jbuser);
           error.response.data.error === 'Student has already applied for this vacancy'
       ) {
         showAlert('You have already applied for this vacancy.');
+        window.location = "/grp13/student-home";
         // Display a toast with the error message
         toast.error('You have already applied for this vacancy.', {
           position: toast.POSITION.TOP_RIGHT,

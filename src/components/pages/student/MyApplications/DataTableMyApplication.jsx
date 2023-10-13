@@ -12,6 +12,8 @@ import {
   Button,
   Typography,
 } from '@mui/material';
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+import Swal from "sweetalert2";
 function StudentApplication() {
 
   const user = JSON.parse(localStorage.getItem('user')); // Student
@@ -49,7 +51,8 @@ function StudentApplication() {
                           matchedData.push({
                               companyId: responses.companyId,
                               vacancyId: vacancy.vacancyId,
-                              studentId: response.studentId
+                              studentId: response.studentId,
+                              responseId:response._id
                           });
                       });
                   });
@@ -65,6 +68,7 @@ function StudentApplication() {
                           console.log("Company ID:", responses.companyId);
                           console.log("Vacancy ID:", vacancy.vacancyId);
                           console.log("Student ID:", response.studentId);
+                          console.log("Response ID:", response._id);
                       });
                   });
               });
@@ -82,6 +86,7 @@ function StudentApplication() {
             const studentId = recommendation.studentId;
             const companyId = recommendation.companyId;
             const vacancyId = recommendation.vacancyId;
+              const responseId = recommendation.responseId;
 
 
             const studentPromise = axios.get(`${URL}/api/users/${studentId}`);
@@ -94,8 +99,7 @@ function StudentApplication() {
                   studentData: responses[0].data.user,
                   companyData: responses[1].data.user,
                   vacancyData: responses[2].data,
-                    responseDate:recommendation.responseDate,
-                  approved:recommendation.approved,
+                    responseId : recommendation.responseId,
                   recommend:recommendation.recommended,
                   vacancyId:recommendation.vacancyId,
                   companyId:recommendation.companyId,
@@ -118,9 +122,25 @@ function StudentApplication() {
 
   }, []);
 
+    const deleteResponse= (responseId) => {
+        console.log("Response ID:", responseId);
+        const url = URL +`/api/responses/${responseId}`;
+        axios.delete(url)
+            .then(response => {
+                console.log('Vacancy deleted successfully');
+                Alert();
+                // Update the jobpool state by filtering out the deleted vacancy
+            })
+            .catch(error => {
+                console.log("Failed to delete vacancy");
+                console.error('Failed to delete vacancy:', error);
+            });
+    };
 
-
-
+    const Alert = () =>{
+        Swal.fire('Deleted', 'Succesfully',
+            'Delete')
+    }
 
   return (
     <div className='container'>
@@ -146,9 +166,30 @@ function StudentApplication() {
                   <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
                   <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
                   <TableCell>{recommendation.vacancyData.companyLocation}</TableCell>
+                    <TableCell>
+                    <button
+                        onClick={() => {
+                            deleteResponse(recommendation.responseId);
 
+                        }}
 
-
+                        className="btn btn-primary reject butdet"
+                        style={{
+                            //color: "darkred",
+                            //  marginRight: "5px",
+                            marginRight: "5px",
+                            //  background: "white",
+                            // borderRadius: "0",
+                            background: "#2B547E",
+                            marginTop:"2px",
+                            border: "none",
+                            width: "180px "
+                        }}
+                    >
+                        Delete
+                        <DeleteOutlinedIcon style={{ marginLeft: "5px" }} />
+                    </button>
+                    </TableCell>
 
                   <TableCell>
                   </TableCell>
