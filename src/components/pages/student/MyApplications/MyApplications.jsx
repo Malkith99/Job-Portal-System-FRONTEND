@@ -55,30 +55,6 @@ export default function MyApplications({ isLogedIn, onLogout }) {
 
     </>
 
-    // <Box sx={{ flexGrow: 1 }}>
-    //   <Grid container spacing={2}>
-    //     <Grid item xs={12}>
-    //       <Item>
-    //       <strong>
-    //      <MainHeader
-    //        content={"My Applications"}
-    //        isLogedIn={isLogedIn}
-    //        onLogout={onLogout}
-    //    />
-    //   </strong>
-    //       </Item>
-    //     </Grid>
 
-    //     <Grid item xs={12}>
-    //       <Item>
-    //         <div style={{ borderBottomWidth: 10 }} />
-    //         <Datatable searchQuery={searchQuery} />
-    //         <div style={{ borderLeftWidth: 10, borderTop: 2000 }} />
-
-    //         <Footer />
-    //       </Item>
-    //     </Grid>
-    //   </Grid>
-    // </Box>
   );
 }
