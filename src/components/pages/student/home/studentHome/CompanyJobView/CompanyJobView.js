@@ -15,7 +15,7 @@ export default function CompanyJobPool  ({ isLogedIn, onLogout }){
     <div>
         <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
         <div className='container'>
-            <h1 className="cmp-headings loginN" style={{marginBottom:'2rem'}}>Company Job Vacancy :</h1>
+            <h1 className="cmp-headings loginN" style={{marginBottom:'-50px'}}>Company Job Vacancy :</h1>
         </div>
         <VacancySection disabled={true} data={null}/>
         <Footer/>
