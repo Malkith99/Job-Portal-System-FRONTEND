@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="lecture home update">
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="data updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplicationCompany.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTableMyApplication.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTableMyApplication.jsx" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -102,6 +101,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/WCT/Desktop/Academic/5/EE5203 Softwear Project/Project Github/client/src/components/pages/student/MyApplications",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,6 +111,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\WCT\Desktop\Academic\5\EE5203 Softwear Project\Project Github\client\src\components\pages\student\MyApplications" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
@@ -240,46 +245,14 @@
       <workItem from="1694335270748" duration="11000" />
       <workItem from="1694335306065" duration="12000" />
       <workItem from="1694335406298" duration="10163000" />
-    </task>
-    <task id="LOCAL-00035" summary="chane comment">
-      <option name="closed" value="true" />
-      <created>1690469872581</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1690469872581</updated>
-    </task>
-    <task id="LOCAL-00036" summary="add popup message for user delete in adminHome.js">
-      <option name="closed" value="true" />
-      <created>1690475019822</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1690475019822</updated>
-    </task>
-    <task id="LOCAL-00037" summary="add delete function for user in adminHome.js">
-      <option name="closed" value="true" />
-      <created>1690484126972</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1690484126972</updated>
-    </task>
-    <task id="LOCAL-00038" summary="change popup message on StudentSignUp.js">
-      <option name="closed" value="true" />
-      <created>1690488411912</created>
-      <option name="number" value="00038" />
-      <option name="presentableId" value="LOCAL-00038" />
-      <option name="project" value="LOCAL" />
-      <updated>1690488411912</updated>
-    </task>
-    <task id="LOCAL-00039" summary="change popup message on StudentSignUp.js">
-      <option name="closed" value="true" />
-      <created>1690488650842</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1690488650842</updated>
+      <workItem from="1694629949640" duration="407000" />
+      <workItem from="1694630575112" duration="2038000" />
+      <workItem from="1694632944371" duration="766000" />
+      <workItem from="1694694733807" duration="104000" />
+      <workItem from="1697184751589" duration="820000" />
+      <workItem from="1697185923390" duration="968000" />
+      <workItem from="1697193316776" duration="3113000" />
+      <workItem from="1697214275001" duration="7462000" />
     </task>
     <task id="LOCAL-00040" summary="code update">
       <option name="closed" value="true" />
@@ -633,7 +606,47 @@
       <option name="project" value="LOCAL" />
       <updated>1694510043880</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="student application updated">
+      <option name="closed" value="true" />
+      <created>1694513874450</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1694513874452</updated>
+    </task>
+    <task id="LOCAL-00085" summary="comment change">
+      <option name="closed" value="true" />
+      <created>1694632963367</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1694632963368</updated>
+    </task>
+    <task id="LOCAL-00086" summary="approved table display">
+      <option name="closed" value="true" />
+      <created>1697216757130</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1697216757134</updated>
+    </task>
+    <task id="LOCAL-00087" summary="new page added">
+      <option name="closed" value="true" />
+      <created>1697226531562</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1697226531582</updated>
+    </task>
+    <task id="LOCAL-00088" summary="data updated">
+      <option name="closed" value="true" />
+      <created>1697227981306</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1697227981306</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -651,11 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Enable cookies&#10;&gt;" />
-    <MESSAGE value="Enable cookies&#10;&gt;&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
-    <MESSAGE value="Enable cookies" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/components/pages/student/home/studentHome/Feed.js" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;package-lock.json&#10;#&#9;package.json&#10;#&#9;src/components/mainHeader/headerBottom/headerBottom.js" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/components/pages/company/home/companyHome/VavancySection/VacancySection.js&#10;#&#9;src/components/pages/student/home/studentHome/Feed.js" />
     <MESSAGE value="code update" />
     <MESSAGE value="index,js update" />
@@ -676,6 +684,11 @@
     <MESSAGE value="commented email send" />
     <MESSAGE value="update 9/10" />
     <MESSAGE value="lecture home update" />
-    <option name="LAST_COMMIT_MESSAGE" value="lecture home update" />
+    <MESSAGE value="student application updated" />
+    <MESSAGE value="comment change" />
+    <MESSAGE value="approved table display" />
+    <MESSAGE value="new page added" />
+    <MESSAGE value="data updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="data updated" />
   </component>
 </project>

@@ -2,14 +2,13 @@ import * as React from "react";
 
 import Footer from "../../../footer/footer";
 import MainHeader from "../../../mainHeader/mainHeader";
-// import Datatable from "./DataTable";
+import Datatable from "./DataTable";
 // import Sidebar from "../../../sideBar/sideBar";
 import { Link } from "react-router-dom";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-import ResponcesData from "./responcesData";
 // import StudentHeader from "../StudentHeader/Studentheader";
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -20,11 +19,11 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
-function AllResponces({ isLogedIn, onLogout }) {
+export default function ApplicationStatus({ isLogedIn, onLogout }) {
   const content = (
     <>
-      <Link to="/company-HomePage">Home</Link>
-      <Link to="/all-student-responces">Responces</Link>
+      <Link to="/student-home">Student Home</Link>
+      <Link to="/student-profile"> Profile</Link>
       
     </>
 
@@ -50,12 +49,12 @@ function AllResponces({ isLogedIn, onLogout }) {
       <div style={{ display: "flex", height: "500px" }}>
         {/* <Sidebar isLogedIn={isLogedIn} onLogout={onLogout} /> */}
           <div style={{ borderBottomWidth: 10 }} />
-          <ResponcesData searchQuery={searchQuery} />
+          <Datatable searchQuery={searchQuery} />
           <div style={{ borderLeftWidth: 10,borderTop:2000 }} />
         </div> <Footer />
 
     </>
 
+
   );
 }
-export default AllResponces;

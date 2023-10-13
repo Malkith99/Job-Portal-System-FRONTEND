@@ -2,7 +2,7 @@
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="PS-232.8660.205">
     <data-source name="jobBank_db@cluster0.qvv4jwk.mongodb.net" uuid="96bf0411-14a1-45fe-8d20-b6e79f9388a1">
-      <database-info product="Mongo DB" version="6.0.9" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="6.0.9" exact-driver-version="1.18" />
+      <database-info product="Mongo DB" version="6.0.11" jdbc-version="4.2" driver-name="MongoDB JDBC Driver" driver-version="1.18" dbms="MONGO" exact-version="6.0.11" exact-driver-version="1.18" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
       <schema-mapping>
