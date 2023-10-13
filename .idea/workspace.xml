@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="new page added">
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="data updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTableMyApplication.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/student/MyApplications/DataTableMyApplication.jsx" afterDir="false" />
     </list>
@@ -252,15 +252,7 @@
       <workItem from="1697184751589" duration="820000" />
       <workItem from="1697185923390" duration="968000" />
       <workItem from="1697193316776" duration="3113000" />
-      <workItem from="1697214275001" duration="6836000" />
-    </task>
-    <task id="LOCAL-00039" summary="change popup message on StudentSignUp.js">
-      <option name="closed" value="true" />
-      <created>1690488650842</created>
-      <option name="number" value="00039" />
-      <option name="presentableId" value="LOCAL-00039" />
-      <option name="project" value="LOCAL" />
-      <updated>1690488650842</updated>
+      <workItem from="1697214275001" duration="7462000" />
     </task>
     <task id="LOCAL-00040" summary="code update">
       <option name="closed" value="true" />
@@ -646,7 +638,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697226531582</updated>
     </task>
-    <option name="localTasksCounter" value="88" />
+    <task id="LOCAL-00088" summary="data updated">
+      <option name="closed" value="true" />
+      <created>1697227981306</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1697227981306</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +664,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;package-lock.json&#10;#&#9;package.json&#10;#&#9;src/components/mainHeader/headerBottom/headerBottom.js" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'&#10;&#10;# Conflicts:&#10;#&#9;src/components/pages/company/home/companyHome/VavancySection/VacancySection.js&#10;#&#9;src/components/pages/student/home/studentHome/Feed.js" />
     <MESSAGE value="code update" />
     <MESSAGE value="index,js update" />
@@ -689,6 +688,7 @@
     <MESSAGE value="comment change" />
     <MESSAGE value="approved table display" />
     <MESSAGE value="new page added" />
-    <option name="LAST_COMMIT_MESSAGE" value="new page added" />
+    <MESSAGE value="data updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="data updated" />
   </component>
 </project>

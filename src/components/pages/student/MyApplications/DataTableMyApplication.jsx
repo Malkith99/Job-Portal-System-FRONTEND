@@ -130,23 +130,23 @@ function StudentApplication() {
         <Table>
           <TableHead style={{ background: "#0073a5" }}>
             <TableRow>
-              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Student Name</TableCell>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Flyer</TableCell>
               <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Company Name</TableCell>
               <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Job Position </TableCell>
-              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Recommendation</TableCell>
-              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Approved?</TableCell>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Location</TableCell>
+              <TableCell style={{ textAlign: "center", fontWeight: "bold", fontSize: "18px", color: "white" }}>Option</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {recommendations.map(recommendation => (
                 <TableRow key={recommendation._id}>
-                  <TableCell>{recommendation.responseDate} </TableCell>
+                  <TableCell><img src={`data:image/jpeg;base64/${recommendation.vacancyData.flyer}`} alt="Vacancy Flyer" />
+
+                  </TableCell>
                   <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
                   <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
-                  <TableCell>{recommendation.comment}</TableCell>
-                  <TableCell style={{ border: `2px solid ${recommendation.approved ? 'green' : 'red'}` }}>
-                    {recommendation.approved === true ? 'Approved ✓' : (recommendation.approved === false ? 'Not Approved ✗' : 'Not Decided')}
-                  </TableCell>
+                  <TableCell>{recommendation.vacancyData.companyLocation}</TableCell>
+
 
 
 
