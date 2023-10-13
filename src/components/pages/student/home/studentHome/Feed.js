@@ -77,7 +77,7 @@ export default function Feed() {
         return (
           <React.Fragment key={_id}>
             {items.map((item, index) => {
-              const { jobPosition, salary, dueDate, flyer, jobDescription } =
+              const { jobPosition, salary, dueDate, flyer, jobDescription,jobWorkType ,jobType } =
                 item;
 
               // Find the corresponding company
@@ -110,14 +110,15 @@ const truncatedJobDescription = truncateTextToWords(jobDescription, 30);
                       <h5>{company.location}</h5>
                     </div>
                     <div className="" style={{ marginBottom: "-20px" }}>
-                      <p>{jobPosition} </p>
+                      <p>{jobType} </p>
                     </div>
                     <div className="">
-                      <p>Online </p>
+                      <p>{jobWorkType} </p>
                     </div>
                     <div
                       className="job-pos-box"
-                      style={{ marginBottom: "-5px" }}
+                      style={{ marginBottom: "-5px",maxWidth: '250px', // Adjust the maximum width as needed
+                      wordWrap: 'break-word' }}
                     >
                       <h2>{jobPosition}</h2>
                     </div>
