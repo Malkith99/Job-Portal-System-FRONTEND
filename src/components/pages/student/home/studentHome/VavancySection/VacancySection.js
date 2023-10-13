@@ -8,6 +8,8 @@ import {URL} from "../../../../../../env";
 const VacancySection = () => {
   const [file, setFile] = useState("");
   const [vacancy, setVacancy] = useState(null);
+  const[companyName,setCompanyName]=useState("");
+  const[jobPosition,setJobPostion]=useState("");
   const [company, setCompany] = useState(null);
 
   const { vacancyId } = useParams();
@@ -25,6 +27,8 @@ console.log(jbuser);
         setVacancy(response.data.vacancy);
         setCompanyId(response.data.userId); // Set the companyId from the response
         setFile(response.data.vacancy.flyer);
+        setCompanyName(response.data.vacancy.companyName);
+        setJobPostion(response.data.vacancy.jobPosition);
         console.log(response.data);
       } catch (error) {
         console.error(error);
@@ -67,11 +71,20 @@ console.log(jbuser);
         responseDate: Date.now(),
         comment: 'Applied for the vacancy',
       };
+      const newApplication = {
+        companyId: companyId,
+        vacancyId: vacancy._id,
+        studentId: user._id,
+        companyName: companyName,
+        jobPosition: jobPosition,
+        responseDate: Date.now(),
+        comment: 'Applied for the vacancy',
+      };
 
       const url = URL+'/api/responses';
       const aUrl=URL+'/api/applications';
       const response = await axios.post(url, newResponse);
-      const application =await axios.post(aUrl,newResponse);
+      const application =await axios.post(aUrl,newApplication);
    
       // call the application model by passing the data
       console.log('Response saved:', response.data);
