@@ -32,15 +32,42 @@ function StudentApplication() {
 
     // Fetch recommendations from the server
       axios.get(URL + '/api/responses')
-          .then(response => {
+          .then(responses => {
               // Filter recommendations based on lecturerIdToMatch
-              const filteredResponses = response.data.filter(response => {
+              const filteredResponses = responses.data.filter(response => {
                   return response.vacancy.some(vacancy => {
                       return vacancy.responses.some(response => response.studentId === idToMatch);
                   });
               });
+              // Create an array to store the matched data
+              const matchedData = [];
 
-              console.log(filteredResponses); // Log the filtered data
+              // Loop through filtered data and store the IDs in an array
+              filteredResponses.forEach(responses => {
+                  responses.vacancy.forEach(vacancy => {
+                      vacancy.responses.forEach(response => {
+                          matchedData.push({
+                              companyId: responses.companyId,
+                              vacancyId: vacancy.vacancyId,
+                              studentId: response.studentId
+                          });
+                      });
+                  });
+              });
+
+              // Store the matchedData array in local storage as a JSON string
+              localStorage.setItem('matchedData', JSON.stringify(matchedData));
+
+              // Log the filtered data
+              filteredResponses.forEach(responses => {
+                  responses.vacancy.forEach(vacancy => {
+                      vacancy.responses.forEach(response => {
+                          console.log("Company ID:", responses.companyId);
+                          console.log("Vacancy ID:", vacancy.vacancyId);
+                          console.log("Student ID:", response.studentId);
+                      });
+                  });
+              });
 
               // Further processing as needed.
 
@@ -51,7 +78,7 @@ function StudentApplication() {
               }
 
           // Fetch data for each recommendation
-          const recommendationPromises = filteredResponses.map(recommendation => {
+          const recommendationPromises = matchedData.map(recommendation => {
             const studentId = recommendation.studentId;
             const companyId = recommendation.companyId;
             const vacancyId = recommendation.vacancyId;
