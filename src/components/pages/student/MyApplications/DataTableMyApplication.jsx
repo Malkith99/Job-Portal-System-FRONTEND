@@ -31,13 +31,27 @@ function StudentApplication() {
 
 
     // Fetch recommendations from the server
-    axios.get(URL + '/api/recommendations')
-        .then(response => {
-          // Filter recommendations based on lecturerIdToMatch
-          const filteredRecommendations = response.data.filter(recommendation => recommendation.studentId === idToMatch);
+      axios.get(URL + '/api/responses')
+          .then(response => {
+              // Filter recommendations based on lecturerIdToMatch
+              const filteredResponses = response.data.filter(response => {
+                  return response.vacancy.some(vacancy => {
+                      return vacancy.responses.some(response => response.studentId === idToMatch);
+                  });
+              });
+
+              console.log(filteredResponses); // Log the filtered data
+
+              // Further processing as needed.
+
+              if (filteredResponses.length > 0) {
+                  console.log("Recommendations filtered successfully.");
+              } else {
+                  console.log("No recommendations matching the criteria.");
+              }
 
           // Fetch data for each recommendation
-          const recommendationPromises = filteredRecommendations.map(recommendation => {
+          const recommendationPromises = filteredResponses.map(recommendation => {
             const studentId = recommendation.studentId;
             const companyId = recommendation.companyId;
             const vacancyId = recommendation.vacancyId;
@@ -53,7 +67,7 @@ function StudentApplication() {
                   studentData: responses[0].data.user,
                   companyData: responses[1].data.user,
                   vacancyData: responses[2].data,
-                  comment:recommendation.comment,
+                    responseDate:recommendation.responseDate,
                   approved:recommendation.approved,
                   recommend:recommendation.recommended,
                   vacancyId:recommendation.vacancyId,
@@ -83,8 +97,8 @@ function StudentApplication() {
 
   return (
     <div className='container'>
-      <Typography variant="h4">Applied Vacancies</Typography>
-      <Typography>Student ID to match: {user._id}</Typography>
+      <Typography variant="h4">Applied Job Status</Typography>
+      {/*<Typography>Student ID to match: {user._id}</Typography>*/}
       <TableContainer component={Paper} style={{ margin: "2%", colorScheme: "black" }}>
         <Table>
           <TableHead style={{ background: "#0073a5" }}>
@@ -99,7 +113,7 @@ function StudentApplication() {
           <TableBody>
             {recommendations.map(recommendation => (
                 <TableRow key={recommendation._id}>
-                  <TableCell>{recommendation.studentData.firstName} {recommendation.studentData.lastName}</TableCell>
+                  <TableCell>{recommendation.responseDate} </TableCell>
                   <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
                   <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
                   <TableCell>{recommendation.comment}</TableCell>

@@ -8,7 +8,8 @@ import Profile from './components/pages/student/profile/studentProfileMain';
 import StudentSignIn from './components/pages/student/StudentSignIn/StudentSignIn';
 import StudentHome from './components/pages/student/home/StudentHome';
 import StudentSignUpPage from './components/pages/student/StudentSignUp/StudentSignUpPage';
-import StudentAppliation from './components/pages/student/MyApplications/MyApplications';
+import StudentAppliationStaus from './components/pages/student/ApplicationStatus/ApplicationStatus';
+import StudentAppliations from './components/pages/student/MyApplications/MyApplications';
 import CompanyVacancyViewStudent from './components/pages/student/home/studentHome/CompanyJobView/CompanyJobView';
 
 
@@ -62,7 +63,8 @@ const basename='grp13';
           <Route path="/student-signIn" element={<StudentSignIn/> }> </Route>
           <Route path="/student-profile" element={<Profile/> }> </Route>
           <Route path="/student-home" element={<StudentHome/> }> </Route>
-          <Route path="/student-applications" element={<StudentAppliation/> }> </Route>
+          <Route path="/student-application-staus" element={<StudentAppliationStaus/> }> </Route>
+              <Route path="/student-applications" element={<StudentAppliations/> }> </Route>
             <Route path="/company-vacancy-view-student/:vacancyId" element={<CompanyVacancyViewStudent/>}></Route>
 
 
