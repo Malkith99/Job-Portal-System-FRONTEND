@@ -91,14 +91,18 @@ axios.get(URL + '/api/recommendations')
                         <TableRow>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Student Name</TableCell>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Company Name</TableCell>
-                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Vacany Type </TableCell>
+                            <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Vacancy Type </TableCell>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>Comment</TableCell>
                             <TableCell style={{textAlign:"center",fontWeight:"bold",fontSize:"18px",color:"white"}}>View</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {recommendations.map(recommendation => (
-                            <TableRow key={recommendation._id}>
+                            <TableRow key={recommendation._id}
+                            style={{
+                              backgroundColor: recommendation.comment === null ? '#ffdddd': 'transparent',
+                          }}
+                            >
                                 <TableCell>{recommendation.studentData.firstName} {recommendation.studentData.lastName}</TableCell>
                                 <TableCell>{recommendation.companyData.firstName} {recommendation.companyData.lastName}</TableCell>
                                 <TableCell>{recommendation.vacancyData.jobPosition}</TableCell>
