@@ -15,8 +15,9 @@ const VacancySection = (props) => {
   const { vacancyId } = useParams();
   const user = JSON.parse(localStorage.getItem('user')); //company
   const jobVUrl = URL +`/api/vacancies/${user._id}/${vacancyId}`; //company Id +VacancyId
-
+  
   useEffect(() => {
+    setFile("https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg");
     // Fetch job vacancies
     axios.get(jobVUrl)
         .then(response => {
