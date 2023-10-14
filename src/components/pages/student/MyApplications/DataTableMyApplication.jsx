@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { format } from 'date-fns';
 import axios from 'axios'; // Import Axios for making HTTP requests
 import { URL } from "../../../../env";
 import {
@@ -55,17 +56,21 @@ function StudentApplication() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {application.map((appplication) => (
-              <TableRow key={appplication._id}>
-                <TableCell>{appplication.companyName || "company Name"} </TableCell>
-                <TableCell>{appplication.jobPosition || "job Postion"} </TableCell>
-                <TableCell>{appplication.responseDate}</TableCell>
+            {application.map((application) => (
+              <TableRow key={application._id}>
+                <TableCell>{application.companyName || "company Name"} </TableCell>
+                <TableCell>{application.jobPosition || "job Postion"} </TableCell>
+                <TableCell>
+                  {application.responseDate
+                    ? format(new Date(application.responseDate), 'yyyy-MM-dd')
+                    : "No Date"} {/* Fixed "as no Date" to "No Date" */}
+                </TableCell>
                 <TableCell>
                   <Button
                     variant="outlined"
                     onClick={() =>
                       handleViewButtonClick(
-                        appplication.vacancyId,
+                        application.vacancyId,
                         // appplication.companyId
                       )
                     }
