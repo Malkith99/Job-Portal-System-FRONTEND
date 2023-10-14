@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Finalized pages">
+    <list default="true" id="17878254-5b1a-4fd7-a3c1-e304b2ff67b1" name="Changes" comment="Finalized pages student details">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/studentApplication/StudentApplication.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/ResponsesVac.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/pages/company/home/companyHome/ResponsesVac.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/env.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/env.jsx" afterDir="false" />
     </list>
     <list id="5bbc4cbf-319a-409c-b94b-921d6f9ae462" name="Do Not Changes" comment="Do Not Changes" />
     <option name="SHOW_DIALOG" value="false" />
@@ -252,15 +253,8 @@
       <workItem from="1697184751589" duration="820000" />
       <workItem from="1697185923390" duration="968000" />
       <workItem from="1697193316776" duration="3113000" />
-      <workItem from="1697214275001" duration="13732000" />
-    </task>
-    <task id="LOCAL-00042" summary="get console log">
-      <option name="closed" value="true" />
-      <created>1690533952809</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1690533952809</updated>
+      <workItem from="1697214275001" duration="14270000" />
+      <workItem from="1697248618010" duration="3848000" />
     </task>
     <task id="LOCAL-00043" summary="new update">
       <option name="closed" value="true" />
@@ -646,7 +640,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697235729457</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Finalized pages student details">
+      <option name="closed" value="true" />
+      <created>1697236372951</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1697236372952</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -664,7 +666,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="index,js update" />
     <MESSAGE value="new update 18&#10;&#10;Signed-off-by: Supun Thilakshana Dharmarathna &lt;82252921+SupunTd@users.noreply.github.com&gt;" />
     <MESSAGE value="new update 18" />
     <MESSAGE value="Api update" />
@@ -689,6 +690,7 @@
     <MESSAGE value="data updated" />
     <MESSAGE value="table location added" />
     <MESSAGE value="Finalized pages" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalized pages" />
+    <MESSAGE value="Finalized pages student details" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalized pages student details" />
   </component>
 </project>

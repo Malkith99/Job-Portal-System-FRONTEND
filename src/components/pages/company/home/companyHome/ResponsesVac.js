@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import {Link, useNavigate} from "react-router-dom";
 import Footer from "../../../../footer/footer";
 import MainHeader from "../../../../mainHeader/mainHeader";
 import axios from "axios";
 import {URL} from "../../../../../env";
-import { Card } from "@mui/material";
 import "../companyHome/ResponsesVac.css";
-import { BorderColor } from "@mui/icons-material";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import BorderColorOutlinedIcon from "@mui/icons-material/BorderColorOutlined";
 import StreetviewOutlinedIcon from "@mui/icons-material/StreetviewOutlined";
@@ -15,6 +13,7 @@ import PersonPinOutlinedIcon from '@mui/icons-material/PersonPinOutlined';
 import BusinessOutlinedIcon from '@mui/icons-material/BusinessOutlined';
 import FilePresentOutlinedIcon from '@mui/icons-material/FilePresentOutlined';
 import Swal from "sweetalert2";
+
 export default function ResponseVac({ isLogedIn, onLogout }) {
   const content = (
     <>
@@ -28,7 +27,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
   const [selectedVacancy, setSelectedVacancy] = useState(null);
   const navigate = useNavigate();
   const jobVUrl = URL +`/api/vacancies/${user._id}`; //company Id
-  const rUrl = URL +`/api/responses/${user._id}`;
+  const rUrl = URL +`/api/responses`;
 
     useEffect(() => {
         console.log(user);
@@ -52,7 +51,7 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                 console.error('Failed to fetch responses:', error);
             });
     }, []);
-
+    console.log(responses);
     const deleteVacancy= (vacancyId) => {
         const url = URL +`/api/vacancies/${user._id}/${vacancyId}`;
         axios.delete(url)
@@ -71,6 +70,28 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
       Swal.fire('Deleted', 'Succesfully', 
       'Delete')
     }
+
+
+
+    const NumberofApplications = (vacancyId) => {
+        console.log("Requested vacancyId: ", vacancyId);
+        let totalResponses = 0;
+
+        // Loop through responses
+        for (const response of responses) {
+            for (const vacancy of response.vacancy) {
+                if (vacancy.vacancyId === vacancyId) {
+                    totalResponses += vacancy.responses.length;
+                }
+            }
+        }
+
+        return totalResponses;
+    };
+
+
+
+
   return (
     <div>
       <MainHeader content={content} isLogedIn={isLogedIn} onLogout={onLogout} />
@@ -129,7 +150,10 @@ export default function ResponseVac({ isLogedIn, onLogout }) {
                           </div>
                           <div className="vacancy-count" style={{ display: "flex", alignItems: "center" }}>
                             <FilePresentOutlinedIcon style={{ marginRight: "5px" }} />
-                            <span>Number of Applications: {response.vacancies}</span>
+                              <span>Number of Applications: {NumberofApplications(response._id)}</span>
+
+
+
                           </div>
                           <div style={{ display: "flex", alignItems: "center" }}>
                             <BusinessOutlinedIcon style={{ marginRight: "5px" }} />
