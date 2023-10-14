@@ -77,7 +77,7 @@ export default function Profile() {
   useEffect(() => {
     // This function will be called whenever any of the input fields change
     handleSave().then(() => {});
-  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender,refree]);
+  }, [file, firstName, middleName, lastName, indexNumber,DOB,gender,refree,phoneNumber1]);
 
 
   async function handleSave() {
@@ -91,6 +91,7 @@ export default function Profile() {
         DOB,
         gender,
         refree,
+        phoneNumber1,
         userId: user._id,
         token: user.token, // Include the user token in the updatedUser object
       };
@@ -136,7 +137,7 @@ export default function Profile() {
       setDOB(userData.DOB);
       setDOG(userData.DOG);
       setGender(userData.gender);
-      setPNumber1(userData.phoneNumber1);
+      setPNumber1(userData.contactNumber);
       setReferences(userData.references);
       setFaculty(userData.faculty);
       setField(userData.field);
@@ -163,6 +164,7 @@ export default function Profile() {
     setIndex(parsedData.indexNumber);
     setDOB(parsedData.DOB);
     setGender(parsedData.gender);
+
   };
   const handleRefre = (data3) => {
     const parsedData3 = JSON.parse(data3);
@@ -451,6 +453,7 @@ export default function Profile() {
 
           )}
   </Card>
+          {/*
           <h4 className="sub-headings" style={{marginTop:"2%",fontWeight:"bolder"}}
           >Academic Details: </h4>
         <Card className="carda " style={{padding:"25px",boxShadow:"none"}}>    
@@ -587,7 +590,6 @@ export default function Profile() {
                   </div>
                 </div>
               </div>
-              {/* <div className="container2-flex-item"></div> */}
             </div>
             <div className="flex-container2">
 
@@ -635,6 +637,7 @@ export default function Profile() {
 
           )}
           </Card>
+          */}
           <h4 className="sub-headings"
           style={{marginTop:"2%",fontWeight:"bolder"}}>Reference: </h4>
           <Card className="carda " style={{padding:"25px",boxShadow:"none"}}>

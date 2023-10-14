@@ -67,6 +67,7 @@ function Home({ isLogedIn, onLogout }) {
             ) : (
 
       <div className="container mt-2">
+          {/*
         <div className="d-flex flex-lg-row flex-column">
           <div className="home-left-div p-4 w-100 ">
             <h1 className="main-head">About</h1>
@@ -108,7 +109,13 @@ function Home({ isLogedIn, onLogout }) {
 
           </div>
         </div>
+        */}
       </div>
+
+
+
+
+
         )}
     </div>
         {/*

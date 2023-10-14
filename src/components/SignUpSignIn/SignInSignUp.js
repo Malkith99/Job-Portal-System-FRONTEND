@@ -86,7 +86,7 @@ function SignInSignUp({ isLogedIn, onLogout }) {
               >
                 A Student
               </Link>
-//pw=1234
+
               <button
                   type="button"
                   className="form-control text-white student-button btn btn-primary m-2 mb-4"
